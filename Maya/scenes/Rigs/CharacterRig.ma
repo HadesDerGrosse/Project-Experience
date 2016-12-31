@@ -13,7 +13,6 @@ fileInfo "product" "Maya 2016";
 fileInfo "version" "2016";
 fileInfo "cutIdentifier" "201510022200-973226";
 fileInfo "osv" "Microsoft Windows 8 , 64-bit  (Build 9200)\n";
-fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "4B9D73CA-4696-11AD-F51C-62A15E033435";
 	setAttr ".v" no;
