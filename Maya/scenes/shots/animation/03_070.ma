@@ -1,23 +1,25 @@
 //Maya ASCII 2016 scene
 //Name: 03_070.ma
-//Last modified: Thu, Dec 29, 2016 07:34:55 PM
+//Last modified: Wed, Jan 18, 2017 12:36:54 PM
 //Codeset: 1252
 file -rdi 1 -ns "ground" -rfn "groundRN" -op "v=0;" -typ "mayaAscii" "$PEPATH/scenes/models/ground.ma";
 file -rdi 1 -ns "camera" -rfn "cameraRigRN" -op "v=0;" -typ "mayaAscii" "$PEPATH/scenes/rigs/cameraRig.ma";
 file -rdi 1 -ns "girl" -rfn "girlRN" -op "v=0;" -typ "mayaAscii" "$PEPATH/scenes/rigs/girl.ma";
 file -rdi 2 -ns "rig" -rfn "girl:CharacterRigRN" -op "v=0;p=17;f=0" -typ "mayaAscii"
-		 "PEPATH/scene/rigs/CharacterRig.ma";
+		 "$PEPATH/scene/rigs/CharacterRig.ma";
 file -rdi 3 -ns "eye" -rfn "girl:rig:eye_rigRN" -op "v=0;" -typ "mayaAscii"
-		 "PEPATH/scenes/rigs/eyeRig.ma";
+		 "$PEPATH/scenes/rigs/eyeRig.ma";
 file -rdi 1 -ns "sadness" -rfn "sadnessRN" -op "v=0;" -typ "mayaAscii" "$PEPATH/scenes/Rigs/sadness.ma";
 file -rdi 2 -ns "rig" -rfn "sadness:CharacterRigRN" -op "v=0;p=17;f=0" -typ
-		 "mayaAscii" "PEPATH/scenes/rigs/CharacterRig.ma";
+		 "mayaAscii" "$PEPATH/scenes/rigs/CharacterRig.ma";
 file -rdi 3 -ns "eye" -rfn "sadness:rig:eye_rigRN" -op "v=0;" -typ "mayaAscii"
-		 "PEPATH/scenes/rigs/eyeRig.ma";
+		 "$PEPATH/scenes/rigs/eyeRig.ma";
+file -rdi 1 -ns "bracelet" -rfn "braceletRN" -op "v=0;" -typ "mayaAscii" "$PEPATH/scenes/Rigs/bracelet.ma";
 file -r -ns "ground" -dr 1 -rfn "groundRN" -op "v=0;" -typ "mayaAscii" "$PEPATH/scenes/models/ground.ma";
 file -r -ns "camera" -dr 1 -rfn "cameraRigRN" -op "v=0;" -typ "mayaAscii" "$PEPATH/scenes/rigs/cameraRig.ma";
 file -r -ns "girl" -dr 1 -rfn "girlRN" -op "v=0;" -typ "mayaAscii" "$PEPATH/scenes/rigs/girl.ma";
 file -r -ns "sadness" -dr 1 -rfn "sadnessRN" -op "v=0;" -typ "mayaAscii" "$PEPATH/scenes/Rigs/sadness.ma";
+file -r -ns "bracelet" -dr 1 -rfn "braceletRN" -op "v=0;" -typ "mayaAscii" "$PEPATH/scenes/Rigs/bracelet.ma";
 requires maya "2016";
 requires "stereoCamera" "10.0";
 requires "stereoCamera" "10.0";
@@ -25,25 +27,25 @@ currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2016";
 fileInfo "version" "2016";
-fileInfo "cutIdentifier" "201510022200-973226";
+fileInfo "cutIdentifier" "201502261600-953408";
 fileInfo "osv" "Microsoft Windows 8 , 64-bit  (Build 9200)\n";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "C41CA400-462B-0067-9006-33BD9E23BB37";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -50.082876889800531 43.470431351241935 73.010302307779028 ;
-	setAttr ".r" -type "double3" -5.7383527032236232 -4376.9999999976544 0 ;
+	setAttr ".t" -type "double3" -82.002984953633415 167.87735231769119 438.24209055348376 ;
+	setAttr ".r" -type "double3" -17.138352697215549 -4692.2000000000389 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "99207548-4259-6EC7-44B7-3290C83C301B";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
 	setAttr ".ncp" 1;
 	setAttr ".fcp" 100000;
-	setAttr ".coi" 52.928504942068528;
+	setAttr ".coi" 449.8286061217986;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" -3.0298666749220056 31.246384105824376 38.461800471237098 ;
+	setAttr ".tp" -type "double3" -1.2464241316612537 26.277041717641549 16.639875009041653 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	rename -uid "7DEF6B58-4FAB-37BC-5D62-348166222BF1";
@@ -92,49 +94,100 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".man" -type "string" "side_mask";
 	setAttr ".hc" -type "string" "viewSet -s %camera";
 	setAttr ".o" yes;
-createNode transform -n "nurbsPlane1";
-	rename -uid "141001CD-46D8-F243-FE0A-DBB765B1EF75";
-createNode nurbsSurface -n "nurbsPlaneShape1" -p "nurbsPlane1";
-	rename -uid "449EFEAC-4179-F769-5D0C-A98D68BA35E8";
+createNode transform -n "locator2";
+	rename -uid "11A3FB6C-469F-E42E-F5BC-0FAE80B9B60E";
+	setAttr ".t" -type "double3" 55.481672671633589 21.049877693480681 80.826214117938008 ;
+	setAttr ".r" -type "double3" -46.519347001770925 -17.120846764525336 84.77615301852839 ;
+	setAttr ".s" -type "double3" 0.99999999999999978 1.0000000000000002 1.0000000000000004 ;
+createNode locator -n "locatorShape2" -p "locator2";
+	rename -uid "18F0FB7F-404B-54AE-40A6-CE84DE37DFF8";
 	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".tw" yes;
-	setAttr -s 24 ".cp[0:23]" -type "double3" 5.6743448668450167 -0.93648901528283535 
-		-6.8340239316754392 5.8076074361430905 -0.80497209454997409 -6.0698777071122159 5.9408700054411554 
-		-0.67345517381710918 -5.3057314825489819 6.0741325747392221 -0.54193825308424237 
-		-4.541585257985755 3.0764501070049866 -0.22638481216523226 -5.8149844992263633 3.2097126763030479 
-		-0.094867891432368942 -5.0508382746631453 3.3429752456011164 0.036649029300493477 
-		-4.2866920500999113 3.4762378148991857 0.16816595003335932 -3.522545825536664 -1.9143327885220618 
-		0.35229376148977265 -2.7564694682962028 -1.9061856473831185 0.83135905959032075 -2.567824944536182 
-		-1.8980385062441636 1.3104243576908412 -2.379180420776168 -1.889891365105214 1.7894896557913929 
-		-2.1905358970161553 1.5873938660706095 0.1634500221361358 0.84135426481641296 1.6281955931202714 
-		0.62926026520429057 1.0039125319168796 1.6689973201699351 1.0950705082724441 1.1664707990173475 
-		1.7097990472195939 1.5608807513405991 1.3290290661178166 0.79743159887992121 -0.88179005814191724 
-		-4.1874449084237497 0.50858660991213434 -0.86539391145649358 -4.0158450061075808 
-		0.2197416209443368 -0.84899776477106681 -3.8442451037914078 -0.069103368023442524 
-		-0.83260161808564592 -3.6726452014752393 0.19076001322637381 -1.6224224619184406 
-		-6.6776232165318481 -0.098182334242364888 -1.6332703372693569 -6.5060233142156747 
-		-0.38712468171108938 -1.6441182126202802 -6.3344234118995049 -0.67606702917983341 
-		-1.6549660879711983 -6.1628235095833368;
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr ".dvu" 0;
-	setAttr ".dvv" 0;
-	setAttr ".cpr" 4;
-	setAttr ".cps" 4;
-	setAttr ".nufa" 4.5;
-	setAttr ".nvfa" 4.5;
+createNode fosterParent -n "girlRNfosterParent1";
+	rename -uid "A6A0CDDD-49E6-72CE-3A99-B9BC31FC2EB1";
+createNode parentConstraint -n "r_ik_hand_CTRL_parentConstraint1" -p "girlRNfosterParent1";
+	rename -uid "364D91B4-407F-4BE5-3FE1-AD96D394D703";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "l_ik_hand_CTRLW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 6.4824642779083668 1.4135671275417612 -1.1102712805273403 ;
+	setAttr ".tg[0].tor" -type "double3" -148.49674893320963 2.5122169103111216 8.6779827109291237 ;
+	setAttr ".lr" -type "double3" 346.05041779980661 -171.03460921833499 -315.09953224544296 ;
+	setAttr ".rst" -type "double3" -1.6489025549198075 39.555138961744973 -33.783306143301886 ;
+	setAttr ".rsrr" -type "double3" 349.49010586366592 -172.59677259027325 -316.34776694686224 ;
+	setAttr -k on ".w0";
+createNode transform -n "locator1" -p "girlRNfosterParent1";
+	rename -uid "4D2F1EF7-4445-3B59-D7E9-83A1F95A6862";
+	setAttr ".t" -type "double3" -1.4210854715202016e-014 -84.142694850781325 1.9539925233402784e-014 ;
+	setAttr ".s" -type "double3" 1.0000000000000002 1.0000000000000004 1.0000000000000004 ;
+createNode locator -n "locatorShape1" -p "locator1";
+	rename -uid "9681C549-4EF1-2FBD-36E6-2DBE48FFE943";
+	setAttr -k off ".v";
+createNode fosterParent -n "sadnessRNfosterParent1";
+	rename -uid "CC47AAD1-4E5D-D144-4414-ED93577D5746";
+createNode parentConstraint -n "r_ik_hand_CTRL_parentConstraint2" -p "sadnessRNfosterParent1";
+	rename -uid "5F488CAB-4200-DFFF-B9B7-2F8996E90A97";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "l_ik_hand_CTRLW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 5.4538733823454972 -1.7640558818129608 -2.015742762309686 ;
+	setAttr ".tg[0].tor" -type "double3" 138.75280759689898 16.101567461304985 -65.421955997492759 ;
+	setAttr ".lr" -type "double3" 127.72951803844539 -30.667382979715526 -174.7937218487275 ;
+	setAttr ".rst" -type "double3" -10.276072287955646 34.043741996127522 -21.383646656390109 ;
+	setAttr ".rsrr" -type "double3" 127.72951803844539 -30.667382979715526 -174.7937218487275 ;
+	setAttr -k on ".w0";
+createNode fosterParent -n "braceletRNfosterParent1";
+	rename -uid "DE2B4398-4D1A-2198-82AF-30822B442A99";
+createNode parentConstraint -n "all_CTRL_parentConstraint1" -p "braceletRNfosterParent1";
+	rename -uid "1E796687-4B60-3497-4AF3-609D0A2D8122";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "l_ik_hand_CTRLW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 4.1534940956725608 -0.70970849499154554 2.6165086152928243 ;
+	setAttr ".tg[0].tor" -type "double3" 49.223599261991296 189.8292330255079 8.9051174275392295 ;
+	setAttr ".lr" -type "double3" 273.67767180150258 -178.14596149551883 -180.89782212762344 ;
+	setAttr ".rst" -type "double3" -2.9410954214524541 34.063175442515039 35.640449894690221 ;
+	setAttr ".rsrr" -type "double3" 270.44382889783651 -179.99999999999997 -179.99999999999997 ;
+	setAttr -k on ".w0";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "2C92EAD4-4B57-2BAC-50BE-F4B0F1520331";
-	setAttr -s 17 ".lnk";
-	setAttr -s 17 ".slnk";
+	rename -uid "081C6A70-45BB-BB75-117B-799068478910";
+	setAttr -s 25 ".lnk";
+	setAttr -s 25 ".slnk";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "D24CA5CE-4E8F-30B3-85F6-5DAEA1716C26";
+	rename -uid "731378B0-4482-21CA-20F8-1E8FDF6E5305";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "0725DCE9-4560-9584-B28F-FF89A4CB18E8";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "3633CB09-466C-8E24-B206-AAB0F0F6A474";
+	rename -uid "6E2DB8F3-4ACE-4D0C-8724-17824B7FE8E0";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "6A65CA6F-485B-2154-F8AD-069663ABA70C";
 	setAttr ".g" yes;
@@ -144,7 +197,7 @@ createNode reference -n "sharedReferenceNode";
 		"sharedReferenceNode";
 createNode reference -n "groundRN";
 	rename -uid "31DD3928-45DF-FA35-D983-8A9CCEF6D992";
-	setAttr ".fn[0]" -type "string" "E:/Hagenberg/DA/1_Semester/Vergissmeinnicht/Maya//scenes/models/ground.ma";
+	setAttr ".fn[0]" -type "string" "D:/Hagenberg/DA 1Semester/Vergissmeinnicht/Maya//scenes/models/ground.ma";
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"groundRN"
 		"groundRN" 0
@@ -158,32 +211,32 @@ createNode script -n "uiConfigurationScriptNode";
 	rename -uid "6A5D793B-46BB-F1B6-0D7D-A0925507BD35";
 	setAttr ".b" -type "string" (
 		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"top\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n"
-		+ "                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n"
+		+ "                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 32768\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n"
 		+ "                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n"
 		+ "                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 1\n                -height 1\n                -sceneRenderFilter 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n"
 		+ "                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n"
-		+ "            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n"
+		+ "            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n"
 		+ "            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n"
 		+ "        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n"
-		+ "                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n"
+		+ "                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 32768\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n"
 		+ "                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n"
 		+ "                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 1\n                -height 1\n                -sceneRenderFilter 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n"
-		+ "            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n"
+		+ "            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n"
 		+ "            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n"
 		+ "            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n"
-		+ "\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"front\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n"
+		+ "\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"front\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 32768\n"
 		+ "                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n"
 		+ "                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n"
 		+ "                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 1\n                -height 1\n                -sceneRenderFilter 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n"
-		+ "            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n"
+		+ "            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n"
 		+ "            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n"
 		+ "            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n"
-		+ "                -wireframeOnShaded 0\n                -headsUpDisplay 0\n                -holdOuts 0\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n"
+		+ "                -wireframeOnShaded 0\n                -headsUpDisplay 0\n                -holdOuts 0\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 32768\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -rendererName \"base_OpenGL_Renderer\" \n"
 		+ "                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 0\n"
-		+ "                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 1626\n                -height 729\n                -sceneRenderFilter 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n"
-		+ "                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 0\n            -holdOuts 0\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n"
+		+ "                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 1128\n                -height 849\n                -sceneRenderFilter 0\n                $editorName;\n            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n"
+		+ "                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 0\n            -holdOuts 0\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n"
 		+ "            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"base_OpenGL_Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 0\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n"
-		+ "            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1626\n            -height 729\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n"
+		+ "            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1128\n            -height 849\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n"
 		+ "        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            outlinerEditor -e \n                -docTag \"isolOutln_fromSeln\" \n                -showShapes 0\n                -showReferenceNodes 1\n                -showReferenceMembers 1\n                -showAttributes 0\n                -showConnected 0\n                -showAnimCurvesOnly 0\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 1\n                -showAssets 1\n                -showContainedOnly 1\n                -showPublishedAsConnected 0\n"
 		+ "                -showContainerContents 1\n                -ignoreDagHierarchy 0\n                -expandConnections 0\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 0\n                -highlightActive 1\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"defaultSetFilter\" \n                -showSetMembers 1\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n"
 		+ "                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 0\n                -ignoreHiddenAttribute 0\n                -ignoreOutlinerColor 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n"
@@ -212,37 +265,39 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"referenceEditorPanel\" -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"componentEditorPanel\" (localizedPanelLabel(\"Component Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"componentEditorPanel\" -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n"
 		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"dynPaintScriptedPanelType\" -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"scriptEditorPanel\" -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"profilerPanel\" (localizedPanelLabel(\"Profiler Tool\")) `;\n"
 		+ "\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"profilerPanel\" -l (localizedPanelLabel(\"Profiler Tool\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Profiler Tool\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"Stereo\" -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels `;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n"
-		+ "                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n"
+		+ "                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 32768\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n"
 		+ "                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n"
 		+ "                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n"
 		+ "                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\nstring $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n"
-		+ "                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n"
+		+ "                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 32768\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n"
 		+ "                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n"
 		+ "                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Model Panel5\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `modelPanel -unParent -l (localizedPanelLabel(\"Model Panel5\")) -mbv $menusOkayInPanels `;\n\t\t\t$editorName = $panelName;\n            modelEditor -e \n                -camera \"camera:renderCAMShape\" \n                -useInteractiveMode 0\n"
-		+ "                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 0\n                -holdOuts 1\n                -selectionHiliteDisplay 0\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n"
+		+ "                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 0\n                -holdOuts 1\n                -selectionHiliteDisplay 0\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 1\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 32768\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n"
 		+ "                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -rendererName \"vp2Renderer\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 1\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -nurbsCurves 0\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 0\n                -planes 0\n"
-		+ "                -lights 0\n                -cameras 0\n                -controlVertices 0\n                -hulls 0\n                -grid 0\n                -imagePlane 0\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n                -dynamics 0\n                -particleInstancers 0\n                -fluids 0\n                -hairSystems 0\n                -follicles 0\n                -nCloths 0\n                -nParticles 0\n                -nRigids 0\n                -dynamicConstraints 0\n                -locators 0\n                -manipulators 0\n                -pluginShapes 0\n                -dimensions 0\n                -handles 0\n                -pivots 0\n                -textures 0\n                -strokes 0\n                -motionTrails 0\n                -clipGhosts 0\n                -greasePencils 0\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 1596\n                -height 794\n                -sceneRenderFilter 0\n                $editorName;\n"
+		+ "                -lights 0\n                -cameras 0\n                -controlVertices 0\n                -hulls 0\n                -grid 0\n                -imagePlane 0\n                -joints 0\n                -ikHandles 0\n                -deformers 0\n                -dynamics 0\n                -particleInstancers 0\n                -fluids 0\n                -hairSystems 0\n                -follicles 0\n                -nCloths 0\n                -nParticles 0\n                -nRigids 0\n                -dynamicConstraints 0\n                -locators 0\n                -manipulators 0\n                -pluginShapes 0\n                -dimensions 0\n                -handles 0\n                -pivots 0\n                -textures 0\n                -strokes 0\n                -motionTrails 0\n                -clipGhosts 0\n                -greasePencils 0\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 1916\n                -height 974\n                -sceneRenderFilter 0\n                $editorName;\n"
 		+ "            modelEditor -e -viewSelected 0 $editorName;\n            modelEditor -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Model Panel5\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"camera:renderCAMShape\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 0\n            -holdOuts 1\n            -selectionHiliteDisplay 0\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n"
-		+ "            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n"
-		+ "            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 0\n            -planes 0\n            -lights 0\n            -cameras 0\n            -controlVertices 0\n            -hulls 0\n            -grid 0\n            -imagePlane 0\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 0\n            -particleInstancers 0\n            -fluids 0\n            -hairSystems 0\n            -follicles 0\n            -nCloths 0\n            -nParticles 0\n            -nRigids 0\n            -dynamicConstraints 0\n            -locators 0\n            -manipulators 0\n            -pluginShapes 0\n            -dimensions 0\n            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 0\n            -motionTrails 0\n            -clipGhosts 0\n            -greasePencils 0\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1596\n            -height 794\n"
+		+ "            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 4 4 \n            -bumpResolution 4 4 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n"
+		+ "            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 0\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 0\n            -planes 0\n            -lights 0\n            -cameras 0\n            -controlVertices 0\n            -hulls 0\n            -grid 0\n            -imagePlane 0\n            -joints 0\n            -ikHandles 0\n            -deformers 0\n            -dynamics 0\n            -particleInstancers 0\n            -fluids 0\n            -hairSystems 0\n            -follicles 0\n            -nCloths 0\n            -nParticles 0\n            -nRigids 0\n            -dynamicConstraints 0\n            -locators 0\n            -manipulators 0\n            -pluginShapes 0\n            -dimensions 0\n            -handles 0\n            -pivots 0\n            -textures 0\n            -strokes 0\n            -motionTrails 0\n            -clipGhosts 0\n            -greasePencils 0\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1916\n            -height 974\n"
 		+ "            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\tif ($useSceneConfig) {\n\t\tmodelPanel -e -to $panelName;\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperShadePanel\" (localizedPanelLabel(\"Hypershade\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperShadePanel\" -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels `;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels `;\n"
 		+ "\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -additiveGraphingMode 1\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -activeTab -1\n                -editorMode \"default\" \n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n"
 		+ "\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -additiveGraphingMode 1\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -activeTab -1\n                -editorMode \"default\" \n"
 		+ "                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph\")) `;\n\tif (\"\" == $panelName) {\n\t\tif ($useSceneConfig) {\n\t\t\t$panelName = `scriptedPanel -unParent  -type \"hyperGraphPanel\" -l (localizedPanelLabel(\"Hypergraph\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n"
 		+ "                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\t}\n\t} else {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 1\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n"
 		+ "                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n"
-		+ "        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 0\\n    -holdOuts 0\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 0\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 0\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1626\\n    -height 729\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 0\\n    -holdOuts 0\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 0\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 0\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1626\\n    -height 729\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"vertical2\\\" -ps 1 21 100 -ps 2 79 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Outliner\")) \n\t\t\t\t\t\"outlinerPanel\"\n\t\t\t\t\t\"$panelName = `outlinerPanel -unParent -l (localizedPanelLabel(\\\"Outliner\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\noutlinerEditor -e \\n    -docTag \\\"isolOutln_fromSeln\\\" \\n    -showShapes 0\\n    -showReferenceNodes 1\\n    -showReferenceMembers 1\\n    -showAttributes 0\\n    -showConnected 0\\n    -showAnimCurvesOnly 0\\n    -showMuteInfo 0\\n    -organizeByLayer 1\\n    -showAnimLayerWeight 1\\n    -autoExpandLayers 1\\n    -autoExpand 0\\n    -showDagOnly 1\\n    -showAssets 1\\n    -showContainedOnly 1\\n    -showPublishedAsConnected 0\\n    -showContainerContents 1\\n    -ignoreDagHierarchy 0\\n    -expandConnections 0\\n    -showUpstreamCurves 1\\n    -showUnitlessCurves 1\\n    -showCompounds 1\\n    -showLeafs 1\\n    -showNumericAttrsOnly 0\\n    -highlightActive 1\\n    -autoSelectNewObjects 0\\n    -doNotSelectNewObjects 0\\n    -dropIsParent 1\\n    -transmitFilters 0\\n    -setFilter \\\"defaultSetFilter\\\" \\n    -showSetMembers 1\\n    -allowMultiSelection 1\\n    -alwaysToggleSelect 0\\n    -directSelect 0\\n    -displayMode \\\"DAG\\\" \\n    -expandObjects 0\\n    -setsIgnoreFilters 1\\n    -containersIgnoreFilters 0\\n    -editAttrName 0\\n    -showAttrValues 0\\n    -highlightSecondary 0\\n    -showUVAttrsOnly 0\\n    -showTextureNodesOnly 0\\n    -attrAlphaOrder \\\"default\\\" \\n    -animLayerFilterOptions \\\"allAffecting\\\" \\n    -sortOrder \\\"none\\\" \\n    -longNames 0\\n    -niceNames 1\\n    -showNamespace 1\\n    -showPinIcons 0\\n    -mapMotionTrails 0\\n    -ignoreHiddenAttribute 0\\n    -ignoreOutlinerColor 0\\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"outlinerPanel -edit -l (localizedPanelLabel(\\\"Outliner\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\noutlinerEditor -e \\n    -docTag \\\"isolOutln_fromSeln\\\" \\n    -showShapes 0\\n    -showReferenceNodes 1\\n    -showReferenceMembers 1\\n    -showAttributes 0\\n    -showConnected 0\\n    -showAnimCurvesOnly 0\\n    -showMuteInfo 0\\n    -organizeByLayer 1\\n    -showAnimLayerWeight 1\\n    -autoExpandLayers 1\\n    -autoExpand 0\\n    -showDagOnly 1\\n    -showAssets 1\\n    -showContainedOnly 1\\n    -showPublishedAsConnected 0\\n    -showContainerContents 1\\n    -ignoreDagHierarchy 0\\n    -expandConnections 0\\n    -showUpstreamCurves 1\\n    -showUnitlessCurves 1\\n    -showCompounds 1\\n    -showLeafs 1\\n    -showNumericAttrsOnly 0\\n    -highlightActive 1\\n    -autoSelectNewObjects 0\\n    -doNotSelectNewObjects 0\\n    -dropIsParent 1\\n    -transmitFilters 0\\n    -setFilter \\\"defaultSetFilter\\\" \\n    -showSetMembers 1\\n    -allowMultiSelection 1\\n    -alwaysToggleSelect 0\\n    -directSelect 0\\n    -displayMode \\\"DAG\\\" \\n    -expandObjects 0\\n    -setsIgnoreFilters 1\\n    -containersIgnoreFilters 0\\n    -editAttrName 0\\n    -showAttrValues 0\\n    -highlightSecondary 0\\n    -showUVAttrsOnly 0\\n    -showTextureNodesOnly 0\\n    -attrAlphaOrder \\\"default\\\" \\n    -animLayerFilterOptions \\\"allAffecting\\\" \\n    -sortOrder \\\"none\\\" \\n    -longNames 0\\n    -niceNames 1\\n    -showNamespace 1\\n    -showPinIcons 0\\n    -mapMotionTrails 0\\n    -ignoreHiddenAttribute 0\\n    -ignoreOutlinerColor 0\\n    $editorName\"\n"
+		+ "\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 0\\n    -holdOuts 0\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 0\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 0\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1128\\n    -height 849\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 0\\n    -holdOuts 0\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"base_OpenGL_Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 4 4 \\n    -bumpResolution 4 4 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 0\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 0\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1128\\n    -height 849\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        setFocus `paneLayout -q -p1 $gMainPane`;\n        sceneUIReplacement -deleteRemaining;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
 	rename -uid "A6AB24BA-4BA9-CE77-2032-C385D4D97691";
-	setAttr ".b" -type "string" "playbackOptions -min 1 -max 120 -ast 1 -aet 250 ";
+	setAttr ".b" -type "string" "playbackOptions -min 1 -max 115 -ast 1 -aet 250 ";
 	setAttr ".st" 6;
 createNode reference -n "cameraRigRN";
 	rename -uid "4EBC3F88-44D3-F270-440F-868F955FB598";
-	setAttr ".fn[0]" -type "string" "E:/Hagenberg/DA/1_Semester/Vergissmeinnicht/Maya//scenes/rigs/cameraRig.ma";
+	setAttr ".fn[0]" -type "string" "D:/Hagenberg/DA 1Semester/Vergissmeinnicht/Maya//scenes/rigs/cameraRig.ma";
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"cameraRigRN"
 		"cameraRigRN" 1
@@ -2873,8 +2928,8 @@ createNode animCurveTL -n "charset_linearValues_197_";
 	setAttr ".kot[0]"  2;
 createNode reference -n "girlRN";
 	rename -uid "8623A79A-4402-CA54-6296-6793D5564847";
-	setAttr ".fn[0]" -type "string" "E:/Hagenberg/DA/1_Semester/Vergissmeinnicht/Maya//scenes/Rigs/girl.ma";
-	setAttr -s 423 ".phl";
+	setAttr ".fn[0]" -type "string" "D:/Hagenberg/DA 1Semester/Vergissmeinnicht/Maya//scenes/Rigs/girl.ma";
+	setAttr -s 462 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -3298,6 +3353,45 @@ createNode reference -n "girlRN";
 	setAttr ".phl[421]" 0;
 	setAttr ".phl[422]" 0;
 	setAttr ".phl[423]" 0;
+	setAttr ".phl[424]" 0;
+	setAttr ".phl[425]" 0;
+	setAttr ".phl[426]" 0;
+	setAttr ".phl[427]" 0;
+	setAttr ".phl[428]" 0;
+	setAttr ".phl[429]" 0;
+	setAttr ".phl[430]" 0;
+	setAttr ".phl[431]" 0;
+	setAttr ".phl[432]" 0;
+	setAttr ".phl[433]" 0;
+	setAttr ".phl[434]" 0;
+	setAttr ".phl[435]" 0;
+	setAttr ".phl[436]" 0;
+	setAttr ".phl[437]" 0;
+	setAttr ".phl[438]" 0;
+	setAttr ".phl[439]" 0;
+	setAttr ".phl[440]" 0;
+	setAttr ".phl[441]" 0;
+	setAttr ".phl[442]" 0;
+	setAttr ".phl[443]" 0;
+	setAttr ".phl[444]" 0;
+	setAttr ".phl[445]" 0;
+	setAttr ".phl[446]" 0;
+	setAttr ".phl[447]" 0;
+	setAttr ".phl[448]" 0;
+	setAttr ".phl[449]" 0;
+	setAttr ".phl[450]" 0;
+	setAttr ".phl[451]" 0;
+	setAttr ".phl[452]" 0;
+	setAttr ".phl[453]" 0;
+	setAttr ".phl[454]" 0;
+	setAttr ".phl[455]" 0;
+	setAttr ".phl[456]" 0;
+	setAttr ".phl[457]" 0;
+	setAttr ".phl[458]" 0;
+	setAttr ".phl[459]" 0;
+	setAttr ".phl[460]" 0;
+	setAttr ".phl[461]" 0;
+	setAttr ".phl[462]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"girlRN"
 		"girl:rig:eye_rigRN" 0
@@ -3309,27 +3403,33 @@ createNode reference -n "girlRN";
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL|girl:rig:eye:eye_GRP|girl:rig:eye:CTRL_GRP|girl:rig:eye:l_eye_GRP|girl:rig:eye:l_eye_closedMood_GRP|girl:rig:eye:l_eye_closedMood_CTRL" 
 		"translateX" " -av -0.36935437206208732"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL|girl:rig:eye:eye_GRP|girl:rig:eye:CTRL_GRP|girl:rig:eye:l_eye_GRP|girl:rig:eye:l_eye_open_GRP|girl:rig:eye:l_eye_open_CTRL" 
-		"visibility" " 1"
-		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL|girl:rig:eye:eye_GRP|girl:rig:eye:CTRL_GRP|girl:rig:eye:l_eye_GRP|girl:rig:eye:l_eye_open_GRP|girl:rig:eye:l_eye_open_CTRL" 
 		"translateX" " -av 0.83015930057617304"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL|girl:rig:eye:eye_GRP|girl:rig:eye:CTRL_GRP|girl:rig:eye:r_eye_GRP|girl:rig:eye:r_eye_openMood_GRP|girl:rig:eye:r_eye_openMood_CTRL" 
 		"translateX" " -av 1.0362777922432105"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL|girl:rig:eye:eye_GRP|girl:rig:eye:CTRL_GRP|girl:rig:eye:r_eye_GRP|girl:rig:eye:r_eye_closedMood_GRP|girl:rig:eye:r_eye_closedMood_CTRL" 
 		"translateX" " -av 0"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL|girl:rig:eye:eye_GRP|girl:rig:eye:CTRL_GRP|girl:rig:eye:r_eye_GRP|girl:rig:eye:r_eye_open_GRP|girl:rig:eye:r_eye_open_CTRL" 
-		"visibility" " 1"
-		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL|girl:rig:eye:eye_GRP|girl:rig:eye:CTRL_GRP|girl:rig:eye:r_eye_GRP|girl:rig:eye:r_eye_open_GRP|girl:rig:eye:r_eye_open_CTRL" 
 		"translateX" " -av 0.83015930057617326"
-		"girl:CharacterRigRN" 802
+		5 4 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL|girl:rig:eye:eye_GRP|girl:rig:eye:CTRL_GRP|girl:rig:eye:l_eye_GRP|girl:rig:eye:l_eye_open_GRP|girl:rig:eye:l_eye_open_CTRL.visibility" 
+		"girlRN.placeHolderList[1]" ""
+		5 4 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL|girl:rig:eye:eye_GRP|girl:rig:eye:CTRL_GRP|girl:rig:eye:r_eye_GRP|girl:rig:eye:r_eye_open_GRP|girl:rig:eye:r_eye_open_CTRL.visibility" 
+		"girlRN.placeHolderList[2]" ""
+		"girl:CharacterRigRN" 861
+		0 "|girlRNfosterParent1|locator1" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL" 
+		"-s -r "
+		0 "|girlRNfosterParent1|r_ik_hand_CTRL_parentConstraint1" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL" 
+		"-s -r "
+		1 |girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL 
+		"blendParent1" "blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
 		2 "|girl:rig:CHAR_GRP|girl:rig:SETUP_GRP" "visibility" " 0"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL" 
 		"translate" " -type \"double3\" -4.785286515486618 0 5.8221433372673772"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL" 
 		"translateZ" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL" 
-		"translateY" " -av"
-		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL" 
 		"translateX" " -av"
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL" 
+		"translateY" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL" 
@@ -3347,7 +3447,7 @@ createNode reference -n "girlRN";
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL" 
 		"scaleX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL" 
-		"performance" " 1"
+		"performance" " 2"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL" 
 		"translate" " -type \"double3\" 1.8745466398751276 -51.301798200105928 11.615599558930876"
 		
@@ -3583,7 +3683,7 @@ createNode reference -n "girlRN";
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL" 
 		"translateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL" 
-		"rotate" " -type \"double3\" 5.9886958227139324 7.2854427367778598 -19.579318927036425"
+		"rotate" " -type \"double3\" 5.5416873680372891 7.6302090906810269 -24.184832344655323"
 		
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL" 
 		"rotateZ" " -av"
@@ -3591,6 +3691,14 @@ createNode reference -n "girlRN";
 		"rotateY" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL" 
 		"rotateX" " -av"
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL" 
+		"scale" " -type \"double3\" 1 1 1"
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL" 
+		"scaleX" " -av"
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL" 
+		"scaleY" " -av"
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL" 
+		"scaleZ" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL" 
@@ -3600,7 +3708,7 @@ createNode reference -n "girlRN";
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL" 
 		"translateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL" 
-		"rotate" " -type \"double3\" -4.9305175446033234 14.703123050772849 13.872866233881521"
+		"rotate" " -type \"double3\" -4.9305175446033234 14.703123050772849 13.872866233881522"
 		
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL" 
 		"rotateZ" " -av"
@@ -3624,6 +3732,8 @@ createNode reference -n "girlRN";
 		"rotateY" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:fk_l_arm_GRP|girl:rig:fk_l_arm_CTRL" 
 		"rotateX" " -av"
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:fk_l_arm_GRP|girl:rig:fk_l_arm_CTRL" 
+		"lenght" " -av -k 1 1"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:fk_l_arm_GRP|girl:rig:fk_l_arm_CTRL|girl:rig:fk_l_elbow_GRP|girl:rig:fk_l_elbow_CTRL" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:fk_l_arm_GRP|girl:rig:fk_l_arm_CTRL|girl:rig:fk_l_elbow_GRP|girl:rig:fk_l_elbow_CTRL" 
@@ -3640,6 +3750,8 @@ createNode reference -n "girlRN";
 		"rotateY" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:fk_l_arm_GRP|girl:rig:fk_l_arm_CTRL|girl:rig:fk_l_elbow_GRP|girl:rig:fk_l_elbow_CTRL" 
 		"rotateX" " -av"
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:fk_l_arm_GRP|girl:rig:fk_l_arm_CTRL|girl:rig:fk_l_elbow_GRP|girl:rig:fk_l_elbow_CTRL" 
+		"lenght" " -av -k 1 1"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:fk_l_arm_GRP|girl:rig:fk_l_arm_CTRL|girl:rig:fk_l_elbow_GRP|girl:rig:fk_l_elbow_CTRL|girl:rig:fk_l_hand_GRP|girl:rig:fk_l_hand_CTRL" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:fk_l_arm_GRP|girl:rig:fk_l_arm_CTRL|girl:rig:fk_l_elbow_GRP|girl:rig:fk_l_elbow_CTRL|girl:rig:fk_l_hand_GRP|girl:rig:fk_l_hand_CTRL" 
@@ -3665,7 +3777,7 @@ createNode reference -n "girlRN";
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:l_finger_01_GRP|girl:rig:l_finger_01_CTRL" 
 		"translateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:l_finger_01_GRP|girl:rig:l_finger_01_CTRL" 
-		"rotate" " -type \"double3\" 13.527462378822021 -27.709864537098888 -13.085735455542089"
+		"rotate" " -type \"double3\" 15.255350075876899 -0.5660155476431189 -13.345453964852073"
 		
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:l_finger_01_GRP|girl:rig:l_finger_01_CTRL" 
 		"rotateZ" " -av"
@@ -3674,7 +3786,8 @@ createNode reference -n "girlRN";
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:l_finger_01_GRP|girl:rig:l_finger_01_CTRL" 
 		"rotateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:l_finger_01_GRP|girl:rig:l_finger_01_CTRL|girl:rig:l_finger_02_GRP|girl:rig:l_finger_02_CTRL" 
-		"translate" " -type \"double3\" 0 0 0"
+		"translate" " -type \"double3\" -1.3225905903774664 -0.19711848134018645 0.35342064514726318"
+		
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:l_finger_01_GRP|girl:rig:l_finger_01_CTRL|girl:rig:l_finger_02_GRP|girl:rig:l_finger_02_CTRL" 
 		"translateZ" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:l_finger_01_GRP|girl:rig:l_finger_01_CTRL|girl:rig:l_finger_02_GRP|girl:rig:l_finger_02_CTRL" 
@@ -3682,7 +3795,7 @@ createNode reference -n "girlRN";
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:l_finger_01_GRP|girl:rig:l_finger_01_CTRL|girl:rig:l_finger_02_GRP|girl:rig:l_finger_02_CTRL" 
 		"translateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:l_finger_01_GRP|girl:rig:l_finger_01_CTRL|girl:rig:l_finger_02_GRP|girl:rig:l_finger_02_CTRL" 
-		"rotate" " -type \"double3\" 13.527462378822021 -27.709864537098888 -13.085735455542089"
+		"rotate" " -type \"double3\" 21.599280086516508 -55.767095143115348 -24.82707617112019"
 		
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:l_finger_01_GRP|girl:rig:l_finger_01_CTRL|girl:rig:l_finger_02_GRP|girl:rig:l_finger_02_CTRL" 
 		"rotateZ" " -av"
@@ -3716,7 +3829,7 @@ createNode reference -n "girlRN";
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:l_finger_01_GRP|girl:rig:l_finger_01_CTRL|girl:rig:l_finger_02_GRP|girl:rig:l_finger_02_CTRL|girl:rig:l_finger_03_GRP|girl:rig:l_finger_03_CTRL|girl:rig:l_finger_04_GRP|girl:rig:l_finger_04_CTRL" 
 		"translateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:l_finger_01_GRP|girl:rig:l_finger_01_CTRL|girl:rig:l_finger_02_GRP|girl:rig:l_finger_02_CTRL|girl:rig:l_finger_03_GRP|girl:rig:l_finger_03_CTRL|girl:rig:l_finger_04_GRP|girl:rig:l_finger_04_CTRL" 
-		"rotate" " -type \"double3\" 13.527462378822021 -27.709864537098888 -13.085735455542089"
+		"rotate" " -type \"double3\" 12.521684644107468 -17.225091272062102 -10.465302926502986"
 		
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:l_finger_01_GRP|girl:rig:l_finger_01_CTRL|girl:rig:l_finger_02_GRP|girl:rig:l_finger_02_CTRL|girl:rig:l_finger_03_GRP|girl:rig:l_finger_03_CTRL|girl:rig:l_finger_04_GRP|girl:rig:l_finger_04_CTRL" 
 		"rotateZ" " -av"
@@ -3733,7 +3846,7 @@ createNode reference -n "girlRN";
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:r_finger_01_GRP|girl:rig:r_finger_01_CTRL" 
 		"translateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:r_finger_01_GRP|girl:rig:r_finger_01_CTRL" 
-		"rotate" " -type \"double3\" -43.384519635999226 -61.986456089640875 50.298802997094924"
+		"rotate" " -type \"double3\" -18.11672043927986 -62.581263595917434 24.686837459941891"
 		
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:r_finger_01_GRP|girl:rig:r_finger_01_CTRL" 
 		"rotateZ" " -av"
@@ -3750,7 +3863,8 @@ createNode reference -n "girlRN";
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:r_finger_01_GRP|girl:rig:r_finger_01_CTRL|girl:rig:r_finger_02_GRP|girl:rig:r_finger_02_CTRL" 
 		"translateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:r_finger_01_GRP|girl:rig:r_finger_01_CTRL|girl:rig:r_finger_02_GRP|girl:rig:r_finger_02_CTRL" 
-		"rotate" " -type \"double3\" 0 -53.637618739015409 0"
+		"rotate" " -type \"double3\" 17.175759063979136 -54.96390547658725 -17.196277909258271"
+		
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:r_finger_01_GRP|girl:rig:r_finger_01_CTRL|girl:rig:r_finger_02_GRP|girl:rig:r_finger_02_CTRL" 
 		"rotateZ" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:r_finger_01_GRP|girl:rig:r_finger_01_CTRL|girl:rig:r_finger_02_GRP|girl:rig:r_finger_02_CTRL" 
@@ -3758,7 +3872,8 @@ createNode reference -n "girlRN";
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:r_finger_01_GRP|girl:rig:r_finger_01_CTRL|girl:rig:r_finger_02_GRP|girl:rig:r_finger_02_CTRL" 
 		"rotateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:r_finger_01_GRP|girl:rig:r_finger_01_CTRL|girl:rig:r_finger_02_GRP|girl:rig:r_finger_02_CTRL|girl:rig:r_finger_03_GRP|girl:rig:r_finger_03_CTRL" 
-		"translate" " -type \"double3\" 0 0 0"
+		"translate" " -type \"double3\" 0.16295164867946058 -0.12559853045537761 -0.22230865794203286"
+		
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:r_finger_01_GRP|girl:rig:r_finger_01_CTRL|girl:rig:r_finger_02_GRP|girl:rig:r_finger_02_CTRL|girl:rig:r_finger_03_GRP|girl:rig:r_finger_03_CTRL" 
 		"translateZ" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:r_finger_01_GRP|girl:rig:r_finger_01_CTRL|girl:rig:r_finger_02_GRP|girl:rig:r_finger_02_CTRL|girl:rig:r_finger_03_GRP|girl:rig:r_finger_03_CTRL" 
@@ -3766,7 +3881,8 @@ createNode reference -n "girlRN";
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:r_finger_01_GRP|girl:rig:r_finger_01_CTRL|girl:rig:r_finger_02_GRP|girl:rig:r_finger_02_CTRL|girl:rig:r_finger_03_GRP|girl:rig:r_finger_03_CTRL" 
 		"translateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:r_finger_01_GRP|girl:rig:r_finger_01_CTRL|girl:rig:r_finger_02_GRP|girl:rig:r_finger_02_CTRL|girl:rig:r_finger_03_GRP|girl:rig:r_finger_03_CTRL" 
-		"rotate" " -type \"double3\" 0 -53.637618739015409 0"
+		"rotate" " -type \"double3\" 12.1914200158147 -52.658101616066375 -15.203087384971118"
+		
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:r_finger_01_GRP|girl:rig:r_finger_01_CTRL|girl:rig:r_finger_02_GRP|girl:rig:r_finger_02_CTRL|girl:rig:r_finger_03_GRP|girl:rig:r_finger_03_CTRL" 
 		"rotateZ" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:r_finger_01_GRP|girl:rig:r_finger_01_CTRL|girl:rig:r_finger_02_GRP|girl:rig:r_finger_02_CTRL|girl:rig:r_finger_03_GRP|girl:rig:r_finger_03_CTRL" 
@@ -3782,7 +3898,8 @@ createNode reference -n "girlRN";
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:r_finger_01_GRP|girl:rig:r_finger_01_CTRL|girl:rig:r_finger_02_GRP|girl:rig:r_finger_02_CTRL|girl:rig:r_finger_03_GRP|girl:rig:r_finger_03_CTRL|girl:rig:r_finger_04_GRP|girl:rig:r_finger_04_CTRL" 
 		"translateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:r_finger_01_GRP|girl:rig:r_finger_01_CTRL|girl:rig:r_finger_02_GRP|girl:rig:r_finger_02_CTRL|girl:rig:r_finger_03_GRP|girl:rig:r_finger_03_CTRL|girl:rig:r_finger_04_GRP|girl:rig:r_finger_04_CTRL" 
-		"rotate" " -type \"double3\" 0 -53.637618739015409 0"
+		"rotate" " -type \"double3\" -6.2166225089872986 -32.436414084659425 -17.687110609671045"
+		
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:r_finger_01_GRP|girl:rig:r_finger_01_CTRL|girl:rig:r_finger_02_GRP|girl:rig:r_finger_02_CTRL|girl:rig:r_finger_03_GRP|girl:rig:r_finger_03_CTRL|girl:rig:r_finger_04_GRP|girl:rig:r_finger_04_CTRL" 
 		"rotateZ" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:l_shoulder_GRP|girl:rig:l_shoulder_CTRL|girl:rig:r_finger_01_GRP|girl:rig:r_finger_01_CTRL|girl:rig:r_finger_02_GRP|girl:rig:r_finger_02_CTRL|girl:rig:r_finger_03_GRP|girl:rig:r_finger_03_CTRL|girl:rig:r_finger_04_GRP|girl:rig:r_finger_04_CTRL" 
@@ -3871,7 +3988,7 @@ createNode reference -n "girlRN";
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL" 
 		"rotateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL" 
-		"translate" " -type \"double3\" -1.252634138412122 -2.7103836028152437 9.289655219448141e-005"
+		"translate" " -type \"double3\" -1.2734262801314378 -2.5659427109947295 0.10293053982297334"
 		
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL" 
 		"translateZ" " -av"
@@ -3880,7 +3997,7 @@ createNode reference -n "girlRN";
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL" 
 		"translateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL" 
-		"rotate" " -type \"double3\" 21.714611980991762 7.0597843000925495 -12.576241872878027"
+		"rotate" " -type \"double3\" 22.156441553464091 7.9648885644841272 -15.03509723546558"
 		
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL" 
 		"rotateZ" " -av"
@@ -3890,6 +4007,15 @@ createNode reference -n "girlRN";
 		"rotateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL" 
 		"ikFkSwitch" " -av -k 1 1"
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL|girl:rig:ikHandle8" 
+		"poleVector" " -type \"double3\" 1.445410663116121 -10.754480488820812 2.9150834079636425"
+		
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL|girl:rig:ikHandle8" 
+		"poleVectorX" " -av"
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL|girl:rig:ikHandle8" 
+		"poleVectorY" " -av"
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL|girl:rig:ikHandle8" 
+		"poleVectorZ" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_leg_GRP|girl:rig:r_ik_leg_GRP|girl:rig:r_ik_leg_CTRL" 
 		"translate" " -type \"double3\" 0 0.40564628501278932 0"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_leg_GRP|girl:rig:r_ik_leg_GRP|girl:rig:r_ik_leg_CTRL" 
@@ -3955,7 +4081,7 @@ createNode reference -n "girlRN";
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_leg_GRP|girl:rig:l_ik_leg_GRP|girl:rig:l_ik_leg_CTRL" 
 		"kneeSnap" " -av -k 1 1"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_leg_GRP|girl:rig:r_leg_poleVEctor_offset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL" 
-		"translate" " -type \"double3\" 0 -31.002530122212384 31.514228479909718"
+		"translate" " -type \"double3\" 0 -30.642243031049293 29.331609144511035"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_leg_GRP|girl:rig:r_leg_poleVEctor_offset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL" 
 		"translateZ" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_leg_GRP|girl:rig:r_leg_poleVEctor_offset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL" 
@@ -3971,8 +4097,7 @@ createNode reference -n "girlRN";
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_leg_GRP|girl:rig:r_leg_poleVEctor_offset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL" 
 		"rotateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_leg_GRP|girl:rig:l_leg_poleVEctor_offset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL" 
-		"translate" " -type \"double3\" 9.564745101757623 -31.002530122212455 28.412819344813158"
-		
+		"translate" " -type \"double3\" 0 -32.201736321108243 32.925050339835167"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_leg_GRP|girl:rig:l_leg_poleVEctor_offset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL" 
 		"translateZ" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_leg_GRP|girl:rig:l_leg_poleVEctor_offset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL" 
@@ -3988,7 +4113,7 @@ createNode reference -n "girlRN";
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_leg_GRP|girl:rig:l_leg_poleVEctor_offset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL" 
 		"rotateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_ik_hand_GRP|girl:rig:l_ik_hand_CTRL" 
-		"translate" " -type \"double3\" 8.7796311197427155 -34.761789757226218 33.165716962607959"
+		"translate" " -type \"double3\" 8.7796311197427155 -34.743042375834968 33.165716962607959"
 		
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_ik_hand_GRP|girl:rig:l_ik_hand_CTRL" 
 		"translateZ" " -av"
@@ -3997,7 +4122,7 @@ createNode reference -n "girlRN";
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_ik_hand_GRP|girl:rig:l_ik_hand_CTRL" 
 		"translateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_ik_hand_GRP|girl:rig:l_ik_hand_CTRL" 
-		"rotate" " -type \"double3\" 314.52712081162497 -185.31141038478006 -330.62790999080761"
+		"rotate" " -type \"double3\" 315.84010604040361 -193.27259974092181 -322.52903788789297"
 		
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_ik_hand_GRP|girl:rig:l_ik_hand_CTRL" 
 		"rotateZ" " -av"
@@ -4007,25 +4132,25 @@ createNode reference -n "girlRN";
 		"rotateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_ik_hand_GRP|girl:rig:l_ik_hand_CTRL" 
 		"snapToElbow" " -av -k 1 0"
-		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL" 
-		"translate" " -type \"double3\" 0.77393825120342574 -60.307275489148111 -11.091501460248089"
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_arm_poleVector_CTRL" 
+		"translate" " -type \"double3\" -0.76922980071911418 -68.973658910283973 -15.366650001534499"
 		
-		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL" 
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_arm_poleVector_CTRL" 
 		"translateZ" " -av"
-		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL" 
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_arm_poleVector_CTRL" 
 		"translateY" " -av"
-		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL" 
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_arm_poleVector_CTRL" 
 		"translateX" " -av"
-		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL" 
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_arm_poleVector_CTRL" 
 		"rotate" " -type \"double3\" 0 0 0"
-		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL" 
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_arm_poleVector_CTRL" 
 		"rotateZ" " -av"
-		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL" 
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_arm_poleVector_CTRL" 
 		"rotateY" " -av"
-		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL" 
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_arm_poleVector_CTRL" 
 		"rotateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL" 
-		"translate" " -type \"double3\" 1.6464425515935979 44.543583089337581 -34.427305446734898"
+		"translate" " -type \"double3\" 1.7602864282379507 42.727169997124562 -33.615755669345987"
 		
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL" 
 		"translateZ" " -av"
@@ -4034,7 +4159,7 @@ createNode reference -n "girlRN";
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL" 
 		"translateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL" 
-		"rotate" " -type \"double3\" 156.11283036043403 -21.904492649367324 -141.15739348189976"
+		"rotate" " -type \"double3\" 346.05041779980661 -171.03460921833499 -315.09953224544296"
 		
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL" 
 		"rotateZ" " -av"
@@ -4044,22 +4169,23 @@ createNode reference -n "girlRN";
 		"rotateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL" 
 		"snapToElbow" " -av -k 1 0"
-		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL" 
-		"translate" " -type \"double3\" 10.660827227591982 -73.705712443526821 -5.8776587459495815"
-		
-		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL" 
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL" 
+		"blendParent1" " -k 1 1"
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_arm_poleVector_CTRL" 
+		"translate" " -type \"double3\" 0 -51.266772305085041 0"
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_arm_poleVector_CTRL" 
 		"translateZ" " -av"
-		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL" 
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_arm_poleVector_CTRL" 
 		"translateY" " -av"
-		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL" 
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_arm_poleVector_CTRL" 
 		"translateX" " -av"
-		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL" 
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_arm_poleVector_CTRL" 
 		"rotate" " -type \"double3\" 0 0 0"
-		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL" 
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_arm_poleVector_CTRL" 
 		"rotateZ" " -av"
-		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL" 
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_arm_poleVector_CTRL" 
 		"rotateY" " -av"
-		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL" 
+		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_arm_poleVector_CTRL" 
 		"rotateX" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:r_legSwitch_GRP|girl:rig:r_legSwitch_CTRL" 
 		"ikFkSwitch" " -av -k 1 0"
@@ -4085,880 +4211,969 @@ createNode reference -n "girlRN";
 		"rotateY" " -av"
 		2 "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:head_ik_offset_GRP|girl:rig:head_ik_GRP|girl:rig:head_ik_CTRL" 
 		"rotateX" " -av"
+		2 "|girl:rig:CHAR_GRP|girl:rig:JNT_GRP|girl:rig:root_JNT|girl:rig:spline_01_JNT|girl:rig:spline_02_JNT|girl:rig:spline_03_JNT|girl:rig:l_shoulder_JNT|girl:rig:l_arm_JNT|girl:rig:l_elbow_JNT|girl:rig:l_hand_JNT|girl:rig:l_finger_01_JNT|girl:rig:l_finger_02_JNT|girl:rig:l_finger_03_JNT" 
+		"rotate" " -type \"double3\" 149.44031155175597 -65.964775809587991 -158.36657852384153"
+		
+		2 "|girl:rig:CHAR_GRP|girl:rig:JNT_GRP|girl:rig:root_JNT|girl:rig:spline_01_JNT|girl:rig:spline_02_JNT|girl:rig:spline_03_JNT|girl:rig:l_shoulder_JNT|girl:rig:l_arm_JNT|girl:rig:l_elbow_JNT|girl:rig:l_hand_JNT|girl:rig:l_finger_01_JNT|girl:rig:l_finger_02_JNT|girl:rig:l_finger_03_JNT" 
+		"rotateX" " -av"
+		2 "|girl:rig:CHAR_GRP|girl:rig:JNT_GRP|girl:rig:root_JNT|girl:rig:spline_01_JNT|girl:rig:spline_02_JNT|girl:rig:spline_03_JNT|girl:rig:l_shoulder_JNT|girl:rig:l_arm_JNT|girl:rig:l_elbow_JNT|girl:rig:l_hand_JNT|girl:rig:l_finger_01_JNT|girl:rig:l_finger_02_JNT|girl:rig:l_finger_03_JNT" 
+		"rotateY" " -av"
+		2 "|girl:rig:CHAR_GRP|girl:rig:JNT_GRP|girl:rig:root_JNT|girl:rig:spline_01_JNT|girl:rig:spline_02_JNT|girl:rig:spline_03_JNT|girl:rig:l_shoulder_JNT|girl:rig:l_arm_JNT|girl:rig:l_elbow_JNT|girl:rig:l_hand_JNT|girl:rig:l_finger_01_JNT|girl:rig:l_finger_02_JNT|girl:rig:l_finger_03_JNT" 
+		"rotateZ" " -av"
 		2 "girl:rig:CTRL_layer" "displayType" " 0"
 		2 "girl:rig:CTRL_layer" "visibility" " 1"
 		2 "girl:rig:GEO_layer" "displayType" " 2"
-		2 "girl:rig:charset" "lv[1:203]" (" -s 203 0 0 -6.9895476519872801 0.001335644922776158 -0.0095180807749035701 -0.0094164256149060765 11.615599558930876 -51.301798200105928 1.8745466398751276 0 0 0 31.514228479909718 -31.002530122212384 0 -5.8776587459495815 -73.705712443526821 10.660827227591982 0 0.40564628501278932 0 -34.427305446734898 44.543583089337581 1.6464425515935979 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 28.412819344813158 -31.002530122212455 9.564745101757623 -11.091501460248089 -60.307275489148111 0.77393825120342574 0 0.40564628501278932 0 33.165716962607959 -34.761789757226218 8.7796311197427155 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9.289655219448141e-005 -2.7103836028152437 -1.252634138412122 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5.8221433372673772 0 -4.785286515486618 0 0 -4.5955145440055221 1 0 -9.8533285436816076 0 1 -1.0461460974278767 -0.0037700410592308442 0.0015566321270102379 -4.286863958472555 -0.024608888030368536 0.036395890332334702 -4.2159772987283723 0.006584920"
-		+ "9733019887 -0.028739383753070946 -0.013743037704016414 -0.061971785642999461 -0.20900416757302284 -7.8710068407220612 -0.0079244880833346798 -2.3046624444569928e-005 -7.3540536864747956 -0.019184029450407536 -0.0028542046768146312 -0.055922490205476016 0 0 -9.3660591581205495 6.3094047003533609 -1.5526085071600924 -7.7454374369867081 -0.031186273619342182 0 -1.360622643378534 2.3034432821284883 -0.99032950287441246 -6.7757742226106839 0 0 0 0 0 0 0 0 0 0 0 0 -0.0087120442328963779 -0.0027204349213405593 -0.75706836738375682 0.0054150525377844672 -0.0026716505014048836 -0.94163757434777351 0 0 0 1.259273755668044 3.9473726530801607 0.13298760253553538 -0.45534550496252035 -0.44652929985225193 4.3510624307727488 45.920494400500822 19.76109638218432 60.47076521507914 -0.65500414745057689 -0.655004147450577 0.83015930057617326 0.83015930057617304 0.81845718482702834 1.0362777922432105 -0.36935437206208732 0"
+		2 "girl:rig:charset" "lv[1:203]" (" -s 203 0 0 -6.9895476519872801 0.001335644922776158 -0.0095180807749035701 -0.0094164256149060765 11.615599558930876 -51.301798200105928 1.8745466398751276 0 0 0 29.331609144511035 -30.642243031049293 0 0 -51.266772305085041 0 0 0.40564628501278932 0 -33.615755669345987 42.727169997124562 1.7602864282379507 0 0 0 -0.22230865794203286 -0.12559853045537761 0.16295164867946058 0 0 0 0 0 0 0 0 0 0 0 0 32.925050339835167 -32.201736321108243 0 -15.366650001534499 -68.973658910283973 -0.76922980071911418 0 0.40564628501278932 0 33.165716962607959 -34.743042375834968 8.7796311197427155 0 0 0 0 0 0 0.35342064514726318 -0.19711848134018645 -1.3225905903774664 0 0 0 0 0 0 0 0 0 0.10293053982297334 -2.5659427109947295 -1.2734262801314378 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5.8221433372673772 0 -4.785286515486618 0 0 -4.5955145440055221 1 0 -9.8533285436816076 0 1 -1.0461460974278767 -0.0037700410592308442 0.0015566321270102379 -4.286863958472555 -0.024608888030"
+		+ "368536 0.036395890332334702 -4.2159772987283723 0.0065849209733019887 -0.028739383753070946 -0.013743037704016414 -0.061971785642999461 -0.20900416757302284 -7.8710068407220612 -0.0079244880833346798 -2.3046624444569928e-005 -7.3540536864747956 -0.019184029450407536 -0.0028542046768146312 -0.055922490205476016 0 0 -9.3660591581205495 6.3094047003533609 -1.5526085071600924 -7.7454374369867081 -0.031186273619342182 0 -1.360622643378534 2.3034432821284883 -0.99032950287441246 -6.7757742226106839 0 0 0 0 0 0 0 0 0 0 0 0 -0.0087120442328963779 -0.0027204349213405593 -0.75706836738375682 0.0054150525377844672 -0.0026716505014048836 -0.94163757434777351 0 0 0 1.259273755668044 3.9473726530801607 0.13298760253553538 -0.45534550496252035 -0.44652929985225193 4.3510624307727488 45.920494400500822 19.76109638218432 60.47076521507914 -0.65500414745057689 -0.655004147450577 0.83015930057617326 0.83015930057617304 0.81845718482702834 1.0362777922432105 -0.36935437206208732 0"
 		)
 		2 "girl:rig:charset" "linearValues" " -s 203"
-		2 "girl:rig:charset" "referenceMapping" (" -type \"characterMapping\" 426 \"girl:rig:spline_02_CTRL.rotateZ\" 2 1 \"girl:rig:spline_02_CTRL.rotateY\" 2 2 \"girl:rig:spline_02_CTRL.rotateX\" 2 3 \"girl:rig:spline_02_CTRL.translateZ\" 1 1 \"girl:rig:spline_02_CTRL.translateY\" 1 2 \"girl:rig:spline_02_CTRL.translateX\" 1 3 \"girl:rig:spline_01_CTRL.rotateZ\" 2 4 \"girl:rig:spline_01_CTRL.rotateY\" 2 5 \"girl:rig:spline_01_CTRL.rotateX\" 2 6 \"girl:rig:spline_01_CTRL.translateZ\" 1 4 \"girl:rig:spline_01_CTRL.translateY\" 1 5 \"girl:rig:spline_01_CTRL.translateX\" 1 6 \"girl:rig:root_CTRL.rotateZ\" 2 7 \"girl:rig:root_CTRL.rotateY\" 2 8 \"girl:rig:root_CTRL.rotateX\" 2 9 \"girl:rig:root_CTRL.translateZ\" 1 7 \"girl:rig:root_CTRL.translateY\" 1 8 \"girl:rig:root_CTRL.translateX\" 1 9 \"girl:rig:r_shoulder_CTRL.rotateZ\" 2 10 \"girl:rig:r_shoulder_CTRL.rotateY\" 2 11 \"girl:rig:r_shoulder_CTRL.rotateX\" 2 12 \"girl:rig:r_shoulder_CTRL.translateZ\" 1 10 \"girl:rig:r_shoulder_CTRL.translateY\" 1 11 \"girl:rig:r_shoulder_CTRL.translateX\" 1 12 \"girl:rig:r_leg_poleVEctor_offset_GRP|girl:rig:r_leg_poleVector_"
-		+ "GRP|girl:rig:r_leg_poleVector_CTRL.rotateZ\" 2 13 \"girl:rig:r_leg_poleVEctor_offset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL.rotateY\" 2 14 \"girl:rig:r_leg_poleVEctor_offset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL.rotateX\" 2 15 \"girl:rig:r_leg_poleVEctor_offset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL.translateZ\" 1 13 \"girl:rig:r_leg_poleVEctor_offset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL.translateY\" 1 14 \"girl:rig:r_leg_poleVEctor_offset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL.translateX\" 1 15 \"girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL.rotateZ\" 2 16 \"girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL.rotateY\" 2 17 \"girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL.rotateX\" 2 18 \"girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVecto"
-		+ "r_GRP|girl:rig:r_leg_poleVector_CTRL.translateZ\" 1 16 \"girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL.translateY\" 1 17 \"girl:rig:r_hand_poleVectorOffset_GRP|girl:rig:r_leg_poleVector_GRP|girl:rig:r_leg_poleVector_CTRL.translateX\" 1 18 \"girl:rig:r_ik_leg_CTRL.rotateZ\" 2 19 \"girl:rig:r_ik_leg_CTRL.rotateY\" 2 20 \"girl:rig:r_ik_leg_CTRL.rotateX\" 2 21 \"girl:rig:r_ik_leg_CTRL.translateZ\" 1 19 \"girl:rig:r_ik_leg_CTRL.translateY\" 1 20 \"girl:rig:r_ik_leg_CTRL.translateX\" 1 21 \"girl:rig:r_ik_hand_CTRL.rotateZ\" 2 22 \"girl:rig:r_ik_hand_CTRL.rotateY\" 2 23 \"girl:rig:r_ik_hand_CTRL.rotateX\" 2 24 \"girl:rig:r_ik_hand_CTRL.translateZ\" 1 22 \"girl:rig:r_ik_hand_CTRL.translateY\" 1 23 \"girl:rig:r_ik_hand_CTRL.translateX\" 1 24 \"girl:rig:r_finger_04_CTRL.rotateZ\" 2 25 \"girl:rig:r_finger_04_CTRL.rotateY\" 2 26 \"girl:rig:r_finger_04_CTRL.rotateX\" 2 27 \"girl:rig:r_finger_04_CTRL.translateZ\" 1 25 \"girl:rig:r_finger_04_CTRL.translateY\" 1 26 \"girl:rig:r_finger_04_CTRL.translateX\" 1 27 \"gi"
-		+ "rl:rig:r_finger_03_CTRL.rotateZ\" 2 28 \"girl:rig:r_finger_03_CTRL.rotateY\" 2 29 \"girl:rig:r_finger_03_CTRL.rotateX\" 2 30 \"girl:rig:r_finger_03_CTRL.translateZ\" 1 28 \"girl:rig:r_finger_03_CTRL.translateY\" 1 29 \"girl:rig:r_finger_03_CTRL.translateX\" 1 30 \"girl:rig:r_finger_02_CTRL.rotateZ\" 2 31 \"girl:rig:r_finger_02_CTRL.rotateY\" 2 32 \"girl:rig:r_finger_02_CTRL.rotateX\" 2 33 \"girl:rig:r_finger_02_CTRL.translateZ\" 1 31 \"girl:rig:r_finger_02_CTRL.translateY\" 1 32 \"girl:rig:r_finger_02_CTRL.translateX\" 1 33 \"girl:rig:r_finger_01_CTRL.rotateZ\" 2 34 \"girl:rig:r_finger_01_CTRL.rotateY\" 2 35 \"girl:rig:r_finger_01_CTRL.rotateX\" 2 36 \"girl:rig:r_finger_01_CTRL.translateZ\" 1 34 \"girl:rig:r_finger_01_CTRL.translateY\" 1 35 \"girl:rig:r_finger_01_CTRL.translateX\" 1 36 \"girl:rig:neck_CTRL.rotateZ\" 2 37 \"girl:rig:neck_CTRL.rotateY\" 2 38 \"girl:rig:neck_CTRL.rotateX\" 2 39 \"girl:rig:neck_CTRL.translateZ\" 1 37 \"girl:rig:neck_CTRL.translateY\" 1 38 \"girl:rig:neck_CTRL.translateX\" 1 39 \"girl:rig:l_shoulder_CTRL.rotateZ\" 2 40 \"girl:rig"
-		+ ":l_shoulder_CTRL.rotateY\" 2 41 \"girl:rig:l_shoulder_CTRL.rotateX\" 2 42 \"girl:rig:l_shoulder_CTRL.translateZ\" 1 40 \"girl:rig:l_shoulder_CTRL.translateY\" 1 41 \"girl:rig:l_shoulder_CTRL.translateX\" 1 42 \"girl:rig:l_leg_poleVEctor_offset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL.rotateZ\" 2 43 \"girl:rig:l_leg_poleVEctor_offset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL.rotateY\" 2 44 \"girl:rig:l_leg_poleVEctor_offset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL.rotateX\" 2 45 \"girl:rig:l_leg_poleVEctor_offset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL.translateZ\" 1 43 \"girl:rig:l_leg_poleVEctor_offset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL.translateY\" 1 44 \"girl:rig:l_leg_poleVEctor_offset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL.translateX\" 1 45 \"girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL.rotateZ\" 2 46 \"girl:rig:l_hand_poleVec"
-		+ "torOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL.rotateY\" 2 47 \"girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL.rotateX\" 2 48 \"girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL.translateZ\" 1 46 \"girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL.translateY\" 1 47 \"girl:rig:l_hand_poleVectorOffset_GRP|girl:rig:l_leg_poleVector_GRP|girl:rig:l_leg_poleVector_CTRL.translateX\" 1 48 \"girl:rig:l_ik_leg_CTRL.rotateZ\" 2 49 \"girl:rig:l_ik_leg_CTRL.rotateY\" 2 50 \"girl:rig:l_ik_leg_CTRL.rotateX\" 2 51 \"girl:rig:l_ik_leg_CTRL.translateZ\" 1 49 \"girl:rig:l_ik_leg_CTRL.translateY\" 1 50 \"girl:rig:l_ik_leg_CTRL.translateX\" 1 51 \"girl:rig:l_ik_hand_CTRL.rotateZ\" 2 52 \"girl:rig:l_ik_hand_CTRL.rotateY\" 2 53 \"girl:rig:l_ik_hand_CTRL.rotateX\" 2 54 \"girl:rig:l_ik_hand_CTRL.translateZ\" 1 52 \"girl:rig:l_ik_hand_CTRL.translateY\" 1 53 \"girl:rig:l_ik_hand_CTRL.translateX\""
-		+ " 1 54 \"girl:rig:l_finger_04_CTRL.rotateZ\" 2 55 \"girl:rig:l_finger_04_CTRL.rotateY\" 2 56 \"girl:rig:l_finger_04_CTRL.rotateX\" 2 57 \"girl:rig:l_finger_04_CTRL.translateZ\" 1 55 \"girl:rig:l_finger_04_CTRL.translateY\" 1 56 \"girl:rig:l_finger_04_CTRL.translateX\" 1 57 \"girl:rig:l_finger_03_CTRL.rotateZ\" 2 58 \"girl:rig:l_finger_03_CTRL.rotateY\" 2 59 \"girl:rig:l_finger_03_CTRL.rotateX\" 2 60 \"girl:rig:l_finger_03_CTRL.translateZ\" 1 58 \"girl:rig:l_finger_03_CTRL.translateY\" 1 59 \"girl:rig:l_finger_03_CTRL.translateX\" 1 60 \"girl:rig:l_finger_02_CTRL.rotateZ\" 2 61 \"girl:rig:l_finger_02_CTRL.rotateY\" 2 62 \"girl:rig:l_finger_02_CTRL.rotateX\" 2 63 \"girl:rig:l_finger_02_CTRL.translateZ\" 1 61 \"girl:rig:l_finger_02_CTRL.translateY\" 1 62 \"girl:rig:l_finger_02_CTRL.translateX\" 1 63 \"girl:rig:l_finger_01_CTRL.rotateZ\" 2 64 \"girl:rig:l_finger_01_CTRL.rotateY\" 2 65 \"girl:rig:l_finger_01_CTRL.rotateX\" 2 66 \"girl:rig:l_finger_01_CTRL.translateZ\" 1 64 \"girl:rig:l_finger_01_CTRL.translateY\" 1 65 \"girl:rig:l_finger_01_CTRL.translateX\" 1 6"
-		+ "6 \"girl:rig:hip_CTRL.rotateZ\" 2 67 \"girl:rig:hip_CTRL.rotateY\" 2 68 \"girl:rig:hip_CTRL.rotateX\" 2 69 \"girl:rig:hip_CTRL.translateZ\" 1 67 \"girl:rig:hip_CTRL.translateY\" 1 68 \"girl:rig:hip_CTRL.translateX\" 1 69 \"girl:rig:head_ik_CTRL.rotateZ\" 2 70 \"girl:rig:head_ik_CTRL.rotateY\" 2 71 \"girl:rig:head_ik_CTRL.rotateX\" 2 72 \"girl:rig:head_ik_CTRL.translateZ\" 1 70 \"girl:rig:head_ik_CTRL.translateY\" 1 71 \"girl:rig:head_ik_CTRL.translateX\" 1 72 \"girl:rig:head_CTRL.rotateZ\" 2 73 \"girl:rig:head_CTRL.rotateY\" 2 74 \"girl:rig:head_CTRL.rotateX\" 2 75 \"girl:rig:head_CTRL.translateZ\" 1 73 \"girl:rig:head_CTRL.translateY\" 1 74 \"girl:rig:head_CTRL.translateX\" 1 75 \"girl:rig:fk_r_upperKnee_CTRL.rotateZ\" 2 76 \"girl:rig:fk_r_upperKnee_CTRL.rotateY\" 2 77 \"girl:rig:fk_r_upperKnee_CTRL.rotateX\" 2 78 \"girl:rig:fk_r_upperKnee_CTRL.translateZ\" 1 76 \"girl:rig:fk_r_upperKnee_CTRL.translateY\" 1 77 \"girl:rig:fk_r_upperKnee_CTRL.translateX\" 1 78 \"girl:rig:fk_r_toe_CTRL.rotateZ\" 2 79 \"girl:rig:fk_r_toe_CTRL.rotateY\" 2 80 \"girl:rig:fk_r_toe_CTR"
-		+ "L.rotateX\" 2 81 \"girl:rig:fk_r_toe_CTRL.translateZ\" 1 79 \"girl:rig:fk_r_toe_CTRL.translateY\" 1 80 \"girl:rig:fk_r_toe_CTRL.translateX\" 1 81 \"girl:rig:fk_r_leg_CTRL.rotateZ\" 2 82 \"girl:rig:fk_r_leg_CTRL.rotateY\" 2 83 \"girl:rig:fk_r_leg_CTRL.rotateX\" 2 84 \"girl:rig:fk_r_leg_CTRL.translateZ\" 1 82 \"girl:rig:fk_r_leg_CTRL.translateY\" 1 83 \"girl:rig:fk_r_leg_CTRL.translateX\" 1 84 \"girl:rig:fk_r_hand_CTRL.rotateZ\" 2 85 \"girl:rig:fk_r_hand_CTRL.rotateY\" 2 86 \"girl:rig:fk_r_hand_CTRL.rotateX\" 2 87 \"girl:rig:fk_r_hand_CTRL.translateZ\" 1 85 \"girl:rig:fk_r_hand_CTRL.translateY\" 1 86 \"girl:rig:fk_r_hand_CTRL.translateX\" 1 87 \"girl:rig:fk_r_elbow_CTRL.rotateZ\" 2 88 \"girl:rig:fk_r_elbow_CTRL.rotateY\" 2 89 \"girl:rig:fk_r_elbow_CTRL.rotateX\" 2 90 \"girl:rig:fk_r_elbow_CTRL.translateZ\" 1 88 \"girl:rig:fk_r_elbow_CTRL.translateY\" 1 89 \"girl:rig:fk_r_elbow_CTRL.translateX\" 1 90 \"girl:rig:fk_r_ball_CTRL.rotateZ\" 2 91 \"girl:rig:fk_r_ball_CTRL.rotateY\" 2 92 \"girl:rig:fk_r_ball_CTRL.rotateX\" 2 93 \"girl:rig:fk_r_ball_CTRL.translateZ\" 1 "
-		+ "91 \"girl:rig:fk_r_ball_CTRL.translateY\" 1 92 \"girl:rig:fk_r_ball_CTRL.translateX\" 1 93 \"girl:rig:fk_r_arm_CTRL.rotateZ\" 2 94 \"girl:rig:fk_r_arm_CTRL.rotateY\" 2 95 \"girl:rig:fk_r_arm_CTRL.rotateX\" 2 96 \"girl:rig:fk_r_arm_CTRL.translateZ\" 1 94 \"girl:rig:fk_r_arm_CTRL.translateY\" 1 95 \"girl:rig:fk_r_arm_CTRL.translateX\" 1 96 \"girl:rig:fk_r_ankle_CTRL.rotateZ\" 2 97 \"girl:rig:fk_r_ankle_CTRL.rotateY\" 2 98 \"girl:rig:fk_r_ankle_CTRL.rotateX\" 2 99 \"girl:rig:fk_r_ankle_CTRL.translateZ\" 1 97 \"girl:rig:fk_r_ankle_CTRL.translateY\" 1 98 \"girl:rig:fk_r_ankle_CTRL.translateX\" 1 99 \"girl:rig:fk_l_upperKnee_CTRL.rotateZ\" 2 100 \"girl:rig:fk_l_upperKnee_CTRL.rotateY\" 2 101 \"girl:rig:fk_l_upperKnee_CTRL.rotateX\" 2 102 \"girl:rig:fk_l_upperKnee_CTRL.translateZ\" 1 100 \"girl:rig:fk_l_upperKnee_CTRL.translateY\" 1 101 \"girl:rig:fk_l_upperKnee_CTRL.translateX\" 1 102 \"girl:rig:fk_l_toe_CTRL.rotateZ\" 2 103 \"girl:rig:fk_l_toe_CTRL.rotateY\" 2 104 \"girl:rig:fk_l_toe_CTRL.rotateX\" 2 105 \"girl:rig:fk_l_toe_CTRL.translateZ\" 1 103 \"girl:rig:fk_"
-		+ "l_toe_CTRL.translateY\" 1 104 \"girl:rig:fk_l_toe_CTRL.translateX\" 1 105 \"girl:rig:fk_l_leg_CTRL.rotateZ\" 2 106 \"girl:rig:fk_l_leg_CTRL.rotateY\" 2 107 \"girl:rig:fk_l_leg_CTRL.rotateX\" 2 108 \"girl:rig:fk_l_leg_CTRL.translateZ\" 1 106 \"girl:rig:fk_l_leg_CTRL.translateY\" 1 107 \"girl:rig:fk_l_leg_CTRL.translateX\" 1 108 \"girl:rig:fk_l_hand_CTRL.rotateZ\" 2 109 \"girl:rig:fk_l_hand_CTRL.rotateY\" 2 110 \"girl:rig:fk_l_hand_CTRL.rotateX\" 2 111 \"girl:rig:fk_l_hand_CTRL.translateZ\" 1 109 \"girl:rig:fk_l_hand_CTRL.translateY\" 1 110 \"girl:rig:fk_l_hand_CTRL.translateX\" 1 111 \"girl:rig:fk_l_elbow_CTRL.rotateZ\" 2 112 \"girl:rig:fk_l_elbow_CTRL.rotateY\" 2 113 \"girl:rig:fk_l_elbow_CTRL.rotateX\" 2 114 \"girl:rig:fk_l_elbow_CTRL.translateZ\" 1 112 \"girl:rig:fk_l_elbow_CTRL.translateY\" 1 113 \"girl:rig:fk_l_elbow_CTRL.translateX\" 1 114 \"girl:rig:fk_l_ball_CTRL.rotateZ\" 2 115 \"girl:rig:fk_l_ball_CTRL.rotateY\" 2 116 \"girl:rig:fk_l_ball_CTRL.rotateX\" 2 117 \"girl:rig:fk_l_ball_CTRL.translateZ\" 1 115 \"girl:rig:fk_l_ball_CTRL.translateY\" 1 116 "
-		+ "\"girl:rig:fk_l_ball_CTRL.translateX\" 1 117 \"girl:rig:fk_l_arm_CTRL.rotateZ\" 2 118 \"girl:rig:fk_l_arm_CTRL.rotateY\" 2 119 \"girl:rig:fk_l_arm_CTRL.rotateX\" 2 120 \"girl:rig:fk_l_arm_CTRL.translateZ\" 1 118 \"girl:rig:fk_l_arm_CTRL.translateY\" 1 119 \"girl:rig:fk_l_arm_CTRL.translateX\" 1 120 \"girl:rig:fk_l_ankle_CTRL.rotateZ\" 2 121 \"girl:rig:fk_l_ankle_CTRL.rotateY\" 2 122 \"girl:rig:fk_l_ankle_CTRL.rotateX\" 2 123 \"girl:rig:fk_l_ankle_CTRL.translateZ\" 1 121 \"girl:rig:fk_l_ankle_CTRL.translateY\" 1 122 \"girl:rig:fk_l_ankle_CTRL.translateX\" 1 123 \"girl:rig:all_CTRL.rotateZ\" 2 124 \"girl:rig:all_CTRL.rotateY\" 2 125 \"girl:rig:all_CTRL.rotateX\" 2 126 \"girl:rig:all_CTRL.translateZ\" 1 124 \"girl:rig:all_CTRL.translateY\" 1 125 \"girl:rig:all_CTRL.translateX\" 1 126 \"girl:rig:spline_03_CTRL.rotateZ\" 2 127 \"girl:rig:spline_03_CTRL.rotateY\" 2 128 \"girl:rig:spline_03_CTRL.rotateX\" 2 129 \"girl:rig:spline_03_CTRL.translateZ\" 1 127 \"girl:rig:spline_03_CTRL.translateY\" 1 128 \"girl:rig:spline_03_CTRL.translateX\" 1 129 \"girl:rig:r_legSwitch"
-		+ "_CTRL.ikFkSwitch\" 0 1 \"girl:rig:l_armSwitch_CTRL.ikFkSwitch\" 0 2 \"girl:rig:r_armSwitch_CTRL.ikFkSwitch\" 0 3 \"girl:rig:l_legSwitch_CTRL.ikFkSwitch\" 0 4 \"girl:rig:r_ik_hand_CTRL.snapToElbow\" 0 5 \"girl:rig:l_ik_hand_CTRL.snapToElbow\" 0 6 \"girl:rig:l_ik_leg_CTRL.kneeSnap\" 0 7 \"girl:rig:l_ik_leg_CTRL.ToeTurn\" 0 8 \"girl:rig:l_ik_leg_CTRL.ballTurn\" 0 9 \"girl:rig:l_ik_leg_CTRL.heelTurn\" 0 10 \"girl:rig:l_ik_leg_CTRL.toeStraightAngle\" 0 11 \"girl:rig:l_ik_leg_CTRL.bandLimitAngle\" 0 12 \"girl:rig:l_ik_leg_CTRL.roll\" 0 13 \"girl:rig:l_ik_leg_CTRL.tilt\" 0 14 \"girl:rig:r_ik_leg_CTRL.kneeSnap\" 0 15 \"girl:rig:r_ik_leg_CTRL.ToeTurn\" 0 16 \"girl:rig:r_ik_leg_CTRL.ballTurn\" 0 17 \"girl:rig:r_ik_leg_CTRL.heelTurn\" 0 18 \"girl:rig:r_ik_leg_CTRL.toeStraightAngle\" 0 19 \"girl:rig:r_ik_leg_CTRL.bandLimitAngle\" 0 20 \"girl:rig:r_ik_leg_CTRL.roll\" 0 21 \"girl:rig:r_ik_leg_CTRL.tilt\" 0 22 \"girl:rig:all_CTRL.scaleZ\" 0 23 \"girl:rig:all_CTRL.scaleY\" 0 24 \"girl:rig:all_CTRL.scaleX\" 0 25 \"girl:rig:head_CTRL.ikFkSwitch\" 0 26 \"girl:rig:eye:r_eye_open_"
-		+ "CTRL.translateX\" 1 198 \"girl:rig:eye:r_eye_openMood_CTRL.translateX\" 1 201 \"girl:rig:eye:l_eye_closedMood_CTRL.translateX\" 1 202 \"girl:rig:eye:l_eye_openMood_CTRL.translateX\" 1 200 \"girl:rig:eye:l_eye_open_CTRL.translateX\" 1 199 \"girl:rig:eye:r_eye_closedMood_CTRL.translateX\" 1 203 \"girl:fk_r_skirt_01_CTRL.rotateZ\" 2 133 \"girl:fk_r_skirt_01_CTRL.rotateY\" 2 134 \"girl:fk_r_skirt_01_CTRL.rotateX\" 2 135 \"girl:fk_r_skirt_01_CTRL.translateZ\" 1 133 \"girl:fk_r_skirt_01_CTRL.translateY\" 1 134 \"girl:fk_r_skirt_01_CTRL.translateX\" 1 135 \"girl:fk_l_skirt_03_CTRL.rotateZ\" 2 136 \"girl:fk_l_skirt_03_CTRL.rotateY\" 2 137 \"girl:fk_l_skirt_03_CTRL.rotateX\" 2 138 \"girl:fk_l_skirt_03_CTRL.translateZ\" 1 136 \"girl:fk_l_skirt_03_CTRL.translateY\" 1 137 \"girl:fk_l_skirt_03_CTRL.translateX\" 1 138 \"girl:fk_l_skirt_02_CTRL.rotateZ\" 2 139 \"girl:fk_l_skirt_02_CTRL.rotateY\" 2 140 \"girl:fk_l_skirt_02_CTRL.rotateX\" 2 141 \"girl:fk_l_skirt_02_CTRL.translateZ\" 1 139 \"girl:fk_l_skirt_02_CTRL.translateY\" 1 140 \"girl:fk_l_skirt_02_CTRL.translateX\" "
-		+ "1 141 \"girl:fk_l_skirt_01_CTRL.rotateZ\" 2 142 \"girl:fk_l_skirt_01_CTRL.rotateY\" 2 143 \"girl:fk_l_skirt_01_CTRL.rotateX\" 2 144 \"girl:fk_l_skirt_01_CTRL.translateZ\" 1 142 \"girl:fk_l_skirt_01_CTRL.translateY\" 1 143 \"girl:fk_l_skirt_01_CTRL.translateX\" 1 144 \"girl:fk_f_skirt_03_CTRL.rotateZ\" 2 145 \"girl:fk_f_skirt_03_CTRL.rotateY\" 2 146 \"girl:fk_f_skirt_03_CTRL.rotateX\" 2 147 \"girl:fk_f_skirt_03_CTRL.translateZ\" 1 145 \"girl:fk_f_skirt_03_CTRL.translateY\" 1 146 \"girl:fk_f_skirt_03_CTRL.translateX\" 1 147 \"girl:fk_f_skirt_02_CTRL.rotateZ\" 2 148 \"girl:fk_f_skirt_02_CTRL.rotateY\" 2 149 \"girl:fk_f_skirt_02_CTRL.rotateX\" 2 150 \"girl:fk_f_skirt_02_CTRL.translateZ\" 1 148 \"girl:fk_f_skirt_02_CTRL.translateY\" 1 149 \"girl:fk_f_skirt_02_CTRL.translateX\" 1 150 \"girl:fk_f_skirt_01_CTRL.rotateZ\" 2 151 \"girl:fk_f_skirt_01_CTRL.rotateY\" 2 152 \"girl:fk_f_skirt_01_CTRL.rotateX\" 2 153 \"girl:fk_f_skirt_01_CTRL.translateZ\" 1 151 \"girl:fk_f_skirt_01_CTRL.translateY\" 1 152 \"girl:fk_f_skirt_01_CTRL.translateX\" 1 153 \"girl:fk_b_skirt_03_CT"
-		+ "RL.rotateZ\" 2 154 \"girl:fk_b_skirt_03_CTRL.rotateY\" 2 155 \"girl:fk_b_skirt_03_CTRL.rotateX\" 2 156 \"girl:fk_b_skirt_03_CTRL.translateZ\" 1 154 \"girl:fk_b_skirt_03_CTRL.translateY\" 1 155 \"girl:fk_b_skirt_03_CTRL.translateX\" 1 156 \"girl:fk_b_skirt_02_CTRL.rotateZ\" 2 157 \"girl:fk_b_skirt_02_CTRL.rotateY\" 2 158 \"girl:fk_b_skirt_02_CTRL.rotateX\" 2 159 \"girl:fk_b_skirt_02_CTRL.translateZ\" 1 157 \"girl:fk_b_skirt_02_CTRL.translateY\" 1 158 \"girl:fk_b_skirt_02_CTRL.translateX\" 1 159 \"girl:fk_b_skirt_01_CTRL.rotateZ\" 2 160 \"girl:fk_b_skirt_01_CTRL.rotateY\" 2 161 \"girl:fk_b_skirt_01_CTRL.rotateX\" 2 162 \"girl:fk_b_skirt_01_CTRL.translateZ\" 1 160 \"girl:fk_b_skirt_01_CTRL.translateY\" 1 161 \"girl:fk_b_skirt_01_CTRL.translateX\" 1 162 \"girl:fk_r_skirt_03_CTRL.rotateZ\" 2 163 \"girl:fk_r_skirt_03_CTRL.rotateY\" 2 164 \"girl:fk_r_skirt_03_CTRL.rotateX\" 2 165 \"girl:fk_r_skirt_03_CTRL.translateZ\" 1 163 \"girl:fk_r_skirt_03_CTRL.translateY\" 1 164 \"girl:fk_r_skirt_03_CTRL.translateX\" 1 165 \"girl:skirtSwitch_CTRL.ikFkSwitch\" 0 27 \"girl:ik_l"
-		+ "_skirt_CTRL.rotateZ\" 2 166 \"girl:ik_l_skirt_CTRL.rotateY\" 2 167 \"girl:ik_l_skirt_CTRL.rotateX\" 2 168 \"girl:ik_l_skirt_CTRL.translateZ\" 1 166 \"girl:ik_l_skirt_CTRL.translateY\" 1 167 \"girl:ik_l_skirt_CTRL.translateX\" 1 168 \"girl:ik_b_skirt_CTRL.rotateZ\" 2 169 \"girl:ik_b_skirt_CTRL.rotateY\" 2 170 \"girl:ik_b_skirt_CTRL.rotateX\" 2 171 \"girl:ik_b_skirt_CTRL.translateZ\" 1 169 \"girl:ik_b_skirt_CTRL.translateY\" 1 170 \"girl:ik_b_skirt_CTRL.translateX\" 1 171 \"girl:ik_r_skirt_CTRL.rotateZ\" 2 172 \"girl:ik_r_skirt_CTRL.rotateY\" 2 173 \"girl:ik_r_skirt_CTRL.rotateX\" 2 174 \"girl:ik_r_skirt_CTRL.translateZ\" 1 172 \"girl:ik_r_skirt_CTRL.translateY\" 1 173 \"girl:ik_r_skirt_CTRL.translateX\" 1 174 \"girl:ik_f_skirt_CTRL.rotateZ\" 2 175 \"girl:ik_f_skirt_CTRL.rotateY\" 2 176 \"girl:ik_f_skirt_CTRL.rotateX\" 2 177 \"girl:ik_f_skirt_CTRL.translateZ\" 1 175 \"girl:ik_f_skirt_CTRL.translateY\" 1 176 \"girl:ik_f_skirt_CTRL.translateX\" 1 177 \"girl:fk_hair_04_CTRL.rotateZ\" 2 178 \"girl:fk_hair_04_CTRL.rotateY\" 2 179 \"girl:fk_hair_04_CTRL.rotateX\" 2 180"
-		+ " \"girl:fk_hair_04_CTRL.translateZ\" 1 178 \"girl:fk_hair_04_CTRL.translateY\" 1 179 \"girl:fk_hair_04_CTRL.translateX\" 1 180 \"girl:fk_hair_03_CTRL.rotateZ\" 2 181 \"girl:fk_hair_03_CTRL.rotateY\" 2 182 \"girl:fk_hair_03_CTRL.rotateX\" 2 183 \"girl:fk_hair_03_CTRL.translateZ\" 1 181 \"girl:fk_hair_03_CTRL.translateY\" 1 182 \"girl:fk_hair_03_CTRL.translateX\" 1 183 \"girl:fk_hair_02_CTRL.rotateZ\" 2 184 \"girl:fk_hair_02_CTRL.rotateY\" 2 185 \"girl:fk_hair_02_CTRL.rotateX\" 2 186 \"girl:fk_hair_02_CTRL.translateZ\" 1 184 \"girl:fk_hair_02_CTRL.translateY\" 1 185 \"girl:fk_hair_02_CTRL.translateX\" 1 186 \"girl:fk_hair_01_CTRL.rotateZ\" 2 187 \"girl:fk_hair_01_CTRL.rotateY\" 2 188 \"girl:fk_hair_01_CTRL.rotateX\" 2 189 \"girl:fk_hair_01_CTRL.translateZ\" 1 187 \"girl:fk_hair_01_CTRL.translateY\" 1 188 \"girl:fk_hair_01_CTRL.translateX\" 1 189 \"girl:fk_hair_05_CTRL.rotateZ\" 2 190 \"girl:fk_hair_05_CTRL.rotateY\" 2 191 \"girl:fk_hair_05_CTRL.rotateX\" 2 192 \"girl:fk_hair_05_CTRL.translateZ\" 1 190 \"girl:fk_hair_05_CTRL.translateY\" 1 191 \"girl:fk_hair_05_CT"
-		+ "RL.translateX\" 1 192 \"girl:ik_hair_CTRL.rotateZ\" 2 193 \"girl:ik_hair_CTRL.rotateY\" 2 194 \"girl:ik_hair_CTRL.rotateX\" 2 195 \"girl:ik_hair_CTRL.translateZ\" 1 193 \"girl:ik_hair_CTRL.translateY\" 1 194 \"girl:ik_hair_CTRL.translateX\" 1 195 \"girl:hairSwitch_CTRL.ikFkSwitch\" 0 28 \"girl:r_brow_CTRL.translateX\" 1 196 \"girl:l_brow_CTRL.translateX\" 1 197 \"girl:rig:eye:r_eye_open_CTRL.translateX\" 1 198 \"girl:rig:eye:l_eye_open_CTRL.translateX\" 1 199 \"girl:rig:eye:l_eye_openMood_CTRL.translateX\" 1 200 \"girl:rig:eye:r_eye_openMood_CTRL.translateX\" 1 201 \"girl:rig:eye:l_eye_closedMood_CTRL.translateX\" 1 202 \"girl:rig:eye:r_eye_closedMood_CTRL.translateX\" 1 203"
-		)
-		5 4 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL.scaleX" 
-		"girlRN.placeHolderList[1]" ""
-		5 4 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL.scaleY" 
-		"girlRN.placeHolderList[2]" ""
-		5 4 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL.scaleZ" 
+		2 "girl:rig:charset" "referenceMapping" (" -type \"characterMapping\" 426 \"girl:rig:spline_02_CTRL.rotateZ\" 2 1 \"girl:rig:spline_02_CTRL.rotateY\" 2 2 \"girl:rig:spline_02_CTRL.rotateX\" 2 3 \"girl:rig:spline_02_CTRL.translateZ\" 1 1 \"girl:rig:spline_02_CTRL.translateY\" 1 2 \"girl:rig:spline_02_CTRL.translateX\" 1 3 \"girl:rig:spline_01_CTRL.rotateZ\" 2 4 \"girl:rig:spline_01_CTRL.rotateY\" 2 5 \"girl:rig:spline_01_CTRL.rotateX\" 2 6 \"girl:rig:spline_01_CTRL.translateZ\" 1 4 \"girl:rig:spline_01_CTRL.translateY\" 1 5 \"girl:rig:spline_01_CTRL.translateX\" 1 6 \"girl:rig:root_CTRL.rotateZ\" 2 7 \"girl:rig:root_CTRL.rotateY\" 2 8 \"girl:rig:root_CTRL.rotateX\" 2 9 \"girl:rig:root_CTRL.translateZ\" 1 7 \"girl:rig:root_CTRL.translateY\" 1 8 \"girl:rig:root_CTRL.translateX\" 1 9 \"girl:rig:r_shoulder_CTRL.rotateZ\" 2 10 \"girl:rig:r_shoulder_CTRL.rotateY\" 2 11 \"girl:rig:r_shoulder_CTRL.rotateX\" 2 12 \"girl:rig:r_shoulder_CTRL.translateZ\" 1 10 \"girl:rig:r_shoulder_CTRL.translateY\" 1 11 \"girl:rig:r_shoulder_CTRL.translateX\" 1 12 \"girl:rig:r_leg_poleVector_CTRL.rotateZ\" 2 13 \"girl:rig:r_leg_po"
+		+ "leVector_CTRL.rotateY\" 2 14 \"girl:rig:r_leg_poleVector_CTRL.rotateX\" 2 15 \"girl:rig:r_leg_poleVector_CTRL.translateZ\" 1 13 \"girl:rig:r_leg_poleVector_CTRL.translateY\" 1 14 \"girl:rig:r_leg_poleVector_CTRL.translateX\" 1 15 \"girl:rig:r_arm_poleVector_CTRL.rotateZ\" 2 16 \"girl:rig:r_arm_poleVector_CTRL.rotateY\" 2 17 \"girl:rig:r_arm_poleVector_CTRL.rotateX\" 2 18 \"girl:rig:r_arm_poleVector_CTRL.translateZ\" 1 16 \"girl:rig:r_arm_poleVector_CTRL.translateY\" 1 17 \"girl:rig:r_arm_poleVector_CTRL.translateX\" 1 18 \"girl:rig:r_ik_leg_CTRL.rotateZ\" 2 19 \"girl:rig:r_ik_leg_CTRL.rotateY\" 2 20 \"girl:rig:r_ik_leg_CTRL.rotateX\" 2 21 \"girl:rig:r_ik_leg_CTRL.translateZ\" 1 19 \"girl:rig:r_ik_leg_CTRL.translateY\" 1 20 \"girl:rig:r_ik_leg_CTRL.translateX\" 1 21 \"girl:rig:r_ik_hand_CTRL.rotateZ\" 2 22 \"girl:rig:r_ik_hand_CTRL.rotateY\" 2 23 \"girl:rig:r_ik_hand_CTRL.rotateX\" 2 24 \"girl:rig:r_ik_hand_CTRL.translateZ\" 1 22 \"girl:rig:r_ik_hand_CTRL.translateY\" 1 23 \"girl:rig:r_ik_hand_CTRL.translateX\" 1 24 \"girl:rig:r_finger_04_CTRL.rotateZ\" 2 "
+		+ "25 \"girl:rig:r_finger_04_CTRL.rotateY\" 2 26 \"girl:rig:r_finger_04_CTRL.rotateX\" 2 27 \"girl:rig:r_finger_04_CTRL.translateZ\" 1 25 \"girl:rig:r_finger_04_CTRL.translateY\" 1 26 \"girl:rig:r_finger_04_CTRL.translateX\" 1 27 \"girl:rig:r_finger_03_CTRL.rotateZ\" 2 28 \"girl:rig:r_finger_03_CTRL.rotateY\" 2 29 \"girl:rig:r_finger_03_CTRL.rotateX\" 2 30 \"girl:rig:r_finger_03_CTRL.translateZ\" 1 28 \"girl:rig:r_finger_03_CTRL.translateY\" 1 29 \"girl:rig:r_finger_03_CTRL.translateX\" 1 30 \"girl:rig:r_finger_02_CTRL.rotateZ\" 2 31 \"girl:rig:r_finger_02_CTRL.rotateY\" 2 32 \"girl:rig:r_finger_02_CTRL.rotateX\" 2 33 \"girl:rig:r_finger_02_CTRL.translateZ\" 1 31 \"girl:rig:r_finger_02_CTRL.translateY\" 1 32 \"girl:rig:r_finger_02_CTRL.translateX\" 1 33 \"girl:rig:r_finger_01_CTRL.rotateZ\" 2 34 \"girl:rig:r_finger_01_CTRL.rotateY\" 2 35 \"girl:rig:r_finger_01_CTRL.rotateX\" 2 36 \"girl:rig:r_finger_01_CTRL.translateZ\" 1 34 \"girl:rig:r_finger_01_CTRL.translateY\" 1 35 \"girl:rig:r_finger_01_CTRL.translateX\" 1 36 \"girl:rig:neck_CTRL.rotateZ\" 2 37 \"girl:ri"
+		+ "g:neck_CTRL.rotateY\" 2 38 \"girl:rig:neck_CTRL.rotateX\" 2 39 \"girl:rig:neck_CTRL.translateZ\" 1 37 \"girl:rig:neck_CTRL.translateY\" 1 38 \"girl:rig:neck_CTRL.translateX\" 1 39 \"girl:rig:l_shoulder_CTRL.rotateZ\" 2 40 \"girl:rig:l_shoulder_CTRL.rotateY\" 2 41 \"girl:rig:l_shoulder_CTRL.rotateX\" 2 42 \"girl:rig:l_shoulder_CTRL.translateZ\" 1 40 \"girl:rig:l_shoulder_CTRL.translateY\" 1 41 \"girl:rig:l_shoulder_CTRL.translateX\" 1 42 \"girl:rig:l_leg_poleVector_CTRL.rotateZ\" 2 43 \"girl:rig:l_leg_poleVector_CTRL.rotateY\" 2 44 \"girl:rig:l_leg_poleVector_CTRL.rotateX\" 2 45 \"girl:rig:l_leg_poleVector_CTRL.translateZ\" 1 43 \"girl:rig:l_leg_poleVector_CTRL.translateY\" 1 44 \"girl:rig:l_leg_poleVector_CTRL.translateX\" 1 45 \"girl:rig:l_arm_poleVector_CTRL.rotateZ\" 2 46 \"girl:rig:l_arm_poleVector_CTRL.rotateY\" 2 47 \"girl:rig:l_arm_poleVector_CTRL.rotateX\" 2 48 \"girl:rig:l_arm_poleVector_CTRL.translateZ\" 1 46 \"girl:rig:l_arm_poleVector_CTRL.translateY\" 1 47 \"girl:rig:l_arm_poleVector_CTRL.translateX\" 1 48 \"girl:rig:l_ik_leg_CTRL.rotateZ\" 2"
+		+ " 49 \"girl:rig:l_ik_leg_CTRL.rotateY\" 2 50 \"girl:rig:l_ik_leg_CTRL.rotateX\" 2 51 \"girl:rig:l_ik_leg_CTRL.translateZ\" 1 49 \"girl:rig:l_ik_leg_CTRL.translateY\" 1 50 \"girl:rig:l_ik_leg_CTRL.translateX\" 1 51 \"girl:rig:l_ik_hand_CTRL.rotateZ\" 2 52 \"girl:rig:l_ik_hand_CTRL.rotateY\" 2 53 \"girl:rig:l_ik_hand_CTRL.rotateX\" 2 54 \"girl:rig:l_ik_hand_CTRL.translateZ\" 1 52 \"girl:rig:l_ik_hand_CTRL.translateY\" 1 53 \"girl:rig:l_ik_hand_CTRL.translateX\" 1 54 \"girl:rig:l_finger_04_CTRL.rotateZ\" 2 55 \"girl:rig:l_finger_04_CTRL.rotateY\" 2 56 \"girl:rig:l_finger_04_CTRL.rotateX\" 2 57 \"girl:rig:l_finger_04_CTRL.translateZ\" 1 55 \"girl:rig:l_finger_04_CTRL.translateY\" 1 56 \"girl:rig:l_finger_04_CTRL.translateX\" 1 57 \"girl:rig:l_finger_03_CTRL.rotateZ\" 2 58 \"girl:rig:l_finger_03_CTRL.rotateY\" 2 59 \"girl:rig:l_finger_03_CTRL.rotateX\" 2 60 \"girl:rig:l_finger_03_CTRL.translateZ\" 1 58 \"girl:rig:l_finger_03_CTRL.translateY\" 1 59 \"girl:rig:l_finger_03_CTRL.translateX\" 1 60 \"girl:rig:l_finger_02_CTRL.rotateZ\" 2 61 \"girl:rig:l_finger_02_CTRL."
+		+ "rotateY\" 2 62 \"girl:rig:l_finger_02_CTRL.rotateX\" 2 63 \"girl:rig:l_finger_02_CTRL.translateZ\" 1 61 \"girl:rig:l_finger_02_CTRL.translateY\" 1 62 \"girl:rig:l_finger_02_CTRL.translateX\" 1 63 \"girl:rig:l_finger_01_CTRL.rotateZ\" 2 64 \"girl:rig:l_finger_01_CTRL.rotateY\" 2 65 \"girl:rig:l_finger_01_CTRL.rotateX\" 2 66 \"girl:rig:l_finger_01_CTRL.translateZ\" 1 64 \"girl:rig:l_finger_01_CTRL.translateY\" 1 65 \"girl:rig:l_finger_01_CTRL.translateX\" 1 66 \"girl:rig:hip_CTRL.rotateZ\" 2 67 \"girl:rig:hip_CTRL.rotateY\" 2 68 \"girl:rig:hip_CTRL.rotateX\" 2 69 \"girl:rig:hip_CTRL.translateZ\" 1 67 \"girl:rig:hip_CTRL.translateY\" 1 68 \"girl:rig:hip_CTRL.translateX\" 1 69 \"girl:rig:head_ik_CTRL.rotateZ\" 2 70 \"girl:rig:head_ik_CTRL.rotateY\" 2 71 \"girl:rig:head_ik_CTRL.rotateX\" 2 72 \"girl:rig:head_ik_CTRL.translateZ\" 1 70 \"girl:rig:head_ik_CTRL.translateY\" 1 71 \"girl:rig:head_ik_CTRL.translateX\" 1 72 \"girl:rig:head_CTRL.rotateZ\" 2 73 \"girl:rig:head_CTRL.rotateY\" 2 74 \"girl:rig:head_CTRL.rotateX\" 2 75 \"girl:rig:head_CTRL.translateZ\" 1 73 \"girl"
+		+ ":rig:head_CTRL.translateY\" 1 74 \"girl:rig:head_CTRL.translateX\" 1 75 \"girl:rig:fk_r_upperKnee_CTRL.rotateZ\" 2 76 \"girl:rig:fk_r_upperKnee_CTRL.rotateY\" 2 77 \"girl:rig:fk_r_upperKnee_CTRL.rotateX\" 2 78 \"girl:rig:fk_r_upperKnee_CTRL.translateZ\" 1 76 \"girl:rig:fk_r_upperKnee_CTRL.translateY\" 1 77 \"girl:rig:fk_r_upperKnee_CTRL.translateX\" 1 78 \"girl:rig:fk_r_toe_CTRL.rotateZ\" 2 79 \"girl:rig:fk_r_toe_CTRL.rotateY\" 2 80 \"girl:rig:fk_r_toe_CTRL.rotateX\" 2 81 \"girl:rig:fk_r_toe_CTRL.translateZ\" 1 79 \"girl:rig:fk_r_toe_CTRL.translateY\" 1 80 \"girl:rig:fk_r_toe_CTRL.translateX\" 1 81 \"girl:rig:fk_r_leg_CTRL.rotateZ\" 2 82 \"girl:rig:fk_r_leg_CTRL.rotateY\" 2 83 \"girl:rig:fk_r_leg_CTRL.rotateX\" 2 84 \"girl:rig:fk_r_leg_CTRL.translateZ\" 1 82 \"girl:rig:fk_r_leg_CTRL.translateY\" 1 83 \"girl:rig:fk_r_leg_CTRL.translateX\" 1 84 \"girl:rig:fk_r_hand_CTRL.rotateZ\" 2 85 \"girl:rig:fk_r_hand_CTRL.rotateY\" 2 86 \"girl:rig:fk_r_hand_CTRL.rotateX\" 2 87 \"girl:rig:fk_r_hand_CTRL.translateZ\" 1 85 \"girl:rig:fk_r_hand_CTRL.translateY\" 1 86 \"girl:r"
+		+ "ig:fk_r_hand_CTRL.translateX\" 1 87 \"girl:rig:fk_r_elbow_CTRL.rotateZ\" 2 88 \"girl:rig:fk_r_elbow_CTRL.rotateY\" 2 89 \"girl:rig:fk_r_elbow_CTRL.rotateX\" 2 90 \"girl:rig:fk_r_elbow_CTRL.translateZ\" 1 88 \"girl:rig:fk_r_elbow_CTRL.translateY\" 1 89 \"girl:rig:fk_r_elbow_CTRL.translateX\" 1 90 \"girl:rig:fk_r_ball_CTRL.rotateZ\" 2 91 \"girl:rig:fk_r_ball_CTRL.rotateY\" 2 92 \"girl:rig:fk_r_ball_CTRL.rotateX\" 2 93 \"girl:rig:fk_r_ball_CTRL.translateZ\" 1 91 \"girl:rig:fk_r_ball_CTRL.translateY\" 1 92 \"girl:rig:fk_r_ball_CTRL.translateX\" 1 93 \"girl:rig:fk_r_arm_CTRL.rotateZ\" 2 94 \"girl:rig:fk_r_arm_CTRL.rotateY\" 2 95 \"girl:rig:fk_r_arm_CTRL.rotateX\" 2 96 \"girl:rig:fk_r_arm_CTRL.translateZ\" 1 94 \"girl:rig:fk_r_arm_CTRL.translateY\" 1 95 \"girl:rig:fk_r_arm_CTRL.translateX\" 1 96 \"girl:rig:fk_r_ankle_CTRL.rotateZ\" 2 97 \"girl:rig:fk_r_ankle_CTRL.rotateY\" 2 98 \"girl:rig:fk_r_ankle_CTRL.rotateX\" 2 99 \"girl:rig:fk_r_ankle_CTRL.translateZ\" 1 97 \"girl:rig:fk_r_ankle_CTRL.translateY\" 1 98 \"girl:rig:fk_r_ankle_CTRL.translateX\" 1 99 \"girl:rig:f"
+		+ "k_l_upperKnee_CTRL.rotateZ\" 2 100 \"girl:rig:fk_l_upperKnee_CTRL.rotateY\" 2 101 \"girl:rig:fk_l_upperKnee_CTRL.rotateX\" 2 102 \"girl:rig:fk_l_upperKnee_CTRL.translateZ\" 1 100 \"girl:rig:fk_l_upperKnee_CTRL.translateY\" 1 101 \"girl:rig:fk_l_upperKnee_CTRL.translateX\" 1 102 \"girl:rig:fk_l_toe_CTRL.rotateZ\" 2 103 \"girl:rig:fk_l_toe_CTRL.rotateY\" 2 104 \"girl:rig:fk_l_toe_CTRL.rotateX\" 2 105 \"girl:rig:fk_l_toe_CTRL.translateZ\" 1 103 \"girl:rig:fk_l_toe_CTRL.translateY\" 1 104 \"girl:rig:fk_l_toe_CTRL.translateX\" 1 105 \"girl:rig:fk_l_leg_CTRL.rotateZ\" 2 106 \"girl:rig:fk_l_leg_CTRL.rotateY\" 2 107 \"girl:rig:fk_l_leg_CTRL.rotateX\" 2 108 \"girl:rig:fk_l_leg_CTRL.translateZ\" 1 106 \"girl:rig:fk_l_leg_CTRL.translateY\" 1 107 \"girl:rig:fk_l_leg_CTRL.translateX\" 1 108 \"girl:rig:fk_l_hand_CTRL.rotateZ\" 2 109 \"girl:rig:fk_l_hand_CTRL.rotateY\" 2 110 \"girl:rig:fk_l_hand_CTRL.rotateX\" 2 111 \"girl:rig:fk_l_hand_CTRL.translateZ\" 1 109 \"girl:rig:fk_l_hand_CTRL.translateY\" 1 110 \"girl:rig:fk_l_hand_CTRL.translateX\" 1 111 \"girl:rig:fk_l_elbow_"
+		+ "CTRL.rotateZ\" 2 112 \"girl:rig:fk_l_elbow_CTRL.rotateY\" 2 113 \"girl:rig:fk_l_elbow_CTRL.rotateX\" 2 114 \"girl:rig:fk_l_elbow_CTRL.translateZ\" 1 112 \"girl:rig:fk_l_elbow_CTRL.translateY\" 1 113 \"girl:rig:fk_l_elbow_CTRL.translateX\" 1 114 \"girl:rig:fk_l_ball_CTRL.rotateZ\" 2 115 \"girl:rig:fk_l_ball_CTRL.rotateY\" 2 116 \"girl:rig:fk_l_ball_CTRL.rotateX\" 2 117 \"girl:rig:fk_l_ball_CTRL.translateZ\" 1 115 \"girl:rig:fk_l_ball_CTRL.translateY\" 1 116 \"girl:rig:fk_l_ball_CTRL.translateX\" 1 117 \"girl:rig:fk_l_arm_CTRL.rotateZ\" 2 118 \"girl:rig:fk_l_arm_CTRL.rotateY\" 2 119 \"girl:rig:fk_l_arm_CTRL.rotateX\" 2 120 \"girl:rig:fk_l_arm_CTRL.translateZ\" 1 118 \"girl:rig:fk_l_arm_CTRL.translateY\" 1 119 \"girl:rig:fk_l_arm_CTRL.translateX\" 1 120 \"girl:rig:fk_l_ankle_CTRL.rotateZ\" 2 121 \"girl:rig:fk_l_ankle_CTRL.rotateY\" 2 122 \"girl:rig:fk_l_ankle_CTRL.rotateX\" 2 123 \"girl:rig:fk_l_ankle_CTRL.translateZ\" 1 121 \"girl:rig:fk_l_ankle_CTRL.translateY\" 1 122 \"girl:rig:fk_l_ankle_CTRL.translateX\" 1 123 \"girl:rig:all_CTRL.rotateZ\" 2 124 \"girl:rig"
+		+ ":all_CTRL.rotateY\" 2 125 \"girl:rig:all_CTRL.rotateX\" 2 126 \"girl:rig:all_CTRL.translateZ\" 1 124 \"girl:rig:all_CTRL.translateY\" 1 125 \"girl:rig:all_CTRL.translateX\" 1 126 \"girl:rig:spline_03_CTRL.rotateZ\" 2 127 \"girl:rig:spline_03_CTRL.rotateY\" 2 128 \"girl:rig:spline_03_CTRL.rotateX\" 2 129 \"girl:rig:spline_03_CTRL.translateZ\" 1 127 \"girl:rig:spline_03_CTRL.translateY\" 1 128 \"girl:rig:spline_03_CTRL.translateX\" 1 129 \"girl:rig:r_legSwitch_CTRL.ikFkSwitch\" 0 1 \"girl:rig:l_armSwitch_CTRL.ikFkSwitch\" 0 2 \"girl:rig:r_armSwitch_CTRL.ikFkSwitch\" 0 3 \"girl:rig:l_legSwitch_CTRL.ikFkSwitch\" 0 4 \"girl:rig:r_ik_hand_CTRL.snapToElbow\" 0 5 \"girl:rig:l_ik_hand_CTRL.snapToElbow\" 0 6 \"girl:rig:l_ik_leg_CTRL.kneeSnap\" 0 7 \"girl:rig:l_ik_leg_CTRL.ToeTurn\" 0 8 \"girl:rig:l_ik_leg_CTRL.ballTurn\" 0 9 \"girl:rig:l_ik_leg_CTRL.heelTurn\" 0 10 \"girl:rig:l_ik_leg_CTRL.toeStraightAngle\" 0 11 \"girl:rig:l_ik_leg_CTRL.bandLimitAngle\" 0 12 \"girl:rig:l_ik_leg_CTRL.roll\" 0 13 \"girl:rig:l_ik_leg_CTRL.tilt\" 0 14 \"girl:rig:r_ik_leg_CTRL.kneeSnap\" 0"
+		+ " 15 \"girl:rig:r_ik_leg_CTRL.ToeTurn\" 0 16 \"girl:rig:r_ik_leg_CTRL.ballTurn\" 0 17 \"girl:rig:r_ik_leg_CTRL.heelTurn\" 0 18 \"girl:rig:r_ik_leg_CTRL.toeStraightAngle\" 0 19 \"girl:rig:r_ik_leg_CTRL.bandLimitAngle\" 0 20 \"girl:rig:r_ik_leg_CTRL.roll\" 0 21 \"girl:rig:r_ik_leg_CTRL.tilt\" 0 22 \"girl:rig:all_CTRL.scaleZ\" 0 23 \"girl:rig:all_CTRL.scaleY\" 0 24 \"girl:rig:all_CTRL.scaleX\" 0 25 \"girl:rig:head_CTRL.ikFkSwitch\" 0 26 \"girl:rig:eye:r_eye_open_CTRL.translateX\" 1 198 \"girl:rig:eye:r_eye_openMood_CTRL.translateX\" 1 201 \"girl:rig:eye:l_eye_closedMood_CTRL.translateX\" 1 202 \"girl:rig:eye:l_eye_openMood_CTRL.translateX\" 1 200 \"girl:rig:eye:l_eye_open_CTRL.translateX\" 1 199 \"girl:rig:eye:r_eye_closedMood_CTRL.translateX\" 1 203 \"girl:fk_r_skirt_01_CTRL.rotateZ\" 2 133 \"girl:fk_r_skirt_01_CTRL.rotateY\" 2 134 \"girl:fk_r_skirt_01_CTRL.rotateX\" 2 135 \"girl:fk_r_skirt_01_CTRL.translateZ\" 1 133 \"girl:fk_r_skirt_01_CTRL.translateY\" 1 134 \"girl:fk_r_skirt_01_CTRL.translateX\" 1 135 \"girl:fk_l_skirt_03_CTRL.rotateZ\" 2 136 \"girl:fk_l_s"
+		+ "kirt_03_CTRL.rotateY\" 2 137 \"girl:fk_l_skirt_03_CTRL.rotateX\" 2 138 \"girl:fk_l_skirt_03_CTRL.translateZ\" 1 136 \"girl:fk_l_skirt_03_CTRL.translateY\" 1 137 \"girl:fk_l_skirt_03_CTRL.translateX\" 1 138 \"girl:fk_l_skirt_02_CTRL.rotateZ\" 2 139 \"girl:fk_l_skirt_02_CTRL.rotateY\" 2 140 \"girl:fk_l_skirt_02_CTRL.rotateX\" 2 141 \"girl:fk_l_skirt_02_CTRL.translateZ\" 1 139 \"girl:fk_l_skirt_02_CTRL.translateY\" 1 140 \"girl:fk_l_skirt_02_CTRL.translateX\" 1 141 \"girl:fk_l_skirt_01_CTRL.rotateZ\" 2 142 \"girl:fk_l_skirt_01_CTRL.rotateY\" 2 143 \"girl:fk_l_skirt_01_CTRL.rotateX\" 2 144 \"girl:fk_l_skirt_01_CTRL.translateZ\" 1 142 \"girl:fk_l_skirt_01_CTRL.translateY\" 1 143 \"girl:fk_l_skirt_01_CTRL.translateX\" 1 144 \"girl:fk_f_skirt_03_CTRL.rotateZ\" 2 145 \"girl:fk_f_skirt_03_CTRL.rotateY\" 2 146 \"girl:fk_f_skirt_03_CTRL.rotateX\" 2 147 \"girl:fk_f_skirt_03_CTRL.translateZ\" 1 145 \"girl:fk_f_skirt_03_CTRL.translateY\" 1 146 \"girl:fk_f_skirt_03_CTRL.translateX\" 1 147 \"girl:fk_f_skirt_02_CTRL.rotateZ\" 2 148 \"girl:fk_f_skirt_02_CTRL.rotateY\" 2 149 "
+		+ "\"girl:fk_f_skirt_02_CTRL.rotateX\" 2 150 \"girl:fk_f_skirt_02_CTRL.translateZ\" 1 148 \"girl:fk_f_skirt_02_CTRL.translateY\" 1 149 \"girl:fk_f_skirt_02_CTRL.translateX\" 1 150 \"girl:fk_f_skirt_01_CTRL.rotateZ\" 2 151 \"girl:fk_f_skirt_01_CTRL.rotateY\" 2 152 \"girl:fk_f_skirt_01_CTRL.rotateX\" 2 153 \"girl:fk_f_skirt_01_CTRL.translateZ\" 1 151 \"girl:fk_f_skirt_01_CTRL.translateY\" 1 152 \"girl:fk_f_skirt_01_CTRL.translateX\" 1 153 \"girl:fk_b_skirt_03_CTRL.rotateZ\" 2 154 \"girl:fk_b_skirt_03_CTRL.rotateY\" 2 155 \"girl:fk_b_skirt_03_CTRL.rotateX\" 2 156 \"girl:fk_b_skirt_03_CTRL.translateZ\" 1 154 \"girl:fk_b_skirt_03_CTRL.translateY\" 1 155 \"girl:fk_b_skirt_03_CTRL.translateX\" 1 156 \"girl:fk_b_skirt_02_CTRL.rotateZ\" 2 157 \"girl:fk_b_skirt_02_CTRL.rotateY\" 2 158 \"girl:fk_b_skirt_02_CTRL.rotateX\" 2 159 \"girl:fk_b_skirt_02_CTRL.translateZ\" 1 157 \"girl:fk_b_skirt_02_CTRL.translateY\" 1 158 \"girl:fk_b_skirt_02_CTRL.translateX\" 1 159 \"girl:fk_b_skirt_01_CTRL.rotateZ\" 2 160 \"girl:fk_b_skirt_01_CTRL.rotateY\" 2 161 \"girl:fk_b_skirt_01_CTRL.rot"
+		+ "ateX\" 2 162 \"girl:fk_b_skirt_01_CTRL.translateZ\" 1 160 \"girl:fk_b_skirt_01_CTRL.translateY\" 1 161 \"girl:fk_b_skirt_01_CTRL.translateX\" 1 162 \"girl:fk_r_skirt_03_CTRL.rotateZ\" 2 163 \"girl:fk_r_skirt_03_CTRL.rotateY\" 2 164 \"girl:fk_r_skirt_03_CTRL.rotateX\" 2 165 \"girl:fk_r_skirt_03_CTRL.translateZ\" 1 163 \"girl:fk_r_skirt_03_CTRL.translateY\" 1 164 \"girl:fk_r_skirt_03_CTRL.translateX\" 1 165 \"girl:skirtSwitch_CTRL.ikFkSwitch\" 0 27 \"girl:ik_l_skirt_CTRL.rotateZ\" 2 166 \"girl:ik_l_skirt_CTRL.rotateY\" 2 167 \"girl:ik_l_skirt_CTRL.rotateX\" 2 168 \"girl:ik_l_skirt_CTRL.translateZ\" 1 166 \"girl:ik_l_skirt_CTRL.translateY\" 1 167 \"girl:ik_l_skirt_CTRL.translateX\" 1 168 \"girl:ik_b_skirt_CTRL.rotateZ\" 2 169 \"girl:ik_b_skirt_CTRL.rotateY\" 2 170 \"girl:ik_b_skirt_CTRL.rotateX\" 2 171 \"girl:ik_b_skirt_CTRL.translateZ\" 1 169 \"girl:ik_b_skirt_CTRL.translateY\" 1 170 \"girl:ik_b_skirt_CTRL.translateX\" 1 171 \"girl:ik_r_skirt_CTRL.rotateZ\" 2 172 \"girl:ik_r_skirt_CTRL.rotateY\" 2 173 \"girl:ik_r_skirt_CTRL.rotateX\" 2 174 \"girl:ik_r_skirt_CTRL"
+		+ ".translateZ\" 1 172 \"girl:ik_r_skirt_CTRL.translateY\" 1 173 \"girl:ik_r_skirt_CTRL.translateX\" 1 174 \"girl:ik_f_skirt_CTRL.rotateZ\" 2 175 \"girl:ik_f_skirt_CTRL.rotateY\" 2 176 \"girl:ik_f_skirt_CTRL.rotateX\" 2 177 \"girl:ik_f_skirt_CTRL.translateZ\" 1 175 \"girl:ik_f_skirt_CTRL.translateY\" 1 176 \"girl:ik_f_skirt_CTRL.translateX\" 1 177 \"girl:fk_hair_04_CTRL.rotateZ\" 2 178 \"girl:fk_hair_04_CTRL.rotateY\" 2 179 \"girl:fk_hair_04_CTRL.rotateX\" 2 180 \"girl:fk_hair_04_CTRL.translateZ\" 1 178 \"girl:fk_hair_04_CTRL.translateY\" 1 179 \"girl:fk_hair_04_CTRL.translateX\" 1 180 \"girl:fk_hair_03_CTRL.rotateZ\" 2 181 \"girl:fk_hair_03_CTRL.rotateY\" 2 182 \"girl:fk_hair_03_CTRL.rotateX\" 2 183 \"girl:fk_hair_03_CTRL.translateZ\" 1 181 \"girl:fk_hair_03_CTRL.translateY\" 1 182 \"girl:fk_hair_03_CTRL.translateX\" 1 183 \"girl:fk_hair_02_CTRL.rotateZ\" 2 184 \"girl:fk_hair_02_CTRL.rotateY\" 2 185 \"girl:fk_hair_02_CTRL.rotateX\" 2 186 \"girl:fk_hair_02_CTRL.translateZ\" 1 184 \"girl:fk_hair_02_CTRL.translateY\" 1 185 \"girl:fk_hair_02_CTRL.translateX\" 1 186 \""
+		+ "girl:fk_hair_01_CTRL.rotateZ\" 2 187 \"girl:fk_hair_01_CTRL.rotateY\" 2 188 \"girl:fk_hair_01_CTRL.rotateX\" 2 189 \"girl:fk_hair_01_CTRL.translateZ\" 1 187 \"girl:fk_hair_01_CTRL.translateY\" 1 188 \"girl:fk_hair_01_CTRL.translateX\" 1 189 \"girl:fk_hair_05_CTRL.rotateZ\" 2 190 \"girl:fk_hair_05_CTRL.rotateY\" 2 191 \"girl:fk_hair_05_CTRL.rotateX\" 2 192 \"girl:fk_hair_05_CTRL.translateZ\" 1 190 \"girl:fk_hair_05_CTRL.translateY\" 1 191 \"girl:fk_hair_05_CTRL.translateX\" 1 192 \"girl:ik_hair_CTRL.rotateZ\" 2 193 \"girl:ik_hair_CTRL.rotateY\" 2 194 \"girl:ik_hair_CTRL.rotateX\" 2 195 \"girl:ik_hair_CTRL.translateZ\" 1 193 \"girl:ik_hair_CTRL.translateY\" 1 194 \"girl:ik_hair_CTRL.translateX\" 1 195 \"girl:hairSwitch_CTRL.ikFkSwitch\" 0 28 \"girl:r_brow_CTRL.translateX\" 1 196 \"girl:l_brow_CTRL.translateX\" 1 197 \"girl:rig:eye:r_eye_open_CTRL.translateX\" 1 198 \"girl:rig:eye:l_eye_open_CTRL.translateX\" 1 199 \"girl:rig:eye:l_eye_openMood_CTRL.translateX\" 1 200 \"girl:rig:eye:r_eye_openMood_CTRL.translateX\" 1 201 \"girl:rig:eye:l_eye_closedMood_CTRL.tra"
+		+ "nslateX\" 1 202 \"girl:rig:eye:r_eye_closedMood_CTRL.translateX\" 1 203")
+		3 "girl:rig:charset.linearValues[24]" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL.translateX" 
+		""
+		3 "girl:rig:charset.linearValues[23]" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL.translateY" 
+		""
+		3 "girl:rig:charset.linearValues[22]" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL.translateZ" 
+		""
+		3 "girl:rig:charset.angularValues[24]" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL.rotateX" 
+		""
+		3 "girl:rig:charset.angularValues[23]" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL.rotateY" 
+		""
+		3 "girl:rig:charset.angularValues[22]" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL.rotateZ" 
+		""
+		5 4 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL.scaleX" 
 		"girlRN.placeHolderList[3]" ""
-		5 4 "girlRN" "girl:rig:charset.linearValues[1]" "girlRN.placeHolderList[4]" 
+		5 4 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL.scaleY" 
+		"girlRN.placeHolderList[4]" ""
+		5 4 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL.scaleZ" 
+		"girlRN.placeHolderList[5]" ""
+		5 4 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL.scaleX" 
+		"girlRN.placeHolderList[6]" ""
+		5 4 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL.scaleY" 
+		"girlRN.placeHolderList[7]" ""
+		5 4 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:root_GRP|girl:rig:root_CTRL|girl:rig:spline_01_GRP|girl:rig:spline_01_CTRL|girl:rig:spline_02_GRP|girl:rig:spline_02_CTRL|girl:rig:spline_03_GRP|girl:rig:spline_03_CTRL|girl:rig:neck_GRP|girl:rig:neck_CTRL|girl:rig:head_GRP|girl:rig:head_CTRL.scaleZ" 
+		"girlRN.placeHolderList[8]" ""
+		5 3 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_ik_hand_GRP|girl:rig:l_ik_hand_CTRL.translate" 
+		"girlRN.placeHolderList[9]" ""
+		5 3 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_ik_hand_GRP|girl:rig:l_ik_hand_CTRL.translate" 
+		"girlRN.placeHolderList[10]" ""
+		5 3 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_ik_hand_GRP|girl:rig:l_ik_hand_CTRL.rotate" 
+		"girlRN.placeHolderList[11]" ""
+		5 3 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_ik_hand_GRP|girl:rig:l_ik_hand_CTRL.rotate" 
+		"girlRN.placeHolderList[12]" ""
+		5 3 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_ik_hand_GRP|girl:rig:l_ik_hand_CTRL.scale" 
+		"girlRN.placeHolderList[13]" ""
+		5 3 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_ik_hand_GRP|girl:rig:l_ik_hand_CTRL.scale" 
+		"girlRN.placeHolderList[14]" ""
+		5 3 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_ik_hand_GRP|girl:rig:l_ik_hand_CTRL.rotateOrder" 
+		"girlRN.placeHolderList[15]" ""
+		5 3 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_ik_hand_GRP|girl:rig:l_ik_hand_CTRL.rotateOrder" 
+		"girlRN.placeHolderList[16]" ""
+		5 3 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_ik_hand_GRP|girl:rig:l_ik_hand_CTRL.parentMatrix" 
+		"girlRN.placeHolderList[17]" ""
+		5 3 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_ik_hand_GRP|girl:rig:l_ik_hand_CTRL.parentMatrix" 
+		"girlRN.placeHolderList[18]" ""
+		5 3 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_ik_hand_GRP|girl:rig:l_ik_hand_CTRL.rotatePivot" 
+		"girlRN.placeHolderList[19]" ""
+		5 3 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_ik_hand_GRP|girl:rig:l_ik_hand_CTRL.rotatePivot" 
+		"girlRN.placeHolderList[20]" ""
+		5 3 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_ik_hand_GRP|girl:rig:l_ik_hand_CTRL.rotatePivotTranslate" 
+		"girlRN.placeHolderList[21]" ""
+		5 3 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:l_ik_hand_GRP|girl:rig:l_ik_hand_CTRL.rotatePivotTranslate" 
+		"girlRN.placeHolderList[22]" ""
+		5 4 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL.translateZ" 
+		"girlRN.placeHolderList[23]" ""
+		5 4 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL.translateY" 
+		"girlRN.placeHolderList[24]" ""
+		5 4 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL.translateX" 
+		"girlRN.placeHolderList[25]" ""
+		5 4 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL.rotateZ" 
+		"girlRN.placeHolderList[26]" ""
+		5 4 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL.rotateY" 
+		"girlRN.placeHolderList[27]" ""
+		5 4 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL.rotateX" 
+		"girlRN.placeHolderList[28]" ""
+		5 3 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL.rotateOrder" 
+		"girlRN.placeHolderList[29]" ""
+		5 3 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL.rotateOrder" 
+		"girlRN.placeHolderList[30]" ""
+		5 3 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL.parentInverseMatrix" 
+		"girlRN.placeHolderList[31]" ""
+		5 3 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL.blendParent1" 
+		"girlRN.placeHolderList[32]" ""
+		5 3 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL.rotatePivot" 
+		"girlRN.placeHolderList[33]" ""
+		5 3 "girlRN" "|girl:rig:CHAR_GRP|girl:rig:CTRL_GRP|girl:rig:all_GRP|girl:rig:all_CTRL|girl:rig:ik_arm_GRP|girl:rig:r_ik_hand_GRP|girl:rig:r_ik_hand_CTRL.rotatePivotTranslate" 
+		"girlRN.placeHolderList[34]" ""
+		5 4 "girlRN" "girl:rig:charset.linearValues[1]" "girlRN.placeHolderList[35]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[2]" "girlRN.placeHolderList[5]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[2]" "girlRN.placeHolderList[36]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[3]" "girlRN.placeHolderList[6]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[3]" "girlRN.placeHolderList[37]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[4]" "girlRN.placeHolderList[7]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[4]" "girlRN.placeHolderList[38]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[5]" "girlRN.placeHolderList[8]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[5]" "girlRN.placeHolderList[39]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[6]" "girlRN.placeHolderList[9]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[6]" "girlRN.placeHolderList[40]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[7]" "girlRN.placeHolderList[10]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[7]" "girlRN.placeHolderList[41]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[8]" "girlRN.placeHolderList[11]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[8]" "girlRN.placeHolderList[42]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[9]" "girlRN.placeHolderList[12]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[9]" "girlRN.placeHolderList[43]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[10]" "girlRN.placeHolderList[13]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[10]" "girlRN.placeHolderList[44]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[11]" "girlRN.placeHolderList[14]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[11]" "girlRN.placeHolderList[45]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[12]" "girlRN.placeHolderList[15]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[12]" "girlRN.placeHolderList[46]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[13]" "girlRN.placeHolderList[16]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[13]" "girlRN.placeHolderList[47]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[14]" "girlRN.placeHolderList[17]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[14]" "girlRN.placeHolderList[48]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[15]" "girlRN.placeHolderList[18]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[15]" "girlRN.placeHolderList[49]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[16]" "girlRN.placeHolderList[19]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[16]" "girlRN.placeHolderList[50]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[17]" "girlRN.placeHolderList[20]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[17]" "girlRN.placeHolderList[51]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[18]" "girlRN.placeHolderList[21]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[18]" "girlRN.placeHolderList[52]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[19]" "girlRN.placeHolderList[22]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[19]" "girlRN.placeHolderList[53]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[20]" "girlRN.placeHolderList[23]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[20]" "girlRN.placeHolderList[54]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[21]" "girlRN.placeHolderList[24]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[21]" "girlRN.placeHolderList[55]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[22]" "girlRN.placeHolderList[25]" 
+		5 3 "girlRN" "girl:rig:charset.linearValues[22]" "girlRN.placeHolderList[56]" 
+		"girl:rig:r_ik_hand_CTRL.tz"
+		5 4 "girlRN" "girl:rig:charset.linearValues[22]" "girlRN.placeHolderList[57]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[23]" "girlRN.placeHolderList[26]" 
+		5 3 "girlRN" "girl:rig:charset.linearValues[23]" "girlRN.placeHolderList[58]" 
+		"girl:rig:r_ik_hand_CTRL.ty"
+		5 4 "girlRN" "girl:rig:charset.linearValues[23]" "girlRN.placeHolderList[59]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[24]" "girlRN.placeHolderList[27]" 
+		5 3 "girlRN" "girl:rig:charset.linearValues[24]" "girlRN.placeHolderList[60]" 
+		"girl:rig:r_ik_hand_CTRL.tx"
+		5 4 "girlRN" "girl:rig:charset.linearValues[24]" "girlRN.placeHolderList[61]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[25]" "girlRN.placeHolderList[28]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[25]" "girlRN.placeHolderList[62]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[26]" "girlRN.placeHolderList[29]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[26]" "girlRN.placeHolderList[63]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[27]" "girlRN.placeHolderList[30]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[27]" "girlRN.placeHolderList[64]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[28]" "girlRN.placeHolderList[31]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[28]" "girlRN.placeHolderList[65]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[29]" "girlRN.placeHolderList[32]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[29]" "girlRN.placeHolderList[66]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[30]" "girlRN.placeHolderList[33]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[30]" "girlRN.placeHolderList[67]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[31]" "girlRN.placeHolderList[34]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[31]" "girlRN.placeHolderList[68]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[32]" "girlRN.placeHolderList[35]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[32]" "girlRN.placeHolderList[69]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[33]" "girlRN.placeHolderList[36]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[33]" "girlRN.placeHolderList[70]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[34]" "girlRN.placeHolderList[37]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[34]" "girlRN.placeHolderList[71]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[35]" "girlRN.placeHolderList[38]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[35]" "girlRN.placeHolderList[72]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[36]" "girlRN.placeHolderList[39]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[36]" "girlRN.placeHolderList[73]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[37]" "girlRN.placeHolderList[40]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[37]" "girlRN.placeHolderList[74]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[38]" "girlRN.placeHolderList[41]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[38]" "girlRN.placeHolderList[75]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[39]" "girlRN.placeHolderList[42]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[39]" "girlRN.placeHolderList[76]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[40]" "girlRN.placeHolderList[43]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[40]" "girlRN.placeHolderList[77]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[41]" "girlRN.placeHolderList[44]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[41]" "girlRN.placeHolderList[78]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[42]" "girlRN.placeHolderList[45]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[42]" "girlRN.placeHolderList[79]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[43]" "girlRN.placeHolderList[46]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[43]" "girlRN.placeHolderList[80]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[44]" "girlRN.placeHolderList[47]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[44]" "girlRN.placeHolderList[81]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[45]" "girlRN.placeHolderList[48]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[45]" "girlRN.placeHolderList[82]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[46]" "girlRN.placeHolderList[49]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[46]" "girlRN.placeHolderList[83]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[47]" "girlRN.placeHolderList[50]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[47]" "girlRN.placeHolderList[84]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[48]" "girlRN.placeHolderList[51]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[48]" "girlRN.placeHolderList[85]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[49]" "girlRN.placeHolderList[52]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[49]" "girlRN.placeHolderList[86]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[50]" "girlRN.placeHolderList[53]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[50]" "girlRN.placeHolderList[87]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[51]" "girlRN.placeHolderList[54]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[51]" "girlRN.placeHolderList[88]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[52]" "girlRN.placeHolderList[55]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[52]" "girlRN.placeHolderList[89]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[53]" "girlRN.placeHolderList[56]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[53]" "girlRN.placeHolderList[90]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[54]" "girlRN.placeHolderList[57]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[54]" "girlRN.placeHolderList[91]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[55]" "girlRN.placeHolderList[58]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[55]" "girlRN.placeHolderList[92]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[56]" "girlRN.placeHolderList[59]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[56]" "girlRN.placeHolderList[93]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[57]" "girlRN.placeHolderList[60]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[57]" "girlRN.placeHolderList[94]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[58]" "girlRN.placeHolderList[61]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[58]" "girlRN.placeHolderList[95]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[59]" "girlRN.placeHolderList[62]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[59]" "girlRN.placeHolderList[96]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[60]" "girlRN.placeHolderList[63]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[60]" "girlRN.placeHolderList[97]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[61]" "girlRN.placeHolderList[64]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[61]" "girlRN.placeHolderList[98]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[62]" "girlRN.placeHolderList[65]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[62]" "girlRN.placeHolderList[99]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[63]" "girlRN.placeHolderList[66]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[63]" "girlRN.placeHolderList[100]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[64]" "girlRN.placeHolderList[67]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[64]" "girlRN.placeHolderList[101]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[65]" "girlRN.placeHolderList[68]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[65]" "girlRN.placeHolderList[102]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[66]" "girlRN.placeHolderList[69]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[66]" "girlRN.placeHolderList[103]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[67]" "girlRN.placeHolderList[70]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[67]" "girlRN.placeHolderList[104]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[68]" "girlRN.placeHolderList[71]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[68]" "girlRN.placeHolderList[105]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[69]" "girlRN.placeHolderList[72]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[69]" "girlRN.placeHolderList[106]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[70]" "girlRN.placeHolderList[73]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[70]" "girlRN.placeHolderList[107]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[71]" "girlRN.placeHolderList[74]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[71]" "girlRN.placeHolderList[108]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[72]" "girlRN.placeHolderList[75]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[72]" "girlRN.placeHolderList[109]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[73]" "girlRN.placeHolderList[76]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[73]" "girlRN.placeHolderList[110]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[74]" "girlRN.placeHolderList[77]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[74]" "girlRN.placeHolderList[111]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[75]" "girlRN.placeHolderList[78]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[75]" "girlRN.placeHolderList[112]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[76]" "girlRN.placeHolderList[79]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[76]" "girlRN.placeHolderList[113]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[77]" "girlRN.placeHolderList[80]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[77]" "girlRN.placeHolderList[114]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[78]" "girlRN.placeHolderList[81]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[78]" "girlRN.placeHolderList[115]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[79]" "girlRN.placeHolderList[82]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[79]" "girlRN.placeHolderList[116]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[80]" "girlRN.placeHolderList[83]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[80]" "girlRN.placeHolderList[117]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[81]" "girlRN.placeHolderList[84]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[81]" "girlRN.placeHolderList[118]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[82]" "girlRN.placeHolderList[85]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[82]" "girlRN.placeHolderList[119]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[83]" "girlRN.placeHolderList[86]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[83]" "girlRN.placeHolderList[120]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[84]" "girlRN.placeHolderList[87]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[84]" "girlRN.placeHolderList[121]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[85]" "girlRN.placeHolderList[88]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[85]" "girlRN.placeHolderList[122]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[86]" "girlRN.placeHolderList[89]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[86]" "girlRN.placeHolderList[123]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[87]" "girlRN.placeHolderList[90]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[87]" "girlRN.placeHolderList[124]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[88]" "girlRN.placeHolderList[91]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[88]" "girlRN.placeHolderList[125]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[89]" "girlRN.placeHolderList[92]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[89]" "girlRN.placeHolderList[126]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[90]" "girlRN.placeHolderList[93]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[90]" "girlRN.placeHolderList[127]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[91]" "girlRN.placeHolderList[94]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[91]" "girlRN.placeHolderList[128]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[92]" "girlRN.placeHolderList[95]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[92]" "girlRN.placeHolderList[129]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[93]" "girlRN.placeHolderList[96]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[93]" "girlRN.placeHolderList[130]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[94]" "girlRN.placeHolderList[97]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[94]" "girlRN.placeHolderList[131]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[95]" "girlRN.placeHolderList[98]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[95]" "girlRN.placeHolderList[132]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[96]" "girlRN.placeHolderList[99]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[96]" "girlRN.placeHolderList[133]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[97]" "girlRN.placeHolderList[100]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[97]" "girlRN.placeHolderList[134]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[98]" "girlRN.placeHolderList[101]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[98]" "girlRN.placeHolderList[135]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[99]" "girlRN.placeHolderList[102]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[99]" "girlRN.placeHolderList[136]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[100]" "girlRN.placeHolderList[103]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[100]" "girlRN.placeHolderList[137]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[101]" "girlRN.placeHolderList[104]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[101]" "girlRN.placeHolderList[138]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[102]" "girlRN.placeHolderList[105]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[102]" "girlRN.placeHolderList[139]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[103]" "girlRN.placeHolderList[106]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[103]" "girlRN.placeHolderList[140]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[104]" "girlRN.placeHolderList[107]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[104]" "girlRN.placeHolderList[141]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[105]" "girlRN.placeHolderList[108]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[105]" "girlRN.placeHolderList[142]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[106]" "girlRN.placeHolderList[109]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[106]" "girlRN.placeHolderList[143]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[107]" "girlRN.placeHolderList[110]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[107]" "girlRN.placeHolderList[144]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[108]" "girlRN.placeHolderList[111]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[108]" "girlRN.placeHolderList[145]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[109]" "girlRN.placeHolderList[112]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[109]" "girlRN.placeHolderList[146]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[110]" "girlRN.placeHolderList[113]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[110]" "girlRN.placeHolderList[147]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[111]" "girlRN.placeHolderList[114]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[111]" "girlRN.placeHolderList[148]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[112]" "girlRN.placeHolderList[115]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[112]" "girlRN.placeHolderList[149]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[113]" "girlRN.placeHolderList[116]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[113]" "girlRN.placeHolderList[150]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[114]" "girlRN.placeHolderList[117]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[114]" "girlRN.placeHolderList[151]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[115]" "girlRN.placeHolderList[118]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[115]" "girlRN.placeHolderList[152]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[116]" "girlRN.placeHolderList[119]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[116]" "girlRN.placeHolderList[153]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[117]" "girlRN.placeHolderList[120]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[117]" "girlRN.placeHolderList[154]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[118]" "girlRN.placeHolderList[121]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[118]" "girlRN.placeHolderList[155]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[119]" "girlRN.placeHolderList[122]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[119]" "girlRN.placeHolderList[156]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[120]" "girlRN.placeHolderList[123]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[120]" "girlRN.placeHolderList[157]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[121]" "girlRN.placeHolderList[124]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[121]" "girlRN.placeHolderList[158]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[122]" "girlRN.placeHolderList[125]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[122]" "girlRN.placeHolderList[159]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[123]" "girlRN.placeHolderList[126]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[123]" "girlRN.placeHolderList[160]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[124]" "girlRN.placeHolderList[127]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[124]" "girlRN.placeHolderList[161]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[125]" "girlRN.placeHolderList[128]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[125]" "girlRN.placeHolderList[162]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[126]" "girlRN.placeHolderList[129]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[126]" "girlRN.placeHolderList[163]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[127]" "girlRN.placeHolderList[130]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[127]" "girlRN.placeHolderList[164]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[128]" "girlRN.placeHolderList[131]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[128]" "girlRN.placeHolderList[165]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[129]" "girlRN.placeHolderList[132]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[129]" "girlRN.placeHolderList[166]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[133]" "girlRN.placeHolderList[133]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[133]" "girlRN.placeHolderList[167]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[134]" "girlRN.placeHolderList[134]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[134]" "girlRN.placeHolderList[168]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[135]" "girlRN.placeHolderList[135]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[135]" "girlRN.placeHolderList[169]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[136]" "girlRN.placeHolderList[136]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[136]" "girlRN.placeHolderList[170]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[137]" "girlRN.placeHolderList[137]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[137]" "girlRN.placeHolderList[171]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[138]" "girlRN.placeHolderList[138]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[138]" "girlRN.placeHolderList[172]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[139]" "girlRN.placeHolderList[139]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[139]" "girlRN.placeHolderList[173]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[140]" "girlRN.placeHolderList[140]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[140]" "girlRN.placeHolderList[174]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[141]" "girlRN.placeHolderList[141]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[141]" "girlRN.placeHolderList[175]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[142]" "girlRN.placeHolderList[142]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[142]" "girlRN.placeHolderList[176]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[143]" "girlRN.placeHolderList[143]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[143]" "girlRN.placeHolderList[177]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[144]" "girlRN.placeHolderList[144]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[144]" "girlRN.placeHolderList[178]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[145]" "girlRN.placeHolderList[145]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[145]" "girlRN.placeHolderList[179]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[146]" "girlRN.placeHolderList[146]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[146]" "girlRN.placeHolderList[180]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[147]" "girlRN.placeHolderList[147]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[147]" "girlRN.placeHolderList[181]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[148]" "girlRN.placeHolderList[148]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[148]" "girlRN.placeHolderList[182]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[149]" "girlRN.placeHolderList[149]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[149]" "girlRN.placeHolderList[183]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[150]" "girlRN.placeHolderList[150]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[150]" "girlRN.placeHolderList[184]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[151]" "girlRN.placeHolderList[151]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[151]" "girlRN.placeHolderList[185]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[152]" "girlRN.placeHolderList[152]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[152]" "girlRN.placeHolderList[186]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[153]" "girlRN.placeHolderList[153]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[153]" "girlRN.placeHolderList[187]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[154]" "girlRN.placeHolderList[154]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[154]" "girlRN.placeHolderList[188]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[155]" "girlRN.placeHolderList[155]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[155]" "girlRN.placeHolderList[189]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[156]" "girlRN.placeHolderList[156]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[156]" "girlRN.placeHolderList[190]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[157]" "girlRN.placeHolderList[157]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[157]" "girlRN.placeHolderList[191]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[158]" "girlRN.placeHolderList[158]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[158]" "girlRN.placeHolderList[192]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[159]" "girlRN.placeHolderList[159]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[159]" "girlRN.placeHolderList[193]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[160]" "girlRN.placeHolderList[160]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[160]" "girlRN.placeHolderList[194]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[161]" "girlRN.placeHolderList[161]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[161]" "girlRN.placeHolderList[195]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[162]" "girlRN.placeHolderList[162]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[162]" "girlRN.placeHolderList[196]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[163]" "girlRN.placeHolderList[163]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[163]" "girlRN.placeHolderList[197]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[164]" "girlRN.placeHolderList[164]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[164]" "girlRN.placeHolderList[198]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[165]" "girlRN.placeHolderList[165]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[165]" "girlRN.placeHolderList[199]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[166]" "girlRN.placeHolderList[166]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[166]" "girlRN.placeHolderList[200]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[167]" "girlRN.placeHolderList[167]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[167]" "girlRN.placeHolderList[201]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[168]" "girlRN.placeHolderList[168]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[168]" "girlRN.placeHolderList[202]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[169]" "girlRN.placeHolderList[169]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[169]" "girlRN.placeHolderList[203]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[170]" "girlRN.placeHolderList[170]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[170]" "girlRN.placeHolderList[204]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[171]" "girlRN.placeHolderList[171]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[171]" "girlRN.placeHolderList[205]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[172]" "girlRN.placeHolderList[172]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[172]" "girlRN.placeHolderList[206]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[173]" "girlRN.placeHolderList[173]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[173]" "girlRN.placeHolderList[207]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[174]" "girlRN.placeHolderList[174]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[174]" "girlRN.placeHolderList[208]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[175]" "girlRN.placeHolderList[175]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[175]" "girlRN.placeHolderList[209]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[176]" "girlRN.placeHolderList[176]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[176]" "girlRN.placeHolderList[210]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[177]" "girlRN.placeHolderList[177]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[177]" "girlRN.placeHolderList[211]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[178]" "girlRN.placeHolderList[178]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[178]" "girlRN.placeHolderList[212]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[179]" "girlRN.placeHolderList[179]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[179]" "girlRN.placeHolderList[213]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[180]" "girlRN.placeHolderList[180]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[180]" "girlRN.placeHolderList[214]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[181]" "girlRN.placeHolderList[181]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[181]" "girlRN.placeHolderList[215]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[182]" "girlRN.placeHolderList[182]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[182]" "girlRN.placeHolderList[216]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[183]" "girlRN.placeHolderList[183]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[183]" "girlRN.placeHolderList[217]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[184]" "girlRN.placeHolderList[184]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[184]" "girlRN.placeHolderList[218]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[185]" "girlRN.placeHolderList[185]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[185]" "girlRN.placeHolderList[219]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[186]" "girlRN.placeHolderList[186]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[186]" "girlRN.placeHolderList[220]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[187]" "girlRN.placeHolderList[187]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[187]" "girlRN.placeHolderList[221]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[188]" "girlRN.placeHolderList[188]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[188]" "girlRN.placeHolderList[222]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[189]" "girlRN.placeHolderList[189]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[189]" "girlRN.placeHolderList[223]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[190]" "girlRN.placeHolderList[190]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[190]" "girlRN.placeHolderList[224]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[191]" "girlRN.placeHolderList[191]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[191]" "girlRN.placeHolderList[225]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[192]" "girlRN.placeHolderList[192]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[192]" "girlRN.placeHolderList[226]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[193]" "girlRN.placeHolderList[193]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[193]" "girlRN.placeHolderList[227]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[194]" "girlRN.placeHolderList[194]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[194]" "girlRN.placeHolderList[228]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[195]" "girlRN.placeHolderList[195]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[195]" "girlRN.placeHolderList[229]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[196]" "girlRN.placeHolderList[196]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[196]" "girlRN.placeHolderList[230]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[197]" "girlRN.placeHolderList[197]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[197]" "girlRN.placeHolderList[231]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[198]" "girlRN.placeHolderList[198]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[198]" "girlRN.placeHolderList[232]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[199]" "girlRN.placeHolderList[199]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[199]" "girlRN.placeHolderList[233]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[200]" "girlRN.placeHolderList[200]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[200]" "girlRN.placeHolderList[234]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[201]" "girlRN.placeHolderList[201]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[201]" "girlRN.placeHolderList[235]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[202]" "girlRN.placeHolderList[202]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[202]" "girlRN.placeHolderList[236]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.linearValues[203]" "girlRN.placeHolderList[203]" 
+		5 4 "girlRN" "girl:rig:charset.linearValues[203]" "girlRN.placeHolderList[237]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[1]" "girlRN.placeHolderList[204]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[1]" "girlRN.placeHolderList[238]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[2]" "girlRN.placeHolderList[205]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[2]" "girlRN.placeHolderList[239]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[3]" "girlRN.placeHolderList[206]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[3]" "girlRN.placeHolderList[240]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[4]" "girlRN.placeHolderList[207]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[4]" "girlRN.placeHolderList[241]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[5]" "girlRN.placeHolderList[208]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[5]" "girlRN.placeHolderList[242]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[6]" "girlRN.placeHolderList[209]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[6]" "girlRN.placeHolderList[243]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[7]" "girlRN.placeHolderList[210]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[7]" "girlRN.placeHolderList[244]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[8]" "girlRN.placeHolderList[211]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[8]" "girlRN.placeHolderList[245]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[9]" "girlRN.placeHolderList[212]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[9]" "girlRN.placeHolderList[246]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[10]" "girlRN.placeHolderList[213]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[10]" "girlRN.placeHolderList[247]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[11]" "girlRN.placeHolderList[214]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[11]" "girlRN.placeHolderList[248]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[12]" "girlRN.placeHolderList[215]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[12]" "girlRN.placeHolderList[249]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[13]" "girlRN.placeHolderList[216]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[13]" "girlRN.placeHolderList[250]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[14]" "girlRN.placeHolderList[217]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[14]" "girlRN.placeHolderList[251]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[15]" "girlRN.placeHolderList[218]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[15]" "girlRN.placeHolderList[252]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[16]" "girlRN.placeHolderList[219]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[16]" "girlRN.placeHolderList[253]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[17]" "girlRN.placeHolderList[220]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[17]" "girlRN.placeHolderList[254]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[18]" "girlRN.placeHolderList[221]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[18]" "girlRN.placeHolderList[255]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[19]" "girlRN.placeHolderList[222]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[19]" "girlRN.placeHolderList[256]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[20]" "girlRN.placeHolderList[223]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[20]" "girlRN.placeHolderList[257]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[21]" "girlRN.placeHolderList[224]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[21]" "girlRN.placeHolderList[258]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[22]" "girlRN.placeHolderList[225]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[22]" "girlRN.placeHolderList[259]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[23]" "girlRN.placeHolderList[226]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[23]" "girlRN.placeHolderList[260]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[24]" "girlRN.placeHolderList[227]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[24]" "girlRN.placeHolderList[261]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[25]" "girlRN.placeHolderList[228]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[25]" "girlRN.placeHolderList[262]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[26]" "girlRN.placeHolderList[229]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[26]" "girlRN.placeHolderList[263]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[27]" "girlRN.placeHolderList[230]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[27]" "girlRN.placeHolderList[264]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.unitlessValues[28]" "girlRN.placeHolderList[231]" 
+		5 4 "girlRN" "girl:rig:charset.unitlessValues[28]" "girlRN.placeHolderList[265]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[1]" "girlRN.placeHolderList[232]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[1]" "girlRN.placeHolderList[266]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[2]" "girlRN.placeHolderList[233]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[2]" "girlRN.placeHolderList[267]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[3]" "girlRN.placeHolderList[234]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[3]" "girlRN.placeHolderList[268]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[4]" "girlRN.placeHolderList[235]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[4]" "girlRN.placeHolderList[269]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[5]" "girlRN.placeHolderList[236]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[5]" "girlRN.placeHolderList[270]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[6]" "girlRN.placeHolderList[237]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[6]" "girlRN.placeHolderList[271]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[7]" "girlRN.placeHolderList[238]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[7]" "girlRN.placeHolderList[272]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[8]" "girlRN.placeHolderList[239]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[8]" "girlRN.placeHolderList[273]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[9]" "girlRN.placeHolderList[240]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[9]" "girlRN.placeHolderList[274]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[10]" "girlRN.placeHolderList[241]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[10]" "girlRN.placeHolderList[275]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[11]" "girlRN.placeHolderList[242]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[11]" "girlRN.placeHolderList[276]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[12]" "girlRN.placeHolderList[243]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[12]" "girlRN.placeHolderList[277]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[13]" "girlRN.placeHolderList[244]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[13]" "girlRN.placeHolderList[278]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[14]" "girlRN.placeHolderList[245]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[14]" "girlRN.placeHolderList[279]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[15]" "girlRN.placeHolderList[246]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[15]" "girlRN.placeHolderList[280]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[16]" "girlRN.placeHolderList[247]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[16]" "girlRN.placeHolderList[281]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[17]" "girlRN.placeHolderList[248]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[17]" "girlRN.placeHolderList[282]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[18]" "girlRN.placeHolderList[249]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[18]" "girlRN.placeHolderList[283]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[19]" "girlRN.placeHolderList[250]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[19]" "girlRN.placeHolderList[284]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[20]" "girlRN.placeHolderList[251]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[20]" "girlRN.placeHolderList[285]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[21]" "girlRN.placeHolderList[252]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[21]" "girlRN.placeHolderList[286]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[22]" "girlRN.placeHolderList[253]" 
+		5 3 "girlRN" "girl:rig:charset.angularValues[22]" "girlRN.placeHolderList[287]" 
+		"girl:rig:r_ik_hand_CTRL.rz"
+		5 4 "girlRN" "girl:rig:charset.angularValues[22]" "girlRN.placeHolderList[288]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[23]" "girlRN.placeHolderList[254]" 
+		5 3 "girlRN" "girl:rig:charset.angularValues[23]" "girlRN.placeHolderList[289]" 
+		"girl:rig:r_ik_hand_CTRL.ry"
+		5 4 "girlRN" "girl:rig:charset.angularValues[23]" "girlRN.placeHolderList[290]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[24]" "girlRN.placeHolderList[255]" 
+		5 3 "girlRN" "girl:rig:charset.angularValues[24]" "girlRN.placeHolderList[291]" 
+		"girl:rig:r_ik_hand_CTRL.rx"
+		5 4 "girlRN" "girl:rig:charset.angularValues[24]" "girlRN.placeHolderList[292]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[25]" "girlRN.placeHolderList[256]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[25]" "girlRN.placeHolderList[293]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[26]" "girlRN.placeHolderList[257]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[26]" "girlRN.placeHolderList[294]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[27]" "girlRN.placeHolderList[258]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[27]" "girlRN.placeHolderList[295]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[28]" "girlRN.placeHolderList[259]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[28]" "girlRN.placeHolderList[296]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[29]" "girlRN.placeHolderList[260]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[29]" "girlRN.placeHolderList[297]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[30]" "girlRN.placeHolderList[261]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[30]" "girlRN.placeHolderList[298]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[31]" "girlRN.placeHolderList[262]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[31]" "girlRN.placeHolderList[299]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[32]" "girlRN.placeHolderList[263]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[32]" "girlRN.placeHolderList[300]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[33]" "girlRN.placeHolderList[264]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[33]" "girlRN.placeHolderList[301]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[34]" "girlRN.placeHolderList[265]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[34]" "girlRN.placeHolderList[302]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[35]" "girlRN.placeHolderList[266]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[35]" "girlRN.placeHolderList[303]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[36]" "girlRN.placeHolderList[267]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[36]" "girlRN.placeHolderList[304]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[37]" "girlRN.placeHolderList[268]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[37]" "girlRN.placeHolderList[305]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[38]" "girlRN.placeHolderList[269]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[38]" "girlRN.placeHolderList[306]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[39]" "girlRN.placeHolderList[270]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[39]" "girlRN.placeHolderList[307]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[40]" "girlRN.placeHolderList[271]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[40]" "girlRN.placeHolderList[308]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[41]" "girlRN.placeHolderList[272]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[41]" "girlRN.placeHolderList[309]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[42]" "girlRN.placeHolderList[273]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[42]" "girlRN.placeHolderList[310]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[43]" "girlRN.placeHolderList[274]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[43]" "girlRN.placeHolderList[311]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[44]" "girlRN.placeHolderList[275]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[44]" "girlRN.placeHolderList[312]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[45]" "girlRN.placeHolderList[276]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[45]" "girlRN.placeHolderList[313]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[46]" "girlRN.placeHolderList[277]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[46]" "girlRN.placeHolderList[314]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[47]" "girlRN.placeHolderList[278]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[47]" "girlRN.placeHolderList[315]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[48]" "girlRN.placeHolderList[279]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[48]" "girlRN.placeHolderList[316]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[49]" "girlRN.placeHolderList[280]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[49]" "girlRN.placeHolderList[317]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[50]" "girlRN.placeHolderList[281]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[50]" "girlRN.placeHolderList[318]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[51]" "girlRN.placeHolderList[282]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[51]" "girlRN.placeHolderList[319]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[52]" "girlRN.placeHolderList[283]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[52]" "girlRN.placeHolderList[320]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[53]" "girlRN.placeHolderList[284]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[53]" "girlRN.placeHolderList[321]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[54]" "girlRN.placeHolderList[285]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[54]" "girlRN.placeHolderList[322]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[55]" "girlRN.placeHolderList[286]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[55]" "girlRN.placeHolderList[323]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[56]" "girlRN.placeHolderList[287]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[56]" "girlRN.placeHolderList[324]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[57]" "girlRN.placeHolderList[288]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[57]" "girlRN.placeHolderList[325]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[58]" "girlRN.placeHolderList[289]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[58]" "girlRN.placeHolderList[326]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[59]" "girlRN.placeHolderList[290]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[59]" "girlRN.placeHolderList[327]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[60]" "girlRN.placeHolderList[291]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[60]" "girlRN.placeHolderList[328]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[61]" "girlRN.placeHolderList[292]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[61]" "girlRN.placeHolderList[329]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[62]" "girlRN.placeHolderList[293]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[62]" "girlRN.placeHolderList[330]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[63]" "girlRN.placeHolderList[294]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[63]" "girlRN.placeHolderList[331]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[64]" "girlRN.placeHolderList[295]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[64]" "girlRN.placeHolderList[332]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[65]" "girlRN.placeHolderList[296]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[65]" "girlRN.placeHolderList[333]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[66]" "girlRN.placeHolderList[297]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[66]" "girlRN.placeHolderList[334]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[67]" "girlRN.placeHolderList[298]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[67]" "girlRN.placeHolderList[335]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[68]" "girlRN.placeHolderList[299]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[68]" "girlRN.placeHolderList[336]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[69]" "girlRN.placeHolderList[300]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[69]" "girlRN.placeHolderList[337]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[70]" "girlRN.placeHolderList[301]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[70]" "girlRN.placeHolderList[338]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[71]" "girlRN.placeHolderList[302]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[71]" "girlRN.placeHolderList[339]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[72]" "girlRN.placeHolderList[303]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[72]" "girlRN.placeHolderList[340]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[73]" "girlRN.placeHolderList[304]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[73]" "girlRN.placeHolderList[341]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[74]" "girlRN.placeHolderList[305]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[74]" "girlRN.placeHolderList[342]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[75]" "girlRN.placeHolderList[306]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[75]" "girlRN.placeHolderList[343]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[76]" "girlRN.placeHolderList[307]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[76]" "girlRN.placeHolderList[344]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[77]" "girlRN.placeHolderList[308]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[77]" "girlRN.placeHolderList[345]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[78]" "girlRN.placeHolderList[309]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[78]" "girlRN.placeHolderList[346]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[79]" "girlRN.placeHolderList[310]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[79]" "girlRN.placeHolderList[347]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[80]" "girlRN.placeHolderList[311]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[80]" "girlRN.placeHolderList[348]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[81]" "girlRN.placeHolderList[312]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[81]" "girlRN.placeHolderList[349]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[82]" "girlRN.placeHolderList[313]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[82]" "girlRN.placeHolderList[350]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[83]" "girlRN.placeHolderList[314]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[83]" "girlRN.placeHolderList[351]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[84]" "girlRN.placeHolderList[315]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[84]" "girlRN.placeHolderList[352]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[85]" "girlRN.placeHolderList[316]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[85]" "girlRN.placeHolderList[353]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[86]" "girlRN.placeHolderList[317]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[86]" "girlRN.placeHolderList[354]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[87]" "girlRN.placeHolderList[318]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[87]" "girlRN.placeHolderList[355]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[88]" "girlRN.placeHolderList[319]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[88]" "girlRN.placeHolderList[356]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[89]" "girlRN.placeHolderList[320]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[89]" "girlRN.placeHolderList[357]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[90]" "girlRN.placeHolderList[321]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[90]" "girlRN.placeHolderList[358]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[91]" "girlRN.placeHolderList[322]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[91]" "girlRN.placeHolderList[359]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[92]" "girlRN.placeHolderList[323]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[92]" "girlRN.placeHolderList[360]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[93]" "girlRN.placeHolderList[324]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[93]" "girlRN.placeHolderList[361]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[94]" "girlRN.placeHolderList[325]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[94]" "girlRN.placeHolderList[362]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[95]" "girlRN.placeHolderList[326]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[95]" "girlRN.placeHolderList[363]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[96]" "girlRN.placeHolderList[327]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[96]" "girlRN.placeHolderList[364]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[97]" "girlRN.placeHolderList[328]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[97]" "girlRN.placeHolderList[365]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[98]" "girlRN.placeHolderList[329]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[98]" "girlRN.placeHolderList[366]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[99]" "girlRN.placeHolderList[330]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[99]" "girlRN.placeHolderList[367]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[100]" "girlRN.placeHolderList[331]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[100]" "girlRN.placeHolderList[368]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[101]" "girlRN.placeHolderList[332]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[101]" "girlRN.placeHolderList[369]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[102]" "girlRN.placeHolderList[333]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[102]" "girlRN.placeHolderList[370]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[103]" "girlRN.placeHolderList[334]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[103]" "girlRN.placeHolderList[371]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[104]" "girlRN.placeHolderList[335]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[104]" "girlRN.placeHolderList[372]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[105]" "girlRN.placeHolderList[336]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[105]" "girlRN.placeHolderList[373]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[106]" "girlRN.placeHolderList[337]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[106]" "girlRN.placeHolderList[374]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[107]" "girlRN.placeHolderList[338]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[107]" "girlRN.placeHolderList[375]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[108]" "girlRN.placeHolderList[339]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[108]" "girlRN.placeHolderList[376]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[109]" "girlRN.placeHolderList[340]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[109]" "girlRN.placeHolderList[377]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[110]" "girlRN.placeHolderList[341]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[110]" "girlRN.placeHolderList[378]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[111]" "girlRN.placeHolderList[342]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[111]" "girlRN.placeHolderList[379]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[112]" "girlRN.placeHolderList[343]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[112]" "girlRN.placeHolderList[380]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[113]" "girlRN.placeHolderList[344]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[113]" "girlRN.placeHolderList[381]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[114]" "girlRN.placeHolderList[345]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[114]" "girlRN.placeHolderList[382]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[115]" "girlRN.placeHolderList[346]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[115]" "girlRN.placeHolderList[383]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[116]" "girlRN.placeHolderList[347]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[116]" "girlRN.placeHolderList[384]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[117]" "girlRN.placeHolderList[348]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[117]" "girlRN.placeHolderList[385]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[118]" "girlRN.placeHolderList[349]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[118]" "girlRN.placeHolderList[386]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[119]" "girlRN.placeHolderList[350]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[119]" "girlRN.placeHolderList[387]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[120]" "girlRN.placeHolderList[351]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[120]" "girlRN.placeHolderList[388]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[121]" "girlRN.placeHolderList[352]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[121]" "girlRN.placeHolderList[389]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[122]" "girlRN.placeHolderList[353]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[122]" "girlRN.placeHolderList[390]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[123]" "girlRN.placeHolderList[354]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[123]" "girlRN.placeHolderList[391]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[124]" "girlRN.placeHolderList[355]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[124]" "girlRN.placeHolderList[392]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[125]" "girlRN.placeHolderList[356]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[125]" "girlRN.placeHolderList[393]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[126]" "girlRN.placeHolderList[357]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[126]" "girlRN.placeHolderList[394]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[127]" "girlRN.placeHolderList[358]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[127]" "girlRN.placeHolderList[395]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[128]" "girlRN.placeHolderList[359]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[128]" "girlRN.placeHolderList[396]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[129]" "girlRN.placeHolderList[360]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[129]" "girlRN.placeHolderList[397]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[133]" "girlRN.placeHolderList[361]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[133]" "girlRN.placeHolderList[398]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[134]" "girlRN.placeHolderList[362]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[134]" "girlRN.placeHolderList[399]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[135]" "girlRN.placeHolderList[363]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[135]" "girlRN.placeHolderList[400]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[136]" "girlRN.placeHolderList[364]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[136]" "girlRN.placeHolderList[401]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[137]" "girlRN.placeHolderList[365]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[137]" "girlRN.placeHolderList[402]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[138]" "girlRN.placeHolderList[366]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[138]" "girlRN.placeHolderList[403]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[139]" "girlRN.placeHolderList[367]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[139]" "girlRN.placeHolderList[404]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[140]" "girlRN.placeHolderList[368]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[140]" "girlRN.placeHolderList[405]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[141]" "girlRN.placeHolderList[369]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[141]" "girlRN.placeHolderList[406]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[142]" "girlRN.placeHolderList[370]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[142]" "girlRN.placeHolderList[407]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[143]" "girlRN.placeHolderList[371]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[143]" "girlRN.placeHolderList[408]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[144]" "girlRN.placeHolderList[372]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[144]" "girlRN.placeHolderList[409]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[145]" "girlRN.placeHolderList[373]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[145]" "girlRN.placeHolderList[410]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[146]" "girlRN.placeHolderList[374]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[146]" "girlRN.placeHolderList[411]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[147]" "girlRN.placeHolderList[375]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[147]" "girlRN.placeHolderList[412]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[148]" "girlRN.placeHolderList[376]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[148]" "girlRN.placeHolderList[413]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[149]" "girlRN.placeHolderList[377]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[149]" "girlRN.placeHolderList[414]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[150]" "girlRN.placeHolderList[378]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[150]" "girlRN.placeHolderList[415]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[151]" "girlRN.placeHolderList[379]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[151]" "girlRN.placeHolderList[416]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[152]" "girlRN.placeHolderList[380]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[152]" "girlRN.placeHolderList[417]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[153]" "girlRN.placeHolderList[381]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[153]" "girlRN.placeHolderList[418]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[154]" "girlRN.placeHolderList[382]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[154]" "girlRN.placeHolderList[419]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[155]" "girlRN.placeHolderList[383]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[155]" "girlRN.placeHolderList[420]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[156]" "girlRN.placeHolderList[384]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[156]" "girlRN.placeHolderList[421]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[157]" "girlRN.placeHolderList[385]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[157]" "girlRN.placeHolderList[422]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[158]" "girlRN.placeHolderList[386]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[158]" "girlRN.placeHolderList[423]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[159]" "girlRN.placeHolderList[387]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[159]" "girlRN.placeHolderList[424]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[160]" "girlRN.placeHolderList[388]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[160]" "girlRN.placeHolderList[425]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[161]" "girlRN.placeHolderList[389]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[161]" "girlRN.placeHolderList[426]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[162]" "girlRN.placeHolderList[390]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[162]" "girlRN.placeHolderList[427]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[163]" "girlRN.placeHolderList[391]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[163]" "girlRN.placeHolderList[428]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[164]" "girlRN.placeHolderList[392]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[164]" "girlRN.placeHolderList[429]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[165]" "girlRN.placeHolderList[393]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[165]" "girlRN.placeHolderList[430]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[166]" "girlRN.placeHolderList[394]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[166]" "girlRN.placeHolderList[431]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[167]" "girlRN.placeHolderList[395]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[167]" "girlRN.placeHolderList[432]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[168]" "girlRN.placeHolderList[396]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[168]" "girlRN.placeHolderList[433]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[169]" "girlRN.placeHolderList[397]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[169]" "girlRN.placeHolderList[434]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[170]" "girlRN.placeHolderList[398]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[170]" "girlRN.placeHolderList[435]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[171]" "girlRN.placeHolderList[399]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[171]" "girlRN.placeHolderList[436]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[172]" "girlRN.placeHolderList[400]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[172]" "girlRN.placeHolderList[437]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[173]" "girlRN.placeHolderList[401]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[173]" "girlRN.placeHolderList[438]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[174]" "girlRN.placeHolderList[402]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[174]" "girlRN.placeHolderList[439]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[175]" "girlRN.placeHolderList[403]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[175]" "girlRN.placeHolderList[440]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[176]" "girlRN.placeHolderList[404]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[176]" "girlRN.placeHolderList[441]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[177]" "girlRN.placeHolderList[405]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[177]" "girlRN.placeHolderList[442]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[178]" "girlRN.placeHolderList[406]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[178]" "girlRN.placeHolderList[443]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[179]" "girlRN.placeHolderList[407]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[179]" "girlRN.placeHolderList[444]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[180]" "girlRN.placeHolderList[408]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[180]" "girlRN.placeHolderList[445]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[181]" "girlRN.placeHolderList[409]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[181]" "girlRN.placeHolderList[446]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[182]" "girlRN.placeHolderList[410]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[182]" "girlRN.placeHolderList[447]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[183]" "girlRN.placeHolderList[411]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[183]" "girlRN.placeHolderList[448]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[184]" "girlRN.placeHolderList[412]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[184]" "girlRN.placeHolderList[449]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[185]" "girlRN.placeHolderList[413]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[185]" "girlRN.placeHolderList[450]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[186]" "girlRN.placeHolderList[414]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[186]" "girlRN.placeHolderList[451]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[187]" "girlRN.placeHolderList[415]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[187]" "girlRN.placeHolderList[452]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[188]" "girlRN.placeHolderList[416]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[188]" "girlRN.placeHolderList[453]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[189]" "girlRN.placeHolderList[417]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[189]" "girlRN.placeHolderList[454]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[190]" "girlRN.placeHolderList[418]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[190]" "girlRN.placeHolderList[455]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[191]" "girlRN.placeHolderList[419]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[191]" "girlRN.placeHolderList[456]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[192]" "girlRN.placeHolderList[420]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[192]" "girlRN.placeHolderList[457]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[193]" "girlRN.placeHolderList[421]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[193]" "girlRN.placeHolderList[458]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[194]" "girlRN.placeHolderList[422]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[194]" "girlRN.placeHolderList[459]" 
 		""
-		5 4 "girlRN" "girl:rig:charset.angularValues[195]" "girlRN.placeHolderList[423]" 
+		5 4 "girlRN" "girl:rig:charset.angularValues[195]" "girlRN.placeHolderList[460]" 
 		""
-		"girlRN" 182
+		"girlRN" 184
 		2 "|girl:CharacterRigRNfosterParent1|girl:ik_hair_CTRL_GRP|girl:ik_hair_CTRL" 
 		"translate" " -type \"double3\" 60.47076521507914 19.76109638218432 45.920494400500822"
 		
@@ -5132,7 +5347,7 @@ createNode reference -n "girlRN";
 		2 "|girl:CharacterRigRNfosterParent1|girl:fk_skirt_GRP|girl:fk_skirt_CTRL_GRP|girl:fk_l_skirt_01_GRP|girl:fk_l_skirt_01_CTRL" 
 		"translateX" " -av"
 		2 "|girl:CharacterRigRNfosterParent1|girl:fk_skirt_GRP|girl:fk_skirt_CTRL_GRP|girl:fk_l_skirt_01_GRP|girl:fk_l_skirt_01_CTRL" 
-		"rotate" " -type \"double3\" -14.711501109146184 -14.123025940963061 3.6910140282180448"
+		"rotate" " -type \"double3\" -14.711501109146184 -14.123025940963062 3.6910140282180448"
 		
 		2 "|girl:CharacterRigRNfosterParent1|girl:fk_skirt_GRP|girl:fk_skirt_CTRL_GRP|girl:fk_l_skirt_01_GRP|girl:fk_l_skirt_01_CTRL" 
 		"rotateZ" " -av"
@@ -5276,7 +5491,7 @@ createNode reference -n "girlRN";
 		2 "|girl:CharacterRigRNfosterParent1|girl:ik_hair_GRP|girl:hair_fk_GRP|girl:fk_hair_01_GRP|girl:fk_hair_01_CTRL" 
 		"translateX" " -av"
 		2 "|girl:CharacterRigRNfosterParent1|girl:ik_hair_GRP|girl:hair_fk_GRP|girl:fk_hair_01_GRP|girl:fk_hair_01_CTRL" 
-		"rotate" " -type \"double3\" 44.377158788673036 -13.19692156266845 20.886665079202647"
+		"rotate" " -type \"double3\" 44.680465559107226 -14.449983101141513 19.617357146989136"
 		
 		2 "|girl:CharacterRigRNfosterParent1|girl:ik_hair_GRP|girl:hair_fk_GRP|girl:fk_hair_01_GRP|girl:fk_hair_01_CTRL" 
 		"rotateZ" " -av"
@@ -5293,7 +5508,7 @@ createNode reference -n "girlRN";
 		2 "|girl:CharacterRigRNfosterParent1|girl:ik_hair_GRP|girl:hair_fk_GRP|girl:fk_hair_01_GRP|girl:fk_hair_01_CTRL|girl:fk_hair_02_GRP|girl:fk_hair_02_CTRL" 
 		"translateX" " -av"
 		2 "|girl:CharacterRigRNfosterParent1|girl:ik_hair_GRP|girl:hair_fk_GRP|girl:fk_hair_01_GRP|girl:fk_hair_01_CTRL|girl:fk_hair_02_GRP|girl:fk_hair_02_CTRL" 
-		"rotate" " -type \"double3\" 8.214660374103115 -21.481163109671662 -12.260793632638105"
+		"rotate" " -type \"double3\" 8.860148799104822 -30.318893209204223 -13.734094295410586"
 		
 		2 "|girl:CharacterRigRNfosterParent1|girl:ik_hair_GRP|girl:hair_fk_GRP|girl:fk_hair_01_GRP|girl:fk_hair_01_CTRL|girl:fk_hair_02_GRP|girl:fk_hair_02_CTRL" 
 		"rotateZ" " -av"
@@ -5355,193 +5570,198 @@ createNode reference -n "girlRN";
 		2 "|girl:CharacterRigRNfosterParent1|girl:ik_hair_GRP|girl:hair_fk_GRP|girl:fk_hair_01_GRP|girl:fk_hair_01_CTRL|girl:fk_hair_02_GRP|girl:fk_hair_02_CTRL|girl:fk_hair_03_GRP|girl:fk_hair_03_CTRL|girl:fk_hair_04_GRP|girl:fk_hair_04_CTRL|girl:fk_hair_05_GRP|girl:fk_hair_05_CTRL" 
 		"rotateX" " -av"
 		2 "|girl:CharacterRigRNfosterParent1|girl:ik_hair_GRP|girl:ik_hair_GRP|girl:ik_jair_ikHandle" 
-		"translate" " -type \"double3\" 17.801352687258078 35.377782263973579 -11.539440679485255"
+		"translate" " -type \"double3\" 17.877595467438777 35.468356945624954 -11.38546999145149"
 		
 		2 "|girl:CharacterRigRNfosterParent1|girl:ik_hair_GRP|girl:ik_hair_GRP|girl:ik_jair_ikHandle" 
-		"rotate" " -type \"double3\" 179.06450539606953 -44.405117314339982 49.52642451332509";
+		"rotate" " -type \"double3\" -170.68394742519354 -45.854761851900257 49.475317681960831"
+		
+		5 4 "girlRN" "|girl:CharacterRigRNfosterParent1|girl:r_brow_GRP|girl:l_brow_CTRL.visibility" 
+		"girlRN.placeHolderList[461]" ""
+		5 4 "girlRN" "|girl:CharacterRigRNfosterParent1|girl:l_brow_GRP|girl:r_brow_CTRL.visibility" 
+		"girlRN.placeHolderList[462]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode animCurveTA -n "charset_spline_02_CTRL_rotateZ1";
 	rename -uid "BA075625-4868-B4FA-A621-6095773D5D25";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -26.109023561819392 20 -26.109023561819392
-		 95 -26.109023561819392 105 -26.109023561819392;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -26.109023561819392 20 -26.109023561819392
+		 95 -26.109023561819392 105 -26.109023561819392 115 -26.109023561819392;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_spline_02_CTRL_rotateY1";
 	rename -uid "3B67D6CC-4414-05A5-6AF5-20996981F498";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_spline_02_CTRL_rotateX1";
 	rename -uid "CEFECEDD-409D-77AB-1E00-6E89197EEE98";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_spline_02_CTRL_translateZ1";
 	rename -uid "DD96BF23-4C13-73BD-8EEF-8590CEEBE819";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_spline_02_CTRL_translateY1";
 	rename -uid "050AC5E9-4CBC-32CD-6490-22921622B5D9";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_spline_02_CTRL_translateX1";
 	rename -uid "E7C50D06-49A9-EBFD-3C09-E6BF7003E71F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -6.9895476519872801 20 -6.9895476519872801
-		 95 -6.9895476519872801 105 -6.9895476519872801;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -6.9895476519872801 20 -6.9895476519872801
+		 95 -6.9895476519872801 105 -6.9895476519872801 115 -6.9895476519872801;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_spline_01_CTRL_rotateZ1";
 	rename -uid "C139F773-43B5-3161-D6CA-9982E232E55B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 12.817598878239648 20 12.817598878239648
-		 95 12.817598878239648 105 12.817598878239648;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 12.817598878239648 20 12.817598878239648
+		 95 12.817598878239648 105 12.817598878239648 115 12.817598878239648;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_spline_01_CTRL_rotateY1";
 	rename -uid "0BEFFD36-4158-EC3A-0ECE-738CA540C6EA";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_spline_01_CTRL_rotateX1";
 	rename -uid "8B6F555F-4E71-BF7D-1527-42943B55CB84";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_spline_01_CTRL_translateZ1";
 	rename -uid "D96C4752-4FDC-C2E7-680A-4E992BB0DE85";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0.001335644922776158 20 0.001335644922776158
-		 95 0.001335644922776158 105 0.001335644922776158;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0.001335644922776158 20 0.001335644922776158
+		 95 0.001335644922776158 105 0.001335644922776158 115 0.001335644922776158;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_spline_01_CTRL_translateY1";
 	rename -uid "D6021438-4415-51D5-1872-8BA31DB29CBB";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.0095180807749035701 20 -0.0095180807749035701
-		 95 -0.0095180807749035701 105 -0.0095180807749035701;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.0095180807749035701 20 -0.0095180807749035701
+		 95 -0.0095180807749035701 105 -0.0095180807749035701 115 -0.0095180807749035701;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_spline_01_CTRL_translateX1";
 	rename -uid "81A037B1-4540-0D47-EF0D-11BF9B7EED33";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.0094164256149060765 20 -0.0094164256149060765
-		 95 -0.0094164256149060765 105 -0.0094164256149060765;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.0094164256149060765 20 -0.0094164256149060765
+		 95 -0.0094164256149060765 105 -0.0094164256149060765 115 -0.0094164256149060765;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_root_CTRL_rotateZ1";
 	rename -uid "3E55BB35-440B-7CD6-F421-408B0BA0B69B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_root_CTRL_rotateY1";
 	rename -uid "5CDA08D5-439F-4D67-8A58-27AD87BD47DA";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_root_CTRL_rotateX1";
 	rename -uid "98E60DC4-40BA-D04A-3C9C-A4A6C34F57C8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -12.555597712173567 20 -12.555597712173567
-		 95 -12.555597712173567 105 -12.555597712173567;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -12.555597712173567 20 -12.555597712173567
+		 95 -12.555597712173567 105 -12.555597712173567 115 -12.555597712173567;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_root_CTRL_translateZ1";
 	rename -uid "E449DCA7-488D-B036-0584-6FB2288C9390";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 11.615599558930876 20 11.615599558930876
-		 95 11.615599558930876 105 11.615599558930876;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 11.615599558930876 20 11.615599558930876
+		 95 11.615599558930876 105 11.615599558930876 115 11.615599558930876;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_root_CTRL_translateY1";
 	rename -uid "C551AD57-42D6-7E66-E1B3-97B9113A9102";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -51.301798200105928 20 -51.301798200105928
-		 95 -51.301798200105928 105 -51.301798200105928;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -51.301798200105928 20 -51.301798200105928
+		 95 -51.301798200105928 105 -51.301798200105928 115 -51.301798200105928;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_root_CTRL_translateX1";
 	rename -uid "94E1F64B-4F0A-3DE1-A6FC-9DB46D821821";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 1.8745466398751276 20 1.8745466398751276
-		 95 1.8745466398751276 105 1.8745466398751276;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 1.8745466398751276 20 1.8745466398751276
+		 95 1.8745466398751276 105 1.8745466398751276 115 1.8745466398751276;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_r_shoulder_CTRL_rotateZ1";
 	rename -uid "2AB80E6D-4B52-683B-928E-91B45244FDBB";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 6.8904631106520666 20 6.8904631106520666
-		 95 6.8904631106520666 105 6.8904631106520666;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 6.8904631106520666 20 6.8904631106520666
+		 95 6.8904631106520666 105 6.8904631106520666 115 6.8904631106520666;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_r_shoulder_CTRL_rotateY1";
 	rename -uid "C368100D-4864-B71B-F518-768607A6C740";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -21.779708489126023 20 -21.779708489126023
-		 95 -21.779708489126023 105 -21.779708489126023;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -21.779708489126023 20 -21.779708489126023
+		 95 -21.779708489126023 105 -21.779708489126023 115 -21.779708489126023;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_r_shoulder_CTRL_rotateX1";
 	rename -uid "67C10F6C-4E02-8379-EFBC-BDB4DE53E09B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 20.188016396784114 20 20.188016396784114
-		 95 20.188016396784114 105 20.188016396784114;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 20.188016396784114 20 20.188016396784114
+		 95 20.188016396784114 105 20.188016396784114 115 20.188016396784114;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_r_shoulder_CTRL_translateZ1";
 	rename -uid "5ADE5321-4CA9-5D9B-9130-9A9D72961AF6";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_r_shoulder_CTRL_translateY1";
 	rename -uid "57530CA0-4D6D-BAB0-49CD-58BEE595A562";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_r_shoulder_CTRL_translateX1";
 	rename -uid "A5F40673-444F-7E12-080A-0290B2D1D560";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_r_leg_poleVector_CTRL_rotateZ49";
 	rename -uid "F716814E-496C-B0C3-B98D-EDB36E2CE776";
 	setAttr ".tan" 18;
@@ -5635,355 +5855,364 @@ createNode animCurveTA -n "charset_r_ik_leg_CTRL_rotateZ1";
 	rename -uid "BED04507-44E5-173F-24D8-D1867F478F69";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_r_ik_leg_CTRL_rotateY1";
 	rename -uid "CA08B326-4879-432D-9FBA-038F3E7D8072";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_r_ik_leg_CTRL_rotateX1";
 	rename -uid "F425D33B-497C-020E-45DE-5797209C380E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_r_ik_leg_CTRL_translateZ1";
 	rename -uid "90D4CA47-464A-ABC4-3937-3089DB9E0932";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_r_ik_leg_CTRL_translateY1";
 	rename -uid "E9EE260D-47BF-05D1-C2B9-A688C96FC8DD";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0.40564628501278932 20 0.40564628501278932
-		 95 0.40564628501278932 105 0.40564628501278932;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0.40564628501278932 20 0.40564628501278932
+		 95 0.40564628501278932 105 0.40564628501278932 115 0.40564628501278932;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_r_ik_leg_CTRL_translateX1";
 	rename -uid "EF8F2DDC-498F-FED5-7089-D3B41F098697";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_r_ik_hand_CTRL_rotateZ1";
 	rename -uid "CF98D098-45DA-283E-2A3D-3E8D1B1C852D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 -141.15739348189976 20 -141.15739348189976
-		 95 -141.15739348189976;
-	setAttr -s 3 ".kit[0:2]"  2 18 18;
-	setAttr -s 3 ".kot[0:2]"  2 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -136.34776694686227 20 -141.15739348189976
+		 95 -315.09953224544296 105 -315.09953224544296 115 -315.09953224544296;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_r_ik_hand_CTRL_rotateY1";
 	rename -uid "1063A46F-483C-43D1-A3B3-5D97C1233188";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 -21.904492649367324 20 -21.904492649367324
-		 95 -21.904492649367324;
-	setAttr -s 3 ".kit[0:2]"  2 18 18;
-	setAttr -s 3 ".kot[0:2]"  2 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -7.4032274097267523 20 -21.904492649367324
+		 95 -171.03460921833499 105 -171.03460921833499 115 -171.03460921833499;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_r_ik_hand_CTRL_rotateX1";
 	rename -uid "E6D40E7A-4AFC-A68E-553B-97A776BD972A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 156.11283036043403 20 156.11283036043403
-		 95 156.11283036043403;
-	setAttr -s 3 ".kit[0:2]"  2 18 18;
-	setAttr -s 3 ".kot[0:2]"  2 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 169.49010586366592 20 156.11283036043403
+		 95 346.05041779980661 105 346.05041779980661 115 346.05041779980661;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_r_ik_hand_CTRL_translateZ1";
 	rename -uid "1D328A83-4F43-99AB-1543-FEB075EA0C47";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -34.396706899479469 20 -34.421062424197828
-		 95 -34.421062424197828 110 -34.427305446734898;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -33.783306143301893 20 -34.421062424197828
+		 95 -32.111760980893251 105 -33.61501704826874 115 -33.615755669345987;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_r_ik_hand_CTRL_translateY1";
 	rename -uid "FECE736A-4021-6562-B3E4-93A618D16B4B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 41.299674327894898 20 45.179760379653437
-		 95 45.179760379653437 110 44.543583089337581;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 39.555138961744987 20 45.179760379653437
+		 95 42.550813964584265 105 42.731129078147333 115 42.727169997124562;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_r_ik_hand_CTRL_translateX1";
 	rename -uid "BC4A98BD-42F5-B092-22D8-27A1FCCBFFD9";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -1.6801670972685934 20 1.1328718809439433
-		 95 1.1328718809439433 110 1.6464425515935979;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -1.6489025549198097 20 1.1328718809439433
+		 95 0.23518728872445749 105 1.7419767470449763 115 1.7602864282379507;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_r_finger_04_CTRL_rotateZ1";
 	rename -uid "30178625-4981-72E3-0F12-42B8A1A69C43";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 -17.687110609671045 95 -17.687110609671045
+		 105 -17.687110609671045 115 -17.687110609671045;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_r_finger_04_CTRL_rotateY1";
 	rename -uid "B8544330-4CE1-487E-0204-67A50D94D1C3";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -53.637618739015409 20 -53.637618739015409
-		 95 -53.637618739015409 105 -53.637618739015409;
+	setAttr -s 4 ".ktv[0:3]"  1 -32.436414084659425 95 -32.436414084659425
+		 105 -32.436414084659425 115 -32.436414084659425;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_r_finger_04_CTRL_rotateX1";
 	rename -uid "B3BD73EE-4B42-F67C-39DE-A88CE9200B10";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 -6.2166225089872986 95 -6.2166225089872986
+		 105 -6.2166225089872986 115 -6.2166225089872986;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_r_finger_04_CTRL_translateZ1";
 	rename -uid "B8ABD136-4955-C5C7-2FA8-44A421758580";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_r_finger_04_CTRL_translateY1";
 	rename -uid "BA475061-4C17-D684-B4C4-ADB09E087258";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_r_finger_04_CTRL_translateX1";
 	rename -uid "9854E492-4162-578E-F572-378252061D34";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_r_finger_03_CTRL_rotateZ1";
 	rename -uid "90631DF1-456B-9550-4FC2-B2ABACDBE0D1";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 -15.203087384971118 95 -15.203087384971118
+		 105 -15.203087384971118 115 -15.203087384971118;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_r_finger_03_CTRL_rotateY1";
 	rename -uid "049C0B1F-4F93-9440-E063-29869815B599";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -53.637618739015409 20 -53.637618739015409
-		 95 -53.637618739015409 105 -53.637618739015409;
+	setAttr -s 4 ".ktv[0:3]"  1 -52.658101616066375 95 -52.658101616066375
+		 105 -52.658101616066375 115 -52.658101616066375;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_r_finger_03_CTRL_rotateX1";
 	rename -uid "1F94C222-4740-500A-A6A1-6AB7B1E203A8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 12.1914200158147 95 12.1914200158147 105 12.1914200158147
+		 115 12.1914200158147;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_r_finger_03_CTRL_translateZ1";
 	rename -uid "DC9508D3-4D2C-3704-7A33-2DA744F232B3";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 -0.22230865794203286 95 -0.22230865794203286
+		 105 -0.22230865794203286 115 -0.22230865794203286;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_r_finger_03_CTRL_translateY1";
 	rename -uid "FE97E6CA-402E-6374-AACB-99A22870902C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 -0.12559853045537761 95 -0.12559853045537761
+		 105 -0.12559853045537761 115 -0.12559853045537761;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_r_finger_03_CTRL_translateX1";
 	rename -uid "D5E26AF3-4762-28DC-11F1-F9963D671089";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0.16295164867946058 95 0.16295164867946058
+		 105 0.16295164867946058 115 0.16295164867946058;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_r_finger_02_CTRL_rotateZ1";
 	rename -uid "38193F0E-4602-F7B7-2358-CDA4C4150386";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 -17.196277909258271 95 -17.196277909258271
+		 105 -17.196277909258271 115 -17.196277909258271;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_r_finger_02_CTRL_rotateY1";
 	rename -uid "7215245F-4EBE-BA02-238D-E889A6F33B22";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -53.637618739015409 20 -53.637618739015409
-		 95 -53.637618739015409 105 -53.637618739015409;
+	setAttr -s 4 ".ktv[0:3]"  1 -54.96390547658725 95 -54.96390547658725
+		 105 -54.96390547658725 115 -54.96390547658725;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_r_finger_02_CTRL_rotateX1";
 	rename -uid "62001D0E-49E2-4A0C-D653-1BBA1B36CBAB";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 17.175759063979136 95 17.175759063979136
+		 105 17.175759063979136 115 17.175759063979136;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_r_finger_02_CTRL_translateZ1";
 	rename -uid "896C3262-4F78-0934-F31B-30AD8210ACDB";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_r_finger_02_CTRL_translateY1";
 	rename -uid "DA7F68AC-43CE-9DAB-25D2-FBBB5C3176EC";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_r_finger_02_CTRL_translateX1";
 	rename -uid "A130A5B4-4B5D-0D57-4A1A-0C8DBBD732C3";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_r_finger_01_CTRL_rotateZ1";
 	rename -uid "DF73E922-42BD-E518-767F-CE9ECD404C2C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 50.298802997094924 20 50.298802997094924
-		 95 50.298802997094924 105 50.298802997094924;
+	setAttr -s 4 ".ktv[0:3]"  1 24.686837459941891 95 24.686837459941891
+		 105 24.686837459941891 115 24.686837459941891;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_r_finger_01_CTRL_rotateY1";
 	rename -uid "CF485D67-4E53-5FCF-D3DA-B0A8CD41BD9E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -61.986456089640875 20 -61.986456089640875
-		 95 -61.986456089640875 105 -61.986456089640875;
+	setAttr -s 4 ".ktv[0:3]"  1 -62.581263595917434 95 -62.581263595917434
+		 105 -62.581263595917434 115 -62.581263595917434;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_r_finger_01_CTRL_rotateX1";
 	rename -uid "9129EBFF-4B85-98F1-1295-44A1346965D8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -43.384519635999226 20 -43.384519635999226
-		 95 -43.384519635999226 105 -43.384519635999226;
+	setAttr -s 4 ".ktv[0:3]"  1 -18.11672043927986 95 -18.11672043927986
+		 105 -18.11672043927986 115 -18.11672043927986;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_r_finger_01_CTRL_translateZ1";
 	rename -uid "AE056B50-46EC-AD2F-620F-489164B3E373";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_r_finger_01_CTRL_translateY1";
 	rename -uid "61B39678-4F23-FA0C-31AC-03942DA17024";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_r_finger_01_CTRL_translateX1";
 	rename -uid "FA52BF10-43C5-AA5F-B185-69B5260B2B6E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_neck_CTRL_rotateZ1";
 	rename -uid "1E450167-4031-9CB4-B031-19A725E61C0A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -6.9153984162033977 20 -4.6147885310574619
-		 95 -4.6147885310574619 105 -4.6147885310574619;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -6.9153984162033986 20 -4.6147885310574619
+		 95 -4.6147885310574619 105 -4.6147885310574619 115 -4.6147885310574619;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_neck_CTRL_rotateY1";
 	rename -uid "86CC90D3-4148-EE79-7D22-3481986B85D7";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_neck_CTRL_rotateX1";
 	rename -uid "3042FA36-4080-12A0-40EB-B08FCA32FB1E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_neck_CTRL_translateZ1";
 	rename -uid "43A4EA69-47B6-0837-1331-349259984DF4";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_neck_CTRL_translateY1";
 	rename -uid "69FE8A0E-4535-B8A2-FBC2-5B81F18D02DF";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_neck_CTRL_translateX1";
 	rename -uid "531EBD33-4835-255D-F442-D1A2B79F46B3";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_l_shoulder_CTRL_rotateZ1";
 	rename -uid "0CCC5AF5-4789-D5CF-CEA2-0595F0F00DB6";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 13.87286623388151 20 13.872866233881513
-		 95 13.872866233881517 105 13.872866233881521;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 13.87286623388151 20 13.872866233881513
+		 95 13.872866233881513 105 13.872866233881522 115 13.872866233881522;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_l_shoulder_CTRL_rotateY1";
 	rename -uid "94D0D484-496A-728F-AF17-6C8E0AD32B4A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 14.703123050772833 20 14.703123050772838
-		 95 14.703123050772845 105 14.703123050772849;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 14.703123050772833 20 14.703123050772838
+		 95 14.703123050772838 105 14.703123050772849 115 14.703123050772849;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_l_shoulder_CTRL_rotateX1";
 	rename -uid "C576A0B2-4593-50C4-188A-95B122859BC8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -4.9305175446033207 20 -4.9305175446033207
-		 95 -4.9305175446033225 105 -4.9305175446033234;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -4.9305175446033207 20 -4.9305175446033207
+		 95 -4.9305175446033207 105 -4.9305175446033234 115 -4.9305175446033234;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_l_shoulder_CTRL_translateZ1";
 	rename -uid "A16512D5-49A7-4125-4DA2-9A88B615698C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_l_shoulder_CTRL_translateY1";
 	rename -uid "F9959253-4FE3-C69D-283D-F28DAB4666A2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_l_shoulder_CTRL_translateX1";
 	rename -uid "345E2550-4671-D6E2-7301-A487CF87EC49";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_l_leg_poleVector_CTRL_rotateZ49";
 	rename -uid "2068907A-4BFB-243D-614D-559E3D00B642";
 	setAttr ".tan" 18;
@@ -6078,2399 +6307,2474 @@ createNode animCurveTA -n "charset_l_ik_leg_CTRL_rotateZ1";
 	rename -uid "45521F04-49B5-2A23-1BDC-328E8340FCA0";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_l_ik_leg_CTRL_rotateY1";
 	rename -uid "81F13B65-49BC-9B8D-A478-3082658FEA8C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_l_ik_leg_CTRL_rotateX1";
 	rename -uid "480C09A6-4345-8DEA-1795-2CA63355038A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_l_ik_leg_CTRL_translateZ1";
 	rename -uid "C0F51A0A-40E2-134C-D9FA-D99C128CE25C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_l_ik_leg_CTRL_translateY1";
 	rename -uid "84F4B9F9-4E6B-F97E-2109-0993E3188725";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0.40564628501278932 20 0.40564628501278932
-		 95 0.40564628501278932 105 0.40564628501278932;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0.40564628501278932 20 0.40564628501278932
+		 95 0.40564628501278932 105 0.40564628501278932 115 0.40564628501278932;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_l_ik_leg_CTRL_translateX1";
 	rename -uid "21DB6C8F-402F-FFA0-B3E0-DD9853B5CB08";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_l_ik_hand_CTRL_rotateZ1";
 	rename -uid "1C2D4C46-42AC-D58C-E3C8-32BB92984389";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 -330.62790999080761 20 -330.62790999080761
-		 95 -330.62790999080761;
-	setAttr -s 3 ".kit[0:2]"  2 18 18;
-	setAttr -s 3 ".kot[0:2]"  2 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -320.86521497591121 20 -322.52903788789297
+		 95 -322.52903788789297 107 -322.52903788789297 115 -322.52903788789297;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_l_ik_hand_CTRL_rotateY1";
 	rename -uid "2CCBBD32-46F6-AD76-8CDD-A38A57A9B13D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 -185.31141038478006 20 -185.31141038478006
-		 95 -185.31141038478006;
-	setAttr -s 3 ".kit[0:2]"  2 18 18;
-	setAttr -s 3 ".kot[0:2]"  2 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -191.43465224946084 20 -193.27259974092181
+		 95 -193.27259974092181 107 -193.27259974092181 115 -193.27259974092181;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_l_ik_hand_CTRL_rotateX1";
 	rename -uid "7D2A981A-4D09-F4D8-FB7D-B8AD3F450BD4";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 314.52712081162497 20 314.52712081162497
-		 95 314.52712081162497;
-	setAttr -s 3 ".kit[0:2]"  2 18 18;
-	setAttr -s 3 ".kot[0:2]"  2 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 319.12668259965898 20 315.84010604040361
+		 95 315.84010604040361 107 315.84010604040361 115 315.84010604040361;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_l_ik_hand_CTRL_translateZ1";
 	rename -uid "395EDEEE-4271-97F2-B37F-70A0C75E564D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 33.425277432245466 20 33.159471063443334
-		 95 33.159471063443334 110 33.165716962607959;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 33.425277432245466 20 31.746027693460348
+		 95 31.746027693460348 107 33.060554512456008 115 33.165716962607959;
+	setAttr -s 5 ".kit[0:4]"  2 1 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 1 18 18 18;
+	setAttr -s 5 ".kix[1:4]"  0.73426359891891479 1 0.72628092765808105 
+		1;
+	setAttr -s 5 ".kiy[1:4]"  -0.67886453866958618 0 0.68739795684814453 
+		0;
+	setAttr -s 5 ".kox[1:4]"  0.73426359891891479 1 0.72628092765808105 
+		1;
+	setAttr -s 5 ".koy[1:4]"  -0.67886453866958618 0 0.68739795684814453 
+		0;
 createNode animCurveTL -n "charset_l_ik_hand_CTRL_translateY1";
 	rename -uid "09034847-44C5-E89C-40D4-EB97EA9522BD";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -37.326887475965691 20 -35.397964146918035
-		 95 -35.397964146918035 110 -34.761789757226218;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -37.326887475965691 20 -36.254546985255253
+		 95 -36.254546985255253 107 -34.867325892100588 115 -34.743042375834968;
+	setAttr -s 5 ".kit[0:4]"  2 1 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 1 18 18 18;
+	setAttr -s 5 ".kix[1:4]"  0.98442250490188599 1 0.66649484634399414 
+		1;
+	setAttr -s 5 ".kiy[1:4]"  0.17581917345523834 0 0.74550962448120117 
+		0;
+	setAttr -s 5 ".kox[1:4]"  0.98442250490188599 1 0.66649490594863892 
+		1;
+	setAttr -s 5 ".koy[1:4]"  0.17581914365291595 0 0.74550962448120117 
+		0;
 createNode animCurveTL -n "charset_l_ik_hand_CTRL_translateX1";
 	rename -uid "7BD0ACB4-4E35-F73E-1EBF-27BF419E0859";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 4.913998683066815 20 9.2932053484958903
-		 95 9.2932053484958903 110 8.7796311197427155;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 4.913998683066815 20 8.2149497465590837
+		 95 8.2149497465590837 107 8.7378027576851416 115 8.7796311197427155;
+	setAttr -s 5 ".kit[0:4]"  2 1 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 1 18 18 18;
+	setAttr -s 5 ".kix[1:4]"  0.69716310501098633 1 0.93588054180145264 
+		1;
+	setAttr -s 5 ".kiy[1:4]"  0.71691256761550903 0 0.35231748223304749 
+		0;
+	setAttr -s 5 ".kox[1:4]"  0.69716310501098633 1 0.93588054180145264 
+		1;
+	setAttr -s 5 ".koy[1:4]"  0.71691256761550903 0 0.35231751203536987 
+		0;
 createNode animCurveTA -n "charset_l_finger_04_CTRL_rotateZ1";
 	rename -uid "62E0E82B-40FF-045F-BD2F-F5884F48294C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -13.085735455542089 20 -13.085735455542089
-		 95 -13.085735455542089 105 -13.085735455542089;
+	setAttr -s 4 ".ktv[0:3]"  1 -10.465302926502986 95 -10.465302926502986
+		 105 -10.465302926502986 115 -10.465302926502986;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_l_finger_04_CTRL_rotateY1";
 	rename -uid "908883B9-4498-7425-481E-028927609FAD";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -27.709864537098888 20 -27.709864537098888
-		 95 -27.709864537098888 105 -27.709864537098888;
+	setAttr -s 4 ".ktv[0:3]"  1 -17.225091272062102 95 -17.225091272062102
+		 105 -17.225091272062102 115 -17.225091272062102;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_l_finger_04_CTRL_rotateX1";
 	rename -uid "BE529E00-4CAA-7E1C-1F18-5D8682B88FAC";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 13.527462378822021 20 13.527462378822021
-		 95 13.527462378822021 105 13.527462378822021;
+	setAttr -s 4 ".ktv[0:3]"  1 12.521684644107468 95 12.521684644107468
+		 105 12.521684644107468 115 12.521684644107468;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_l_finger_04_CTRL_translateZ1";
 	rename -uid "3C5CA255-4DAF-A660-9711-1CB664E63A4F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_l_finger_04_CTRL_translateY1";
 	rename -uid "F63BF10E-465C-1231-BE50-5485C0008FE0";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_l_finger_04_CTRL_translateX1";
 	rename -uid "64BA8CBE-41D3-1F52-211A-D3B740FAEF94";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_l_finger_03_CTRL_rotateZ1";
 	rename -uid "02171E91-41FB-67A0-4C94-32BD3E5C31D5";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -158.3665785238415 20 -158.3665785238415
-		 95 -158.3665785238415 105 -158.3665785238415;
+	setAttr -s 4 ".ktv[0:3]"  1 -158.3665785238415 95 -158.3665785238415
+		 105 -158.3665785238415 115 -158.3665785238415;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_l_finger_03_CTRL_rotateY1";
 	rename -uid "A442ABB4-4C89-F72E-80FA-A1B91ADB7675";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -65.964775809587991 20 -65.964775809587991
-		 95 -65.964775809587991 105 -65.964775809587991;
+	setAttr -s 4 ".ktv[0:3]"  1 -65.964775809587991 95 -65.964775809587991
+		 105 -65.964775809587991 115 -65.964775809587991;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_l_finger_03_CTRL_rotateX1";
 	rename -uid "4EFB562E-499A-BCA5-19C3-3AA91BA75970";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 149.44031155175588 20 149.44031155175588
-		 95 149.44031155175588 105 149.44031155175588;
+	setAttr -s 4 ".ktv[0:3]"  1 149.44031155175588 95 149.44031155175588
+		 105 149.44031155175588 115 149.44031155175588;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_l_finger_03_CTRL_translateZ1";
 	rename -uid "A114C83D-468D-5A5F-F35B-01936D225C03";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_l_finger_03_CTRL_translateY1";
 	rename -uid "B215AF3A-41C5-3C2A-AC60-ED8A58C5ED0F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_l_finger_03_CTRL_translateX1";
 	rename -uid "653486C7-4E8C-7584-0906-5CA01D416340";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_l_finger_02_CTRL_rotateZ1";
 	rename -uid "51734C79-4A6C-104B-3DCB-8CAB99EC5108";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -13.085735455542089 20 -13.085735455542089
-		 95 -13.085735455542089 105 -13.085735455542089;
+	setAttr -s 4 ".ktv[0:3]"  1 -24.82707617112019 95 -24.82707617112019
+		 105 -24.82707617112019 115 -24.82707617112019;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_l_finger_02_CTRL_rotateY1";
 	rename -uid "50D341E8-4D07-1BCD-FB00-3D8C4074F5E2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -27.709864537098888 20 -27.709864537098888
-		 95 -27.709864537098888 105 -27.709864537098888;
+	setAttr -s 4 ".ktv[0:3]"  1 -55.767095143115348 95 -55.767095143115348
+		 105 -55.767095143115348 115 -55.767095143115348;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_l_finger_02_CTRL_rotateX1";
 	rename -uid "6DB90397-48FA-E6B1-015E-D4903967379E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 13.527462378822021 20 13.527462378822021
-		 95 13.527462378822021 105 13.527462378822021;
+	setAttr -s 4 ".ktv[0:3]"  1 21.599280086516508 95 21.599280086516508
+		 105 21.599280086516508 115 21.599280086516508;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_l_finger_02_CTRL_translateZ1";
 	rename -uid "81BCD11B-492A-D64A-3084-5DB2555D234D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0.35342064514726318 95 0.35342064514726318
+		 105 0.35342064514726318 115 0.35342064514726318;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_l_finger_02_CTRL_translateY1";
 	rename -uid "8982561F-402D-66EA-0609-22A0E3DBB46E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 -0.19711848134018645 95 -0.19711848134018645
+		 105 -0.19711848134018645 115 -0.19711848134018645;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_l_finger_02_CTRL_translateX1";
 	rename -uid "06F08B6D-4B50-51CD-83AC-52A5E35F9B6A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 -1.3225905903774664 95 -1.3225905903774664
+		 105 -1.3225905903774664 115 -1.3225905903774664;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_l_finger_01_CTRL_rotateZ1";
 	rename -uid "76D99F1D-4873-B0F6-6BE6-25A7F99F9B2D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -13.085735455542089 20 -13.085735455542089
-		 95 -13.085735455542089 105 -13.085735455542089;
+	setAttr -s 4 ".ktv[0:3]"  1 -13.345453964852073 95 -13.345453964852073
+		 105 -13.345453964852073 115 -13.345453964852073;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_l_finger_01_CTRL_rotateY1";
 	rename -uid "D55497DA-42C9-AE7C-963B-0CBE9F580326";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -27.709864537098888 20 -27.709864537098888
-		 95 -27.709864537098888 105 -27.709864537098888;
+	setAttr -s 4 ".ktv[0:3]"  1 -0.5660155476431189 95 -0.5660155476431189
+		 105 -0.5660155476431189 115 -0.5660155476431189;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_l_finger_01_CTRL_rotateX1";
 	rename -uid "3D71719C-4D7B-4092-1C83-618CB5C8FBA2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 13.527462378822021 20 13.527462378822021
-		 95 13.527462378822021 105 13.527462378822021;
+	setAttr -s 4 ".ktv[0:3]"  1 15.255350075876899 95 15.255350075876899
+		 105 15.255350075876899 115 15.255350075876899;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_l_finger_01_CTRL_translateZ1";
 	rename -uid "BDF9651F-426F-AE66-853F-969CA9810898";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_l_finger_01_CTRL_translateY1";
 	rename -uid "EE5649DC-4BE0-FE02-68E0-E7937DDAC2B8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_l_finger_01_CTRL_translateX1";
 	rename -uid "5F6AEACD-47FD-EDE3-5E3A-6D8DD4B53354";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
 	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
 	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_hip_CTRL_rotateZ1";
 	rename -uid "1310E3CC-46F2-1D83-199B-E4B7922BDC61";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -43.856284728755035 20 -43.856284728755035
-		 95 -43.856284728755035 105 -43.856284728755035;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -43.856284728755035 20 -43.856284728755035
+		 95 -43.856284728755035 105 -43.856284728755035 115 -43.856284728755035;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_hip_CTRL_rotateY1";
 	rename -uid "9018C2C7-488F-5845-D205-6AA51A55930A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_hip_CTRL_rotateX1";
 	rename -uid "34D93325-4403-323F-AE32-1EBE20A14352";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_hip_CTRL_translateZ1";
 	rename -uid "E5E80C33-4E63-4472-A2B5-AF8F3911C6E2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_hip_CTRL_translateY1";
 	rename -uid "4BB35A3C-45B7-6074-BCB2-AFAC5A3B41C7";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_hip_CTRL_translateX1";
 	rename -uid "3974733D-4191-D645-6579-2F8BFB20FE23";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_head_ik_CTRL_rotateZ1";
 	rename -uid "90CDCCB6-4CFE-9ACB-CEF0-5697DEA4DEFB";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_head_ik_CTRL_rotateY1";
 	rename -uid "74285FDF-431C-A8E7-D9D0-4DA3DCB1D6DF";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_head_ik_CTRL_rotateX1";
 	rename -uid "BCFAA569-44B8-09A8-F8F9-2F9FD96E5A3B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_head_ik_CTRL_translateZ1";
 	rename -uid "CC981651-4523-146A-1847-5AB48222DF92";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 76.271065317710281 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_head_ik_CTRL_translateY1";
 	rename -uid "A6FD4FF2-4CB6-6404-F599-B2BC5D69DE93";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 -74.172836226051871 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_head_ik_CTRL_translateX1";
 	rename -uid "5C97A57A-4835-181E-D413-1F8290F25490";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 17.529667342987981 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_head_CTRL_rotateZ1";
 	rename -uid "8150D12F-4238-5F19-A2D9-FBB01A1DF358";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  1 -22.951951102985003 20 7.3090872618891849
-		 95 7.3090872618891849 105 -8.9563187330045171 111 -12.576241872878027;
-	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
-	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
+	setAttr -s 12 ".ktv[0:11]"  1 -22.951951102985003 6 -13.263420410992961
+		 15 6.5652775989159426 21 7.7968430573644074 27 7.5193881795544364 40 7.9428618472275048
+		 78 7.9407065474082446 87 8.4906634732669826 93 4.8606933451594259 100 -5.3495254157910885
+		 107 -15.665089413251501 115 -15.03509723546558;
+	setAttr -s 12 ".kit[0:11]"  2 18 18 18 18 18 18 18 
+		18 18 18 18;
+	setAttr -s 12 ".kot[0:11]"  2 18 18 18 18 18 18 18 
+		18 18 18 18;
 createNode animCurveTA -n "charset_head_CTRL_rotateY1";
 	rename -uid "368E63BC-4465-8A4C-22D0-6090315EF555";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  1 -3.6611164642123453 20 -1.2517915603777034
-		 95 -1.2517915603777037 105 5.6118996251736117 111 7.0597843000925495;
-	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
-	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
+	setAttr -s 12 ".ktv[0:11]"  1 -3.6611164642123453 6 -2.610805011573464
+		 15 -1.3023736622901623 21 -1.6286980553149188 27 -1.2946748722810544 40 -1.4028257564887527
+		 78 -1.0337699624785768 87 -1.6741109443053692 93 -0.087014237489161803 100 3.7999905993616068
+		 107 8.2188221463854667 115 7.9648885644841272;
+	setAttr -s 12 ".kit[0:11]"  2 18 18 18 18 18 18 18 
+		18 18 18 18;
+	setAttr -s 12 ".kot[0:11]"  2 18 18 18 18 18 18 18 
+		18 18 18 18;
 createNode animCurveTA -n "charset_head_CTRL_rotateX1";
 	rename -uid "D9E0CDE5-4612-5E67-6873-3FB7D6AF322D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  1 11.424673949073529 20 35.182245315536257
-		 95 35.182245315536264 105 22.114255695904507 111 21.714611980991762;
-	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
-	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
+	setAttr -s 13 ".ktv[0:12]"  1 11.424673949073529 6 23.596459525878281
+		 15 34.548398243754157 21 34.793356013923962 27 34.396130667921767 40 34.206293202188903
+		 69 35.071958330195699 78 34.879266184377599 87 34.841277148537358 93 33.779245296401626
+		 100 28.405306891960507 107 23.006156319720009 115 22.156441553464091;
+	setAttr -s 13 ".kit[0:12]"  2 18 1 18 1 18 18 18 
+		18 18 18 18 18;
+	setAttr -s 13 ".kot[0:12]"  2 18 1 18 1 18 18 18 
+		18 18 18 18 18;
+	setAttr -s 13 ".kix[2:12]"  0.99597448110580444 1 0.99999529123306274 
+		1 1 0.99998593330383301 0.99998593330383301 0.97916710376739502 0.95177829265594482 
+		0.99120968580245972 1;
+	setAttr -s 13 ".kiy[2:12]"  0.089637361466884613 0 -0.0030819005332887173 
+		0 0 -0.0053041954524815083 -0.0053041954524815083 -0.20305618643760681 -0.30678665637969971 
+		-0.1322997510433197 0;
+	setAttr -s 13 ".kox[2:12]"  0.99597448110580444 1 0.99999529123306274 
+		1 1 0.99998593330383301 0.99998593330383301 0.97916710376739502 0.9517783522605896 
+		0.99120974540710449 1;
+	setAttr -s 13 ".koy[2:12]"  0.089637354016304016 0 -0.0030819005332887173 
+		0 0 -0.0053041954524815083 -0.0053041954524815083 -0.20305620133876801 -0.30678668618202209 
+		-0.1322997510433197 0;
 createNode animCurveTL -n "charset_head_CTRL_translateZ1";
 	rename -uid "582B43E7-403A-B4FF-355E-4989ACD7AE11";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.018074499665634236 20 9.289655219448141e-005
-		 95 9.289655219448141e-005 105 9.289655219448141e-005;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 8 ".ktv[0:7]"  1 -0.018074499665634236 6 0.14867414162457121
+		 15 0.35640219283573943 27 0.36405829047766014 78 0.3033059163291682 87 0.29429968655641453
+		 100 0.20561293372925527 115 0.10293053982297334;
+	setAttr -s 8 ".kit[0:7]"  2 18 18 18 18 18 18 18;
+	setAttr -s 8 ".kot[0:7]"  2 18 18 18 18 18 18 18;
 createNode animCurveTL -n "charset_head_CTRL_translateY1";
 	rename -uid "F750C014-452F-AD79-F35E-FFA3B9D14F18";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -2.2939112320447759 20 -2.7103836028152437
-		 95 -2.7103836028152437 105 -2.7103836028152437;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 8 ".ktv[0:7]"  1 -2.2939112320447759 6 -2.2523830747938711
+		 15 -2.2006491429709709 27 -2.1991750112362594 78 -2.2845049250221265 87 -2.2971546494897139
+		 100 -2.4217198720843029 115 -2.5659427109947295;
+	setAttr -s 8 ".kit[0:7]"  2 18 18 18 18 18 18 18;
+	setAttr -s 8 ".kot[0:7]"  2 18 18 18 18 18 18 18;
 createNode animCurveTL -n "charset_head_CTRL_translateX1";
 	rename -uid "79C63D80-463B-14F4-FC82-3AA363F1CA3A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -1.035961795232923 20 -1.252634138412122
-		 95 -1.252634138412122 105 -1.252634138412122;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 8 ".ktv[0:7]"  1 -1.035961795232923 6 -1.1625297402531487
+		 15 -1.3202024628133924 27 -1.3262221742947438 78 -1.3139390068516654 87 -1.3121180900281175
+		 100 -1.2941870337161272 115 -1.2734262801314378;
+	setAttr -s 8 ".kit[0:7]"  2 18 18 18 18 18 18 18;
+	setAttr -s 8 ".kot[0:7]"  2 18 18 18 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_upperKnee_CTRL_rotateZ1";
 	rename -uid "8C0FD4BD-487D-A129-F6DB-FDBDFE0DB7C2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_upperKnee_CTRL_rotateY1";
 	rename -uid "A164D2D5-42A5-77F4-4F92-40B576E5051D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_upperKnee_CTRL_rotateX1";
 	rename -uid "FCCF742F-4F42-61D7-4442-739340A3C2E5";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_upperKnee_CTRL_translateZ1";
 	rename -uid "73018CE9-4255-C4DC-32D7-FA9083E452E9";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_upperKnee_CTRL_translateY1";
 	rename -uid "ABB753D5-44F8-35F0-A1AC-E28FD47A257B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_upperKnee_CTRL_translateX1";
 	rename -uid "CB5EEE6E-4978-183D-A927-25B5049AE9B7";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_toe_CTRL_rotateZ1";
 	rename -uid "E040990B-4D02-4A15-A280-0DA2CB7894F7";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_toe_CTRL_rotateY1";
 	rename -uid "98189EAE-48D4-1138-9217-2090233D9482";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_toe_CTRL_rotateX1";
 	rename -uid "621527C7-4FD0-1C0C-2016-FC81FD972F80";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_toe_CTRL_translateZ1";
 	rename -uid "F520A27E-4186-A999-B1E9-ADAADD63BFFA";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_toe_CTRL_translateY1";
 	rename -uid "47F73B67-40AF-CF3D-C071-0B900342CD0F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_toe_CTRL_translateX1";
 	rename -uid "74297CEC-4812-BDCB-A14D-4C9A01860847";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_leg_CTRL_rotateZ1";
 	rename -uid "285E18BD-4655-A781-81B8-DD9731DCFC4F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_leg_CTRL_rotateY1";
 	rename -uid "863CB1E4-4DA4-0C26-223F-3399239ED6FE";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_leg_CTRL_rotateX1";
 	rename -uid "D19CE301-441C-3D0E-3F90-61ADD329B71D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_leg_CTRL_translateZ1";
 	rename -uid "99F9C27F-4C47-B388-C731-0CA6164A0DD7";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_leg_CTRL_translateY1";
 	rename -uid "C8B53F80-417B-D449-90FB-3F9D9FD8677E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_leg_CTRL_translateX1";
 	rename -uid "ED34A9D0-4683-CD48-F45A-9EB0DC0C51B6";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_hand_CTRL_rotateZ1";
 	rename -uid "E08E3B88-4C38-A463-8F60-5B8047237158";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_hand_CTRL_rotateY1";
 	rename -uid "84D83441-41A4-7734-2848-9EA950E25AAE";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_hand_CTRL_rotateX1";
 	rename -uid "FD38E67D-4BD4-F885-4A9E-2C901F35B3C8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_hand_CTRL_translateZ1";
 	rename -uid "41054ADD-4838-8A7A-9C67-799AF21B06AB";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_hand_CTRL_translateY1";
 	rename -uid "1893B0D5-4B1F-93F6-8F99-36B507EC558B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_hand_CTRL_translateX1";
 	rename -uid "E1FCAAB3-4373-94E0-5BE2-CF87187221E4";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_elbow_CTRL_rotateZ1";
 	rename -uid "EA33A6FF-400D-0C8C-FCAB-66A94C7DDC98";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_elbow_CTRL_rotateY1";
 	rename -uid "B5FC5EF0-4CF3-9FDD-BB96-759BFE25A16A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_elbow_CTRL_rotateX1";
 	rename -uid "3F06641C-4092-BFAA-5FBA-E8AE26CA4C4C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_elbow_CTRL_translateZ1";
 	rename -uid "28CB771D-4742-A372-EA02-CDB824CA2DCC";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_elbow_CTRL_translateY1";
 	rename -uid "1AE3CF15-4719-AE52-B3E4-4FA7F743616E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_elbow_CTRL_translateX1";
 	rename -uid "6E468F04-4B23-1F15-9252-E9972262D273";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_ball_CTRL_rotateZ1";
 	rename -uid "2EFE16D9-48FF-309D-756F-E185EFCA8C34";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_ball_CTRL_rotateY1";
 	rename -uid "4E00B7B7-415D-9A3E-A851-B88CA20F85FE";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_ball_CTRL_rotateX1";
 	rename -uid "E63AF4FA-467C-1FAD-27D9-12A47817F27B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_ball_CTRL_translateZ1";
 	rename -uid "142F6210-4925-BAAB-BD1D-A59EA9BAFE5E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_ball_CTRL_translateY1";
 	rename -uid "4DFA47F3-42C4-2417-2DFE-70B41FAAC79B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_ball_CTRL_translateX1";
 	rename -uid "538DF10A-4557-7EA4-D983-AA9C8C005976";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_arm_CTRL_rotateZ1";
 	rename -uid "AEF82E69-45A6-21E6-F059-D98D188CDA6F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_arm_CTRL_rotateY1";
 	rename -uid "C616D823-4469-DF63-3496-C6B9289FFACC";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_arm_CTRL_rotateX1";
 	rename -uid "494F9832-4D83-67EE-E943-BEAEFB86234D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_arm_CTRL_translateZ1";
 	rename -uid "5BABBBB3-4E24-9F9C-9D60-FEB10BB9C777";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_arm_CTRL_translateY1";
 	rename -uid "F79891B6-4C31-EF12-36D7-64AD5FD2550B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_arm_CTRL_translateX1";
 	rename -uid "5238C676-48BA-5DA5-C52F-CC94199E42D6";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_ankle_CTRL_rotateZ1";
 	rename -uid "4E4DE01F-4BB0-45D5-4054-CDB40228D4A4";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_ankle_CTRL_rotateY1";
 	rename -uid "0B151700-40F5-73F4-F987-9192D782D423";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_r_ankle_CTRL_rotateX1";
 	rename -uid "CA32399B-4E4C-9122-7815-47986743F59A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_ankle_CTRL_translateZ1";
 	rename -uid "7F386BC9-4581-93E1-6918-C8970187C176";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_ankle_CTRL_translateY1";
 	rename -uid "69C8C15C-4F46-08FD-1F85-269CD5964336";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_r_ankle_CTRL_translateX1";
 	rename -uid "26CC6E9D-4BB5-D7CC-164A-429BB6321E04";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_upperKnee_CTRL_rotateZ1";
 	rename -uid "BC11AAEF-406C-A568-E65B-96B11BCDD01C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_upperKnee_CTRL_rotateY1";
 	rename -uid "B99C8F41-4D7D-1218-9127-EAAFF2328E5B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_upperKnee_CTRL_rotateX1";
 	rename -uid "2823CEA9-4D20-341E-8AE2-8998365DC4BA";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_upperKnee_CTRL_translateZ1";
 	rename -uid "8C164AA0-4A1F-64E0-D98C-45990E7F7F8B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_upperKnee_CTRL_translateY1";
 	rename -uid "E222FF14-4F3B-A0F6-795D-51AA98552835";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_upperKnee_CTRL_translateX1";
 	rename -uid "9589B1A7-4332-E13C-5BAA-72A172D69322";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_toe_CTRL_rotateZ1";
 	rename -uid "6AF2E878-4C95-CCA0-CF28-7FB442AB878B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_toe_CTRL_rotateY1";
 	rename -uid "7E9E4B66-41CC-698F-DA8D-9C843BFD2D1B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_toe_CTRL_rotateX1";
 	rename -uid "32977ADE-48E2-2938-F645-B699667EBDE2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_toe_CTRL_translateZ1";
 	rename -uid "884C5222-4B20-B0E5-1F33-9A9FDF2204E4";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_toe_CTRL_translateY1";
 	rename -uid "724114D9-40AC-9FC6-8C19-3DB43A0A0D16";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_toe_CTRL_translateX1";
 	rename -uid "2D12A121-4050-6826-B57E-20ABA95F765C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_leg_CTRL_rotateZ1";
 	rename -uid "B8DD96EE-475A-EA0E-DD72-7FBB127B7B3A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_leg_CTRL_rotateY1";
 	rename -uid "41ADEF5E-45FA-9690-8768-D49EFFB312FC";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_leg_CTRL_rotateX1";
 	rename -uid "FC449C33-466B-46A0-2F49-57BF7E85FEF6";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_leg_CTRL_translateZ1";
 	rename -uid "46BDF403-491D-B642-5FB1-4C8DCA371806";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_leg_CTRL_translateY1";
 	rename -uid "9AA7847F-4C93-80B6-5A33-938D0714B8C8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_leg_CTRL_translateX1";
 	rename -uid "BBD0DE64-4216-AF65-ABFA-6CA69D2E5A9C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_hand_CTRL_rotateZ1";
 	rename -uid "341462B2-45B1-096B-18D7-118C0F3BF8BC";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_hand_CTRL_rotateY1";
 	rename -uid "25BFA19D-4932-9A15-02C0-D5AB01D95DF8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_hand_CTRL_rotateX1";
 	rename -uid "A9F1CDC6-4EBD-5C33-6509-7BADC3D71A15";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_hand_CTRL_translateZ1";
 	rename -uid "F87158A9-4327-5E55-6060-C2A8EDCDE116";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_hand_CTRL_translateY1";
 	rename -uid "A891FBFC-4092-8A36-3A00-C38B192F6E48";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_hand_CTRL_translateX1";
 	rename -uid "67C78403-4AF4-7477-08A5-B882266A98D1";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_elbow_CTRL_rotateZ1";
 	rename -uid "B69C2957-4694-B6E4-0DFA-9D8A95488F2B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_elbow_CTRL_rotateY1";
 	rename -uid "76A287BD-4932-E882-B817-01904AFD8BAD";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_elbow_CTRL_rotateX1";
 	rename -uid "AD07D594-472B-D657-C635-9A94C1CB5311";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_elbow_CTRL_translateZ1";
 	rename -uid "B8D66E7A-404D-E899-9A71-378969A7599B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_elbow_CTRL_translateY1";
 	rename -uid "8C715A8E-4B1E-6974-7B3D-5C9E9851A0B6";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_elbow_CTRL_translateX1";
 	rename -uid "6E13E699-4677-55E7-2D49-5EBB71B0AC64";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_ball_CTRL_rotateZ1";
 	rename -uid "D224C1B2-43E3-9B73-CD78-60A3BEA23577";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_ball_CTRL_rotateY1";
 	rename -uid "1411B2BE-4712-F6FB-B0AF-E88F163C4DC9";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_ball_CTRL_rotateX1";
 	rename -uid "3E851055-45FA-4064-CB0C-B5A91204E6F0";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_ball_CTRL_translateZ1";
 	rename -uid "4D5E5C73-4486-8FF3-7F91-3196053E1D62";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_ball_CTRL_translateY1";
 	rename -uid "46B43FA9-4528-59FF-ECDD-5785C5AD4C23";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_ball_CTRL_translateX1";
 	rename -uid "40C39E08-4029-BD22-F81A-1AABAD9A71B6";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_arm_CTRL_rotateZ1";
 	rename -uid "9BB38EEB-4ABA-7FB7-A7E1-53946184DCEF";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_arm_CTRL_rotateY1";
 	rename -uid "4FC2A33A-4AA7-1F04-0951-7D893BF3EFC0";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_arm_CTRL_rotateX1";
 	rename -uid "FB6E70EE-4C33-45E4-D7F0-3298A607802A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_arm_CTRL_translateZ1";
 	rename -uid "AACA42AE-44A5-CD02-A5E7-A096ECF72862";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_arm_CTRL_translateY1";
 	rename -uid "B97E9F0D-40B8-4ECD-8F92-159E02D2272B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_arm_CTRL_translateX1";
 	rename -uid "5C9C1EA6-473B-A5BC-0FE0-62B77A702B8E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_ankle_CTRL_rotateZ1";
 	rename -uid "56010132-442A-688B-EAB7-04B1DD2586EE";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_ankle_CTRL_rotateY1";
 	rename -uid "4D6BD316-4FBF-911D-1FFA-A3B97B6FAAC5";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_fk_l_ankle_CTRL_rotateX1";
 	rename -uid "9EDFE9CF-46B6-99C4-C6F7-85A430B0661C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_ankle_CTRL_translateZ1";
 	rename -uid "EC4040E7-4CBF-06CD-5993-5F8C49A9C99B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_ankle_CTRL_translateY1";
 	rename -uid "BD8A6395-423C-0FF3-1495-D49EECBAA717";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_fk_l_ankle_CTRL_translateX1";
 	rename -uid "8B09DFE7-4357-866A-5C5C-86AD2B38AE0F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_all_CTRL_rotateZ1";
 	rename -uid "DC8C85E9-4EE0-2473-0FD1-44B0785051A3";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_all_CTRL_rotateY1";
 	rename -uid "E3A05DB0-451B-AC2E-DB93-59AB710667C6";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_all_CTRL_rotateX1";
 	rename -uid "94AE3724-47F9-F9A8-6849-41A49C91326A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_all_CTRL_translateZ1";
 	rename -uid "98EB66DA-400B-A146-8202-7382905E658D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 5.8221433372673772 20 5.8221433372673772
-		 95 5.8221433372673772 105 5.8221433372673772;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 5.8221433372673772 20 5.8221433372673772
+		 95 5.8221433372673772 105 5.8221433372673772 115 5.8221433372673772;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_all_CTRL_translateY1";
 	rename -uid "7F031119-43FF-CDD2-C2E4-1399090FB9A1";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_all_CTRL_translateX1";
 	rename -uid "81737E49-4C14-41D7-A2AB-70BBC4DED9A1";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -4.785286515486618 20 -4.785286515486618
-		 95 -4.785286515486618 105 -4.785286515486618;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -4.785286515486618 20 -4.785286515486618
+		 95 -4.785286515486618 105 -4.785286515486618 115 -4.785286515486618;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_spline_03_CTRL_rotateZ1";
 	rename -uid "9DA10FB9-43CC-F5B9-00C0-1DB12CB0AAFC";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -22.839589731904447 20 -19.579318927036429
-		 95 -19.579318927036425 105 -19.579318927036425;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 6 ".ktv[0:5]"  1 -22.839589731904447 23 -19.579318927036429
+		 65 -19.579318927036429 83 -19.579318927036429 93 -18.751379343669264 115 -24.184832344655323;
+	setAttr -s 6 ".kit[0:5]"  2 18 18 18 18 18;
+	setAttr -s 6 ".kot[0:5]"  2 18 18 18 18 18;
 createNode animCurveTA -n "charset_spline_03_CTRL_rotateY1";
 	rename -uid "53156E4F-4869-A403-EFEA-319643DD59B5";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 7.2854427367778598 95 7.2854427367778598
-		 105 7.2854427367778598;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 6 ".ktv[0:5]"  1 0 23 7.2854427367778598 65 7.2854427367778598
+		 83 7.2766020121805584 93 7.1995140758276044 115 7.6302090906810269;
+	setAttr -s 6 ".kit[0:5]"  2 9 1 18 18 18;
+	setAttr -s 6 ".kot[0:5]"  2 9 1 18 18 18;
+	setAttr -s 6 ".kix[2:5]"  0.99999290704727173 0.9999997615814209 
+		1 1;
+	setAttr -s 6 ".kiy[2:5]"  -0.0037772143259644508 -0.00061719882069155574 
+		0 0;
+	setAttr -s 6 ".kox[2:5]"  0.99999290704727173 0.99999988079071045 
+		1 1;
+	setAttr -s 6 ".koy[2:5]"  -0.0037772143259644508 -0.00061719893710687757 
+		0 0;
 createNode animCurveTA -n "charset_spline_03_CTRL_rotateX1";
 	rename -uid "E003ABDD-47EA-AF6F-EAF5-B1BAFFF9D53A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 5.9886958227139324 95 5.9886958227139324
-		 105 5.9886958227139324;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 6 ".ktv[0:5]"  1 0 23 5.9886958227139324 65 5.9886958227139324
+		 83 5.9735250753806488 93 6.0962963332950499 115 5.5416873680372891;
+	setAttr -s 6 ".kit[0:5]"  2 9 1 18 18 18;
+	setAttr -s 6 ".kot[0:5]"  2 9 1 18 18 18;
+	setAttr -s 6 ".kix[2:5]"  0.99998438358306885 1 1 1;
+	setAttr -s 6 ".kiy[2:5]"  -0.0055963783524930477 0 0 0;
+	setAttr -s 6 ".kox[2:5]"  0.99998438358306885 1 1 1;
+	setAttr -s 6 ".koy[2:5]"  -0.0055963778868317604 0 0 0;
 createNode animCurveTL -n "charset_spline_03_CTRL_translateZ1";
 	rename -uid "EBEF492E-4FBE-10DF-95FB-44A352131111";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 6 ".ktv[0:5]"  1 0 23 0 65 0 83 0 93 0 115 0;
+	setAttr -s 6 ".kit[0:5]"  2 9 18 18 18 18;
+	setAttr -s 6 ".kot[0:5]"  2 9 18 18 18 18;
 createNode animCurveTL -n "charset_spline_03_CTRL_translateY1";
 	rename -uid "CE48C762-430B-7A55-CA4C-F4AA538B145C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 6 ".ktv[0:5]"  1 0 23 0 65 0 83 0 93 0 115 0;
+	setAttr -s 6 ".kit[0:5]"  2 9 18 18 18 18;
+	setAttr -s 6 ".kot[0:5]"  2 9 18 18 18 18;
 createNode animCurveTL -n "charset_spline_03_CTRL_translateX1";
 	rename -uid "8E0B91F2-4F82-BEE0-440F-30B6AFC0F4A0";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -4.5955145440055221 20 -4.5955145440055221
-		 95 -4.5955145440055221 105 -4.5955145440055221;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 6 ".ktv[0:5]"  1 -4.5955145440055221 23 -4.5955145440055221
+		 65 -4.5955145440055221 83 -4.5955145440055221 93 -4.5955145440055221 115 -4.5955145440055221;
+	setAttr -s 6 ".kit[0:5]"  2 9 18 18 18 18;
+	setAttr -s 6 ".kot[0:5]"  2 9 18 18 18 18;
 createNode animCurveTU -n "charset_r_legSwitch_CTRL_ikFkSwitch1";
 	rename -uid "29E54F8F-4F0C-DC3C-A276-53A48E6F23F9";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_l_armSwitch_CTRL_ikFkSwitch1";
 	rename -uid "5D80D053-4CD4-4E2E-14E1-F4B2F7DF91F6";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_r_armSwitch_CTRL_ikFkSwitch1";
 	rename -uid "4A223DB2-4627-AC3C-D9F1-E89911E056C5";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_l_legSwitch_CTRL_ikFkSwitch1";
 	rename -uid "DC39A051-4294-80A0-C6CE-A99CDFBCEDF9";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_r_ik_hand_CTRL_snapToElbow1";
 	rename -uid "3C3D28B9-4C75-74A8-2B7B-15954BD3B74C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 20 0 95 0;
-	setAttr -s 3 ".kit[0:2]"  2 18 18;
-	setAttr -s 3 ".kot[0:2]"  2 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_l_ik_hand_CTRL_snapToElbow1";
 	rename -uid "DEFA5A44-454B-43D4-85F9-4FB22B365C7A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 20 0 95 0;
-	setAttr -s 3 ".kit[0:2]"  2 18 18;
-	setAttr -s 3 ".kot[0:2]"  2 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 107 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_l_ik_leg_CTRL_kneeSnap1";
 	rename -uid "0C1F7F8A-4C72-DB52-D5CE-929C9CADF001";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 1 20 1 95 1 105 1;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 1 20 1 95 1 105 1 115 1;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_l_ik_leg_CTRL_ToeTurn1";
 	rename -uid "FAF6B1C7-4380-5C7A-B28F-74BF3C721150";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_l_ik_leg_CTRL_ballTurn1";
 	rename -uid "4790C4D6-4733-DE49-4800-8EB9EA6DCE7B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_l_ik_leg_CTRL_heelTurn1";
 	rename -uid "15108CEF-4A00-08C5-3BF3-F7A4C8A29E25";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_l_ik_leg_CTRL_toeStraightAngle1";
 	rename -uid "0337E71A-4B2A-174E-6DE2-06B08C1ADE6E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 60 20 60 95 60 105 60;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 60 20 60 95 60 105 60 115 60;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_l_ik_leg_CTRL_bandLimitAngle1";
 	rename -uid "AB440C74-4531-5DDB-D90A-FD9E2DDF386C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 30 20 30 95 30 105 30;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 30 20 30 95 30 105 30 115 30;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_l_ik_leg_CTRL_roll1";
 	rename -uid "6B116683-4BDE-3A66-0D4F-21B5EC8EA983";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 146.1 20 146.1 95 146.1 105 146.1;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 146.1 20 146.1 95 146.1 105 146.1 115 146.1;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_l_ik_leg_CTRL_tilt1";
 	rename -uid "E3A03421-4592-D3D2-94FD-7183213CBD14";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_r_ik_leg_CTRL_kneeSnap1";
 	rename -uid "BDC2314C-4E84-A73C-767A-5C982FB154CA";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 1 20 1 95 1 105 1;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 1 20 1 95 1 105 1 115 1;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_r_ik_leg_CTRL_ToeTurn1";
 	rename -uid "A4BF0E5C-45DB-9E82-FEEE-119EC0DCE412";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_r_ik_leg_CTRL_ballTurn1";
 	rename -uid "7A00C654-47DF-6DCC-3380-B7A33B39050F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_r_ik_leg_CTRL_heelTurn1";
 	rename -uid "D571E18D-494C-A8A2-9A5D-D5B63F2C2BAB";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_r_ik_leg_CTRL_toeStraightAngle1";
 	rename -uid "7D8821D9-417A-FB98-DF2D-208A2F9AAFF4";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 60 20 60 95 60 105 60;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 60 20 60 95 60 105 60 115 60;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_r_ik_leg_CTRL_bandLimitAngle1";
 	rename -uid "C523531A-4C49-421E-D915-5CBA0DA0611D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 30 20 30 95 30 105 30;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 30 20 30 95 30 105 30 115 30;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_r_ik_leg_CTRL_roll1";
 	rename -uid "7253AD8F-4886-3F67-F09B-98BE1FE5B973";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 146.1 20 146.1 95 146.1 105 146.1;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 146.1 20 146.1 95 146.1 105 146.1 115 146.1;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_r_ik_leg_CTRL_tilt1";
 	rename -uid "D6417D22-46A7-C1BE-A9E7-59BE648F01FC";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_all_CTRL_scaleZ1";
 	rename -uid "A61E8D41-46C6-B2CF-356E-2F9F0B8F862F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 1 20 1 95 1 105 1;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 1 20 1 95 1 105 1 115 1;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_all_CTRL_scaleY1";
 	rename -uid "89257FD4-4F66-FE17-9F9D-CA9D4DE28E00";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 1 20 1 95 1 105 1;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 1 20 1 95 1 105 1 115 1;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_all_CTRL_scaleX1";
 	rename -uid "B5D338BC-4B1E-F612-3677-C2A42CBAC97D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 1 20 1 95 1 105 1;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 1 20 1 95 1 105 1 115 1;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_head_CTRL_ikFkSwitch1";
 	rename -uid "2A8EAC34-4234-65BC-B65B-23B45735265C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 1 20 1 95 1 105 1;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 8 ".ktv[0:7]"  1 1 6 1 15 1 27 1 78 1 87 1 100 1 115 1;
+	setAttr -s 8 ".kit[0:7]"  2 18 18 18 18 18 18 18;
+	setAttr -s 8 ".kot[0:7]"  2 18 18 18 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_198_";
 	rename -uid "FC851164-44B8-DCB1-40EE-2FAAE61D4477";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -1.3361221202304139 20 0.83015930057617326
-		 95 0.83015930057617326 105 0.83015930057617326;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 7 ".ktv[0:6]"  1 -1.3361221202304139 20 0.83015930057617326
+		 85 0.83015930057617326 89 -1 92 -1 97 0.83015930057617326 115 0.83015930057617326;
+	setAttr -s 7 ".kit[0:6]"  2 18 18 18 18 18 18;
+	setAttr -s 7 ".kot[0:6]"  2 18 18 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_201_";
 	rename -uid "E7809816-45E2-5069-7740-288229A0CF85";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 1.0362777922432105 20 1.0362777922432105
-		 95 1.0362777922432105 105 1.0362777922432105;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 1.0362777922432105 20 0.6 95 0.6 105 1.0362777922432105
+		 115 1.0362777922432105;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_202_";
 	rename -uid "5F4CFD4F-4CCF-CA67-32FB-3C8A41DA0262";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.36935437206208732 20 -0.36935437206208732
-		 95 -0.36935437206208732 105 -0.36935437206208732;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.36935437206208732 20 -0.36935437206208732
+		 95 -0.36935437206208732 105 -0.36935437206208732 115 -0.36935437206208732;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_200_";
 	rename -uid "34809D89-4FBA-D1F1-0064-16BEA8B2D022";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0.81845718482702834 20 0.81845718482702834
-		 95 0.81845718482702834 105 0.81845718482702834;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0.81845718482702834 20 0.6 95 0.6 105 0.81845718482702834
+		 115 0.81845718482702834;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_199_";
 	rename -uid "BAA958D8-4B67-A7F9-CD64-B7AE166D0DA3";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -1.3361221202304125 20 0.83015930057617304
-		 95 0.83015930057617304 105 0.83015930057617304;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 7 ".ktv[0:6]"  1 -1.3361221202304125 20 0.83015930057617304
+		 85 0.83015930057617304 89 -1 92 -1 97 0.83015930057617304 115 0.83015930057617304;
+	setAttr -s 7 ".kit[0:6]"  2 18 18 18 18 18 18;
+	setAttr -s 7 ".kot[0:6]"  2 18 18 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_203_";
 	rename -uid "E04689B5-4609-FE8C-91C3-B6959996664C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_133_1";
 	rename -uid "9D9E4F85-4BB8-50EF-123B-41B0327E8544";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 15.183200976197501 20 15.183200976197501
-		 95 15.183200976197501 105 15.183200976197501;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 15.183200976197501 20 15.183200976197501
+		 95 15.183200976197501 105 15.183200976197501 115 15.183200976197501;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_134_1";
 	rename -uid "087A62DF-4C0C-7D72-E62C-85BD2B2E4A0D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -21.130991176428655 20 -21.130991176428655
-		 95 -21.130991176428655 105 -21.130991176428655;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -21.130991176428655 20 -21.130991176428655
+		 95 -21.130991176428655 105 -21.130991176428655 115 -21.130991176428655;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_135_1";
 	rename -uid "941CFCAF-4E82-4408-5EA9-E291EB469316";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 8.0256630149685577 20 8.0256630149685613
-		 95 8.0256630149685648 105 8.0256630149685648;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 8.0256630149685577 20 8.0256630149685613
+		 95 8.0256630149685613 105 8.0256630149685648 115 8.0256630149685648;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_133_1";
 	rename -uid "70873BD5-4332-D914-7CDC-17BB718B512B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_134_1";
 	rename -uid "05BA7A5D-4636-16E1-26A8-C4AAE5E56600";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 1 20 1 95 1 105 1;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 1 20 1 95 1 105 1 115 1;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_135_1";
 	rename -uid "BDFD8A6D-45B1-07C6-8250-7991C3117A66";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -1.0461460974278767 20 -1.0461460974278767
-		 95 -1.0461460974278767 105 -1.0461460974278767;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -1.0461460974278767 20 -1.0461460974278767
+		 95 -1.0461460974278767 105 -1.0461460974278767 115 -1.0461460974278767;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_136_1";
 	rename -uid "1994E880-46A1-2745-0B8D-3BBC37881F53";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -11.35020242292167 20 -11.35020242292167
-		 95 -11.35020242292167 105 -11.35020242292167;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -11.35020242292167 20 -11.35020242292167
+		 95 -11.35020242292167 105 -11.35020242292167 115 -11.35020242292167;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_137_1";
 	rename -uid "38E53E20-44CF-6863-1E89-26ACE94A5A45";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 13.036094157377713 20 13.036094157377715
-		 95 13.036094157377716 105 13.036094157377718;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 13.036094157377713 20 13.036094157377715
+		 95 13.036094157377715 105 13.036094157377718 115 13.036094157377718;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_138_1";
 	rename -uid "457A49C3-48D2-B974-7B97-4A93B61EA02F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -13.694523474003265 20 -13.694523474003269
-		 95 -13.694523474003271 105 -13.694523474003274;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -13.694523474003265 20 -13.694523474003269
+		 95 -13.694523474003269 105 -13.694523474003274 115 -13.694523474003274;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_136_1";
 	rename -uid "F6BF1808-4FCF-6D04-EE96-498EC9D45F87";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.0037700410592308442 20 -0.0037700410592308442
-		 95 -0.0037700410592308442 105 -0.0037700410592308442;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.0037700410592308442 20 -0.0037700410592308442
+		 95 -0.0037700410592308442 105 -0.0037700410592308442 115 -0.0037700410592308442;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_137_1";
 	rename -uid "AFC713AD-4F37-EAF0-E120-EF80BBA6DE15";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0.0015566321270102379 20 0.0015566321270102379
-		 95 0.0015566321270102379 105 0.0015566321270102379;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0.0015566321270102379 20 0.0015566321270102379
+		 95 0.0015566321270102379 105 0.0015566321270102379 115 0.0015566321270102379;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_138_1";
 	rename -uid "26F653B3-4D48-B427-53F1-5A94DB45660C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -4.286863958472555 20 -4.286863958472555
-		 95 -4.286863958472555 105 -4.286863958472555;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -4.286863958472555 20 -4.286863958472555
+		 95 -4.286863958472555 105 -4.286863958472555 115 -4.286863958472555;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_139_1";
 	rename -uid "3B2E640D-462D-DCA4-715C-7DA6C7010995";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -4.1443916891051602 20 -4.1443916891051602
-		 95 -4.1443916891051602 105 -4.1443916891051602;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -4.1443916891051602 20 -4.1443916891051602
+		 95 -4.1443916891051602 105 -4.1443916891051602 115 -4.1443916891051602;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_140_1";
 	rename -uid "3447CBA7-42CC-A292-DEA2-80AA7E8D68FB";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -23.375062902294744 20 -23.375062902294744
-		 95 -23.375062902294744 105 -23.375062902294744;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -23.375062902294744 20 -23.375062902294744
+		 95 -23.375062902294744 105 -23.375062902294744 115 -23.375062902294744;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_141_1";
 	rename -uid "0AA4DB4E-4D09-2A1D-B680-CD95DF552E5B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -2.5183865663349829 20 -2.5183865663349829
-		 95 -2.5183865663349829 105 -2.5183865663349829;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -2.5183865663349829 20 -2.5183865663349829
+		 95 -2.5183865663349829 105 -2.5183865663349829 115 -2.5183865663349829;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_139_1";
 	rename -uid "4818CF62-432C-58BC-0A97-5DB24D3C7AB5";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.024608888030368536 20 -0.024608888030368536
-		 95 -0.024608888030368536 105 -0.024608888030368536;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.024608888030368536 20 -0.024608888030368536
+		 95 -0.024608888030368536 105 -0.024608888030368536 115 -0.024608888030368536;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_140_1";
 	rename -uid "D1033BFA-4668-A5EA-26A0-E9BD9289914F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0.036395890332334702 20 0.036395890332334702
-		 95 0.036395890332334702 105 0.036395890332334702;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0.036395890332334702 20 0.036395890332334702
+		 95 0.036395890332334702 105 0.036395890332334702 115 0.036395890332334702;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_141_1";
 	rename -uid "F41BDFBA-4C33-64F2-AD64-959D6D1DA9F3";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -4.2159772987283723 20 -4.2159772987283723
-		 95 -4.2159772987283723 105 -4.2159772987283723;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -4.2159772987283723 20 -4.2159772987283723
+		 95 -4.2159772987283723 105 -4.2159772987283723 115 -4.2159772987283723;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_142_1";
 	rename -uid "57414C89-4D25-4A3C-17F4-3F9B63A36A4E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 3.691014028218043 20 3.6910140282180439
-		 95 3.6910140282180448 105 3.6910140282180448;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 3.691014028218043 20 3.6910140282180439
+		 95 3.6910140282180439 105 3.6910140282180448 115 3.6910140282180448;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_143_1";
 	rename -uid "35A1CBCA-4D53-D181-B069-B4BDCB930867";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -14.123025940963053 20 -14.123025940963057
-		 95 -14.123025940963061 105 -14.123025940963061;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -14.123025940963053 20 -14.123025940963057
+		 95 -14.123025940963057 105 -14.123025940963062 115 -14.123025940963062;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_144_1";
 	rename -uid "FDD81DFD-4C5D-BC83-1564-4ABFA87CBCEC";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -14.711501109146177 20 -14.71150110914618
-		 95 -14.711501109146184 105 -14.711501109146184;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -14.711501109146177 20 -14.71150110914618
+		 95 -14.71150110914618 105 -14.711501109146184 115 -14.711501109146184;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_142_1";
 	rename -uid "556F99E9-4296-4948-6C80-CF90A5A35FB0";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0.0065849209733019887 20 0.0065849209733019887
-		 95 0.0065849209733019887 105 0.0065849209733019887;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0.0065849209733019887 20 0.0065849209733019887
+		 95 0.0065849209733019887 105 0.0065849209733019887 115 0.0065849209733019887;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_143_1";
 	rename -uid "49CDDC4F-4BCE-E99E-ACBF-FF87F92EC96E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.028739383753070946 20 -0.028739383753070946
-		 95 -0.028739383753070946 105 -0.028739383753070946;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.028739383753070946 20 -0.028739383753070946
+		 95 -0.028739383753070946 105 -0.028739383753070946 115 -0.028739383753070946;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_144_1";
 	rename -uid "3E0EEC31-4D6B-1AC5-9B4E-E78DAF44EF2F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.013743037704016414 20 -0.013743037704016414
-		 95 -0.013743037704016414 105 -0.013743037704016414;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.013743037704016414 20 -0.013743037704016414
+		 95 -0.013743037704016414 105 -0.013743037704016414 115 -0.013743037704016414;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_145_1";
 	rename -uid "9AB8DD25-450B-3C55-FF51-DE92CF94B7D6";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 3.9655837318770648 20 3.9655837318770648
-		 95 3.9655837318770639 105 3.965583731877063;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 3.9655837318770648 20 3.9655837318770648
+		 95 3.9655837318770648 105 3.965583731877063 115 3.965583731877063;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_146_1";
 	rename -uid "267528E2-4507-BFF9-27C7-C090D737F6D0";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 13.381659618053435 20 13.381659618053439
-		 95 13.381659618053442 105 13.381659618053444;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 13.381659618053435 20 13.381659618053439
+		 95 13.381659618053439 105 13.381659618053444 115 13.381659618053444;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_147_1";
 	rename -uid "1D853BA8-4B14-E98A-45E9-DE8235A09D79";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -8.7573112602701748 20 -8.7573112602701748
-		 95 -8.7573112602701748 105 -8.7573112602701748;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -8.7573112602701748 20 -8.7573112602701748
+		 95 -8.7573112602701748 105 -8.7573112602701748 115 -8.7573112602701748;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_145_1";
 	rename -uid "B444C764-4776-FB2A-99F4-52A7F1462C81";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.061971785642999461 20 -0.061971785642999461
-		 95 -0.061971785642999461 105 -0.061971785642999461;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.061971785642999461 20 -0.061971785642999461
+		 95 -0.061971785642999461 105 -0.061971785642999461 115 -0.061971785642999461;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_146_1";
 	rename -uid "D59E312F-4ABB-FB3A-DBBB-5BAF7168634A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.20900416757302284 20 -0.20900416757302284
-		 95 -0.20900416757302284 105 -0.20900416757302284;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.20900416757302284 20 -0.20900416757302284
+		 95 -0.20900416757302284 105 -0.20900416757302284 115 -0.20900416757302284;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_147_1";
 	rename -uid "56CB06F3-447B-4463-BBF1-8C83BA79F7AB";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -7.8710068407220612 20 -7.8710068407220612
-		 95 -7.8710068407220612 105 -7.8710068407220612;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -7.8710068407220612 20 -7.8710068407220612
+		 95 -7.8710068407220612 105 -7.8710068407220612 115 -7.8710068407220612;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_148_1";
 	rename -uid "5CD9479E-413A-090D-EB72-83A9B8EF5E94";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 1.9910781127880766 20 1.9910781127880766
-		 95 1.9910781127880766 105 1.991078112788077;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 1.9910781127880766 20 1.9910781127880766
+		 95 1.9910781127880766 105 1.991078112788077 115 1.991078112788077;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_149_1";
 	rename -uid "958A345D-47D7-488A-8248-84959D7D644D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 6.1350452274452456 20 6.1350452274452456
-		 95 6.1350452274452447 105 6.1350452274452438;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 6.1350452274452456 20 6.1350452274452456
+		 95 6.1350452274452456 105 6.1350452274452438 115 6.1350452274452438;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_150_1";
 	rename -uid "2D8251B6-4F66-F74C-731C-4DAF0F18078D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 12.293601802185528 20 12.293601802185528
-		 95 12.293601802185528 105 12.293601802185528;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 12.293601802185528 20 12.293601802185528
+		 95 12.293601802185528 105 12.293601802185528 115 12.293601802185528;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_148_1";
 	rename -uid "D684A280-401D-3C26-65DC-93A52A2FA963";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.0079244880833346798 20 -0.0079244880833346798
-		 95 -0.0079244880833346798 105 -0.0079244880833346798;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.0079244880833346798 20 -0.0079244880833346798
+		 95 -0.0079244880833346798 105 -0.0079244880833346798 115 -0.0079244880833346798;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_149_1";
 	rename -uid "914884EB-4160-1BCF-5620-FF809343DCFF";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -2.3046624444569928e-005 20 -2.3046624444569928e-005
-		 95 -2.3046624444569928e-005 105 -2.3046624444569928e-005;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -2.3046624444569928e-005 20 -2.3046624444569928e-005
+		 95 -2.3046624444569928e-005 105 -2.3046624444569928e-005 115 -2.3046624444569928e-005;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_150_1";
 	rename -uid "F86275B1-4244-7ABC-C05B-FAA01E29C656";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -7.3540536864747956 20 -7.3540536864747956
-		 95 -7.3540536864747956 105 -7.3540536864747956;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -7.3540536864747956 20 -7.3540536864747956
+		 95 -7.3540536864747956 105 -7.3540536864747956 115 -7.3540536864747956;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_151_1";
 	rename -uid "CA37F6F8-49C1-CFEE-0BA1-BAA6097A62AC";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -4.8247280550222351 20 -4.8247280550222351
-		 95 -4.8247280550222351 105 -4.8247280550222351;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -4.8247280550222351 20 -4.8247280550222351
+		 95 -4.8247280550222351 105 -4.8247280550222351 115 -4.8247280550222351;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_152_1";
 	rename -uid "75D85BF9-4096-CC36-F82C-09A084A11D72";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -30.22868279992484 20 -30.22868279992484
-		 95 -30.22868279992484 105 -30.22868279992484;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -30.22868279992484 20 -30.22868279992484
+		 95 -30.22868279992484 105 -30.22868279992484 115 -30.22868279992484;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_153_1";
 	rename -uid "7E329C29-49C7-4C4A-CA9E-6D8A85B8CD7A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -6.6725984254851864 20 -6.6725984254851864
-		 95 -6.6725984254851864 105 -6.6725984254851864;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -6.6725984254851864 20 -6.6725984254851864
+		 95 -6.6725984254851864 105 -6.6725984254851864 115 -6.6725984254851864;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_151_1";
 	rename -uid "A6A4FEF7-4AAB-48A4-5DBC-A3BE164A109A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.019184029450407536 20 -0.019184029450407536
-		 95 -0.019184029450407536 105 -0.019184029450407536;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.019184029450407536 20 -0.019184029450407536
+		 95 -0.019184029450407536 105 -0.019184029450407536 115 -0.019184029450407536;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_152_1";
 	rename -uid "7CB3C938-4A6B-DF09-92A5-2693C74F7A6F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.0028542046768146312 20 -0.0028542046768146312
-		 95 -0.0028542046768146312 105 -0.0028542046768146312;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.0028542046768146312 20 -0.0028542046768146312
+		 95 -0.0028542046768146312 105 -0.0028542046768146312 115 -0.0028542046768146312;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_153_1";
 	rename -uid "7C9BA7CC-4980-BFC0-9DEE-5D92915A00ED";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.055922490205476016 20 -0.055922490205476016
-		 95 -0.055922490205476016 105 -0.055922490205476016;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.055922490205476016 20 -0.055922490205476016
+		 95 -0.055922490205476016 105 -0.055922490205476016 115 -0.055922490205476016;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_154_1";
 	rename -uid "8A644A77-4A25-942B-2704-86A3AFCEA215";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 2.5964366921693411 20 2.5964366921693425
-		 95 2.5964366921693429 105 2.5964366921693443;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 2.5964366921693411 20 2.5964366921693429
+		 95 2.5964366921693429 105 2.5964366921693443 115 2.5964366921693443;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_155_1";
 	rename -uid "A4C74CA8-40B9-B4E0-5528-6E8D41DAFECE";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -51.748224581231817 20 -51.748224581231817
-		 95 -51.748224581231817 105 -51.748224581231817;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -51.748224581231817 20 -51.748224581231817
+		 95 -51.748224581231817 105 -51.748224581231817 115 -51.748224581231817;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_156_1";
 	rename -uid "BF1734F7-4A76-6636-0D55-CB856BBFABBE";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 3.8014532100631286 20 3.8014532100631269
-		 95 3.801453210063126 105 3.801453210063126;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 3.8014532100631286 20 3.8014532100631269
+		 95 3.8014532100631269 105 3.801453210063126 115 3.801453210063126;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_154_1";
 	rename -uid "03013057-4128-4A54-7742-A1A266BF7039";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_155_1";
 	rename -uid "12E64137-45FB-9776-69BF-E8901F0707A8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_156_1";
 	rename -uid "25AF3E92-478F-E35B-70FB-87BF3B4C5166";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -9.3660591581205495 20 -9.3660591581205495
-		 95 -9.3660591581205495 105 -9.3660591581205495;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -9.3660591581205495 20 -9.3660591581205495
+		 95 -9.3660591581205495 105 -9.3660591581205495 115 -9.3660591581205495;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_157_1";
 	rename -uid "236FFD49-4879-FB85-C7B9-2AB3A20AB715";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_158_1";
 	rename -uid "35E125EE-45D7-CEE0-BE79-31A8ADEADD44";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 54.507841980734483 20 54.507841980734483
-		 95 54.507841980734483 105 54.507841980734483;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 54.507841980734483 20 54.507841980734483
+		 95 54.507841980734483 105 54.507841980734483 115 54.507841980734483;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_159_1";
 	rename -uid "D34E297B-4E5B-EE8B-3AB2-C79507229F48";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_157_1";
 	rename -uid "9051EC8D-41D8-3595-EACD-399C25A95574";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 6.3094047003533609 20 6.3094047003533609
-		 95 6.3094047003533609 105 6.3094047003533609;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 6.3094047003533609 20 6.3094047003533609
+		 95 6.3094047003533609 105 6.3094047003533609 115 6.3094047003533609;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_158_1";
 	rename -uid "0330959E-4294-A160-F188-4EB1AFE7963F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -1.5526085071600924 20 -1.5526085071600924
-		 95 -1.5526085071600924 105 -1.5526085071600924;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -1.5526085071600924 20 -1.5526085071600924
+		 95 -1.5526085071600924 105 -1.5526085071600924 115 -1.5526085071600924;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_159_1";
 	rename -uid "B26212FC-4261-2ADA-D876-B391AFC5C49A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -7.7454374369867081 20 -7.7454374369867081
-		 95 -7.7454374369867081 105 -7.7454374369867081;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -7.7454374369867081 20 -7.7454374369867081
+		 95 -7.7454374369867081 105 -7.7454374369867081 115 -7.7454374369867081;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_160_1";
 	rename -uid "CA544376-4D68-AD35-96D1-8B9A75E45134";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -2.6320753931775749 20 -2.6320753931775749
-		 95 -2.6320753931775749 105 -2.6320753931775749;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -2.6320753931775749 20 -2.6320753931775749
+		 95 -2.6320753931775749 105 -2.6320753931775749 115 -2.6320753931775749;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_161_1";
 	rename -uid "1AB2FFE8-4C76-C6B7-DDAF-EAB9830850CD";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -14.36041479057605 20 -14.36041479057605
-		 95 -14.36041479057605 105 -14.36041479057605;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -14.36041479057605 20 -14.36041479057605
+		 95 -14.36041479057605 105 -14.36041479057605 115 -14.36041479057605;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_162_1";
 	rename -uid "2A353A80-4602-65BA-15D0-6EA7445D7F19";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -12.707689094264888 20 -12.707689094264888
-		 95 -12.707689094264888 105 -12.707689094264888;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -12.707689094264888 20 -12.707689094264888
+		 95 -12.707689094264888 105 -12.707689094264888 115 -12.707689094264888;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_160_1";
 	rename -uid "F4701C7F-4F93-008A-58BB-BFBB0C0F77DE";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.031186273619342182 20 -0.031186273619342182
-		 95 -0.031186273619342182 105 -0.031186273619342182;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.031186273619342182 20 -0.031186273619342182
+		 95 -0.031186273619342182 105 -0.031186273619342182 115 -0.031186273619342182;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_161_1";
 	rename -uid "A147E859-4386-78AC-50E1-30889A3B91DA";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_162_1";
 	rename -uid "4AF7EE05-4757-981F-91D3-1A9C246587C9";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -1.360622643378534 20 -1.360622643378534
-		 95 -1.360622643378534 105 -1.360622643378534;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -1.360622643378534 20 -1.360622643378534
+		 95 -1.360622643378534 105 -1.360622643378534 115 -1.360622643378534;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_163_1";
 	rename -uid "7390A733-4616-2067-1011-7B91CC5A886E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 5.1517261287036415 20 5.1517261287036415
-		 95 5.1517261287036415 105 5.1517261287036415;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 5.1517261287036415 20 5.1517261287036415
+		 95 5.1517261287036415 105 5.1517261287036415 115 5.1517261287036415;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_164_1";
 	rename -uid "5CC536D6-476B-6F79-4423-E9B8423FF444";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 10.544556954271943 20 10.544556954271943
-		 95 10.544556954271943 105 10.544556954271943;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 10.544556954271943 20 10.544556954271943
+		 95 10.544556954271943 105 10.544556954271943 115 10.544556954271943;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_165_1";
 	rename -uid "94606ACE-41A4-90E7-D7C2-688E179B9CDF";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.97118285839896457 20 -0.97118285839896479
-		 95 -0.97118285839896501 105 -0.97118285839896523;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.97118285839896457 20 -0.97118285839896479
+		 95 -0.97118285839896479 105 -0.97118285839896523 115 -0.97118285839896523;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_163_1";
 	rename -uid "693D032B-461B-6D0A-6D13-F98DC395DA60";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 2.3034432821284883 20 2.3034432821284883
-		 95 2.3034432821284883 105 2.3034432821284883;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 2.3034432821284883 20 2.3034432821284883
+		 95 2.3034432821284883 105 2.3034432821284883 115 2.3034432821284883;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_164_1";
 	rename -uid "D56F7EA9-4CE6-720C-67BD-AC9A5069AF19";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.99032950287441246 20 -0.99032950287441246
-		 95 -0.99032950287441246 105 -0.99032950287441246;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.99032950287441246 20 -0.99032950287441246
+		 95 -0.99032950287441246 105 -0.99032950287441246 115 -0.99032950287441246;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_165_1";
 	rename -uid "D95E97F8-4985-F13E-AB0C-7A98009C1D60";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -6.7757742226106839 20 -6.7757742226106839
-		 95 -6.7757742226106839 105 -6.7757742226106839;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -6.7757742226106839 20 -6.7757742226106839
+		 95 -6.7757742226106839 105 -6.7757742226106839 115 -6.7757742226106839;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_unitlessValues_27_1";
 	rename -uid "519A3D6A-43E4-D6A3-2731-35A254D94F13";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 1 20 1 95 1 105 1;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 1 20 1 95 1 105 1 115 1;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_166_1";
 	rename -uid "33235EA0-4A05-E041-D229-24A725C85EE4";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_167_1";
 	rename -uid "5837A018-4824-F2B3-226A-139E1BE2BDE8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_168_1";
 	rename -uid "8865DF6B-4E8C-2BCC-778D-A1A2FDF4E73A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_166_1";
 	rename -uid "C0A70E1C-4C5E-976B-92AA-AEA0459B293D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_167_1";
 	rename -uid "6ED09465-4E2E-AE74-5AFB-94A10D448FAB";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_168_1";
 	rename -uid "08DA0606-4E82-14B7-CCD9-7CBD1025F461";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_169_1";
 	rename -uid "34C40006-41BE-6623-5FC5-2C8BD6EA8270";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_170_1";
 	rename -uid "D8FD82A2-4D7E-5765-AC2E-82A47DF9829C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_171_1";
 	rename -uid "06204279-4DD4-5CFA-21AC-ED9F9DAC8A39";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_169_1";
 	rename -uid "59FF5CD7-4A8D-8F8F-120A-788D101E8FDA";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_170_1";
 	rename -uid "5DC8434A-44E5-5334-F846-11A5B83F9F42";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_171_1";
 	rename -uid "8091D55D-4B75-F35F-9269-CFAFC0AC72F8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_172_1";
 	rename -uid "FEE94E28-4D0E-511E-4064-4BA2D6CB7344";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_173_1";
 	rename -uid "F4444D93-431B-6BC0-ACF7-F38097E4050E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_174_1";
 	rename -uid "4EE2C217-4E60-3CB2-2F32-F982649A48C9";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_172_1";
 	rename -uid "E6E88DFE-411A-346F-2F6A-F1B89C21B4CC";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_173_1";
 	rename -uid "B01312CF-4717-E44A-4A9C-5D8D176D90D1";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_174_1";
 	rename -uid "88D77F27-4446-8B79-AC2D-3599AF39B5BC";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_175_1";
 	rename -uid "8CE7B8BF-49FC-9A54-47E0-E1B21B52774B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_176_1";
 	rename -uid "BEF7D84D-490A-8D63-7570-9E87B7EFC1AB";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_177_1";
 	rename -uid "DD117B33-4C52-9082-B518-F1B0C9943CDE";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_175_1";
 	rename -uid "781B4739-4719-5A5B-0E8D-98AD4839E340";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_176_1";
 	rename -uid "946524D5-477F-7192-20F3-3FA51DCBC675";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_177_1";
 	rename -uid "540BCE65-4EBA-D4D7-7D63-BE8DE511E090";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_178_1";
 	rename -uid "AF5B3253-449A-605C-FF4C-82A5DEF9716E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_179_1";
 	rename -uid "E6EC36E6-46C0-133F-758C-54A86DA62813";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -11.83956923311681 20 -11.83956923311681
-		 95 -11.83956923311681 105 -11.83956923311681;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -11.83956923311681 20 -11.83956923311681
+		 95 -11.83956923311681 105 -11.83956923311681 115 -11.83956923311681;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_180_1";
 	rename -uid "71D22E2D-4AAF-BDB8-AA5D-CE84C8B40C3D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_178_1";
 	rename -uid "ADCC9D44-4E2A-F657-0919-7DA5FCBAD62C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.0087120442328963779 20 -0.0087120442328963779
-		 95 -0.0087120442328963779 105 -0.0087120442328963779;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.0087120442328963779 20 -0.0087120442328963779
+		 95 -0.0087120442328963779 105 -0.0087120442328963779 115 -0.0087120442328963779;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_179_1";
 	rename -uid "B8757F98-4AF4-C2EB-C6A6-64BAF1747EF5";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.0027204349213405593 20 -0.0027204349213405593
-		 95 -0.0027204349213405593 105 -0.0027204349213405593;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.0027204349213405593 20 -0.0027204349213405593
+		 95 -0.0027204349213405593 105 -0.0027204349213405593 115 -0.0027204349213405593;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_180_1";
 	rename -uid "97920557-404D-1829-B17F-A69038962F2D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.75706836738375682 20 -0.75706836738375682
-		 95 -0.75706836738375682 105 -0.75706836738375682;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.75706836738375682 20 -0.75706836738375682
+		 95 -0.75706836738375682 105 -0.75706836738375682 115 -0.75706836738375682;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_181_1";
 	rename -uid "BEE076FD-4524-CBCC-5521-589AF3F0B2C6";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.51320514820129015 20 -0.5132051482012896
-		 95 -0.51320514820128915 105 -0.51320514820128882;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.51320514820129015 20 -0.5132051482012896
+		 95 -0.5132051482012896 105 -0.51320514820128882 115 -0.51320514820128882;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_182_1";
 	rename -uid "E9151716-4C5E-BADB-BE26-B8A6F76447D7";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -6.9077802688457224 20 -6.9077802688457233
-		 95 -6.9077802688457233 105 -6.9077802688457224;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -6.9077802688457224 20 -6.9077802688457233
+		 95 -6.9077802688457233 105 -6.9077802688457224 115 -6.9077802688457224;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_183_1";
 	rename -uid "9DEA8A7D-4B85-B997-F1A1-2084BA105C21";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -23.588721724341234 20 -23.588721724341234
-		 95 -23.588721724341234 105 -23.588721724341234;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -23.588721724341234 20 -23.588721724341234
+		 95 -23.588721724341234 105 -23.588721724341234 115 -23.588721724341234;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_181_1";
 	rename -uid "90B3A642-4618-6BFA-29F3-68B0EF1A1717";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0.0054150525377844672 20 0.0054150525377844672
-		 95 0.0054150525377844672 105 0.0054150525377844672;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0.0054150525377844672 20 0.0054150525377844672
+		 95 0.0054150525377844672 105 0.0054150525377844672 115 0.0054150525377844672;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_182_1";
 	rename -uid "6EBFA57B-4541-D194-4979-2AAACF1BB8FB";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.0026716505014048836 20 -0.0026716505014048836
-		 95 -0.0026716505014048836 105 -0.0026716505014048836;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.0026716505014048836 20 -0.0026716505014048836
+		 95 -0.0026716505014048836 105 -0.0026716505014048836 115 -0.0026716505014048836;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_183_1";
 	rename -uid "9D9A1521-468C-9676-F706-A5BCF9AA012A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.94163757434777351 20 -0.94163757434777351
-		 95 -0.94163757434777351 105 -0.94163757434777351;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.94163757434777351 20 -0.94163757434777351
+		 95 -0.94163757434777351 105 -0.94163757434777351 115 -0.94163757434777351;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_184_1";
 	rename -uid "6861743C-498B-0F07-90B9-72BB48570520";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 23.548194632895086 20 -12.260793632638105
-		 95 -12.260793632638105 105 -12.260793632638105;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 8 ".ktv[0:7]"  1 18.494118468212722 7 17.337052270730673
+		 20 -12.260793632638105 43 -16.297850452953398 74 -13.684339690531299 95 -12.260793632638105
+		 105 -14.411474055318299 115 -13.734094295410586;
+	setAttr -s 8 ".kit[0:7]"  2 18 18 18 18 18 18 18;
+	setAttr -s 8 ".kot[0:7]"  2 18 18 18 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_185_1";
 	rename -uid "B9EFD728-4A07-C757-FED5-3583163DB20E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -30.570659619866536 20 -21.481163109671662
-		 95 -21.481163109671662 105 -21.481163109671662;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 8 ".ktv[0:7]"  1 -32.729055334275813 7 -25.885884075065842
+		 20 -21.481163109671662 43 -15.874132900383984 74 -17.045654891644016 95 -21.481163109671662
+		 105 -33.925205153056766 115 -30.318893209204223;
+	setAttr -s 8 ".kit[0:7]"  2 18 18 18 18 18 18 18;
+	setAttr -s 8 ".kot[0:7]"  2 18 18 18 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_186_1";
 	rename -uid "858B838B-4F40-F4DD-B912-2F970319396C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 9.2421557968031074 20 8.214660374103115
-		 95 8.214660374103115 105 8.214660374103115;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 8 ".ktv[0:7]"  1 -25.298616955690939 7 -17.302146361937819
+		 20 8.214660374103115 43 9.3095417179795081 74 8.5620988019180864 95 8.214660374103115
+		 105 9.2205096878591029 115 8.860148799104822;
+	setAttr -s 8 ".kit[0:7]"  2 18 18 18 18 18 18 18;
+	setAttr -s 8 ".kot[0:7]"  2 18 18 18 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_184_1";
 	rename -uid "CCE71F05-48D9-0FD8-D5C9-03BFEB9EAE2F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_185_1";
 	rename -uid "8C447B02-45ED-A87A-DE70-79AB125879B4";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_186_1";
 	rename -uid "77D0B5BE-46ED-B3E9-7CE3-7696C71F5B5F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_187_1";
 	rename -uid "79BC3B11-46F2-62AC-7AE3-C1AE890BBBF0";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 38.582569984807357 20 19.560677117816745
-		 95 19.560677117816741 111 20.886665079202647;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 9 ".ktv[0:8]"  1 46.005501051031629 10 35.522774521512886
+		 20 19.560677117816748 28 16.831452512332351 53 16.597390890580755 85 17.412738068610199
+		 92 16.704103010460127 105 20.351941428352749 115 19.617357146989136;
+	setAttr -s 9 ".kit[0:8]"  2 18 18 18 18 18 18 18 
+		18;
+	setAttr -s 9 ".kot[0:8]"  2 18 18 18 18 18 18 18 
+		18;
 createNode animCurveTA -n "charset_angularValues_188_1";
 	rename -uid "4F90AAF3-473C-832C-4C9B-75B0E389D2B7";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -19.505962664897606 20 -10.444132536109525
-		 95 -10.444132536109526 111 -13.19692156266845;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 9 ".ktv[0:8]"  1 -9.1288762416337725 10 -8.7754732167557155
+		 20 -10.444132536109525 28 -9.7759108950843316 53 -9.0640730653791621 85 -10.06311871685539
+		 92 -11.208460010178056 105 -13.727236153993422 115 -14.449983101141513;
+	setAttr -s 9 ".kit[0:8]"  2 18 18 18 18 18 18 18 
+		18;
+	setAttr -s 9 ".kot[0:8]"  2 18 18 18 18 18 18 18 
+		18;
 createNode animCurveTA -n "charset_angularValues_189_1";
 	rename -uid "E7E128D1-4540-3762-F196-C9872F7798F0";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 49.472954756748081 20 65.246029138085504
-		 95 65.246029138085504 111 44.377158788673036;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 9 ".ktv[0:8]"  1 51.848422274394338 10 55.873952069447952
+		 20 60.744988513533784 28 62.037522580357248 53 62.855693465558147 85 63.593579349874545
+		 92 65.330522324863068 105 44.501645578506704 115 44.680465559107226;
+	setAttr -s 9 ".kit[0:8]"  2 18 18 18 18 18 18 18 
+		18;
+	setAttr -s 9 ".kot[0:8]"  2 18 18 18 18 18 18 18 
+		18;
 createNode animCurveTL -n "charset_linearValues_187_1";
 	rename -uid "BD811E9C-448D-9711-7DA2-8E9EC6983CCD";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 20 1.259273755668044 95 1.259273755668044;
-	setAttr -s 3 ".kit[0:2]"  2 18 18;
-	setAttr -s 3 ".kot[0:2]"  2 18 18;
+	setAttr -s 4 ".ktv[0:3]"  1 2.7409262686002811 20 1.259273755668044
+		 105 1.259273755668044 115 1.259273755668044;
+	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
+	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_linearValues_188_1";
 	rename -uid "7105CB7A-426D-2897-59C8-83815228E47A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 20 3.9473726530801607 95 3.9473726530801607;
-	setAttr -s 3 ".kit[0:2]"  2 18 18;
-	setAttr -s 3 ".kot[0:2]"  2 18 18;
+	setAttr -s 4 ".ktv[0:3]"  1 -0.24097994511400037 20 3.9473726530801607
+		 105 3.9473726530801607 115 3.9473726530801607;
+	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
+	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTL -n "charset_linearValues_189_1";
 	rename -uid "EE671AA9-4E12-6B14-5116-389ED736677E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 20 0.13298760253553538 95 0.13298760253553538;
-	setAttr -s 3 ".kit[0:2]"  2 18 18;
-	setAttr -s 3 ".kot[0:2]"  2 18 18;
+	setAttr -s 4 ".ktv[0:3]"  1 0.436660366418683 20 0.13298760253553538
+		 105 0.13298760253553538 115 0.13298760253553538;
+	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
+	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
 createNode animCurveTA -n "charset_angularValues_190_1";
 	rename -uid "F402F399-440F-E1D3-B35A-71A0A41659BB";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -4.6391865631869509 20 -4.6391865631869509
-		 95 -4.6391865631869509 105 -4.6391865631869509;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -4.6391865631869509 20 -4.6391865631869509
+		 95 -4.6391865631869509 105 -4.6391865631869509 115 -4.6391865631869509;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_191_1";
 	rename -uid "25218E78-433C-5666-3149-70B7DF1FC316";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -71.057527227465158 20 -71.057527227465158
-		 95 -71.057527227465158 105 -71.057527227465158;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -71.057527227465158 20 -71.057527227465158
+		 95 -71.057527227465158 105 -71.057527227465158 115 -71.057527227465158;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_192_1";
 	rename -uid "A169113C-4939-7357-0BA5-5784DAF8E16C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0.53434025062077906 20 0.53434025062077906
-		 95 0.53434025062077906 105 0.53434025062077906;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0.53434025062077906 20 0.53434025062077906
+		 95 0.53434025062077906 105 0.53434025062077906 115 0.53434025062077906;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_190_1";
 	rename -uid "793BA04A-45ED-7668-F6EB-CA9CE461F6D9";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.45534550496252035 20 -0.45534550496252035
-		 95 -0.45534550496252035 105 -0.45534550496252035;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.45534550496252035 20 -0.45534550496252035
+		 95 -0.45534550496252035 105 -0.45534550496252035 115 -0.45534550496252035;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_191_1";
 	rename -uid "3637C1E4-4F6F-0671-62FA-30B076FECEBE";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.44652929985225193 20 -0.44652929985225193
-		 95 -0.44652929985225193 105 -0.44652929985225193;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 -0.44652929985225193 20 -0.44652929985225193
+		 95 -0.44652929985225193 105 -0.44652929985225193 115 -0.44652929985225193;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_192_1";
 	rename -uid "3E8454FA-4F19-2864-716C-E2931460844F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 4.3510624307727488 20 4.3510624307727488
-		 95 4.3510624307727488 105 4.3510624307727488;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 4.3510624307727488 20 4.3510624307727488
+		 95 4.3510624307727488 105 4.3510624307727488 115 4.3510624307727488;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_193_1";
 	rename -uid "EFA67856-4DD7-9D12-F86A-28A5C26E5D4F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_194_1";
 	rename -uid "CB317776-4401-9611-4B3C-7585D4205606";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTA -n "charset_angularValues_195_1";
 	rename -uid "6E9F0B12-4AEA-AA57-E4C9-1C8C9BB23424";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 0 20 0 95 0 105 0;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 0 20 0 95 0 105 0 115 0;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_193_1";
 	rename -uid "746797BE-4542-1514-4BA4-B6A36E4F5E8A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 45.920494400500822 20 45.920494400500822
-		 95 45.920494400500822 105 45.920494400500822;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 45.920494400500822 20 45.920494400500822
+		 95 45.920494400500822 105 45.920494400500822 115 45.920494400500822;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_194_1";
 	rename -uid "359746A8-41D0-D5A7-E4D9-938F173DDF89";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 19.76109638218432 20 19.76109638218432
-		 95 19.76109638218432 105 19.76109638218432;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 19.76109638218432 20 19.76109638218432
+		 95 19.76109638218432 105 19.76109638218432 115 19.76109638218432;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_195_1";
 	rename -uid "7E44A307-43D1-849C-0029-C49AEA94DEAC";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 60.47076521507914 20 60.47076521507914
-		 95 60.47076521507914 105 60.47076521507914;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 60.47076521507914 20 60.47076521507914
+		 95 60.47076521507914 105 60.47076521507914 115 60.47076521507914;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTU -n "charset_unitlessValues_28_1";
 	rename -uid "E6DD0427-4510-6605-441C-F08EA9C7FB58";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 1 20 1 95 1 105 1;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 5 ".ktv[0:4]"  1 1 20 1 95 1 105 1 115 1;
+	setAttr -s 5 ".kit[0:4]"  2 18 18 18 18;
+	setAttr -s 5 ".kot[0:4]"  2 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_196_1";
 	rename -uid "4F191910-4F87-0593-2844-1992910743B0";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.8107225470350905 20 -0.65500414745057689
-		 95 -0.65500414745057689 105 -0.65500414745057689;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.8107225470350905 20 -0.65500414745057689
+		 86 -0.65500414745057689 90 -1 93 -1 98 -0.65500414745057689 115 -0.65500414745057689;
+	setAttr -s 7 ".kit[0:6]"  2 18 18 18 18 18 18;
+	setAttr -s 7 ".kot[0:6]"  2 18 18 18 18 18 18;
 createNode animCurveTL -n "charset_linearValues_197_1";
 	rename -uid "5911166E-4358-1979-88B0-EDA16228CA0A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 -0.80079287723361803 20 -0.655004147450577
-		 95 -0.655004147450577 105 -0.655004147450577;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
-createNode makeNurbPlane -n "makeNurbPlane1";
-	rename -uid "AD9EBCEC-4CFC-E3FD-4F66-888BBB2D9007";
-	setAttr ".ax" -type "double3" 0 1 0 ;
-	setAttr ".w" 10;
-	setAttr ".lr" 0.1;
-	setAttr ".u" 3;
+	setAttr -s 7 ".ktv[0:6]"  1 -0.80079287723361803 20 -0.655004147450577
+		 86 -0.655004147450577 90 -1 93 -1 98 -0.655004147450577 115 -0.655004147450577;
+	setAttr -s 7 ".kit[0:6]"  2 18 18 18 18 18 18;
+	setAttr -s 7 ".kot[0:6]"  2 18 18 18 18 18 18;
 createNode lambert -n "band_MAT";
 	rename -uid "CAB85200-4A6E-9002-4AE7-C0831FF9D1F2";
 	setAttr ".c" -type "float3" 0.39500001 0.022910012 0.022910012 ;
@@ -8492,73 +8796,10 @@ createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
 	setAttr ".tgi[0].ni[1].x" 262.85714721679687;
 	setAttr ".tgi[0].ni[1].y" -74.285713195800781;
 	setAttr ".tgi[0].ni[1].nvs" 1923;
-createNode animCurveTA -n "nurbsPlane1_rotateX";
-	rename -uid "0A07EAF9-4F76-1E71-A84E-F3A1D3B3F146";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 11.746271309423957 16 -3.4022908372879916
-		 95 -3.4022908372879916;
-createNode animCurveTA -n "nurbsPlane1_rotateY";
-	rename -uid "CF2863B8-4BEA-CBF2-1BF6-3E9D159BC400";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 -2.1499872664309514 16 -0.64978304486371319
-		 95 -0.64978304486371319;
-createNode animCurveTA -n "nurbsPlane1_rotateZ";
-	rename -uid "83FE96FD-485F-5798-7C34-699C7F34AF8D";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 -87.669604589283423 16 -89.019668657259572
-		 95 -89.019668657259572;
-createNode animCurveTU -n "nurbsPlane1_visibility";
-	rename -uid "A3DA8C98-46EA-EDA8-B452-138B5DFF6719";
-	setAttr ".tan" 9;
-	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 1 95 1;
-	setAttr -s 2 ".kot[0:1]"  5 5;
-createNode animCurveTL -n "nurbsPlane1_translateX";
-	rename -uid "9E8C8894-4406-8600-87FF-47AC5B78F080";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 -2.9622069036341871 16 1.9318595809627412
-		 95 1.9318595809627412;
-	setAttr -s 3 ".kit[0:2]"  2 18 18;
-	setAttr -s 3 ".kot[0:2]"  2 18 18;
-createNode animCurveTL -n "nurbsPlane1_translateY";
-	rename -uid "952F25C7-41C6-9355-7E40-8E804D841899";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 4 ".ktv[0:3]"  1 32.597215909775592 16 31.52265936368363
-		 95 31.52265936368363 110 32.340287245910964;
-	setAttr -s 4 ".kit[0:3]"  2 18 18 18;
-	setAttr -s 4 ".kot[0:3]"  2 18 18 18;
-createNode animCurveTL -n "nurbsPlane1_translateZ";
-	rename -uid "7DC978C8-4E78-FDCB-2B13-C69F555BED9C";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 41.106703366738472 16 40.588100845752258
-		 95 40.588100845752258;
-	setAttr -s 3 ".kit[0:2]"  2 18 18;
-	setAttr -s 3 ".kot[0:2]"  2 18 18;
-createNode animCurveTU -n "nurbsPlane1_scaleX";
-	rename -uid "3BF40D04-415B-5EE9-89DD-79B53D893275";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 1.6392436449558101 95 1.6392436449558101;
-createNode animCurveTU -n "nurbsPlane1_scaleY";
-	rename -uid "844703AE-4536-A5FE-B660-63A563010C0E";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 1 95 1;
-createNode animCurveTU -n "nurbsPlane1_scaleZ";
-	rename -uid "DFEC1CB7-4080-A3CE-8ADD-F0B0EBF58FE5";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 1 95 1;
 createNode reference -n "sadnessRN";
 	rename -uid "A799A21C-493E-BF7B-F5BF-A281494BD55D";
-	setAttr ".fn[0]" -type "string" "E:/Hagenberg/DA/1_Semester/Vergissmeinnicht/Maya//scenes/Rigs/sadness.ma";
-	setAttr -s 300 ".phl";
+	setAttr ".fn[0]" -type "string" "D:/Hagenberg/DA 1Semester/Vergissmeinnicht/Maya//scenes/Rigs/sadness.ma";
+	setAttr -s 334 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -8859,20 +9100,58 @@ createNode reference -n "sadnessRN";
 	setAttr ".phl[298]" 0;
 	setAttr ".phl[299]" 0;
 	setAttr ".phl[300]" 0;
+	setAttr ".phl[301]" 0;
+	setAttr ".phl[302]" 0;
+	setAttr ".phl[303]" 0;
+	setAttr ".phl[304]" 0;
+	setAttr ".phl[305]" 0;
+	setAttr ".phl[306]" 0;
+	setAttr ".phl[307]" 0;
+	setAttr ".phl[308]" 0;
+	setAttr ".phl[309]" 0;
+	setAttr ".phl[310]" 0;
+	setAttr ".phl[311]" 0;
+	setAttr ".phl[312]" 0;
+	setAttr ".phl[313]" 0;
+	setAttr ".phl[314]" 0;
+	setAttr ".phl[315]" 0;
+	setAttr ".phl[316]" 0;
+	setAttr ".phl[317]" 0;
+	setAttr ".phl[318]" 0;
+	setAttr ".phl[319]" 0;
+	setAttr ".phl[320]" 0;
+	setAttr ".phl[321]" 0;
+	setAttr ".phl[322]" 0;
+	setAttr ".phl[323]" 0;
+	setAttr ".phl[324]" 0;
+	setAttr ".phl[325]" 0;
+	setAttr ".phl[326]" 0;
+	setAttr ".phl[327]" 0;
+	setAttr ".phl[328]" 0;
+	setAttr ".phl[329]" 0;
+	setAttr ".phl[330]" 0;
+	setAttr ".phl[331]" 0;
+	setAttr ".phl[332]" 0;
+	setAttr ".phl[333]" 0;
+	setAttr ".phl[334]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"sadnessRN"
 		"sadness:CharacterRigRN" 0
 		"sadnessRN" 0
 		"sadness:rig:eye_rigRN" 0
-		"sadness:CharacterRigRN" 678
+		"sadness:CharacterRigRN" 731
+		0 "|sadnessRNfosterParent1|r_ik_hand_CTRL_parentConstraint2" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL" 
+		"-s -r "
+		1 |sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL 
+		"blendParent2" "blendParent2" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL" 
 		"translate" " -type \"double3\" 36.372563755619524 0 50.418493991390619"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL" 
 		"translateZ" " -av"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL" 
-		"translateY" " -av"
-		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL" 
 		"translateX" " -av"
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL" 
+		"translateY" " -av"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL" 
 		"rotate" " -type \"double3\" 0 302.55600860958077 0"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL" 
@@ -8890,7 +9169,9 @@ createNode reference -n "sadnessRN";
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL" 
 		"scaleX" " -av"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL" 
-		"performance" " 1"
+		"performance" " 2"
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL" 
+		"braceletVisible" " -av 0"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL" 
 		"translate" " -type \"double3\" -1.6991872341073946 -48.644394 4.1107648533809185"
 		
@@ -8919,7 +9200,7 @@ createNode reference -n "sadnessRN";
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:hip_GRP|sadness:rig:hip_CTRL" 
 		"translateX" " -av"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:hip_GRP|sadness:rig:hip_CTRL" 
-		"rotate" " -type \"double3\" 0.098956487461434844 -6.3096594077945722 -33.785541409929827"
+		"rotate" " -type \"double3\" 0.098956487461434858 -6.3096594077945722 -33.785541409929827"
 		
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:hip_GRP|sadness:rig:hip_CTRL" 
 		"rotateZ" " -av"
@@ -9131,7 +9412,7 @@ createNode reference -n "sadnessRN";
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL" 
 		"translateX" " -av"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL" 
-		"rotate" " -type \"double3\" -11.339819265377876 -11.309772099030155 -17.160202703782655"
+		"rotate" " -type \"double3\" -9.8702149623223061 -11.309772099030155 -16.706615807441725"
 		
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL" 
 		"rotateZ" " -av"
@@ -9172,6 +9453,8 @@ createNode reference -n "sadnessRN";
 		"rotateY" " -av"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:l_shoulder_GRP|sadness:rig:l_shoulder_CTRL|sadness:rig:fk_l_arm_GRP|sadness:rig:fk_l_arm_CTRL" 
 		"rotateX" " -av"
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:l_shoulder_GRP|sadness:rig:l_shoulder_CTRL|sadness:rig:fk_l_arm_GRP|sadness:rig:fk_l_arm_CTRL" 
+		"lenght" " -av -k 1 1"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:l_shoulder_GRP|sadness:rig:l_shoulder_CTRL|sadness:rig:fk_l_arm_GRP|sadness:rig:fk_l_arm_CTRL|sadness:rig:fk_l_elbow_GRP|sadness:rig:fk_l_elbow_CTRL" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:l_shoulder_GRP|sadness:rig:l_shoulder_CTRL|sadness:rig:fk_l_arm_GRP|sadness:rig:fk_l_arm_CTRL|sadness:rig:fk_l_elbow_GRP|sadness:rig:fk_l_elbow_CTRL" 
@@ -9428,7 +9711,7 @@ createNode reference -n "sadnessRN";
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL" 
 		"translateX" " -av"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL" 
-		"rotate" " -type \"double3\" 19.904713156092178 11.709909779309029 22.399436634031975"
+		"rotate" " -type \"double3\" 13.908950446943319 13.312203764190592 23.017122678305295"
 		
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL" 
 		"rotateZ" " -av"
@@ -9439,7 +9722,22 @@ createNode reference -n "sadnessRN";
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL" 
 		"scale" " -type \"double3\" 1 1 1"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL" 
+		"scaleX" " -av"
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL" 
+		"scaleY" " -av"
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL" 
+		"scaleZ" " -av"
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL" 
 		"ikFkSwitch" " -av -k 1 1"
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL|sadness:rig:ikHandle8" 
+		"poleVector" " -type \"double3\" -3.6149983749941867 -12.746811851111119 1.474078739195253"
+		
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL|sadness:rig:ikHandle8" 
+		"poleVectorX" " -av"
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL|sadness:rig:ikHandle8" 
+		"poleVectorY" " -av"
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL|sadness:rig:ikHandle8" 
+		"poleVectorZ" " -av"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_leg_GRP|sadness:rig:r_ik_leg_GRP|sadness:rig:r_ik_leg_CTRL" 
 		"translate" " -type \"double3\" -5.4513108967229584 0 5.3200128043720296"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_leg_GRP|sadness:rig:r_ik_leg_GRP|sadness:rig:r_ik_leg_CTRL" 
@@ -9505,7 +9803,7 @@ createNode reference -n "sadnessRN";
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_leg_GRP|sadness:rig:l_ik_leg_GRP|sadness:rig:l_ik_leg_CTRL" 
 		"kneeSnap" " -av -k 1 1"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_leg_GRP|sadness:rig:r_leg_poleVEctor_offset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL" 
-		"translate" " -type \"double3\" -6.7541310812013524 -12.175533687149038 23.489352641116355"
+		"translate" " -type \"double3\" -8.6167032483426862 -41.308719638984613 18.636575966016338"
 		
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_leg_GRP|sadness:rig:r_leg_poleVEctor_offset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL" 
 		"translateZ" " -av"
@@ -9522,7 +9820,7 @@ createNode reference -n "sadnessRN";
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_leg_GRP|sadness:rig:r_leg_poleVEctor_offset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL" 
 		"rotateX" " -av"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_leg_GRP|sadness:rig:l_leg_poleVEctor_offset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL" 
-		"translate" " -type \"double3\" 7.1969483162901913 -13.554912964543028 20.791660373193658"
+		"translate" " -type \"double3\" -4.7904278361801484 -24.008777014147583 31.202036183389577"
 		
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_leg_GRP|sadness:rig:l_leg_poleVEctor_offset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL" 
 		"translateZ" " -av"
@@ -9531,7 +9829,7 @@ createNode reference -n "sadnessRN";
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_leg_GRP|sadness:rig:l_leg_poleVEctor_offset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL" 
 		"translateX" " -av"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_leg_GRP|sadness:rig:l_leg_poleVEctor_offset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL" 
-		"rotate" " -type \"double3\" 0 41.856805576702349 0"
+		"rotate" " -type \"double3\" 0 0 0"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_leg_GRP|sadness:rig:l_leg_poleVEctor_offset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL" 
 		"rotateZ" " -av"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_leg_GRP|sadness:rig:l_leg_poleVEctor_offset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL" 
@@ -9539,7 +9837,7 @@ createNode reference -n "sadnessRN";
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_leg_GRP|sadness:rig:l_leg_poleVEctor_offset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL" 
 		"rotateX" " -av"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_ik_hand_GRP|sadness:rig:l_ik_hand_CTRL" 
-		"translate" " -type \"double3\" -3.115011084271488 -45.888805251466955 22.51584783624681"
+		"translate" " -type \"double3\" -2.8104166823258572 -45.645189542290986 22.747961727166853"
 		
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_ik_hand_GRP|sadness:rig:l_ik_hand_CTRL" 
 		"translateZ" " -av"
@@ -9548,7 +9846,7 @@ createNode reference -n "sadnessRN";
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_ik_hand_GRP|sadness:rig:l_ik_hand_CTRL" 
 		"translateX" " -av"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_ik_hand_GRP|sadness:rig:l_ik_hand_CTRL" 
-		"rotate" " -type \"double3\" 134.67072998807257 5.7373444491491918 -174.82317743073563"
+		"rotate" " -type \"double3\" 134.67072998807257 5.7373444491491927 -174.82317743073563"
 		
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_ik_hand_GRP|sadness:rig:l_ik_hand_CTRL" 
 		"rotateZ" " -av"
@@ -9558,25 +9856,25 @@ createNode reference -n "sadnessRN";
 		"rotateX" " -av"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_ik_hand_GRP|sadness:rig:l_ik_hand_CTRL" 
 		"snapToElbow" " -av -k 1 0"
-		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL" 
-		"translate" " -type \"double3\" 4.9022988266390541 -57.333108758964819 -21.372220749648193"
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_arm_poleVector_CTRL" 
+		"translate" " -type \"double3\" -0.26272946964952837 -55.90020224464007 -38.295103707276198"
 		
-		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL" 
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_arm_poleVector_CTRL" 
 		"translateZ" " -av"
-		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL" 
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_arm_poleVector_CTRL" 
 		"translateY" " -av"
-		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL" 
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_arm_poleVector_CTRL" 
 		"translateX" " -av"
-		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL" 
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_arm_poleVector_CTRL" 
 		"rotate" " -type \"double3\" 0 0 0"
-		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL" 
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_arm_poleVector_CTRL" 
 		"rotateZ" " -av"
-		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL" 
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_arm_poleVector_CTRL" 
 		"rotateY" " -av"
-		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL" 
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_arm_poleVector_CTRL" 
 		"rotateX" " -av"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL" 
-		"translate" " -type \"double3\" -10.276072287955651 34.043741996127515 -21.383646656390106"
+		"translate" " -type \"double3\" -9.9857422342315267 34.28063182913052 -21.639761647627093"
 		
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL" 
 		"translateZ" " -av"
@@ -9585,7 +9883,7 @@ createNode reference -n "sadnessRN";
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL" 
 		"translateX" " -av"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL" 
-		"rotate" " -type \"double3\" 127.72951803844542 -30.667382979715544 -174.79372184872753"
+		"rotate" " -type \"double3\" 127.72951803844539 -30.667382979715526 -174.7937218487275"
 		
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL" 
 		"rotateZ" " -av"
@@ -9595,22 +9893,23 @@ createNode reference -n "sadnessRN";
 		"rotateX" " -av"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL" 
 		"snapToElbow" " -av -k 1 0"
-		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL" 
-		"translate" " -type \"double3\" -4.9682067151788312 -67.475670348883042 -11.16440997919717"
-		
-		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL" 
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL" 
+		"blendParent2" " -k 1"
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_arm_poleVector_CTRL" 
+		"translate" " -type \"double3\" 0 -70.360287420143351 0"
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_arm_poleVector_CTRL" 
 		"translateZ" " -av"
-		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL" 
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_arm_poleVector_CTRL" 
 		"translateY" " -av"
-		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL" 
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_arm_poleVector_CTRL" 
 		"translateX" " -av"
-		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL" 
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_arm_poleVector_CTRL" 
 		"rotate" " -type \"double3\" 0 0 0"
-		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL" 
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_arm_poleVector_CTRL" 
 		"rotateZ" " -av"
-		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL" 
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_arm_poleVector_CTRL" 
 		"rotateY" " -av"
-		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL" 
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_arm_poleVector_CTRL" 
 		"rotateX" " -av"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:r_legSwitch_GRP|sadness:rig:r_legSwitch_CTRL" 
 		"ikFkSwitch" " -av -k 1 0"
@@ -9637,641 +9936,728 @@ createNode reference -n "sadnessRN";
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:head_ik_offset_GRP|sadness:rig:head_ik_GRP|sadness:rig:head_ik_CTRL" 
 		"rotateX" " -av"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:JNT_GRP" "visibility" " 0"
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:JNT_GRP|sadness:rig:root_JNT|sadness:rig:spline_01_JNT|sadness:rig:spline_02_JNT|sadness:rig:spline_03_JNT|sadness:rig:l_shoulder_JNT|sadness:rig:l_arm_JNT|sadness:rig:l_elbow_JNT|sadness:rig:l_hand_JNT|sadness:rig:l_finger_01_JNT|sadness:rig:l_finger_02_JNT|sadness:rig:l_finger_03_JNT" 
+		"rotate" " -type \"double3\" 0 -58.780941086353828 0"
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:JNT_GRP|sadness:rig:root_JNT|sadness:rig:spline_01_JNT|sadness:rig:spline_02_JNT|sadness:rig:spline_03_JNT|sadness:rig:l_shoulder_JNT|sadness:rig:l_arm_JNT|sadness:rig:l_elbow_JNT|sadness:rig:l_hand_JNT|sadness:rig:l_finger_01_JNT|sadness:rig:l_finger_02_JNT|sadness:rig:l_finger_03_JNT" 
+		"rotateX" " -av"
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:JNT_GRP|sadness:rig:root_JNT|sadness:rig:spline_01_JNT|sadness:rig:spline_02_JNT|sadness:rig:spline_03_JNT|sadness:rig:l_shoulder_JNT|sadness:rig:l_arm_JNT|sadness:rig:l_elbow_JNT|sadness:rig:l_hand_JNT|sadness:rig:l_finger_01_JNT|sadness:rig:l_finger_02_JNT|sadness:rig:l_finger_03_JNT" 
+		"rotateY" " -av"
+		2 "|sadness:rig:CHAR_GRP|sadness:rig:JNT_GRP|sadness:rig:root_JNT|sadness:rig:spline_01_JNT|sadness:rig:spline_02_JNT|sadness:rig:spline_03_JNT|sadness:rig:l_shoulder_JNT|sadness:rig:l_arm_JNT|sadness:rig:l_elbow_JNT|sadness:rig:l_hand_JNT|sadness:rig:l_finger_01_JNT|sadness:rig:l_finger_02_JNT|sadness:rig:l_finger_03_JNT" 
+		"rotateZ" " -av"
 		2 "sadness:rig:GEO_layer" "displayType" " 2"
-		2 "sadness:rig:charset" "referenceMapping" (" -type \"characterMapping\" 294 \"sadness:rig:spline_02_CTRL.rotateZ\" 2 1 \"sadness:rig:spline_02_CTRL.rotateY\" 2 2 \"sadness:rig:spline_02_CTRL.rotateX\" 2 3 \"sadness:rig:spline_02_CTRL.translateZ\" 1 1 \"sadness:rig:spline_02_CTRL.translateY\" 1 2 \"sadness:rig:spline_02_CTRL.translateX\" 1 3 \"sadness:rig:spline_01_CTRL.rotateZ\" 2 4 \"sadness:rig:spline_01_CTRL.rotateY\" 2 5 \"sadness:rig:spline_01_CTRL.rotateX\" 2 6 \"sadness:rig:spline_01_CTRL.translateZ\" 1 4 \"sadness:rig:spline_01_CTRL.translateY\" 1 5 \"sadness:rig:spline_01_CTRL.translateX\" 1 6 \"sadness:rig:root_CTRL.rotateZ\" 2 7 \"sadness:rig:root_CTRL.rotateY\" 2 8 \"sadness:rig:root_CTRL.rotateX\" 2 9 \"sadness:rig:root_CTRL.translateZ\" 1 7 \"sadness:rig:root_CTRL.translateY\" 1 8 \"sadness:rig:root_CTRL.translateX\" 1 9 \"sadness:rig:r_shoulder_CTRL.rotateZ\" 2 10 \"sadness:rig:r_shoulder_CTRL.rotateY\" 2 11 \"sadness:rig:r_shoulder_CTRL.rotateX\" 2 12 \"sadness:rig:r_shoulder_CTRL.translateZ\" 1 10 \"sadness:rig:r_shoulder_CTRL.translateY\" 1 11 \"sadness:rig:r_shoulder_CTRL.translate"
-		+ "X\" 1 12 \"sadness:rig:r_leg_poleVEctor_offset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL.rotateZ\" 2 13 \"sadness:rig:r_leg_poleVEctor_offset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL.rotateY\" 2 14 \"sadness:rig:r_leg_poleVEctor_offset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL.rotateX\" 2 15 \"sadness:rig:r_leg_poleVEctor_offset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL.translateZ\" 1 13 \"sadness:rig:r_leg_poleVEctor_offset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL.translateY\" 1 14 \"sadness:rig:r_leg_poleVEctor_offset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL.translateX\" 1 15 \"sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL.rotateZ\" 2 16 \"sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL.rotateY\" 2 17 \"sadness:rig:r_hand_poleVectorO"
-		+ "ffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL.rotateX\" 2 18 \"sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL.translateZ\" 1 16 \"sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL.translateY\" 1 17 \"sadness:rig:r_hand_poleVectorOffset_GRP|sadness:rig:r_leg_poleVector_GRP|sadness:rig:r_leg_poleVector_CTRL.translateX\" 1 18 \"sadness:rig:r_ik_leg_CTRL.rotateZ\" 2 19 \"sadness:rig:r_ik_leg_CTRL.rotateY\" 2 20 \"sadness:rig:r_ik_leg_CTRL.rotateX\" 2 21 \"sadness:rig:r_ik_leg_CTRL.translateZ\" 1 19 \"sadness:rig:r_ik_leg_CTRL.translateY\" 1 20 \"sadness:rig:r_ik_leg_CTRL.translateX\" 1 21 \"sadness:rig:r_ik_hand_CTRL.rotateZ\" 2 22 \"sadness:rig:r_ik_hand_CTRL.rotateY\" 2 23 \"sadness:rig:r_ik_hand_CTRL.rotateX\" 2 24 \"sadness:rig:r_ik_hand_CTRL.translateZ\" 1 22 \"sadness:rig:r_ik_hand_CTRL.translateY\" 1 23 \"sadness:rig:r_ik_hand_CTRL.translateX\" 1 24 \"sadness:rig:r_finger_04_CTRL.rotateZ\" 2 2"
-		+ "5 \"sadness:rig:r_finger_04_CTRL.rotateY\" 2 26 \"sadness:rig:r_finger_04_CTRL.rotateX\" 2 27 \"sadness:rig:r_finger_04_CTRL.translateZ\" 1 25 \"sadness:rig:r_finger_04_CTRL.translateY\" 1 26 \"sadness:rig:r_finger_04_CTRL.translateX\" 1 27 \"sadness:rig:r_finger_03_CTRL.rotateZ\" 2 28 \"sadness:rig:r_finger_03_CTRL.rotateY\" 2 29 \"sadness:rig:r_finger_03_CTRL.rotateX\" 2 30 \"sadness:rig:r_finger_03_CTRL.translateZ\" 1 28 \"sadness:rig:r_finger_03_CTRL.translateY\" 1 29 \"sadness:rig:r_finger_03_CTRL.translateX\" 1 30 \"sadness:rig:r_finger_02_CTRL.rotateZ\" 2 31 \"sadness:rig:r_finger_02_CTRL.rotateY\" 2 32 \"sadness:rig:r_finger_02_CTRL.rotateX\" 2 33 \"sadness:rig:r_finger_02_CTRL.translateZ\" 1 31 \"sadness:rig:r_finger_02_CTRL.translateY\" 1 32 \"sadness:rig:r_finger_02_CTRL.translateX\" 1 33 \"sadness:rig:r_finger_01_CTRL.rotateZ\" 2 34 \"sadness:rig:r_finger_01_CTRL.rotateY\" 2 35 \"sadness:rig:r_finger_01_CTRL.rotateX\" 2 36 \"sadness:rig:r_finger_01_CTRL.translateZ\" 1 34 \"sadness:rig:r_finger_01_CTRL.translateY\" 1 35 \"sadness:rig:r_finger"
-		+ "_01_CTRL.translateX\" 1 36 \"sadness:rig:neck_CTRL.rotateZ\" 2 37 \"sadness:rig:neck_CTRL.rotateY\" 2 38 \"sadness:rig:neck_CTRL.rotateX\" 2 39 \"sadness:rig:neck_CTRL.translateZ\" 1 37 \"sadness:rig:neck_CTRL.translateY\" 1 38 \"sadness:rig:neck_CTRL.translateX\" 1 39 \"sadness:rig:l_shoulder_CTRL.rotateZ\" 2 40 \"sadness:rig:l_shoulder_CTRL.rotateY\" 2 41 \"sadness:rig:l_shoulder_CTRL.rotateX\" 2 42 \"sadness:rig:l_shoulder_CTRL.translateZ\" 1 40 \"sadness:rig:l_shoulder_CTRL.translateY\" 1 41 \"sadness:rig:l_shoulder_CTRL.translateX\" 1 42 \"sadness:rig:l_leg_poleVEctor_offset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL.rotateZ\" 2 43 \"sadness:rig:l_leg_poleVEctor_offset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL.rotateY\" 2 44 \"sadness:rig:l_leg_poleVEctor_offset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL.rotateX\" 2 45 \"sadness:rig:l_leg_poleVEctor_offset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL.translateZ\" 1 43 \"sadness:"
-		+ "rig:l_leg_poleVEctor_offset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL.translateY\" 1 44 \"sadness:rig:l_leg_poleVEctor_offset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL.translateX\" 1 45 \"sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL.rotateZ\" 2 46 \"sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL.rotateY\" 2 47 \"sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL.rotateX\" 2 48 \"sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL.translateZ\" 1 46 \"sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL.translateY\" 1 47 \"sadness:rig:l_hand_poleVectorOffset_GRP|sadness:rig:l_leg_poleVector_GRP|sadness:rig:l_leg_poleVector_CTRL.translateX\" 1 48 \"sadness:rig:l_ik_leg_CTRL.rotateZ\" 2 49 \""
-		+ "sadness:rig:l_ik_leg_CTRL.rotateY\" 2 50 \"sadness:rig:l_ik_leg_CTRL.rotateX\" 2 51 \"sadness:rig:l_ik_leg_CTRL.translateZ\" 1 49 \"sadness:rig:l_ik_leg_CTRL.translateY\" 1 50 \"sadness:rig:l_ik_leg_CTRL.translateX\" 1 51 \"sadness:rig:l_ik_hand_CTRL.rotateZ\" 2 52 \"sadness:rig:l_ik_hand_CTRL.rotateY\" 2 53 \"sadness:rig:l_ik_hand_CTRL.rotateX\" 2 54 \"sadness:rig:l_ik_hand_CTRL.translateZ\" 1 52 \"sadness:rig:l_ik_hand_CTRL.translateY\" 1 53 \"sadness:rig:l_ik_hand_CTRL.translateX\" 1 54 \"sadness:rig:l_finger_04_CTRL.rotateZ\" 2 55 \"sadness:rig:l_finger_04_CTRL.rotateY\" 2 56 \"sadness:rig:l_finger_04_CTRL.rotateX\" 2 57 \"sadness:rig:l_finger_04_CTRL.translateZ\" 1 55 \"sadness:rig:l_finger_04_CTRL.translateY\" 1 56 \"sadness:rig:l_finger_04_CTRL.translateX\" 1 57 \"sadness:rig:l_finger_03_CTRL.rotateZ\" 2 58 \"sadness:rig:l_finger_03_CTRL.rotateY\" 2 59 \"sadness:rig:l_finger_03_CTRL.rotateX\" 2 60 \"sadness:rig:l_finger_03_CTRL.translateZ\" 1 58 \"sadness:rig:l_finger_03_CTRL.translateY\" 1 59 \"sadness:rig:l_finger_03_CTRL.translateX\" 1 60 \"sad"
-		+ "ness:rig:l_finger_02_CTRL.rotateZ\" 2 61 \"sadness:rig:l_finger_02_CTRL.rotateY\" 2 62 \"sadness:rig:l_finger_02_CTRL.rotateX\" 2 63 \"sadness:rig:l_finger_02_CTRL.translateZ\" 1 61 \"sadness:rig:l_finger_02_CTRL.translateY\" 1 62 \"sadness:rig:l_finger_02_CTRL.translateX\" 1 63 \"sadness:rig:l_finger_01_CTRL.rotateZ\" 2 64 \"sadness:rig:l_finger_01_CTRL.rotateY\" 2 65 \"sadness:rig:l_finger_01_CTRL.rotateX\" 2 66 \"sadness:rig:l_finger_01_CTRL.translateZ\" 1 64 \"sadness:rig:l_finger_01_CTRL.translateY\" 1 65 \"sadness:rig:l_finger_01_CTRL.translateX\" 1 66 \"sadness:rig:hip_CTRL.rotateZ\" 2 67 \"sadness:rig:hip_CTRL.rotateY\" 2 68 \"sadness:rig:hip_CTRL.rotateX\" 2 69 \"sadness:rig:hip_CTRL.translateZ\" 1 67 \"sadness:rig:hip_CTRL.translateY\" 1 68 \"sadness:rig:hip_CTRL.translateX\" 1 69 \"sadness:rig:head_ik_CTRL.rotateZ\" 2 70 \"sadness:rig:head_ik_CTRL.rotateY\" 2 71 \"sadness:rig:head_ik_CTRL.rotateX\" 2 72 \"sadness:rig:head_ik_CTRL.translateZ\" 1 70 \"sadness:rig:head_ik_CTRL.translateY\" 1 71 \"sadness:rig:head_ik_CTRL.translateX\" 1 72 \"sadness"
-		+ ":rig:head_CTRL.rotateZ\" 2 73 \"sadness:rig:head_CTRL.rotateY\" 2 74 \"sadness:rig:head_CTRL.rotateX\" 2 75 \"sadness:rig:head_CTRL.translateZ\" 1 73 \"sadness:rig:head_CTRL.translateY\" 1 74 \"sadness:rig:head_CTRL.translateX\" 1 75 \"sadness:rig:fk_r_upperKnee_CTRL.rotateZ\" 2 76 \"sadness:rig:fk_r_upperKnee_CTRL.rotateY\" 2 77 \"sadness:rig:fk_r_upperKnee_CTRL.rotateX\" 2 78 \"sadness:rig:fk_r_upperKnee_CTRL.translateZ\" 1 76 \"sadness:rig:fk_r_upperKnee_CTRL.translateY\" 1 77 \"sadness:rig:fk_r_upperKnee_CTRL.translateX\" 1 78 \"sadness:rig:fk_r_toe_CTRL.rotateZ\" 2 79 \"sadness:rig:fk_r_toe_CTRL.rotateY\" 2 80 \"sadness:rig:fk_r_toe_CTRL.rotateX\" 2 81 \"sadness:rig:fk_r_toe_CTRL.translateZ\" 1 79 \"sadness:rig:fk_r_toe_CTRL.translateY\" 1 80 \"sadness:rig:fk_r_toe_CTRL.translateX\" 1 81 \"sadness:rig:fk_r_leg_CTRL.rotateZ\" 2 82 \"sadness:rig:fk_r_leg_CTRL.rotateY\" 2 83 \"sadness:rig:fk_r_leg_CTRL.rotateX\" 2 84 \"sadness:rig:fk_r_leg_CTRL.translateZ\" 1 82 \"sadness:rig:fk_r_leg_CTRL.translateY\" 1 83 \"sadness:rig:fk_r_leg_CTRL.translateX\" 1 84 "
-		+ "\"sadness:rig:fk_r_hand_CTRL.rotateZ\" 2 85 \"sadness:rig:fk_r_hand_CTRL.rotateY\" 2 86 \"sadness:rig:fk_r_hand_CTRL.rotateX\" 2 87 \"sadness:rig:fk_r_hand_CTRL.translateZ\" 1 85 \"sadness:rig:fk_r_hand_CTRL.translateY\" 1 86 \"sadness:rig:fk_r_hand_CTRL.translateX\" 1 87 \"sadness:rig:fk_r_elbow_CTRL.rotateZ\" 2 88 \"sadness:rig:fk_r_elbow_CTRL.rotateY\" 2 89 \"sadness:rig:fk_r_elbow_CTRL.rotateX\" 2 90 \"sadness:rig:fk_r_elbow_CTRL.translateZ\" 1 88 \"sadness:rig:fk_r_elbow_CTRL.translateY\" 1 89 \"sadness:rig:fk_r_elbow_CTRL.translateX\" 1 90 \"sadness:rig:fk_r_ball_CTRL.rotateZ\" 2 91 \"sadness:rig:fk_r_ball_CTRL.rotateY\" 2 92 \"sadness:rig:fk_r_ball_CTRL.rotateX\" 2 93 \"sadness:rig:fk_r_ball_CTRL.translateZ\" 1 91 \"sadness:rig:fk_r_ball_CTRL.translateY\" 1 92 \"sadness:rig:fk_r_ball_CTRL.translateX\" 1 93 \"sadness:rig:fk_r_arm_CTRL.rotateZ\" 2 94 \"sadness:rig:fk_r_arm_CTRL.rotateY\" 2 95 \"sadness:rig:fk_r_arm_CTRL.rotateX\" 2 96 \"sadness:rig:fk_r_arm_CTRL.translateZ\" 1 94 \"sadness:rig:fk_r_arm_CTRL.translateY\" 1 95 \"sadness:rig:fk_r_arm_CT"
-		+ "RL.translateX\" 1 96 \"sadness:rig:fk_r_ankle_CTRL.rotateZ\" 2 97 \"sadness:rig:fk_r_ankle_CTRL.rotateY\" 2 98 \"sadness:rig:fk_r_ankle_CTRL.rotateX\" 2 99 \"sadness:rig:fk_r_ankle_CTRL.translateZ\" 1 97 \"sadness:rig:fk_r_ankle_CTRL.translateY\" 1 98 \"sadness:rig:fk_r_ankle_CTRL.translateX\" 1 99 \"sadness:rig:fk_l_upperKnee_CTRL.rotateZ\" 2 100 \"sadness:rig:fk_l_upperKnee_CTRL.rotateY\" 2 101 \"sadness:rig:fk_l_upperKnee_CTRL.rotateX\" 2 102 \"sadness:rig:fk_l_upperKnee_CTRL.translateZ\" 1 100 \"sadness:rig:fk_l_upperKnee_CTRL.translateY\" 1 101 \"sadness:rig:fk_l_upperKnee_CTRL.translateX\" 1 102 \"sadness:rig:fk_l_toe_CTRL.rotateZ\" 2 103 \"sadness:rig:fk_l_toe_CTRL.rotateY\" 2 104 \"sadness:rig:fk_l_toe_CTRL.rotateX\" 2 105 \"sadness:rig:fk_l_toe_CTRL.translateZ\" 1 103 \"sadness:rig:fk_l_toe_CTRL.translateY\" 1 104 \"sadness:rig:fk_l_toe_CTRL.translateX\" 1 105 \"sadness:rig:fk_l_leg_CTRL.rotateZ\" 2 106 \"sadness:rig:fk_l_leg_CTRL.rotateY\" 2 107 \"sadness:rig:fk_l_leg_CTRL.rotateX\" 2 108 \"sadness:rig:fk_l_leg_CTRL.translateZ\" 1 106 \"sadness"
-		+ ":rig:fk_l_leg_CTRL.translateY\" 1 107 \"sadness:rig:fk_l_leg_CTRL.translateX\" 1 108 \"sadness:rig:fk_l_hand_CTRL.rotateZ\" 2 109 \"sadness:rig:fk_l_hand_CTRL.rotateY\" 2 110 \"sadness:rig:fk_l_hand_CTRL.rotateX\" 2 111 \"sadness:rig:fk_l_hand_CTRL.translateZ\" 1 109 \"sadness:rig:fk_l_hand_CTRL.translateY\" 1 110 \"sadness:rig:fk_l_hand_CTRL.translateX\" 1 111 \"sadness:rig:fk_l_elbow_CTRL.rotateZ\" 2 112 \"sadness:rig:fk_l_elbow_CTRL.rotateY\" 2 113 \"sadness:rig:fk_l_elbow_CTRL.rotateX\" 2 114 \"sadness:rig:fk_l_elbow_CTRL.translateZ\" 1 112 \"sadness:rig:fk_l_elbow_CTRL.translateY\" 1 113 \"sadness:rig:fk_l_elbow_CTRL.translateX\" 1 114 \"sadness:rig:fk_l_ball_CTRL.rotateZ\" 2 115 \"sadness:rig:fk_l_ball_CTRL.rotateY\" 2 116 \"sadness:rig:fk_l_ball_CTRL.rotateX\" 2 117 \"sadness:rig:fk_l_ball_CTRL.translateZ\" 1 115 \"sadness:rig:fk_l_ball_CTRL.translateY\" 1 116 \"sadness:rig:fk_l_ball_CTRL.translateX\" 1 117 \"sadness:rig:fk_l_arm_CTRL.rotateZ\" 2 118 \"sadness:rig:fk_l_arm_CTRL.rotateY\" 2 119 \"sadness:rig:fk_l_arm_CTRL.rotateX\" 2 120 \"sadness:"
-		+ "rig:fk_l_arm_CTRL.translateZ\" 1 118 \"sadness:rig:fk_l_arm_CTRL.translateY\" 1 119 \"sadness:rig:fk_l_arm_CTRL.translateX\" 1 120 \"sadness:rig:fk_l_ankle_CTRL.rotateZ\" 2 121 \"sadness:rig:fk_l_ankle_CTRL.rotateY\" 2 122 \"sadness:rig:fk_l_ankle_CTRL.rotateX\" 2 123 \"sadness:rig:fk_l_ankle_CTRL.translateZ\" 1 121 \"sadness:rig:fk_l_ankle_CTRL.translateY\" 1 122 \"sadness:rig:fk_l_ankle_CTRL.translateX\" 1 123 \"sadness:rig:all_CTRL.rotateZ\" 2 124 \"sadness:rig:all_CTRL.rotateY\" 2 125 \"sadness:rig:all_CTRL.rotateX\" 2 126 \"sadness:rig:all_CTRL.translateZ\" 1 124 \"sadness:rig:all_CTRL.translateY\" 1 125 \"sadness:rig:all_CTRL.translateX\" 1 126 \"sadness:rig:spline_03_CTRL.rotateZ\" 2 127 \"sadness:rig:spline_03_CTRL.rotateY\" 2 128 \"sadness:rig:spline_03_CTRL.rotateX\" 2 129 \"sadness:rig:spline_03_CTRL.translateZ\" 1 127 \"sadness:rig:spline_03_CTRL.translateY\" 1 128 \"sadness:rig:spline_03_CTRL.translateX\" 1 129 \"sadness:rig:r_legSwitch_CTRL.ikFkSwitch\" 0 1 \"sadness:rig:l_armSwitch_CTRL.ikFkSwitch\" 0 2 \"sadness:rig:r_armSwitch_CTRL.ikFkS"
-		+ "witch\" 0 3 \"sadness:rig:l_legSwitch_CTRL.ikFkSwitch\" 0 4 \"sadness:rig:r_ik_hand_CTRL.snapToElbow\" 0 5 \"sadness:rig:l_ik_hand_CTRL.snapToElbow\" 0 6 \"sadness:rig:l_ik_leg_CTRL.kneeSnap\" 0 7 \"sadness:rig:l_ik_leg_CTRL.ToeTurn\" 0 8 \"sadness:rig:l_ik_leg_CTRL.ballTurn\" 0 9 \"sadness:rig:l_ik_leg_CTRL.heelTurn\" 0 10 \"sadness:rig:l_ik_leg_CTRL.toeStraightAngle\" 0 11 \"sadness:rig:l_ik_leg_CTRL.bandLimitAngle\" 0 12 \"sadness:rig:l_ik_leg_CTRL.roll\" 0 13 \"sadness:rig:l_ik_leg_CTRL.tilt\" 0 14 \"sadness:rig:r_ik_leg_CTRL.kneeSnap\" 0 15 \"sadness:rig:r_ik_leg_CTRL.ToeTurn\" 0 16 \"sadness:rig:r_ik_leg_CTRL.ballTurn\" 0 17 \"sadness:rig:r_ik_leg_CTRL.heelTurn\" 0 18 \"sadness:rig:r_ik_leg_CTRL.toeStraightAngle\" 0 19 \"sadness:rig:r_ik_leg_CTRL.bandLimitAngle\" 0 20 \"sadness:rig:r_ik_leg_CTRL.roll\" 0 21 \"sadness:rig:r_ik_leg_CTRL.tilt\" 0 22 \"sadness:rig:all_CTRL.scaleZ\" 0 23 \"sadness:rig:all_CTRL.scaleY\" 0 24 \"sadness:rig:all_CTRL.scaleX\" 0 25 \"sadness:rig:head_CTRL.ikFkSwitch\" 0 26 \"sadness:rig:eye:r_eye_open_CTRL.translateX\" 1 130 \"s"
-		+ "adness:rig:eye:r_eye_openMood_CTRL.translateX\" 1 131 \"sadness:rig:eye:l_eye_closedMood_CTRL.translateX\" 1 132 \"sadness:rig:eye:l_eye_openMood_CTRL.translateX\" 1 133 \"sadness:rig:eye:l_eye_open_CTRL.translateX\" 1 134 \"sadness:rig:eye:r_eye_closedMood_CTRL.translateX\" 1 135 \"sadness:r_brow_CTRL.translateX\" 1 136 \"sadness:l_brow_CTRL.translateX\" 1 137 \"sadness:rig:fk_r_elbow_CTRL.lenght\" 0 29 \"sadness:rig:fk_l_elbow_CTRL.lenght\" 0 30"
+		2 "sadness:rig:GEO_layer" "visibility" " 1"
+		2 "sadness:rig:charset" "referenceMapping" (" -type \"characterMapping\" 295 \"sadness:rig:spline_02_CTRL.rotateZ\" 2 1 \"sadness:rig:spline_02_CTRL.rotateY\" 2 2 \"sadness:rig:spline_02_CTRL.rotateX\" 2 3 \"sadness:rig:spline_02_CTRL.translateZ\" 1 1 \"sadness:rig:spline_02_CTRL.translateY\" 1 2 \"sadness:rig:spline_02_CTRL.translateX\" 1 3 \"sadness:rig:spline_01_CTRL.rotateZ\" 2 4 \"sadness:rig:spline_01_CTRL.rotateY\" 2 5 \"sadness:rig:spline_01_CTRL.rotateX\" 2 6 \"sadness:rig:spline_01_CTRL.translateZ\" 1 4 \"sadness:rig:spline_01_CTRL.translateY\" 1 5 \"sadness:rig:spline_01_CTRL.translateX\" 1 6 \"sadness:rig:root_CTRL.rotateZ\" 2 7 \"sadness:rig:root_CTRL.rotateY\" 2 8 \"sadness:rig:root_CTRL.rotateX\" 2 9 \"sadness:rig:root_CTRL.translateZ\" 1 7 \"sadness:rig:root_CTRL.translateY\" 1 8 \"sadness:rig:root_CTRL.translateX\" 1 9 \"sadness:rig:r_shoulder_CTRL.rotateZ\" 2 10 \"sadness:rig:r_shoulder_CTRL.rotateY\" 2 11 \"sadness:rig:r_shoulder_CTRL.rotateX\" 2 12 \"sadness:rig:r_shoulder_CTRL.translateZ\" 1 10 \"sadness:rig:r_shoulder_CTRL.translateY\" 1 11 \"sadness:rig:r_shoulder_CTRL.translate"
+		+ "X\" 1 12 \"sadness:rig:r_leg_poleVector_CTRL.rotateZ\" 2 13 \"sadness:rig:r_leg_poleVector_CTRL.rotateY\" 2 14 \"sadness:rig:r_leg_poleVector_CTRL.rotateX\" 2 15 \"sadness:rig:r_leg_poleVector_CTRL.translateZ\" 1 13 \"sadness:rig:r_leg_poleVector_CTRL.translateY\" 1 14 \"sadness:rig:r_leg_poleVector_CTRL.translateX\" 1 15 \"sadness:rig:r_arm_poleVector_CTRL.rotateZ\" 2 16 \"sadness:rig:r_arm_poleVector_CTRL.rotateY\" 2 17 \"sadness:rig:r_arm_poleVector_CTRL.rotateX\" 2 18 \"sadness:rig:r_arm_poleVector_CTRL.translateZ\" 1 16 \"sadness:rig:r_arm_poleVector_CTRL.translateY\" 1 17 \"sadness:rig:r_arm_poleVector_CTRL.translateX\" 1 18 \"sadness:rig:r_ik_leg_CTRL.rotateZ\" 2 19 \"sadness:rig:r_ik_leg_CTRL.rotateY\" 2 20 \"sadness:rig:r_ik_leg_CTRL.rotateX\" 2 21 \"sadness:rig:r_ik_leg_CTRL.translateZ\" 1 19 \"sadness:rig:r_ik_leg_CTRL.translateY\" 1 20 \"sadness:rig:r_ik_leg_CTRL.translateX\" 1 21 \"sadness:rig:r_ik_hand_CTRL.rotateZ\" 2 22 \"sadness:rig:r_ik_hand_CTRL.rotateY\" 2 23 \"sadness:rig:r_ik_hand_CTRL.rotateX\" 2 24 \"sadness:rig:r_ik_hand_CTRL.t"
+		+ "ranslateZ\" 1 22 \"sadness:rig:r_ik_hand_CTRL.translateY\" 1 23 \"sadness:rig:r_ik_hand_CTRL.translateX\" 1 24 \"sadness:rig:r_finger_04_CTRL.rotateZ\" 2 25 \"sadness:rig:r_finger_04_CTRL.rotateY\" 2 26 \"sadness:rig:r_finger_04_CTRL.rotateX\" 2 27 \"sadness:rig:r_finger_04_CTRL.translateZ\" 1 25 \"sadness:rig:r_finger_04_CTRL.translateY\" 1 26 \"sadness:rig:r_finger_04_CTRL.translateX\" 1 27 \"sadness:rig:r_finger_03_CTRL.rotateZ\" 2 28 \"sadness:rig:r_finger_03_CTRL.rotateY\" 2 29 \"sadness:rig:r_finger_03_CTRL.rotateX\" 2 30 \"sadness:rig:r_finger_03_CTRL.translateZ\" 1 28 \"sadness:rig:r_finger_03_CTRL.translateY\" 1 29 \"sadness:rig:r_finger_03_CTRL.translateX\" 1 30 \"sadness:rig:r_finger_02_CTRL.rotateZ\" 2 31 \"sadness:rig:r_finger_02_CTRL.rotateY\" 2 32 \"sadness:rig:r_finger_02_CTRL.rotateX\" 2 33 \"sadness:rig:r_finger_02_CTRL.translateZ\" 1 31 \"sadness:rig:r_finger_02_CTRL.translateY\" 1 32 \"sadness:rig:r_finger_02_CTRL.translateX\" 1 33 \"sadness:rig:r_finger_01_CTRL.rotateZ\" 2 34 \"sadness:rig:r_finger_01_CTRL.rotateY\" 2 35 \"sadness:ri"
+		+ "g:r_finger_01_CTRL.rotateX\" 2 36 \"sadness:rig:r_finger_01_CTRL.translateZ\" 1 34 \"sadness:rig:r_finger_01_CTRL.translateY\" 1 35 \"sadness:rig:r_finger_01_CTRL.translateX\" 1 36 \"sadness:rig:neck_CTRL.rotateZ\" 2 37 \"sadness:rig:neck_CTRL.rotateY\" 2 38 \"sadness:rig:neck_CTRL.rotateX\" 2 39 \"sadness:rig:neck_CTRL.translateZ\" 1 37 \"sadness:rig:neck_CTRL.translateY\" 1 38 \"sadness:rig:neck_CTRL.translateX\" 1 39 \"sadness:rig:l_shoulder_CTRL.rotateZ\" 2 40 \"sadness:rig:l_shoulder_CTRL.rotateY\" 2 41 \"sadness:rig:l_shoulder_CTRL.rotateX\" 2 42 \"sadness:rig:l_shoulder_CTRL.translateZ\" 1 40 \"sadness:rig:l_shoulder_CTRL.translateY\" 1 41 \"sadness:rig:l_shoulder_CTRL.translateX\" 1 42 \"sadness:rig:l_leg_poleVector_CTRL.rotateZ\" 2 43 \"sadness:rig:l_leg_poleVector_CTRL.rotateY\" 2 44 \"sadness:rig:l_leg_poleVector_CTRL.rotateX\" 2 45 \"sadness:rig:l_leg_poleVector_CTRL.translateZ\" 1 43 \"sadness:rig:l_leg_poleVector_CTRL.translateY\" 1 44 \"sadness:rig:l_leg_poleVector_CTRL.translateX\" 1 45 \"sadness:rig:l_arm_poleVector_CTRL.rotateZ\" 2 46 "
+		+ "\"sadness:rig:l_arm_poleVector_CTRL.rotateY\" 2 47 \"sadness:rig:l_arm_poleVector_CTRL.rotateX\" 2 48 \"sadness:rig:l_arm_poleVector_CTRL.translateZ\" 1 46 \"sadness:rig:l_arm_poleVector_CTRL.translateY\" 1 47 \"sadness:rig:l_arm_poleVector_CTRL.translateX\" 1 48 \"sadness:rig:l_ik_leg_CTRL.rotateZ\" 2 49 \"sadness:rig:l_ik_leg_CTRL.rotateY\" 2 50 \"sadness:rig:l_ik_leg_CTRL.rotateX\" 2 51 \"sadness:rig:l_ik_leg_CTRL.translateZ\" 1 49 \"sadness:rig:l_ik_leg_CTRL.translateY\" 1 50 \"sadness:rig:l_ik_leg_CTRL.translateX\" 1 51 \"sadness:rig:l_ik_hand_CTRL.rotateZ\" 2 52 \"sadness:rig:l_ik_hand_CTRL.rotateY\" 2 53 \"sadness:rig:l_ik_hand_CTRL.rotateX\" 2 54 \"sadness:rig:l_ik_hand_CTRL.translateZ\" 1 52 \"sadness:rig:l_ik_hand_CTRL.translateY\" 1 53 \"sadness:rig:l_ik_hand_CTRL.translateX\" 1 54 \"sadness:rig:l_finger_04_CTRL.rotateZ\" 2 55 \"sadness:rig:l_finger_04_CTRL.rotateY\" 2 56 \"sadness:rig:l_finger_04_CTRL.rotateX\" 2 57 \"sadness:rig:l_finger_04_CTRL.translateZ\" 1 55 \"sadness:rig:l_finger_04_CTRL.translateY\" 1 56 \"sadness:rig:l_finger_04_CTR"
+		+ "L.translateX\" 1 57 \"sadness:rig:l_finger_03_CTRL.rotateZ\" 2 58 \"sadness:rig:l_finger_03_CTRL.rotateY\" 2 59 \"sadness:rig:l_finger_03_CTRL.rotateX\" 2 60 \"sadness:rig:l_finger_03_CTRL.translateZ\" 1 58 \"sadness:rig:l_finger_03_CTRL.translateY\" 1 59 \"sadness:rig:l_finger_03_CTRL.translateX\" 1 60 \"sadness:rig:l_finger_02_CTRL.rotateZ\" 2 61 \"sadness:rig:l_finger_02_CTRL.rotateY\" 2 62 \"sadness:rig:l_finger_02_CTRL.rotateX\" 2 63 \"sadness:rig:l_finger_02_CTRL.translateZ\" 1 61 \"sadness:rig:l_finger_02_CTRL.translateY\" 1 62 \"sadness:rig:l_finger_02_CTRL.translateX\" 1 63 \"sadness:rig:l_finger_01_CTRL.rotateZ\" 2 64 \"sadness:rig:l_finger_01_CTRL.rotateY\" 2 65 \"sadness:rig:l_finger_01_CTRL.rotateX\" 2 66 \"sadness:rig:l_finger_01_CTRL.translateZ\" 1 64 \"sadness:rig:l_finger_01_CTRL.translateY\" 1 65 \"sadness:rig:l_finger_01_CTRL.translateX\" 1 66 \"sadness:rig:hip_CTRL.rotateZ\" 2 67 \"sadness:rig:hip_CTRL.rotateY\" 2 68 \"sadness:rig:hip_CTRL.rotateX\" 2 69 \"sadness:rig:hip_CTRL.translateZ\" 1 67 \"sadness:rig:hip_CTRL.translateY\" 1 68 "
+		+ "\"sadness:rig:hip_CTRL.translateX\" 1 69 \"sadness:rig:head_ik_CTRL.rotateZ\" 2 70 \"sadness:rig:head_ik_CTRL.rotateY\" 2 71 \"sadness:rig:head_ik_CTRL.rotateX\" 2 72 \"sadness:rig:head_ik_CTRL.translateZ\" 1 70 \"sadness:rig:head_ik_CTRL.translateY\" 1 71 \"sadness:rig:head_ik_CTRL.translateX\" 1 72 \"sadness:rig:head_CTRL.rotateZ\" 2 73 \"sadness:rig:head_CTRL.rotateY\" 2 74 \"sadness:rig:head_CTRL.rotateX\" 2 75 \"sadness:rig:head_CTRL.translateZ\" 1 73 \"sadness:rig:head_CTRL.translateY\" 1 74 \"sadness:rig:head_CTRL.translateX\" 1 75 \"sadness:rig:fk_r_upperKnee_CTRL.rotateZ\" 2 76 \"sadness:rig:fk_r_upperKnee_CTRL.rotateY\" 2 77 \"sadness:rig:fk_r_upperKnee_CTRL.rotateX\" 2 78 \"sadness:rig:fk_r_upperKnee_CTRL.translateZ\" 1 76 \"sadness:rig:fk_r_upperKnee_CTRL.translateY\" 1 77 \"sadness:rig:fk_r_upperKnee_CTRL.translateX\" 1 78 \"sadness:rig:fk_r_toe_CTRL.rotateZ\" 2 79 \"sadness:rig:fk_r_toe_CTRL.rotateY\" 2 80 \"sadness:rig:fk_r_toe_CTRL.rotateX\" 2 81 \"sadness:rig:fk_r_toe_CTRL.translateZ\" 1 79 \"sadness:rig:fk_r_toe_CTRL.translateY\" 1 80 \"sa"
+		+ "dness:rig:fk_r_toe_CTRL.translateX\" 1 81 \"sadness:rig:fk_r_leg_CTRL.rotateZ\" 2 82 \"sadness:rig:fk_r_leg_CTRL.rotateY\" 2 83 \"sadness:rig:fk_r_leg_CTRL.rotateX\" 2 84 \"sadness:rig:fk_r_leg_CTRL.translateZ\" 1 82 \"sadness:rig:fk_r_leg_CTRL.translateY\" 1 83 \"sadness:rig:fk_r_leg_CTRL.translateX\" 1 84 \"sadness:rig:fk_r_hand_CTRL.rotateZ\" 2 85 \"sadness:rig:fk_r_hand_CTRL.rotateY\" 2 86 \"sadness:rig:fk_r_hand_CTRL.rotateX\" 2 87 \"sadness:rig:fk_r_hand_CTRL.translateZ\" 1 85 \"sadness:rig:fk_r_hand_CTRL.translateY\" 1 86 \"sadness:rig:fk_r_hand_CTRL.translateX\" 1 87 \"sadness:rig:fk_r_elbow_CTRL.rotateZ\" 2 88 \"sadness:rig:fk_r_elbow_CTRL.rotateY\" 2 89 \"sadness:rig:fk_r_elbow_CTRL.rotateX\" 2 90 \"sadness:rig:fk_r_elbow_CTRL.translateZ\" 1 88 \"sadness:rig:fk_r_elbow_CTRL.translateY\" 1 89 \"sadness:rig:fk_r_elbow_CTRL.translateX\" 1 90 \"sadness:rig:fk_r_ball_CTRL.rotateZ\" 2 91 \"sadness:rig:fk_r_ball_CTRL.rotateY\" 2 92 \"sadness:rig:fk_r_ball_CTRL.rotateX\" 2 93 \"sadness:rig:fk_r_ball_CTRL.translateZ\" 1 91 \"sadness:rig:fk_r_ball_CTRL.t"
+		+ "ranslateY\" 1 92 \"sadness:rig:fk_r_ball_CTRL.translateX\" 1 93 \"sadness:rig:fk_r_arm_CTRL.rotateZ\" 2 94 \"sadness:rig:fk_r_arm_CTRL.rotateY\" 2 95 \"sadness:rig:fk_r_arm_CTRL.rotateX\" 2 96 \"sadness:rig:fk_r_arm_CTRL.translateZ\" 1 94 \"sadness:rig:fk_r_arm_CTRL.translateY\" 1 95 \"sadness:rig:fk_r_arm_CTRL.translateX\" 1 96 \"sadness:rig:fk_r_ankle_CTRL.rotateZ\" 2 97 \"sadness:rig:fk_r_ankle_CTRL.rotateY\" 2 98 \"sadness:rig:fk_r_ankle_CTRL.rotateX\" 2 99 \"sadness:rig:fk_r_ankle_CTRL.translateZ\" 1 97 \"sadness:rig:fk_r_ankle_CTRL.translateY\" 1 98 \"sadness:rig:fk_r_ankle_CTRL.translateX\" 1 99 \"sadness:rig:fk_l_upperKnee_CTRL.rotateZ\" 2 100 \"sadness:rig:fk_l_upperKnee_CTRL.rotateY\" 2 101 \"sadness:rig:fk_l_upperKnee_CTRL.rotateX\" 2 102 \"sadness:rig:fk_l_upperKnee_CTRL.translateZ\" 1 100 \"sadness:rig:fk_l_upperKnee_CTRL.translateY\" 1 101 \"sadness:rig:fk_l_upperKnee_CTRL.translateX\" 1 102 \"sadness:rig:fk_l_toe_CTRL.rotateZ\" 2 103 \"sadness:rig:fk_l_toe_CTRL.rotateY\" 2 104 \"sadness:rig:fk_l_toe_CTRL.rotateX\" 2 105 \"sadness:rig:fk_l_"
+		+ "toe_CTRL.translateZ\" 1 103 \"sadness:rig:fk_l_toe_CTRL.translateY\" 1 104 \"sadness:rig:fk_l_toe_CTRL.translateX\" 1 105 \"sadness:rig:fk_l_leg_CTRL.rotateZ\" 2 106 \"sadness:rig:fk_l_leg_CTRL.rotateY\" 2 107 \"sadness:rig:fk_l_leg_CTRL.rotateX\" 2 108 \"sadness:rig:fk_l_leg_CTRL.translateZ\" 1 106 \"sadness:rig:fk_l_leg_CTRL.translateY\" 1 107 \"sadness:rig:fk_l_leg_CTRL.translateX\" 1 108 \"sadness:rig:fk_l_hand_CTRL.rotateZ\" 2 109 \"sadness:rig:fk_l_hand_CTRL.rotateY\" 2 110 \"sadness:rig:fk_l_hand_CTRL.rotateX\" 2 111 \"sadness:rig:fk_l_hand_CTRL.translateZ\" 1 109 \"sadness:rig:fk_l_hand_CTRL.translateY\" 1 110 \"sadness:rig:fk_l_hand_CTRL.translateX\" 1 111 \"sadness:rig:fk_l_elbow_CTRL.rotateZ\" 2 112 \"sadness:rig:fk_l_elbow_CTRL.rotateY\" 2 113 \"sadness:rig:fk_l_elbow_CTRL.rotateX\" 2 114 \"sadness:rig:fk_l_elbow_CTRL.translateZ\" 1 112 \"sadness:rig:fk_l_elbow_CTRL.translateY\" 1 113 \"sadness:rig:fk_l_elbow_CTRL.translateX\" 1 114 \"sadness:rig:fk_l_ball_CTRL.rotateZ\" 2 115 \"sadness:rig:fk_l_ball_CTRL.rotateY\" 2 116 \"sadness:rig:fk_l_ba"
+		+ "ll_CTRL.rotateX\" 2 117 \"sadness:rig:fk_l_ball_CTRL.translateZ\" 1 115 \"sadness:rig:fk_l_ball_CTRL.translateY\" 1 116 \"sadness:rig:fk_l_ball_CTRL.translateX\" 1 117 \"sadness:rig:fk_l_arm_CTRL.rotateZ\" 2 118 \"sadness:rig:fk_l_arm_CTRL.rotateY\" 2 119 \"sadness:rig:fk_l_arm_CTRL.rotateX\" 2 120 \"sadness:rig:fk_l_arm_CTRL.translateZ\" 1 118 \"sadness:rig:fk_l_arm_CTRL.translateY\" 1 119 \"sadness:rig:fk_l_arm_CTRL.translateX\" 1 120 \"sadness:rig:fk_l_ankle_CTRL.rotateZ\" 2 121 \"sadness:rig:fk_l_ankle_CTRL.rotateY\" 2 122 \"sadness:rig:fk_l_ankle_CTRL.rotateX\" 2 123 \"sadness:rig:fk_l_ankle_CTRL.translateZ\" 1 121 \"sadness:rig:fk_l_ankle_CTRL.translateY\" 1 122 \"sadness:rig:fk_l_ankle_CTRL.translateX\" 1 123 \"sadness:rig:all_CTRL.rotateZ\" 2 124 \"sadness:rig:all_CTRL.rotateY\" 2 125 \"sadness:rig:all_CTRL.rotateX\" 2 126 \"sadness:rig:all_CTRL.translateZ\" 1 124 \"sadness:rig:all_CTRL.translateY\" 1 125 \"sadness:rig:all_CTRL.translateX\" 1 126 \"sadness:rig:spline_03_CTRL.rotateZ\" 2 127 \"sadness:rig:spline_03_CTRL.rotateY\" 2 128 \"sadness:rig"
+		+ ":spline_03_CTRL.rotateX\" 2 129 \"sadness:rig:spline_03_CTRL.translateZ\" 1 127 \"sadness:rig:spline_03_CTRL.translateY\" 1 128 \"sadness:rig:spline_03_CTRL.translateX\" 1 129 \"sadness:rig:r_legSwitch_CTRL.ikFkSwitch\" 0 1 \"sadness:rig:l_armSwitch_CTRL.ikFkSwitch\" 0 2 \"sadness:rig:r_armSwitch_CTRL.ikFkSwitch\" 0 3 \"sadness:rig:l_legSwitch_CTRL.ikFkSwitch\" 0 4 \"sadness:rig:r_ik_hand_CTRL.snapToElbow\" 0 5 \"sadness:rig:l_ik_hand_CTRL.snapToElbow\" 0 6 \"sadness:rig:l_ik_leg_CTRL.kneeSnap\" 0 7 \"sadness:rig:l_ik_leg_CTRL.ToeTurn\" 0 8 \"sadness:rig:l_ik_leg_CTRL.ballTurn\" 0 9 \"sadness:rig:l_ik_leg_CTRL.heelTurn\" 0 10 \"sadness:rig:l_ik_leg_CTRL.toeStraightAngle\" 0 11 \"sadness:rig:l_ik_leg_CTRL.bandLimitAngle\" 0 12 \"sadness:rig:l_ik_leg_CTRL.roll\" 0 13 \"sadness:rig:l_ik_leg_CTRL.tilt\" 0 14 \"sadness:rig:r_ik_leg_CTRL.kneeSnap\" 0 15 \"sadness:rig:r_ik_leg_CTRL.ToeTurn\" 0 16 \"sadness:rig:r_ik_leg_CTRL.ballTurn\" 0 17 \"sadness:rig:r_ik_leg_CTRL.heelTurn\" 0 18 \"sadness:rig:r_ik_leg_CTRL.toeStraightAngle\" 0 19 \"sadness:rig:r_ik_leg_CTRL"
+		+ ".bandLimitAngle\" 0 20 \"sadness:rig:r_ik_leg_CTRL.roll\" 0 21 \"sadness:rig:r_ik_leg_CTRL.tilt\" 0 22 \"sadness:rig:all_CTRL.scaleZ\" 0 23 \"sadness:rig:all_CTRL.scaleY\" 0 24 \"sadness:rig:all_CTRL.scaleX\" 0 25 \"sadness:rig:head_CTRL.ikFkSwitch\" 0 26 \"sadness:rig:eye:r_eye_open_CTRL.translateX\" 1 130 \"sadness:rig:eye:r_eye_openMood_CTRL.translateX\" 1 131 \"sadness:rig:eye:l_eye_closedMood_CTRL.translateX\" 1 132 \"sadness:rig:eye:l_eye_openMood_CTRL.translateX\" 1 133 \"sadness:rig:eye:l_eye_open_CTRL.translateX\" 1 134 \"sadness:rig:eye:r_eye_closedMood_CTRL.translateX\" 1 135 \"sadness:r_brow_CTRL.translateX\" 1 136 \"sadness:l_brow_CTRL.translateX\" 1 137 \"sadness:rig:fk_r_elbow_CTRL.lenght\" 0 29 \"sadness:rig:fk_l_elbow_CTRL.lenght\" 0 30 \"sadness:rig:all_CTRL.braceletVisible\" 0 31"
 		)
+		3 "sadness:rig:charset.linearValues[24]" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL.translateX" 
+		""
+		3 "sadness:rig:charset.linearValues[23]" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL.translateY" 
+		""
+		3 "sadness:rig:charset.linearValues[22]" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL.translateZ" 
+		""
+		3 "sadness:rig:charset.angularValues[24]" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL.rotateX" 
+		""
+		3 "sadness:rig:charset.angularValues[23]" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL.rotateY" 
+		""
+		3 "sadness:rig:charset.angularValues[22]" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL.rotateZ" 
+		""
 		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL.scaleX" 
-		"sadnessRN.placeHolderList[1]" ""
-		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL.scaleY" 
-		"sadnessRN.placeHolderList[2]" ""
-		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL.scaleZ" 
 		"sadnessRN.placeHolderList[3]" ""
-		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:hip_GRP|sadness:rig:hip_CTRL.scaleX" 
+		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL.scaleY" 
 		"sadnessRN.placeHolderList[4]" ""
-		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:hip_GRP|sadness:rig:hip_CTRL.scaleY" 
+		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL.scaleZ" 
 		"sadnessRN.placeHolderList[5]" ""
-		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:hip_GRP|sadness:rig:hip_CTRL.scaleZ" 
+		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:hip_GRP|sadness:rig:hip_CTRL.scaleX" 
 		"sadnessRN.placeHolderList[6]" ""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[1]" "sadnessRN.placeHolderList[7]" 
+		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:hip_GRP|sadness:rig:hip_CTRL.scaleY" 
+		"sadnessRN.placeHolderList[7]" ""
+		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:hip_GRP|sadness:rig:hip_CTRL.scaleZ" 
+		"sadnessRN.placeHolderList[8]" ""
+		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL.scaleX" 
+		"sadnessRN.placeHolderList[9]" ""
+		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL.scaleY" 
+		"sadnessRN.placeHolderList[10]" ""
+		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL.scaleZ" 
+		"sadnessRN.placeHolderList[11]" ""
+		5 3 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_ik_hand_GRP|sadness:rig:l_ik_hand_CTRL.translate" 
+		"sadnessRN.placeHolderList[12]" ""
+		5 3 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_ik_hand_GRP|sadness:rig:l_ik_hand_CTRL.rotate" 
+		"sadnessRN.placeHolderList[13]" ""
+		5 3 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_ik_hand_GRP|sadness:rig:l_ik_hand_CTRL.scale" 
+		"sadnessRN.placeHolderList[14]" ""
+		5 3 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_ik_hand_GRP|sadness:rig:l_ik_hand_CTRL.rotateOrder" 
+		"sadnessRN.placeHolderList[15]" ""
+		5 3 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_ik_hand_GRP|sadness:rig:l_ik_hand_CTRL.parentMatrix" 
+		"sadnessRN.placeHolderList[16]" ""
+		5 3 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_ik_hand_GRP|sadness:rig:l_ik_hand_CTRL.rotatePivot" 
+		"sadnessRN.placeHolderList[17]" ""
+		5 3 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:l_ik_hand_GRP|sadness:rig:l_ik_hand_CTRL.rotatePivotTranslate" 
+		"sadnessRN.placeHolderList[18]" ""
+		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL.translateZ" 
+		"sadnessRN.placeHolderList[19]" ""
+		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL.translateY" 
+		"sadnessRN.placeHolderList[20]" ""
+		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL.translateX" 
+		"sadnessRN.placeHolderList[21]" ""
+		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL.rotateZ" 
+		"sadnessRN.placeHolderList[22]" ""
+		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL.rotateY" 
+		"sadnessRN.placeHolderList[23]" ""
+		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL.rotateX" 
+		"sadnessRN.placeHolderList[24]" ""
+		5 3 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL.rotateOrder" 
+		"sadnessRN.placeHolderList[25]" ""
+		5 3 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL.rotateOrder" 
+		"sadnessRN.placeHolderList[26]" ""
+		5 3 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL.parentInverseMatrix" 
+		"sadnessRN.placeHolderList[27]" ""
+		5 3 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL.blendParent2" 
+		"sadnessRN.placeHolderList[28]" ""
+		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL.blendParent2" 
+		"sadnessRN.placeHolderList[29]" ""
+		5 3 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL.rotatePivot" 
+		"sadnessRN.placeHolderList[30]" ""
+		5 3 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:ik_arm_GRP|sadness:rig:r_ik_hand_GRP|sadness:rig:r_ik_hand_CTRL.rotatePivotTranslate" 
+		"sadnessRN.placeHolderList[31]" ""
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[1]" "sadnessRN.placeHolderList[32]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[2]" "sadnessRN.placeHolderList[8]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[2]" "sadnessRN.placeHolderList[33]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[3]" "sadnessRN.placeHolderList[9]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[3]" "sadnessRN.placeHolderList[34]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[4]" "sadnessRN.placeHolderList[10]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[4]" "sadnessRN.placeHolderList[35]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[5]" "sadnessRN.placeHolderList[11]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[5]" "sadnessRN.placeHolderList[36]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[6]" "sadnessRN.placeHolderList[12]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[6]" "sadnessRN.placeHolderList[37]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[7]" "sadnessRN.placeHolderList[13]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[7]" "sadnessRN.placeHolderList[38]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[8]" "sadnessRN.placeHolderList[14]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[8]" "sadnessRN.placeHolderList[39]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[9]" "sadnessRN.placeHolderList[15]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[9]" "sadnessRN.placeHolderList[40]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[10]" "sadnessRN.placeHolderList[16]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[10]" "sadnessRN.placeHolderList[41]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[11]" "sadnessRN.placeHolderList[17]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[11]" "sadnessRN.placeHolderList[42]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[12]" "sadnessRN.placeHolderList[18]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[12]" "sadnessRN.placeHolderList[43]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[13]" "sadnessRN.placeHolderList[19]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[13]" "sadnessRN.placeHolderList[44]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[14]" "sadnessRN.placeHolderList[20]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[14]" "sadnessRN.placeHolderList[45]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[15]" "sadnessRN.placeHolderList[21]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[15]" "sadnessRN.placeHolderList[46]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[16]" "sadnessRN.placeHolderList[22]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[16]" "sadnessRN.placeHolderList[47]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[17]" "sadnessRN.placeHolderList[23]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[17]" "sadnessRN.placeHolderList[48]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[18]" "sadnessRN.placeHolderList[24]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[18]" "sadnessRN.placeHolderList[49]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[19]" "sadnessRN.placeHolderList[25]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[19]" "sadnessRN.placeHolderList[50]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[20]" "sadnessRN.placeHolderList[26]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[20]" "sadnessRN.placeHolderList[51]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[21]" "sadnessRN.placeHolderList[27]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[21]" "sadnessRN.placeHolderList[52]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[22]" "sadnessRN.placeHolderList[28]" 
+		5 3 "sadnessRN" "sadness:rig:charset.linearValues[22]" "sadnessRN.placeHolderList[53]" 
+		"sadness:rig:r_ik_hand_CTRL.tz"
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[22]" "sadnessRN.placeHolderList[54]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[23]" "sadnessRN.placeHolderList[29]" 
+		5 3 "sadnessRN" "sadness:rig:charset.linearValues[23]" "sadnessRN.placeHolderList[55]" 
+		"sadness:rig:r_ik_hand_CTRL.ty"
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[23]" "sadnessRN.placeHolderList[56]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[24]" "sadnessRN.placeHolderList[30]" 
+		5 3 "sadnessRN" "sadness:rig:charset.linearValues[24]" "sadnessRN.placeHolderList[57]" 
+		"sadness:rig:r_ik_hand_CTRL.tx"
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[24]" "sadnessRN.placeHolderList[58]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[25]" "sadnessRN.placeHolderList[31]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[25]" "sadnessRN.placeHolderList[59]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[26]" "sadnessRN.placeHolderList[32]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[26]" "sadnessRN.placeHolderList[60]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[27]" "sadnessRN.placeHolderList[33]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[27]" "sadnessRN.placeHolderList[61]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[28]" "sadnessRN.placeHolderList[34]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[28]" "sadnessRN.placeHolderList[62]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[29]" "sadnessRN.placeHolderList[35]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[29]" "sadnessRN.placeHolderList[63]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[30]" "sadnessRN.placeHolderList[36]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[30]" "sadnessRN.placeHolderList[64]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[31]" "sadnessRN.placeHolderList[37]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[31]" "sadnessRN.placeHolderList[65]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[32]" "sadnessRN.placeHolderList[38]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[32]" "sadnessRN.placeHolderList[66]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[33]" "sadnessRN.placeHolderList[39]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[33]" "sadnessRN.placeHolderList[67]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[34]" "sadnessRN.placeHolderList[40]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[34]" "sadnessRN.placeHolderList[68]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[35]" "sadnessRN.placeHolderList[41]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[35]" "sadnessRN.placeHolderList[69]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[36]" "sadnessRN.placeHolderList[42]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[36]" "sadnessRN.placeHolderList[70]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[37]" "sadnessRN.placeHolderList[43]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[37]" "sadnessRN.placeHolderList[71]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[38]" "sadnessRN.placeHolderList[44]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[38]" "sadnessRN.placeHolderList[72]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[39]" "sadnessRN.placeHolderList[45]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[39]" "sadnessRN.placeHolderList[73]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[40]" "sadnessRN.placeHolderList[46]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[40]" "sadnessRN.placeHolderList[74]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[41]" "sadnessRN.placeHolderList[47]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[41]" "sadnessRN.placeHolderList[75]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[42]" "sadnessRN.placeHolderList[48]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[42]" "sadnessRN.placeHolderList[76]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[43]" "sadnessRN.placeHolderList[49]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[43]" "sadnessRN.placeHolderList[77]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[44]" "sadnessRN.placeHolderList[50]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[44]" "sadnessRN.placeHolderList[78]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[45]" "sadnessRN.placeHolderList[51]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[45]" "sadnessRN.placeHolderList[79]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[46]" "sadnessRN.placeHolderList[52]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[46]" "sadnessRN.placeHolderList[80]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[47]" "sadnessRN.placeHolderList[53]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[47]" "sadnessRN.placeHolderList[81]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[48]" "sadnessRN.placeHolderList[54]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[48]" "sadnessRN.placeHolderList[82]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[49]" "sadnessRN.placeHolderList[55]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[49]" "sadnessRN.placeHolderList[83]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[50]" "sadnessRN.placeHolderList[56]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[50]" "sadnessRN.placeHolderList[84]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[51]" "sadnessRN.placeHolderList[57]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[51]" "sadnessRN.placeHolderList[85]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[52]" "sadnessRN.placeHolderList[58]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[52]" "sadnessRN.placeHolderList[86]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[53]" "sadnessRN.placeHolderList[59]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[53]" "sadnessRN.placeHolderList[87]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[54]" "sadnessRN.placeHolderList[60]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[54]" "sadnessRN.placeHolderList[88]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[55]" "sadnessRN.placeHolderList[61]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[55]" "sadnessRN.placeHolderList[89]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[56]" "sadnessRN.placeHolderList[62]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[56]" "sadnessRN.placeHolderList[90]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[57]" "sadnessRN.placeHolderList[63]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[57]" "sadnessRN.placeHolderList[91]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[58]" "sadnessRN.placeHolderList[64]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[58]" "sadnessRN.placeHolderList[92]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[59]" "sadnessRN.placeHolderList[65]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[59]" "sadnessRN.placeHolderList[93]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[60]" "sadnessRN.placeHolderList[66]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[60]" "sadnessRN.placeHolderList[94]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[61]" "sadnessRN.placeHolderList[67]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[61]" "sadnessRN.placeHolderList[95]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[62]" "sadnessRN.placeHolderList[68]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[62]" "sadnessRN.placeHolderList[96]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[63]" "sadnessRN.placeHolderList[69]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[63]" "sadnessRN.placeHolderList[97]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[64]" "sadnessRN.placeHolderList[70]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[64]" "sadnessRN.placeHolderList[98]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[65]" "sadnessRN.placeHolderList[71]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[65]" "sadnessRN.placeHolderList[99]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[66]" "sadnessRN.placeHolderList[72]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[66]" "sadnessRN.placeHolderList[100]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[67]" "sadnessRN.placeHolderList[73]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[67]" "sadnessRN.placeHolderList[101]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[68]" "sadnessRN.placeHolderList[74]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[68]" "sadnessRN.placeHolderList[102]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[69]" "sadnessRN.placeHolderList[75]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[69]" "sadnessRN.placeHolderList[103]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[70]" "sadnessRN.placeHolderList[76]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[70]" "sadnessRN.placeHolderList[104]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[71]" "sadnessRN.placeHolderList[77]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[71]" "sadnessRN.placeHolderList[105]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[72]" "sadnessRN.placeHolderList[78]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[72]" "sadnessRN.placeHolderList[106]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[73]" "sadnessRN.placeHolderList[79]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[73]" "sadnessRN.placeHolderList[107]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[74]" "sadnessRN.placeHolderList[80]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[74]" "sadnessRN.placeHolderList[108]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[75]" "sadnessRN.placeHolderList[81]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[75]" "sadnessRN.placeHolderList[109]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[76]" "sadnessRN.placeHolderList[82]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[76]" "sadnessRN.placeHolderList[110]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[77]" "sadnessRN.placeHolderList[83]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[77]" "sadnessRN.placeHolderList[111]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[78]" "sadnessRN.placeHolderList[84]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[78]" "sadnessRN.placeHolderList[112]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[79]" "sadnessRN.placeHolderList[85]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[79]" "sadnessRN.placeHolderList[113]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[80]" "sadnessRN.placeHolderList[86]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[80]" "sadnessRN.placeHolderList[114]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[81]" "sadnessRN.placeHolderList[87]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[81]" "sadnessRN.placeHolderList[115]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[82]" "sadnessRN.placeHolderList[88]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[82]" "sadnessRN.placeHolderList[116]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[83]" "sadnessRN.placeHolderList[89]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[83]" "sadnessRN.placeHolderList[117]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[84]" "sadnessRN.placeHolderList[90]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[84]" "sadnessRN.placeHolderList[118]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[85]" "sadnessRN.placeHolderList[91]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[85]" "sadnessRN.placeHolderList[119]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[86]" "sadnessRN.placeHolderList[92]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[86]" "sadnessRN.placeHolderList[120]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[87]" "sadnessRN.placeHolderList[93]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[87]" "sadnessRN.placeHolderList[121]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[88]" "sadnessRN.placeHolderList[94]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[88]" "sadnessRN.placeHolderList[122]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[89]" "sadnessRN.placeHolderList[95]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[89]" "sadnessRN.placeHolderList[123]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[90]" "sadnessRN.placeHolderList[96]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[90]" "sadnessRN.placeHolderList[124]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[91]" "sadnessRN.placeHolderList[97]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[91]" "sadnessRN.placeHolderList[125]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[92]" "sadnessRN.placeHolderList[98]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[92]" "sadnessRN.placeHolderList[126]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[93]" "sadnessRN.placeHolderList[99]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[93]" "sadnessRN.placeHolderList[127]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[94]" "sadnessRN.placeHolderList[100]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[94]" "sadnessRN.placeHolderList[128]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[95]" "sadnessRN.placeHolderList[101]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[95]" "sadnessRN.placeHolderList[129]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[96]" "sadnessRN.placeHolderList[102]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[96]" "sadnessRN.placeHolderList[130]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[97]" "sadnessRN.placeHolderList[103]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[97]" "sadnessRN.placeHolderList[131]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[98]" "sadnessRN.placeHolderList[104]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[98]" "sadnessRN.placeHolderList[132]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[99]" "sadnessRN.placeHolderList[105]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[99]" "sadnessRN.placeHolderList[133]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[100]" "sadnessRN.placeHolderList[106]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[100]" "sadnessRN.placeHolderList[134]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[101]" "sadnessRN.placeHolderList[107]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[101]" "sadnessRN.placeHolderList[135]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[102]" "sadnessRN.placeHolderList[108]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[102]" "sadnessRN.placeHolderList[136]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[103]" "sadnessRN.placeHolderList[109]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[103]" "sadnessRN.placeHolderList[137]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[104]" "sadnessRN.placeHolderList[110]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[104]" "sadnessRN.placeHolderList[138]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[105]" "sadnessRN.placeHolderList[111]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[105]" "sadnessRN.placeHolderList[139]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[106]" "sadnessRN.placeHolderList[112]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[106]" "sadnessRN.placeHolderList[140]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[107]" "sadnessRN.placeHolderList[113]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[107]" "sadnessRN.placeHolderList[141]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[108]" "sadnessRN.placeHolderList[114]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[108]" "sadnessRN.placeHolderList[142]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[109]" "sadnessRN.placeHolderList[115]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[109]" "sadnessRN.placeHolderList[143]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[110]" "sadnessRN.placeHolderList[116]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[110]" "sadnessRN.placeHolderList[144]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[111]" "sadnessRN.placeHolderList[117]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[111]" "sadnessRN.placeHolderList[145]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[112]" "sadnessRN.placeHolderList[118]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[112]" "sadnessRN.placeHolderList[146]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[113]" "sadnessRN.placeHolderList[119]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[113]" "sadnessRN.placeHolderList[147]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[114]" "sadnessRN.placeHolderList[120]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[114]" "sadnessRN.placeHolderList[148]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[115]" "sadnessRN.placeHolderList[121]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[115]" "sadnessRN.placeHolderList[149]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[116]" "sadnessRN.placeHolderList[122]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[116]" "sadnessRN.placeHolderList[150]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[117]" "sadnessRN.placeHolderList[123]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[117]" "sadnessRN.placeHolderList[151]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[118]" "sadnessRN.placeHolderList[124]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[118]" "sadnessRN.placeHolderList[152]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[119]" "sadnessRN.placeHolderList[125]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[119]" "sadnessRN.placeHolderList[153]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[120]" "sadnessRN.placeHolderList[126]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[120]" "sadnessRN.placeHolderList[154]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[121]" "sadnessRN.placeHolderList[127]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[121]" "sadnessRN.placeHolderList[155]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[122]" "sadnessRN.placeHolderList[128]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[122]" "sadnessRN.placeHolderList[156]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[123]" "sadnessRN.placeHolderList[129]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[123]" "sadnessRN.placeHolderList[157]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[124]" "sadnessRN.placeHolderList[130]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[124]" "sadnessRN.placeHolderList[158]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[125]" "sadnessRN.placeHolderList[131]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[125]" "sadnessRN.placeHolderList[159]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[126]" "sadnessRN.placeHolderList[132]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[126]" "sadnessRN.placeHolderList[160]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[127]" "sadnessRN.placeHolderList[133]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[127]" "sadnessRN.placeHolderList[161]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[128]" "sadnessRN.placeHolderList[134]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[128]" "sadnessRN.placeHolderList[162]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[129]" "sadnessRN.placeHolderList[135]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[129]" "sadnessRN.placeHolderList[163]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[130]" "sadnessRN.placeHolderList[136]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[130]" "sadnessRN.placeHolderList[164]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[131]" "sadnessRN.placeHolderList[137]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[131]" "sadnessRN.placeHolderList[165]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[132]" "sadnessRN.placeHolderList[138]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[132]" "sadnessRN.placeHolderList[166]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[133]" "sadnessRN.placeHolderList[139]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[133]" "sadnessRN.placeHolderList[167]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[134]" "sadnessRN.placeHolderList[140]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[134]" "sadnessRN.placeHolderList[168]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[135]" "sadnessRN.placeHolderList[141]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[135]" "sadnessRN.placeHolderList[169]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[136]" "sadnessRN.placeHolderList[142]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[136]" "sadnessRN.placeHolderList[170]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.linearValues[137]" "sadnessRN.placeHolderList[143]" 
+		5 4 "sadnessRN" "sadness:rig:charset.linearValues[137]" "sadnessRN.placeHolderList[171]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[1]" "sadnessRN.placeHolderList[144]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[1]" "sadnessRN.placeHolderList[172]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[2]" "sadnessRN.placeHolderList[145]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[2]" "sadnessRN.placeHolderList[173]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[3]" "sadnessRN.placeHolderList[146]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[3]" "sadnessRN.placeHolderList[174]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[4]" "sadnessRN.placeHolderList[147]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[4]" "sadnessRN.placeHolderList[175]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[5]" "sadnessRN.placeHolderList[148]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[5]" "sadnessRN.placeHolderList[176]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[6]" "sadnessRN.placeHolderList[149]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[6]" "sadnessRN.placeHolderList[177]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[7]" "sadnessRN.placeHolderList[150]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[7]" "sadnessRN.placeHolderList[178]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[8]" "sadnessRN.placeHolderList[151]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[8]" "sadnessRN.placeHolderList[179]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[9]" "sadnessRN.placeHolderList[152]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[9]" "sadnessRN.placeHolderList[180]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[10]" "sadnessRN.placeHolderList[153]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[10]" "sadnessRN.placeHolderList[181]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[11]" "sadnessRN.placeHolderList[154]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[11]" "sadnessRN.placeHolderList[182]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[12]" "sadnessRN.placeHolderList[155]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[12]" "sadnessRN.placeHolderList[183]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[13]" "sadnessRN.placeHolderList[156]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[13]" "sadnessRN.placeHolderList[184]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[14]" "sadnessRN.placeHolderList[157]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[14]" "sadnessRN.placeHolderList[185]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[15]" "sadnessRN.placeHolderList[158]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[15]" "sadnessRN.placeHolderList[186]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[16]" "sadnessRN.placeHolderList[159]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[16]" "sadnessRN.placeHolderList[187]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[17]" "sadnessRN.placeHolderList[160]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[17]" "sadnessRN.placeHolderList[188]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[18]" "sadnessRN.placeHolderList[161]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[18]" "sadnessRN.placeHolderList[189]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[19]" "sadnessRN.placeHolderList[162]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[19]" "sadnessRN.placeHolderList[190]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[20]" "sadnessRN.placeHolderList[163]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[20]" "sadnessRN.placeHolderList[191]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[21]" "sadnessRN.placeHolderList[164]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[21]" "sadnessRN.placeHolderList[192]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[22]" "sadnessRN.placeHolderList[165]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[22]" "sadnessRN.placeHolderList[193]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[23]" "sadnessRN.placeHolderList[166]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[23]" "sadnessRN.placeHolderList[194]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[24]" "sadnessRN.placeHolderList[167]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[24]" "sadnessRN.placeHolderList[195]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[25]" "sadnessRN.placeHolderList[168]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[25]" "sadnessRN.placeHolderList[196]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[26]" "sadnessRN.placeHolderList[169]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[26]" "sadnessRN.placeHolderList[197]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[29]" "sadnessRN.placeHolderList[170]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[29]" "sadnessRN.placeHolderList[198]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[30]" "sadnessRN.placeHolderList[171]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[30]" "sadnessRN.placeHolderList[199]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[1]" "sadnessRN.placeHolderList[172]" 
+		5 4 "sadnessRN" "sadness:rig:charset.unitlessValues[31]" "sadnessRN.placeHolderList[200]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[2]" "sadnessRN.placeHolderList[173]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[1]" "sadnessRN.placeHolderList[201]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[3]" "sadnessRN.placeHolderList[174]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[2]" "sadnessRN.placeHolderList[202]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[4]" "sadnessRN.placeHolderList[175]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[3]" "sadnessRN.placeHolderList[203]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[5]" "sadnessRN.placeHolderList[176]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[4]" "sadnessRN.placeHolderList[204]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[6]" "sadnessRN.placeHolderList[177]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[5]" "sadnessRN.placeHolderList[205]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[7]" "sadnessRN.placeHolderList[178]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[6]" "sadnessRN.placeHolderList[206]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[8]" "sadnessRN.placeHolderList[179]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[7]" "sadnessRN.placeHolderList[207]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[9]" "sadnessRN.placeHolderList[180]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[8]" "sadnessRN.placeHolderList[208]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[10]" "sadnessRN.placeHolderList[181]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[9]" "sadnessRN.placeHolderList[209]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[11]" "sadnessRN.placeHolderList[182]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[10]" "sadnessRN.placeHolderList[210]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[12]" "sadnessRN.placeHolderList[183]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[11]" "sadnessRN.placeHolderList[211]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[13]" "sadnessRN.placeHolderList[184]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[12]" "sadnessRN.placeHolderList[212]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[14]" "sadnessRN.placeHolderList[185]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[13]" "sadnessRN.placeHolderList[213]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[15]" "sadnessRN.placeHolderList[186]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[14]" "sadnessRN.placeHolderList[214]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[16]" "sadnessRN.placeHolderList[187]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[15]" "sadnessRN.placeHolderList[215]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[17]" "sadnessRN.placeHolderList[188]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[16]" "sadnessRN.placeHolderList[216]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[18]" "sadnessRN.placeHolderList[189]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[17]" "sadnessRN.placeHolderList[217]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[19]" "sadnessRN.placeHolderList[190]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[18]" "sadnessRN.placeHolderList[218]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[20]" "sadnessRN.placeHolderList[191]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[19]" "sadnessRN.placeHolderList[219]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[21]" "sadnessRN.placeHolderList[192]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[20]" "sadnessRN.placeHolderList[220]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[22]" "sadnessRN.placeHolderList[193]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[21]" "sadnessRN.placeHolderList[221]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[23]" "sadnessRN.placeHolderList[194]" 
+		5 3 "sadnessRN" "sadness:rig:charset.angularValues[22]" "sadnessRN.placeHolderList[222]" 
+		"sadness:rig:r_ik_hand_CTRL.rz"
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[22]" "sadnessRN.placeHolderList[223]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[24]" "sadnessRN.placeHolderList[195]" 
+		5 3 "sadnessRN" "sadness:rig:charset.angularValues[23]" "sadnessRN.placeHolderList[224]" 
+		"sadness:rig:r_ik_hand_CTRL.ry"
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[23]" "sadnessRN.placeHolderList[225]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[25]" "sadnessRN.placeHolderList[196]" 
+		5 3 "sadnessRN" "sadness:rig:charset.angularValues[24]" "sadnessRN.placeHolderList[226]" 
+		"sadness:rig:r_ik_hand_CTRL.rx"
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[24]" "sadnessRN.placeHolderList[227]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[26]" "sadnessRN.placeHolderList[197]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[25]" "sadnessRN.placeHolderList[228]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[27]" "sadnessRN.placeHolderList[198]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[26]" "sadnessRN.placeHolderList[229]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[28]" "sadnessRN.placeHolderList[199]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[27]" "sadnessRN.placeHolderList[230]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[29]" "sadnessRN.placeHolderList[200]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[28]" "sadnessRN.placeHolderList[231]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[30]" "sadnessRN.placeHolderList[201]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[29]" "sadnessRN.placeHolderList[232]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[31]" "sadnessRN.placeHolderList[202]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[30]" "sadnessRN.placeHolderList[233]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[32]" "sadnessRN.placeHolderList[203]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[31]" "sadnessRN.placeHolderList[234]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[33]" "sadnessRN.placeHolderList[204]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[32]" "sadnessRN.placeHolderList[235]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[34]" "sadnessRN.placeHolderList[205]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[33]" "sadnessRN.placeHolderList[236]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[35]" "sadnessRN.placeHolderList[206]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[34]" "sadnessRN.placeHolderList[237]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[36]" "sadnessRN.placeHolderList[207]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[35]" "sadnessRN.placeHolderList[238]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[37]" "sadnessRN.placeHolderList[208]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[36]" "sadnessRN.placeHolderList[239]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[38]" "sadnessRN.placeHolderList[209]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[37]" "sadnessRN.placeHolderList[240]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[39]" "sadnessRN.placeHolderList[210]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[38]" "sadnessRN.placeHolderList[241]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[40]" "sadnessRN.placeHolderList[211]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[39]" "sadnessRN.placeHolderList[242]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[41]" "sadnessRN.placeHolderList[212]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[40]" "sadnessRN.placeHolderList[243]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[42]" "sadnessRN.placeHolderList[213]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[41]" "sadnessRN.placeHolderList[244]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[43]" "sadnessRN.placeHolderList[214]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[42]" "sadnessRN.placeHolderList[245]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[44]" "sadnessRN.placeHolderList[215]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[43]" "sadnessRN.placeHolderList[246]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[45]" "sadnessRN.placeHolderList[216]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[44]" "sadnessRN.placeHolderList[247]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[46]" "sadnessRN.placeHolderList[217]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[45]" "sadnessRN.placeHolderList[248]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[47]" "sadnessRN.placeHolderList[218]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[46]" "sadnessRN.placeHolderList[249]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[48]" "sadnessRN.placeHolderList[219]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[47]" "sadnessRN.placeHolderList[250]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[49]" "sadnessRN.placeHolderList[220]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[48]" "sadnessRN.placeHolderList[251]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[50]" "sadnessRN.placeHolderList[221]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[49]" "sadnessRN.placeHolderList[252]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[51]" "sadnessRN.placeHolderList[222]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[50]" "sadnessRN.placeHolderList[253]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[52]" "sadnessRN.placeHolderList[223]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[51]" "sadnessRN.placeHolderList[254]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[53]" "sadnessRN.placeHolderList[224]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[52]" "sadnessRN.placeHolderList[255]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[54]" "sadnessRN.placeHolderList[225]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[53]" "sadnessRN.placeHolderList[256]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[55]" "sadnessRN.placeHolderList[226]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[54]" "sadnessRN.placeHolderList[257]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[56]" "sadnessRN.placeHolderList[227]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[55]" "sadnessRN.placeHolderList[258]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[57]" "sadnessRN.placeHolderList[228]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[56]" "sadnessRN.placeHolderList[259]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[58]" "sadnessRN.placeHolderList[229]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[57]" "sadnessRN.placeHolderList[260]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[59]" "sadnessRN.placeHolderList[230]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[58]" "sadnessRN.placeHolderList[261]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[60]" "sadnessRN.placeHolderList[231]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[59]" "sadnessRN.placeHolderList[262]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[61]" "sadnessRN.placeHolderList[232]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[60]" "sadnessRN.placeHolderList[263]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[62]" "sadnessRN.placeHolderList[233]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[61]" "sadnessRN.placeHolderList[264]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[63]" "sadnessRN.placeHolderList[234]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[62]" "sadnessRN.placeHolderList[265]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[64]" "sadnessRN.placeHolderList[235]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[63]" "sadnessRN.placeHolderList[266]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[65]" "sadnessRN.placeHolderList[236]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[64]" "sadnessRN.placeHolderList[267]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[66]" "sadnessRN.placeHolderList[237]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[65]" "sadnessRN.placeHolderList[268]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[67]" "sadnessRN.placeHolderList[238]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[66]" "sadnessRN.placeHolderList[269]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[68]" "sadnessRN.placeHolderList[239]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[67]" "sadnessRN.placeHolderList[270]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[69]" "sadnessRN.placeHolderList[240]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[68]" "sadnessRN.placeHolderList[271]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[70]" "sadnessRN.placeHolderList[241]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[69]" "sadnessRN.placeHolderList[272]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[71]" "sadnessRN.placeHolderList[242]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[70]" "sadnessRN.placeHolderList[273]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[72]" "sadnessRN.placeHolderList[243]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[71]" "sadnessRN.placeHolderList[274]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[73]" "sadnessRN.placeHolderList[244]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[72]" "sadnessRN.placeHolderList[275]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[74]" "sadnessRN.placeHolderList[245]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[73]" "sadnessRN.placeHolderList[276]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[75]" "sadnessRN.placeHolderList[246]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[74]" "sadnessRN.placeHolderList[277]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[76]" "sadnessRN.placeHolderList[247]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[75]" "sadnessRN.placeHolderList[278]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[77]" "sadnessRN.placeHolderList[248]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[76]" "sadnessRN.placeHolderList[279]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[78]" "sadnessRN.placeHolderList[249]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[77]" "sadnessRN.placeHolderList[280]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[79]" "sadnessRN.placeHolderList[250]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[78]" "sadnessRN.placeHolderList[281]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[80]" "sadnessRN.placeHolderList[251]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[79]" "sadnessRN.placeHolderList[282]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[81]" "sadnessRN.placeHolderList[252]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[80]" "sadnessRN.placeHolderList[283]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[82]" "sadnessRN.placeHolderList[253]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[81]" "sadnessRN.placeHolderList[284]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[83]" "sadnessRN.placeHolderList[254]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[82]" "sadnessRN.placeHolderList[285]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[84]" "sadnessRN.placeHolderList[255]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[83]" "sadnessRN.placeHolderList[286]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[85]" "sadnessRN.placeHolderList[256]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[84]" "sadnessRN.placeHolderList[287]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[86]" "sadnessRN.placeHolderList[257]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[85]" "sadnessRN.placeHolderList[288]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[87]" "sadnessRN.placeHolderList[258]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[86]" "sadnessRN.placeHolderList[289]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[88]" "sadnessRN.placeHolderList[259]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[87]" "sadnessRN.placeHolderList[290]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[89]" "sadnessRN.placeHolderList[260]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[88]" "sadnessRN.placeHolderList[291]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[90]" "sadnessRN.placeHolderList[261]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[89]" "sadnessRN.placeHolderList[292]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[91]" "sadnessRN.placeHolderList[262]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[90]" "sadnessRN.placeHolderList[293]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[92]" "sadnessRN.placeHolderList[263]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[91]" "sadnessRN.placeHolderList[294]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[93]" "sadnessRN.placeHolderList[264]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[92]" "sadnessRN.placeHolderList[295]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[94]" "sadnessRN.placeHolderList[265]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[93]" "sadnessRN.placeHolderList[296]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[95]" "sadnessRN.placeHolderList[266]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[94]" "sadnessRN.placeHolderList[297]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[96]" "sadnessRN.placeHolderList[267]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[95]" "sadnessRN.placeHolderList[298]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[97]" "sadnessRN.placeHolderList[268]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[96]" "sadnessRN.placeHolderList[299]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[98]" "sadnessRN.placeHolderList[269]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[97]" "sadnessRN.placeHolderList[300]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[99]" "sadnessRN.placeHolderList[270]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[98]" "sadnessRN.placeHolderList[301]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[100]" "sadnessRN.placeHolderList[271]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[99]" "sadnessRN.placeHolderList[302]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[101]" "sadnessRN.placeHolderList[272]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[100]" "sadnessRN.placeHolderList[303]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[102]" "sadnessRN.placeHolderList[273]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[101]" "sadnessRN.placeHolderList[304]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[103]" "sadnessRN.placeHolderList[274]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[102]" "sadnessRN.placeHolderList[305]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[104]" "sadnessRN.placeHolderList[275]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[103]" "sadnessRN.placeHolderList[306]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[105]" "sadnessRN.placeHolderList[276]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[104]" "sadnessRN.placeHolderList[307]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[106]" "sadnessRN.placeHolderList[277]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[105]" "sadnessRN.placeHolderList[308]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[107]" "sadnessRN.placeHolderList[278]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[106]" "sadnessRN.placeHolderList[309]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[108]" "sadnessRN.placeHolderList[279]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[107]" "sadnessRN.placeHolderList[310]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[109]" "sadnessRN.placeHolderList[280]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[108]" "sadnessRN.placeHolderList[311]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[110]" "sadnessRN.placeHolderList[281]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[109]" "sadnessRN.placeHolderList[312]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[111]" "sadnessRN.placeHolderList[282]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[110]" "sadnessRN.placeHolderList[313]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[112]" "sadnessRN.placeHolderList[283]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[111]" "sadnessRN.placeHolderList[314]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[113]" "sadnessRN.placeHolderList[284]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[112]" "sadnessRN.placeHolderList[315]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[114]" "sadnessRN.placeHolderList[285]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[113]" "sadnessRN.placeHolderList[316]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[115]" "sadnessRN.placeHolderList[286]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[114]" "sadnessRN.placeHolderList[317]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[116]" "sadnessRN.placeHolderList[287]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[115]" "sadnessRN.placeHolderList[318]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[117]" "sadnessRN.placeHolderList[288]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[116]" "sadnessRN.placeHolderList[319]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[118]" "sadnessRN.placeHolderList[289]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[117]" "sadnessRN.placeHolderList[320]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[119]" "sadnessRN.placeHolderList[290]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[118]" "sadnessRN.placeHolderList[321]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[120]" "sadnessRN.placeHolderList[291]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[119]" "sadnessRN.placeHolderList[322]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[121]" "sadnessRN.placeHolderList[292]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[120]" "sadnessRN.placeHolderList[323]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[122]" "sadnessRN.placeHolderList[293]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[121]" "sadnessRN.placeHolderList[324]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[123]" "sadnessRN.placeHolderList[294]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[122]" "sadnessRN.placeHolderList[325]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[124]" "sadnessRN.placeHolderList[295]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[123]" "sadnessRN.placeHolderList[326]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[125]" "sadnessRN.placeHolderList[296]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[124]" "sadnessRN.placeHolderList[327]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[126]" "sadnessRN.placeHolderList[297]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[125]" "sadnessRN.placeHolderList[328]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[127]" "sadnessRN.placeHolderList[298]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[126]" "sadnessRN.placeHolderList[329]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[128]" "sadnessRN.placeHolderList[299]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[127]" "sadnessRN.placeHolderList[330]" 
 		""
-		5 4 "sadnessRN" "sadness:rig:charset.angularValues[129]" "sadnessRN.placeHolderList[300]" 
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[128]" "sadnessRN.placeHolderList[331]" 
 		""
-		"sadnessRN" 2
+		5 4 "sadnessRN" "sadness:rig:charset.angularValues[129]" "sadnessRN.placeHolderList[332]" 
+		""
+		"sadnessRN" 4
 		2 "|sadness:CharacterRigRNfosterParent1|sadness:r_brow_GRP|sadness:r_brow_CTRL" 
 		"translateX" " -av 1"
 		2 "|sadness:CharacterRigRNfosterParent1|sadness:l_brow_GRP|sadness:l_brow_CTRL" 
 		"translateX" " -av 1"
-		"sadness:rig:eye_rigRN" 6
+		5 4 "sadnessRN" "|sadness:CharacterRigRNfosterParent1|sadness:r_brow_GRP|sadness:r_brow_CTRL.visibility" 
+		"sadnessRN.placeHolderList[333]" ""
+		5 4 "sadnessRN" "|sadness:CharacterRigRNfosterParent1|sadness:l_brow_GRP|sadness:l_brow_CTRL.visibility" 
+		"sadnessRN.placeHolderList[334]" ""
+		"sadness:rig:eye_rigRN" 8
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL|sadness:rig:eye:eye_GRP|sadness:rig:eye:CTRL_GRP|sadness:rig:eye:l_eye_GRP|sadness:rig:eye:l_eye_openMood_GRP|sadness:rig:eye:l_eye_openMood_CTRL" 
 		"translateX" " -av 0"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL|sadness:rig:eye:eye_GRP|sadness:rig:eye:CTRL_GRP|sadness:rig:eye:l_eye_GRP|sadness:rig:eye:l_eye_closedMood_GRP|sadness:rig:eye:l_eye_closedMood_CTRL" 
 		"translateX" " -av 0"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL|sadness:rig:eye:eye_GRP|sadness:rig:eye:CTRL_GRP|sadness:rig:eye:l_eye_GRP|sadness:rig:eye:l_eye_open_GRP|sadness:rig:eye:l_eye_open_CTRL" 
-		"translateX" " -av 0.69883760085718183"
+		"translateX" " -av 1"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL|sadness:rig:eye:eye_GRP|sadness:rig:eye:CTRL_GRP|sadness:rig:eye:r_eye_GRP|sadness:rig:eye:r_eye_openMood_GRP|sadness:rig:eye:r_eye_openMood_CTRL" 
 		"translateX" " -av 0"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL|sadness:rig:eye:eye_GRP|sadness:rig:eye:CTRL_GRP|sadness:rig:eye:r_eye_GRP|sadness:rig:eye:r_eye_closedMood_GRP|sadness:rig:eye:r_eye_closedMood_CTRL" 
 		"translateX" " -av 0"
 		2 "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL|sadness:rig:eye:eye_GRP|sadness:rig:eye:CTRL_GRP|sadness:rig:eye:r_eye_GRP|sadness:rig:eye:r_eye_open_GRP|sadness:rig:eye:r_eye_open_CTRL" 
-		"translateX" " -av 1";
+		"translateX" " -av 1"
+		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL|sadness:rig:eye:eye_GRP|sadness:rig:eye:CTRL_GRP|sadness:rig:eye:l_eye_GRP|sadness:rig:eye:l_eye_open_GRP|sadness:rig:eye:l_eye_open_CTRL.visibility" 
+		"sadnessRN.placeHolderList[1]" ""
+		5 4 "sadnessRN" "|sadness:rig:CHAR_GRP|sadness:rig:CTRL_GRP|sadness:rig:all_GRP|sadness:rig:all_CTRL|sadness:rig:root_GRP|sadness:rig:root_CTRL|sadness:rig:spline_01_GRP|sadness:rig:spline_01_CTRL|sadness:rig:spline_02_GRP|sadness:rig:spline_02_CTRL|sadness:rig:spline_03_GRP|sadness:rig:spline_03_CTRL|sadness:rig:neck_GRP|sadness:rig:neck_CTRL|sadness:rig:head_GRP|sadness:rig:head_CTRL|sadness:rig:eye:eye_GRP|sadness:rig:eye:CTRL_GRP|sadness:rig:eye:r_eye_GRP|sadness:rig:eye:r_eye_open_GRP|sadness:rig:eye:r_eye_open_CTRL.visibility" 
+		"sadnessRN.placeHolderList[2]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode animCurveTA -n "charset_spline_02_CTRL_rotateZ2";
@@ -10514,37 +10900,37 @@ createNode animCurveTA -n "charset_r_ik_hand_CTRL_rotateZ2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 -170.73468568095245 18 -170.73468568095245
-		 22 -170.73468568095245 30 -174.79372184872753 57 -174.79372184872753 105 -174.79372184872753;
+		 22 -170.73468568095245 36 -175.06826383737896 57 -174.79372184872753 105 -174.79372184872753;
 createNode animCurveTA -n "charset_r_ik_hand_CTRL_rotateY2";
 	rename -uid "39A126DD-482C-3092-C945-2592304A0F69";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 -15.017672875517324 18 -15.017672875517324
-		 22 -15.017672875517324 30 -30.667382979715544 57 -30.667382979715544 105 -30.667382979715544;
+		 22 -15.017672875517324 36 -30.870735792105069 57 -30.667382979715544 105 -30.667382979715544;
 createNode animCurveTA -n "charset_r_ik_hand_CTRL_rotateX2";
 	rename -uid "2719E590-4F75-FC3F-2E70-DCA640EAA829";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 117.06783323907314 18 117.06783323907314
-		 22 117.06783323907314 30 127.72951803844542 57 127.72951803844542 105 127.72951803844542;
+		 22 117.06783323907314 36 128.30246221529967 57 127.72951803844542 105 127.72951803844542;
 createNode animCurveTL -n "charset_r_ik_hand_CTRL_translateZ2";
 	rename -uid "6C92F583-49D2-E529-5D9D-109D75394C30";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 -20.662318012759425 18 -20.662318012759425
-		 22 -20.662318012759425 30 -21.383646656390106 57 -21.383646656390106 105 -21.383646656390106;
+		 22 -20.662318012759425 36 -21.529809902663757 57 -21.383646656390106 105 -21.383646656390106;
 createNode animCurveTL -n "charset_r_ik_hand_CTRL_translateY2";
 	rename -uid "D9424953-4CEF-501B-25DA-F7B188601EDA";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 33.070856777006995 18 33.070856777006995
-		 22 33.070856777006995 30 34.043741996127515 57 34.043741996127515 105 34.043741996127515;
+		 22 33.070856777006995 36 34.263026752780249 57 34.043741996127515 105 34.043741996127515;
 createNode animCurveTL -n "charset_r_ik_hand_CTRL_translateX2";
 	rename -uid "B318CE0A-4444-D28B-7B19-26B69404C392";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 -6.7450352261909847 18 -6.7450352261909847
-		 22 -6.7450352261909847 30 -10.276072287955651 57 -10.276072287955651 105 -10.276072287955651;
+		 22 -6.7450352261909847 36 -10.461003700468613 57 -10.276072287955651 105 -10.276072287955651;
 createNode animCurveTA -n "charset_r_finger_04_CTRL_rotateZ2";
 	rename -uid "09CC541E-4599-897F-F0F1-27A95D0D4BF3";
 	setAttr ".tan" 18;
@@ -10842,38 +11228,66 @@ createNode animCurveTA -n "charset_l_ik_hand_CTRL_rotateZ2";
 	rename -uid "7C99B6EB-40DB-C332-1618-CBB034CF27BA";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 -170.14282874238967 18 -170.14282874238967
-		 22 -170.14282874238967 30 -174.82317743073563 57 -174.82317743073563 105 -174.82317743073563;
+	setAttr -s 7 ".ktv[0:6]"  1 -170.1656542916399 23 -170.17826342081784
+		 35 -174.82317743073563 59 -175.41025389665035 66 -175.77026242127127 75 -175.78144571147192
+		 105 -174.82317743073563;
+	setAttr -s 7 ".kit[2:6]"  9 18 18 18 18;
+	setAttr -s 7 ".kot[2:6]"  9 18 18 18 18;
 createNode animCurveTA -n "charset_l_ik_hand_CTRL_rotateY2";
 	rename -uid "D6A25913-42A4-D1AF-3D40-BAB8B691EBDC";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 -6.9092922516987283 18 -6.9092922516987265
-		 22 -6.9092922516987239 30 5.7373444491491901 57 5.7373444491491918 105 5.7373444491491918;
+	setAttr -s 7 ".ktv[0:6]"  1 -6.8445549030430186 23 -6.8087931528005265
+		 35 6.2703076974679437 59 8.9622697491298062 66 11.535314125299797 75 11.793311174751588
+		 105 5.7373444491491927;
+	setAttr -s 7 ".kit[2:6]"  1 18 18 18 18;
+	setAttr -s 7 ".kot[2:6]"  1 18 18 18 18;
+	setAttr -s 7 ".kix[2:6]"  0.99349069595336914 0.99747902154922485 
+		0.99935179948806763 1 1;
+	setAttr -s 7 ".kiy[2:6]"  0.11391311138868332 0.070962607860565186 
+		0.035999834537506104 0 0;
+	setAttr -s 7 ".kox[2:6]"  0.99349075555801392 0.99747896194458008 
+		0.9993518590927124 1 1;
+	setAttr -s 7 ".koy[2:6]"  0.11391311883926392 0.070962607860565186 
+		0.035999834537506104 0 0;
 createNode animCurveTA -n "charset_l_ik_hand_CTRL_rotateX2";
 	rename -uid "8BDD39B7-4690-3BD4-FD33-72ADC8B36295";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 139.41886036590319 18 139.41886036590319
-		 22 139.41886036590319 30 134.67072998807257 57 134.67072998807257 105 134.67072998807257;
+	setAttr -s 7 ".ktv[0:6]"  1 139.39570425289884 23 139.38291251609135
+		 35 134.67072998807257 59 133.63843008303704 66 131.80422128832845 75 131.42148880082365
+		 105 134.67072998807257;
+	setAttr -s 7 ".kit[2:6]"  1 18 18 18 18;
+	setAttr -s 7 ".kot[2:6]"  1 18 18 18 18;
+	setAttr -s 7 ".kix[2:6]"  0.99913078546524048 0.99925071001052856 
+		0.99857509136199951 1 1;
+	setAttr -s 7 ".kiy[2:6]"  -0.04168560728430748 -0.038703896105289459 
+		-0.053363390266895294 0 0;
+	setAttr -s 7 ".kox[2:6]"  0.99913078546524048 0.99925076961517334 
+		0.99857509136199951 1 1;
+	setAttr -s 7 ".koy[2:6]"  -0.041685596108436584 -0.038703896105289459 
+		-0.053363390266895294 0 0;
 createNode animCurveTL -n "charset_l_ik_hand_CTRL_translateZ2";
 	rename -uid "94CC4362-44BC-CFC2-B73D-0992BED75CF7";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 19.754290918835405 18 19.754290918835405
-		 22 19.754290918835405 30 22.51584783624681 57 22.51584783624681 105 22.51584783624681;
+	setAttr -s 8 ".ktv[0:7]"  1 20.611821837607746 23 20.836439615132452
+		 35 22.712715449394995 59 22.65915828492399 66 22.703074096304704 75 22.698868541695699
+		 105 22.51584783624681 115 22.747961727166853;
 createNode animCurveTL -n "charset_l_ik_hand_CTRL_translateY2";
 	rename -uid "7AE8F773-4780-3AB7-C935-06BF7B8FD463";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 -41.90434673637693 18 -41.90434673637693
-		 22 -41.90434673637693 30 -45.888805251466955 57 -45.888805251466955 105 -45.888805251466955;
+	setAttr -s 8 ".ktv[0:7]"  1 -42.54664385451602 23 -42.835164006120166
+		 35 -46.110312102619176 59 -46.050051917264646 66 -46.33555259258079 75 -46.415302813691255
+		 105 -45.888805251466955 115 -45.645189542290986;
 createNode animCurveTL -n "charset_l_ik_hand_CTRL_translateX2";
 	rename -uid "EDC6C80A-4987-C39B-B51B-8D9938018EA6";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 -2.9403512792903768 18 -2.9403512792903768
-		 22 -2.9403512792903768 30 -3.115011084271488 57 -3.115011084271488 105 -3.115011084271488;
+	setAttr -s 8 ".ktv[0:7]"  1 -3.0685161469960791 23 -3.075363103045853
+		 35 -2.9361918609777762 59 -2.9848390223842065 66 -3.3609876792441211 75 -3.5269027250808866
+		 105 -3.115011084271488 115 -2.8104166823258572;
 createNode animCurveTA -n "charset_l_finger_04_CTRL_rotateZ2";
 	rename -uid "18C74517-4EA2-FE15-3E2D-42A68FB97529";
 	setAttr ".tan" 18;
@@ -11015,7 +11429,7 @@ createNode animCurveTA -n "charset_hip_CTRL_rotateX2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 6 ".ktv[0:5]"  1 0.098956487461433804 18 0.098956487461434026
-		 22 0.0989564874614344 30 0.0989564874614344 57 0.098956487461434608 105 0.098956487461434844;
+		 22 0.0989564874614344 30 0.0989564874614344 57 0.098956487461434622 105 0.098956487461434858;
 createNode animCurveTL -n "charset_hip_CTRL_translateZ2";
 	rename -uid "9FB28862-4A18-255D-F858-83BCC95D7BF8";
 	setAttr ".tan" 18;
@@ -11068,41 +11482,48 @@ createNode animCurveTA -n "charset_head_CTRL_rotateZ2";
 	rename -uid "FDD1F900-459B-BF85-BCD6-599B210EF9DC";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  1 8.9848757160986032 18 8.9848757160986032
-		 22 5.6083305815920301 26 0.71433893749068766 30 18.24027909351015 57 18.240279093510146
-		 63 23.634810843239805 105 23.634810843239801 111 22.399436634031975;
+	setAttr -s 13 ".ktv[0:12]"  1 8.6280894868385936 18 8.9848757160986032
+		 22 5.6083305815920301 26 -8.0744097318862309 30 18.24027909351015 35 19.791687546547809
+		 43 19.836042720562464 57 18.976534646711123 60 18.499346476201055 63 24.371267620746558
+		 67 23.634810843239809 105 23.634810843239801 115 23.017122678305295;
 createNode animCurveTA -n "charset_head_CTRL_rotateY2";
 	rename -uid "8F74A236-4587-BF43-89B1-3497758DB034";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  1 8.861788144107722 18 8.8617881441077202
-		 22 10.87048475663774 26 8.51231093463009 30 13.299289371689433 57 13.299289371689429
-		 63 14.914503250123536 105 14.914503250123529 111 11.709909779309029;
+	setAttr -s 14 ".ktv[0:13]"  1 8.9558240946040613 18 8.8617881441077202
+		 22 10.87048475663774 26 10.936417498428396 30 13.299289371689433 35 13.299289371689433
+		 43 13.136991018712843 45 13.299289371689433 57 13.299289371689429 60 14.668361919168458
+		 63 14.814366580302488 67 14.914503250123536 105 14.914503250123529 115 13.312203764190592;
 createNode animCurveTA -n "charset_head_CTRL_rotateX2";
 	rename -uid "9CC34FFE-4E45-FFEF-239E-AF883CBD9251";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  1 14.965180463833494 18 14.965180463833494
-		 22 14.341605368290818 26 16.34730463703848 30 12.101276900913723 57 12.101276900913719
-		 63 7.9131671529336227 105 7.9131671529336192 111 19.904713156092178;
+	setAttr -s 15 ".ktv[0:14]"  1 14.909927559967029 18 14.965180463833494
+		 22 14.341605368290818 26 14.859643184588696 30 12.101276900913723 35 11.661777462705359
+		 43 12.232721187293548 45 12.101276900913721 57 12.101276900913719 59 12.776627818794879
+		 63 8.1020950384170209 67 7.9395886563482874 85 8.2163309072204171 105 7.9131671529336192
+		 115 13.908950446943319;
 createNode animCurveTL -n "charset_head_CTRL_translateZ2";
 	rename -uid "7BE1FF15-47A0-B090-EEB7-E6A53B31D3D1";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 -0.62811555333311742 18 -0.62811555333311742
-		 22 -0.62811555333311742 30 -0.62811555333311742 57 -0.62811555333311742 105 -0.62811555333311742;
+	setAttr -s 10 ".ktv[0:9]"  1 -0.62811555333311742 18 -0.62811555333311742
+		 22 -0.62811555333311742 30 -0.62811555333311742 35 -0.62811555333311742 45 -0.62811555333311742
+		 57 -0.62811555333311742 67 -0.62811555333311742 105 -0.62811555333311742 115 -0.62811555333311742;
 createNode animCurveTL -n "charset_head_CTRL_translateY2";
 	rename -uid "1C8F6946-40C4-A5B8-91CF-7EA5A47E790B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 -1.6658364553980336 18 -1.6658364553980336
-		 22 -1.6658364553980336 30 -1.6658364553980336 57 -1.6658364553980336 105 -1.6658364553980336;
+	setAttr -s 10 ".ktv[0:9]"  1 -1.6658364553980336 18 -1.6658364553980336
+		 22 -1.6658364553980336 30 -1.6658364553980336 35 -1.6658364553980336 45 -1.6658364553980336
+		 57 -1.6658364553980336 67 -1.6658364553980336 105 -1.6658364553980336 115 -1.6658364553980336;
 createNode animCurveTL -n "charset_head_CTRL_translateX2";
 	rename -uid "B759B5A4-4C77-449A-7412-568E8472A75A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 -1.7741663188472534 18 -1.7741663188472534
-		 22 -1.7741663188472534 30 -1.7741663188472534 57 -1.7741663188472534 105 -1.7741663188472534;
+	setAttr -s 10 ".ktv[0:9]"  1 -1.7741663188472534 18 -1.7741663188472534
+		 22 -1.7741663188472534 30 -1.7741663188472534 35 -1.7741663188472534 45 -1.7741663188472534
+		 57 -1.7741663188472534 67 -1.7741663188472534 105 -1.7741663188472534 115 -1.7741663188472534;
 createNode animCurveTA -n "charset_fk_r_upperKnee_CTRL_rotateZ2";
 	rename -uid "0711C046-4BBD-5AFF-C6E5-098DCB428402";
 	setAttr ".tan" 18;
@@ -11620,21 +12041,51 @@ createNode animCurveTA -n "charset_spline_03_CTRL_rotateZ2";
 	rename -uid "F0A90663-4637-C4F9-7153-D2940AFA28EF";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 -23.547654271451854 18 -23.547654271451854
-		 22 -25.143459235213964 30 -17.160202703782655 57 -17.160202703782655 105 -17.160202703782655;
+	setAttr -s 7 ".ktv[0:6]"  1 -23.547654271451854 18 -23.640686964702823
+		 22 -25.143459235213964 30 -17.160202703782655 40 -15.788292741231189 57 -16.706615807441725
+		 105 -16.706615807441725;
+	setAttr -s 7 ".kit[5:6]"  1 18;
+	setAttr -s 7 ".kot[5:6]"  1 18;
+	setAttr -s 7 ".kix[5:6]"  0.99995535612106323 1;
+	setAttr -s 7 ".kiy[5:6]"  -0.0094488514587283134 0;
+	setAttr -s 7 ".kox[5:6]"  0.99995535612106323 1;
+	setAttr -s 7 ".koy[5:6]"  -0.0094488523900508881 0;
 createNode animCurveTA -n "charset_spline_03_CTRL_rotateY2";
 	rename -uid "33C74898-4CCD-F4E4-AB41-799390DAB5F6";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 -2.782713727432403 18 -2.7827137274324021
-		 22 -2.8210658373607793 30 -11.309772099030154 57 -11.309772099030152 105 -11.309772099030155;
+	setAttr -s 7 ".ktv[0:6]"  1 -2.782713727432403 22 -2.8210658373607793
+		 30 -11.309772099030154 35 -11.200460866933348 40 -11.13292860467824 57 -11.309772099030152
+		 105 -11.309772099030155;
+	setAttr -s 7 ".kit[1:6]"  1 18 18 18 1 18;
+	setAttr -s 7 ".kot[1:6]"  1 18 18 18 1 18;
+	setAttr -s 7 ".kix[1:6]"  0.99997520446777344 1 0.99997258186340332 
+		1 0.99993878602981567 1;
+	setAttr -s 7 ".kiy[1:6]"  -0.0070432685315608978 0 0.0074074007570743561 
+		0 -0.011066047474741936 0;
+	setAttr -s 7 ".kox[1:6]"  0.99997520446777344 1 0.99997252225875854 
+		1 0.99993878602981567 1;
+	setAttr -s 7 ".koy[1:6]"  -0.0070432685315608978 0 0.0074074002914130688 
+		0 -0.011066043749451637 0;
 createNode animCurveTA -n "charset_spline_03_CTRL_rotateX2";
 	rename -uid "1F1252F4-4B7D-914F-2846-8180B6EE9F9E";
-	setAttr ".tan" 18;
+	setAttr ".tan" 1;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  1 -1.4172933264332381 18 -1.4172933264332381
-		 22 -1.3392810144124101 30 -7.0844133428173306 57 -7.0844133428173315 63 -11.339819265377875
-		 105 -11.339819265377876;
+	setAttr -s 9 ".ktv[0:8]"  1 -1.4172933264332381 22 -1.3392810144124101
+		 30 -7.0844133428173306 40 -7.3566811128622351 57 -7.0844133428173315 65 -11.339819265377875
+		 85 -13.042017000023773 105 -11.339819265377876 115 -9.8702149623223061;
+	setAttr -s 9 ".kit[3:8]"  18 1 1 18 18 18;
+	setAttr -s 9 ".kot[3:8]"  18 1 1 18 18 18;
+	setAttr -s 9 ".kix[0:8]"  0.9995267391204834 0.9999052882194519 0.99962002038955688 
+		1 0.99982821941375732 0.99924463033676147 1 0.99902075529098511 1;
+	setAttr -s 9 ".kiy[0:8]"  0.030762325972318649 -0.013764220289885998 
+		-0.027565352618694305 0 -0.01853468269109726 -0.03886057436466217 0 0.044243354350328445 
+		0;
+	setAttr -s 9 ".kox[0:8]"  0.9995267391204834 0.9999052882194519 0.99962007999420166 
+		1 0.99982821941375732 0.99924463033676147 1 0.99902075529098511 1;
+	setAttr -s 9 ".koy[0:8]"  0.030762325972318649 -0.013764222152531147 
+		-0.027565352618694305 0 -0.018534684553742409 -0.038860592991113663 0 0.044243354350328445 
+		0;
 createNode animCurveTL -n "charset_spline_03_CTRL_translateZ2";
 	rename -uid "B7189DDF-40AD-1982-1D5A-61BA7E6AEC78";
 	setAttr ".tan" 18;
@@ -11677,12 +12128,12 @@ createNode animCurveTU -n "charset_r_ik_hand_CTRL_snapToElbow2";
 	rename -uid "C2546C14-4DF6-1BC9-FEB0-6FA13306D896";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 0 18 0 22 0 30 0 57 0 105 0;
+	setAttr -s 6 ".ktv[0:5]"  1 0 18 0 22 0 36 0 57 0 105 0;
 createNode animCurveTU -n "charset_l_ik_hand_CTRL_snapToElbow2";
 	rename -uid "B05B9F2D-479C-75AA-E5F9-E1A29BFEFF7E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 0 18 0 22 0 30 0 57 0 105 0;
+	setAttr -s 7 ".ktv[0:6]"  1 0 23 0 35 0 59 0 66 0 75 0 105 0;
 createNode animCurveTU -n "charset_l_ik_leg_CTRL_kneeSnap2";
 	rename -uid "7DC39EF2-4DEF-C160-3F51-74B3A3D846ED";
 	setAttr ".tan" 18;
@@ -11782,19 +12233,21 @@ createNode animCurveTU -n "charset_head_CTRL_ikFkSwitch2";
 	rename -uid "0DE46593-4526-786B-E85A-A6B2DE71F9C2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 1 18 1 22 1 30 1 57 1 105 1;
+	setAttr -s 10 ".ktv[0:9]"  1 1 18 1 22 1 30 1 35 1 45 1 57 1 67 1 105 1
+		 115 1;
 createNode animCurveTL -n "charset_linearValues_130_2";
 	rename -uid "9F29FC32-4AAB-BCF2-658F-FAB44243975F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  1 0.69883760085718194 18 0.69883760085718194
-		 22 0.69883760085718194 26 -1.1420869985108957 30 0.69883760085718194 57 0.69883760085718194
-		 60 -1.6371680190094366 63 1 105 1;
+	setAttr -s 12 ".ktv[0:11]"  1 0.69883760085718194 18 0.69883760085718194
+		 22 0.69883760085718194 26 -1.1420869985108957 29 1 34 0.69883760085718194 57 0.69883760085718194
+		 60 -1.6371680190094366 63 1 105 1 115 1 120 -0.85444160403208747;
 createNode animCurveTL -n "charset_linearValues_131_2";
 	rename -uid "B37F4F80-4BF1-167C-12A7-068FF408BDF9";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 0 18 0 22 0 30 0 57 0 105 0;
+	setAttr -s 7 ".ktv[0:6]"  1 0 18 0 22 0 26 -0.33630077125420771 30 0
+		 57 0 105 0;
 createNode animCurveTL -n "charset_linearValues_132_2";
 	rename -uid "95C34970-460A-3FC6-5F9B-CFBCFF2705C7";
 	setAttr ".tan" 18;
@@ -11804,14 +12257,15 @@ createNode animCurveTL -n "charset_linearValues_133_2";
 	rename -uid "BC1C7A06-4CF1-4187-EB2E-E2A95AAF2AC3";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 0 18 0 22 0 30 0 57 0 105 0;
+	setAttr -s 7 ".ktv[0:6]"  1 0 18 0 22 0 26 -0.33630077125420771 30 0
+		 57 0 105 0;
 createNode animCurveTL -n "charset_linearValues_134_2";
 	rename -uid "B602DC05-4E95-9A8B-5820-17B1EE24C43D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  1 0.69883760085718183 18 0.69883760085718183
-		 22 0.69883760085718183 26 -1.1420869985108997 30 0.69883760085718183 57 0.69883760085718183
-		 60 -1.6371680190094371 63 1 105 0.69883760085718183;
+	setAttr -s 12 ".ktv[0:11]"  1 0.69883760085718183 18 0.69883760085718183
+		 22 0.69883760085718183 26 -1.1420869985108997 29 1 34 0.69883760085718183 57 0.69883760085718183
+		 60 -1.6371680190094371 63 1 105 0.69883760085718183 115 1 120 -0.85444160403209135;
 createNode animCurveTL -n "charset_linearValues_135_2";
 	rename -uid "8FCE57CC-484F-4BD2-E229-3AAB830969C9";
 	setAttr ".tan" 18;
@@ -11821,14 +12275,14 @@ createNode animCurveTL -n "charset_linearValues_136_2";
 	rename -uid "2E42344A-4AED-7DC8-05A8-068BFF3C2AB8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  1 0 18 0 22 0 26 -0.55454353688566072 30 0
-		 57 0 60 -2.3611746399443083 63 1 105 1;
+	setAttr -s 10 ".ktv[0:9]"  1 0 18 0 22 0 27 -0.55454353688566072 30 0.41787652711319279
+		 34 0 58 0 61 -2.3611746399443083 65 1 105 1;
 createNode animCurveTL -n "charset_linearValues_137_2";
 	rename -uid "81CA7AF4-4709-3965-2DC1-FE9BCEEB4B09";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  1 0 18 0 22 0 26 -0.52398011724808391 30 0
-		 57 0 60 -2.0895259554973094 63 1 105 1;
+	setAttr -s 10 ".ktv[0:9]"  1 0 18 0 22 0 27 -0.52398011724808391 30 0.43641060986889474
+		 34 0 58 0 61 -2.0895259554973094 65 1 105 1;
 createNode animCurveTU -n "charset_fk_r_elbow_CTRL_lenght";
 	rename -uid "453BD459-4B93-1166-A7A3-DCA71F5E2529";
 	setAttr ".tan" 18;
@@ -11873,20 +12327,2011 @@ createNode animCurveTU -n "head_CTRL_scaleX";
 	rename -uid "4204DEE1-4E21-D42B-12CB-05B4641513A3";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  10 1;
+	setAttr -s 7 ".ktv[0:6]"  6 1 15 1 27 1 78 1 87 1 100 1 111 1;
 createNode animCurveTU -n "head_CTRL_scaleY";
 	rename -uid "24807A52-4676-0959-912E-8A83FFA89A83";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  10 1;
+	setAttr -s 7 ".ktv[0:6]"  6 1 15 1 27 1 78 1 87 1 100 1 111 1;
 createNode animCurveTU -n "head_CTRL_scaleZ";
 	rename -uid "A1BB6269-414C-9498-4ADB-658DFCB9F3CA";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr ".ktv[0]"  10 1;
+	setAttr -s 7 ".ktv[0:6]"  6 1 15 1 27 1 78 1 87 1 100 1 111 1;
+createNode animCurveTA -n "charset_r_leg_poleVector_CTRL_rotateZ53";
+	rename -uid "276858C5-4757-C559-EBA1-0EB4A9C603AE";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_r_leg_poleVector_CTRL_rotateY53";
+	rename -uid "AA6A7A76-496D-9172-BE22-E282A4648868";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_r_leg_poleVector_CTRL_rotateX53";
+	rename -uid "509677D4-4DCD-4069-5C13-6B90B31F5070";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_r_leg_poleVector_CTRL_translateZ53";
+	rename -uid "12AA12FF-422E-5A8A-F83D-CFB337D05261";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 18.636575966016338;
+createNode animCurveTL -n "charset_r_leg_poleVector_CTRL_translateY53";
+	rename -uid "D83D9BBC-45F7-90E5-EED1-EE9FAE7CA2DF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -41.308719638984613;
+createNode animCurveTL -n "charset_r_leg_poleVector_CTRL_translateX53";
+	rename -uid "5A35279F-412A-EB26-5534-26881BBCBE41";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -8.6167032483426862;
+createNode animCurveTA -n "charset_r_arm_poleVector_CTRL_rotateZ";
+	rename -uid "245FA9D2-432B-6487-CA6A-5BB67472D026";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_r_arm_poleVector_CTRL_rotateY";
+	rename -uid "B0FB27AA-4C6E-7D19-455C-B1991A406811";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_r_arm_poleVector_CTRL_rotateX";
+	rename -uid "6C543F11-4565-E662-F673-FCA5D07E5DF4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_r_arm_poleVector_CTRL_translateZ";
+	rename -uid "CB3E12BF-4EFE-31C9-B6EB-9A9726ADFF37";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_r_arm_poleVector_CTRL_translateY";
+	rename -uid "98DCE160-4801-F230-164A-5EA8E03038F5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -70.360287420143351;
+createNode animCurveTL -n "charset_r_arm_poleVector_CTRL_translateX";
+	rename -uid "F141F048-4B3A-BEDD-5AA6-8D95D4C806DE";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_l_leg_poleVector_CTRL_rotateZ53";
+	rename -uid "439FBEFB-4709-6C7C-1211-D898BBCC3822";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_l_leg_poleVector_CTRL_rotateY53";
+	rename -uid "14035ED6-4BB9-590E-2CDF-3DB7A5F66350";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_l_leg_poleVector_CTRL_rotateX53";
+	rename -uid "74FC31BF-4E98-24B5-ABE5-F3B36CB1C431";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_l_leg_poleVector_CTRL_translateZ53";
+	rename -uid "90735119-4B63-E3B2-FB85-20951310A097";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 31.202036183389577;
+createNode animCurveTL -n "charset_l_leg_poleVector_CTRL_translateY53";
+	rename -uid "E63934E9-45C0-AAB8-F243-578FC6F65C6E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -24.008777014147583;
+createNode animCurveTL -n "charset_l_leg_poleVector_CTRL_translateX53";
+	rename -uid "C311ACB5-4AC3-46FB-4C92-168FAE7E21CB";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -4.7904278361801484;
+createNode animCurveTA -n "charset_l_arm_poleVector_CTRL_rotateZ";
+	rename -uid "5030106B-429D-F0AD-9E9B-619E225092A2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_l_arm_poleVector_CTRL_rotateY";
+	rename -uid "9E75E71F-43B3-A7E7-BE4E-E6A7A17C0CBA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_l_arm_poleVector_CTRL_rotateX";
+	rename -uid "1CA6B313-4918-FF47-D573-999C3FBBAA73";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_l_arm_poleVector_CTRL_translateZ";
+	rename -uid "8C456B6D-4572-A9FA-09F4-59AB75994450";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -38.295103707276198;
+createNode animCurveTL -n "charset_l_arm_poleVector_CTRL_translateY";
+	rename -uid "912F697E-4893-5BC6-E0E9-47A011388587";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -55.90020224464007;
+createNode animCurveTL -n "charset_l_arm_poleVector_CTRL_translateX";
+	rename -uid "B702539F-4689-5C60-EF9D-92BCCBB5C47C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -0.26272946964952837;
+createNode animCurveTU -n "charset_unitlessValues_31_";
+	rename -uid "0F826169-4B89-8741-1AD6-92903C75D1C0";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+	setAttr ".kot[0]"  5;
+createNode animCurveTA -n "charset_r_leg_poleVector_CTRL_rotateZ54";
+	rename -uid "016DB0FB-490C-F468-7612-F781161B3C0A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
+createNode animCurveTA -n "charset_r_leg_poleVector_CTRL_rotateY54";
+	rename -uid "A0E84657-4D77-1BEB-EF50-6A9699923421";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
+createNode animCurveTA -n "charset_r_leg_poleVector_CTRL_rotateX54";
+	rename -uid "A30188F3-44BD-B99B-ECBC-F1AE897200F9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
+createNode animCurveTL -n "charset_r_leg_poleVector_CTRL_translateZ54";
+	rename -uid "E857C864-40B5-7E45-CEA7-3AAF6F13C357";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 29.331609144511035 95 29.331609144511035
+		 105 29.331609144511035 115 29.331609144511035;
+createNode animCurveTL -n "charset_r_leg_poleVector_CTRL_translateY54";
+	rename -uid "C6E8974F-4311-B772-475C-09B114C49133";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 -30.642243031049293 95 -30.642243031049293
+		 105 -30.642243031049293 115 -30.642243031049293;
+createNode animCurveTL -n "charset_r_leg_poleVector_CTRL_translateX54";
+	rename -uid "A2FE8441-43B1-DE0C-4557-9BB89C2B8EBA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
+createNode animCurveTA -n "charset_r_arm_poleVector_CTRL_rotateZ1";
+	rename -uid "9C8F5344-4A77-A85D-3149-1A819C0FD1B2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
+createNode animCurveTA -n "charset_r_arm_poleVector_CTRL_rotateY1";
+	rename -uid "53C4B50D-444C-F569-EFEA-A39DCB33C79B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
+createNode animCurveTA -n "charset_r_arm_poleVector_CTRL_rotateX1";
+	rename -uid "11BBA109-4FA9-B559-BCCA-8C9E48786C24";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
+createNode animCurveTL -n "charset_r_arm_poleVector_CTRL_translateZ1";
+	rename -uid "6E20484B-4725-6DE5-96CE-7F953D257E8E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
+createNode animCurveTL -n "charset_r_arm_poleVector_CTRL_translateY1";
+	rename -uid "71319CF2-47B9-5FA0-03D8-13B6B5B88936";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 -51.266772305085041 95 -51.266772305085041
+		 105 -51.266772305085041 115 -51.266772305085041;
+createNode animCurveTL -n "charset_r_arm_poleVector_CTRL_translateX1";
+	rename -uid "03532238-46A6-24EC-71CE-E28D65D6BBBA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
+createNode animCurveTA -n "charset_l_leg_poleVector_CTRL_rotateZ54";
+	rename -uid "38106ED6-4186-7F84-12AF-B088514D5D06";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
+createNode animCurveTA -n "charset_l_leg_poleVector_CTRL_rotateY54";
+	rename -uid "B4732BD5-4DA1-D2E9-AED7-11B053BF6E8F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
+createNode animCurveTA -n "charset_l_leg_poleVector_CTRL_rotateX54";
+	rename -uid "D9BAEA7E-4843-96A5-9DA0-3AB5C46583AF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
+createNode animCurveTL -n "charset_l_leg_poleVector_CTRL_translateZ54";
+	rename -uid "CD9083D9-4617-7229-11BF-E4952B872E13";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 32.925050339835167 95 32.925050339835167
+		 105 32.925050339835167 115 32.925050339835167;
+createNode animCurveTL -n "charset_l_leg_poleVector_CTRL_translateY54";
+	rename -uid "B5DFAA9D-423C-A3DE-7C11-97A615C081D4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 -32.201736321108243 95 -32.201736321108243
+		 105 -32.201736321108243 115 -32.201736321108243;
+createNode animCurveTL -n "charset_l_leg_poleVector_CTRL_translateX54";
+	rename -uid "6CE980F0-4DDD-8E5C-4F24-B0A46E153857";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
+createNode animCurveTA -n "charset_l_arm_poleVector_CTRL_rotateZ1";
+	rename -uid "C20B1FED-4E9E-7400-8574-39A735A46B98";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
+createNode animCurveTA -n "charset_l_arm_poleVector_CTRL_rotateY1";
+	rename -uid "22912858-45F7-36FD-B472-49BDFB274016";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
+createNode animCurveTA -n "charset_l_arm_poleVector_CTRL_rotateX1";
+	rename -uid "EB9B40D3-4AAE-CC80-FCBF-9F91CD010D17";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 0 95 0 105 0 115 0;
+createNode animCurveTL -n "charset_l_arm_poleVector_CTRL_translateZ1";
+	rename -uid "3D1EBE8D-4FA8-2CD8-6A8C-CEA479159894";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 -15.366650001534499 95 -15.366650001534499
+		 105 -15.366650001534499 115 -15.366650001534499;
+createNode animCurveTL -n "charset_l_arm_poleVector_CTRL_translateY1";
+	rename -uid "FA923E03-4D1D-9E35-E1E8-42B1F1AD124D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 -68.973658910283973 95 -68.973658910283973
+		 105 -68.973658910283973 115 -68.973658910283973;
+createNode animCurveTL -n "charset_l_arm_poleVector_CTRL_translateX1";
+	rename -uid "A0B11BDC-43CE-BCF1-F672-11A78DAB7972";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  1 -0.76922980071911418 95 -0.76922980071911418
+		 105 -0.76922980071911418 115 -0.76922980071911418;
+createNode reference -n "braceletRN";
+	rename -uid "28AC3C4F-486A-E7A5-1449-5EB3C01DE2BC";
+	setAttr ".fn[0]" -type "string" "D:/Hagenberg/DA 1Semester/Vergissmeinnicht/Maya//scenes/Rigs/bracelet.ma";
+	setAttr -s 158 ".phl";
+	setAttr ".phl[1]" 0;
+	setAttr ".phl[2]" 0;
+	setAttr ".phl[3]" 0;
+	setAttr ".phl[4]" 0;
+	setAttr ".phl[5]" 0;
+	setAttr ".phl[6]" 0;
+	setAttr ".phl[7]" 0;
+	setAttr ".phl[8]" 0;
+	setAttr ".phl[9]" 0;
+	setAttr ".phl[10]" 0;
+	setAttr ".phl[11]" 0;
+	setAttr ".phl[12]" 0;
+	setAttr ".phl[13]" 0;
+	setAttr ".phl[14]" 0;
+	setAttr ".phl[15]" 0;
+	setAttr ".phl[16]" 0;
+	setAttr ".phl[17]" 0;
+	setAttr ".phl[18]" 0;
+	setAttr ".phl[19]" 0;
+	setAttr ".phl[20]" 0;
+	setAttr ".phl[21]" 0;
+	setAttr ".phl[22]" 0;
+	setAttr ".phl[23]" 0;
+	setAttr ".phl[24]" 0;
+	setAttr ".phl[25]" 0;
+	setAttr ".phl[26]" 0;
+	setAttr ".phl[27]" 0;
+	setAttr ".phl[28]" 0;
+	setAttr ".phl[29]" 0;
+	setAttr ".phl[30]" 0;
+	setAttr ".phl[31]" 0;
+	setAttr ".phl[32]" 0;
+	setAttr ".phl[33]" 0;
+	setAttr ".phl[34]" 0;
+	setAttr ".phl[35]" 0;
+	setAttr ".phl[36]" 0;
+	setAttr ".phl[37]" 0;
+	setAttr ".phl[38]" 0;
+	setAttr ".phl[39]" 0;
+	setAttr ".phl[40]" 0;
+	setAttr ".phl[41]" 0;
+	setAttr ".phl[42]" 0;
+	setAttr ".phl[43]" 0;
+	setAttr ".phl[44]" 0;
+	setAttr ".phl[45]" 0;
+	setAttr ".phl[46]" 0;
+	setAttr ".phl[47]" 0;
+	setAttr ".phl[48]" 0;
+	setAttr ".phl[49]" 0;
+	setAttr ".phl[50]" 0;
+	setAttr ".phl[51]" 0;
+	setAttr ".phl[52]" 0;
+	setAttr ".phl[53]" 0;
+	setAttr ".phl[54]" 0;
+	setAttr ".phl[55]" 0;
+	setAttr ".phl[56]" 0;
+	setAttr ".phl[57]" 0;
+	setAttr ".phl[58]" 0;
+	setAttr ".phl[59]" 0;
+	setAttr ".phl[60]" 0;
+	setAttr ".phl[61]" 0;
+	setAttr ".phl[62]" 0;
+	setAttr ".phl[63]" 0;
+	setAttr ".phl[64]" 0;
+	setAttr ".phl[65]" 0;
+	setAttr ".phl[66]" 0;
+	setAttr ".phl[67]" 0;
+	setAttr ".phl[68]" 0;
+	setAttr ".phl[69]" 0;
+	setAttr ".phl[70]" 0;
+	setAttr ".phl[71]" 0;
+	setAttr ".phl[72]" 0;
+	setAttr ".phl[73]" 0;
+	setAttr ".phl[74]" 0;
+	setAttr ".phl[75]" 0;
+	setAttr ".phl[76]" 0;
+	setAttr ".phl[77]" 0;
+	setAttr ".phl[78]" 0;
+	setAttr ".phl[79]" 0;
+	setAttr ".phl[80]" 0;
+	setAttr ".phl[81]" 0;
+	setAttr ".phl[82]" 0;
+	setAttr ".phl[83]" 0;
+	setAttr ".phl[84]" 0;
+	setAttr ".phl[85]" 0;
+	setAttr ".phl[86]" 0;
+	setAttr ".phl[87]" 0;
+	setAttr ".phl[88]" 0;
+	setAttr ".phl[89]" 0;
+	setAttr ".phl[90]" 0;
+	setAttr ".phl[91]" 0;
+	setAttr ".phl[92]" 0;
+	setAttr ".phl[93]" 0;
+	setAttr ".phl[94]" 0;
+	setAttr ".phl[95]" 0;
+	setAttr ".phl[96]" 0;
+	setAttr ".phl[97]" 0;
+	setAttr ".phl[98]" 0;
+	setAttr ".phl[99]" 0;
+	setAttr ".phl[100]" 0;
+	setAttr ".phl[101]" 0;
+	setAttr ".phl[102]" 0;
+	setAttr ".phl[103]" 0;
+	setAttr ".phl[104]" 0;
+	setAttr ".phl[105]" 0;
+	setAttr ".phl[106]" 0;
+	setAttr ".phl[107]" 0;
+	setAttr ".phl[108]" 0;
+	setAttr ".phl[109]" 0;
+	setAttr ".phl[110]" 0;
+	setAttr ".phl[111]" 0;
+	setAttr ".phl[112]" 0;
+	setAttr ".phl[113]" 0;
+	setAttr ".phl[114]" 0;
+	setAttr ".phl[115]" 0;
+	setAttr ".phl[116]" 0;
+	setAttr ".phl[117]" 0;
+	setAttr ".phl[118]" 0;
+	setAttr ".phl[119]" 0;
+	setAttr ".phl[120]" 0;
+	setAttr ".phl[121]" 0;
+	setAttr ".phl[122]" 0;
+	setAttr ".phl[123]" 0;
+	setAttr ".phl[124]" 0;
+	setAttr ".phl[125]" 0;
+	setAttr ".phl[126]" 0;
+	setAttr ".phl[127]" 0;
+	setAttr ".phl[128]" 0;
+	setAttr ".phl[129]" 0;
+	setAttr ".phl[130]" 0;
+	setAttr ".phl[131]" 0;
+	setAttr ".phl[132]" 0;
+	setAttr ".phl[133]" 0;
+	setAttr ".phl[134]" 0;
+	setAttr ".phl[135]" 0;
+	setAttr ".phl[136]" 0;
+	setAttr ".phl[137]" 0;
+	setAttr ".phl[138]" 0;
+	setAttr ".phl[139]" 0;
+	setAttr ".phl[140]" 0;
+	setAttr ".phl[141]" 0;
+	setAttr ".phl[142]" 0;
+	setAttr ".phl[143]" 0;
+	setAttr ".phl[144]" 0;
+	setAttr ".phl[145]" 0;
+	setAttr ".phl[146]" 0;
+	setAttr ".phl[147]" 0;
+	setAttr ".phl[148]" 0;
+	setAttr ".phl[149]" 0;
+	setAttr ".phl[150]" 0;
+	setAttr ".phl[151]" 0;
+	setAttr ".phl[152]" 0;
+	setAttr ".phl[153]" 0;
+	setAttr ".phl[154]" 0;
+	setAttr ".phl[155]" 0;
+	setAttr ".phl[156]" 0;
+	setAttr ".phl[157]" 0;
+	setAttr ".phl[158]" 0;
+	setAttr ".ed" -type "dataReferenceEdits" 
+		"braceletRN"
+		"braceletRN" 0
+		"braceletRN" 367
+		0 "|braceletRNfosterParent1|all_CTRL_parentConstraint1" "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL" 
+		"-s -r "
+		1 |bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL "blendCharset" "blendCharset" 
+		" -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
+		1 |bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL "blendParent1" "blendParent1" 
+		" -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL" "translate" " -type \"double3\" 1.8242504145361167 33.882789521598269 35.487792912870106"
+		
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL" "translateX" " -av"
+		
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL" "translateY" " -av"
+		
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL" "translateZ" " -av"
+		
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL" "rotate" " -type \"double3\" 273.67767180150258 -178.14596149551883 -180.89782212762344"
+		
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL" "rotateX" " -av"
+		
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL" "rotateY" " -av"
+		
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL" "rotateZ" " -av"
+		
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL" "scale" " -type \"double3\" 1 1 1"
+		
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL" "scaleX" " -av"
+		
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL" "scaleY" " -av"
+		
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL" "scaleZ" " -av"
+		
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL" "pivot_left" " -av -k 1 0"
+		
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL" "pivotRight" " -av -k 1 0"
+		
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL" "pivotMiddle" " -av -k 1 0"
+		
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL" "pivotDouble" " -av -k 1 1"
+		
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL" "performace" " -k 1 2"
+		
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL" "blendCharset" 
+		" -k 1 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL" "blendParent1" 
+		" -k 1 1"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_l1_GRP|bracelet:double_l1_CTRL" 
+		"translate" " -type \"double3\" 0 -3.4743190872010978 2.547156252248242"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_l1_GRP|bracelet:double_l1_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_l1_GRP|bracelet:double_l1_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_l1_GRP|bracelet:double_l1_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_l1_GRP|bracelet:double_l1_CTRL" 
+		"rotate" " -type \"double3\" -135.0523501274993 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_l1_GRP|bracelet:double_l1_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_l1_GRP|bracelet:double_l1_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_l1_GRP|bracelet:double_l1_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_l1_GRP|bracelet:double_l1_CTRL|bracelet:double_l2_GRP|bracelet:double_l2_CTRL" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_l1_GRP|bracelet:double_l1_CTRL|bracelet:double_l2_GRP|bracelet:double_l2_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_l1_GRP|bracelet:double_l1_CTRL|bracelet:double_l2_GRP|bracelet:double_l2_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_l1_GRP|bracelet:double_l1_CTRL|bracelet:double_l2_GRP|bracelet:double_l2_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_l1_GRP|bracelet:double_l1_CTRL|bracelet:double_l2_GRP|bracelet:double_l2_CTRL" 
+		"rotate" " -type \"double3\" -77.268269052001344 -0.42716035524368812 1.1422678711753835"
+		
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_l1_GRP|bracelet:double_l1_CTRL|bracelet:double_l2_GRP|bracelet:double_l2_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_l1_GRP|bracelet:double_l1_CTRL|bracelet:double_l2_GRP|bracelet:double_l2_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_l1_GRP|bracelet:double_l1_CTRL|bracelet:double_l2_GRP|bracelet:double_l2_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_m1_GRP|bracelet:double_m1_CTRL" 
+		"translate" " -type \"double3\" 0 1.6039646933960552 -0.069577933372779066"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_m1_GRP|bracelet:double_m1_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_m1_GRP|bracelet:double_m1_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_m1_GRP|bracelet:double_m1_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_m1_GRP|bracelet:double_m1_CTRL" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_m1_GRP|bracelet:double_m1_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_m1_GRP|bracelet:double_m1_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_m1_GRP|bracelet:double_m1_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_r1_GRP|bracelet:double_r1_CTRL" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_r1_GRP|bracelet:double_r1_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_r1_GRP|bracelet:double_r1_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_r1_GRP|bracelet:double_r1_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_r1_GRP|bracelet:double_r1_CTRL" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_r1_GRP|bracelet:double_r1_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_r1_GRP|bracelet:double_r1_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_r1_GRP|bracelet:double_r1_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_r1_GRP|bracelet:double_r1_CTRL|bracelet:double_r2_GRP|bracelet:double_r2_CTRL" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_r1_GRP|bracelet:double_r1_CTRL|bracelet:double_r2_GRP|bracelet:double_r2_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_r1_GRP|bracelet:double_r1_CTRL|bracelet:double_r2_GRP|bracelet:double_r2_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_r1_GRP|bracelet:double_r1_CTRL|bracelet:double_r2_GRP|bracelet:double_r2_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_r1_GRP|bracelet:double_r1_CTRL|bracelet:double_r2_GRP|bracelet:double_r2_CTRL" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_r1_GRP|bracelet:double_r1_CTRL|bracelet:double_r2_GRP|bracelet:double_r2_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_r1_GRP|bracelet:double_r1_CTRL|bracelet:double_r2_GRP|bracelet:double_r2_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:double_CTRL_GRP|bracelet:double_r1_GRP|bracelet:double_r1_CTRL|bracelet:double_r2_GRP|bracelet:double_r2_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_l1_GRP|bracelet:middle_l1_CTRL" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_l1_GRP|bracelet:middle_l1_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_l1_GRP|bracelet:middle_l1_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_l1_GRP|bracelet:middle_l1_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_l1_GRP|bracelet:middle_l1_CTRL" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_l1_GRP|bracelet:middle_l1_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_l1_GRP|bracelet:middle_l1_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_l1_GRP|bracelet:middle_l1_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_l1_GRP|bracelet:middle_l1_CTRL|bracelet:middle_l2_GRP|bracelet:middle_l2_CTRL" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_l1_GRP|bracelet:middle_l1_CTRL|bracelet:middle_l2_GRP|bracelet:middle_l2_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_l1_GRP|bracelet:middle_l1_CTRL|bracelet:middle_l2_GRP|bracelet:middle_l2_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_l1_GRP|bracelet:middle_l1_CTRL|bracelet:middle_l2_GRP|bracelet:middle_l2_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_l1_GRP|bracelet:middle_l1_CTRL|bracelet:middle_l2_GRP|bracelet:middle_l2_CTRL" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_l1_GRP|bracelet:middle_l1_CTRL|bracelet:middle_l2_GRP|bracelet:middle_l2_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_l1_GRP|bracelet:middle_l1_CTRL|bracelet:middle_l2_GRP|bracelet:middle_l2_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_l1_GRP|bracelet:middle_l1_CTRL|bracelet:middle_l2_GRP|bracelet:middle_l2_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_r1_GRP|bracelet:middle_r1_CTRL" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_r1_GRP|bracelet:middle_r1_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_r1_GRP|bracelet:middle_r1_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_r1_GRP|bracelet:middle_r1_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_r1_GRP|bracelet:middle_r1_CTRL" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_r1_GRP|bracelet:middle_r1_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_r1_GRP|bracelet:middle_r1_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_r1_GRP|bracelet:middle_r1_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_r1_GRP|bracelet:middle_r1_CTRL|bracelet:middle_r2_GRP|bracelet:middle_r2_CTRL" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_r1_GRP|bracelet:middle_r1_CTRL|bracelet:middle_r2_GRP|bracelet:middle_r2_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_r1_GRP|bracelet:middle_r1_CTRL|bracelet:middle_r2_GRP|bracelet:middle_r2_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_r1_GRP|bracelet:middle_r1_CTRL|bracelet:middle_r2_GRP|bracelet:middle_r2_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_r1_GRP|bracelet:middle_r1_CTRL|bracelet:middle_r2_GRP|bracelet:middle_r2_CTRL" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_r1_GRP|bracelet:middle_r1_CTRL|bracelet:middle_r2_GRP|bracelet:middle_r2_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_r1_GRP|bracelet:middle_r1_CTRL|bracelet:middle_r2_GRP|bracelet:middle_r2_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:middle_CTRL_GRP|bracelet:middl_root_GRP|bracelet:middl_root_CTRL|bracelet:middle_r1_GRP|bracelet:middle_r1_CTRL|bracelet:middle_r2_GRP|bracelet:middle_r2_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL|bracelet:right_r5_GRP|bracelet:right_r5_CTRL" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL|bracelet:right_r5_GRP|bracelet:right_r5_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL|bracelet:right_r5_GRP|bracelet:right_r5_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL|bracelet:right_r5_GRP|bracelet:right_r5_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL|bracelet:right_r5_GRP|bracelet:right_r5_CTRL" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL|bracelet:right_r5_GRP|bracelet:right_r5_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL|bracelet:right_r5_GRP|bracelet:right_r5_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL|bracelet:right_r5_GRP|bracelet:right_r5_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL|bracelet:right_r5_GRP|bracelet:right_r5_CTRL|bracelet:right_r6_GRP|bracelet:right_r6_CTRL" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL|bracelet:right_r5_GRP|bracelet:right_r5_CTRL|bracelet:right_r6_GRP|bracelet:right_r6_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL|bracelet:right_r5_GRP|bracelet:right_r5_CTRL|bracelet:right_r6_GRP|bracelet:right_r6_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL|bracelet:right_r5_GRP|bracelet:right_r5_CTRL|bracelet:right_r6_GRP|bracelet:right_r6_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL|bracelet:right_r5_GRP|bracelet:right_r5_CTRL|bracelet:right_r6_GRP|bracelet:right_r6_CTRL" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL|bracelet:right_r5_GRP|bracelet:right_r5_CTRL|bracelet:right_r6_GRP|bracelet:right_r6_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL|bracelet:right_r5_GRP|bracelet:right_r5_CTRL|bracelet:right_r6_GRP|bracelet:right_r6_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:right_CTRL_GRP|bracelet:right_r1_GRP|bracelet:right_r1_CTRL|bracelet:right_r2_GRP|bracelet:right_r2_CTRL|bracelet:right_r3_GRP|bracelet:right_r3_CTRL|bracelet:right_r4_GRP|bracelet:right_r4_CTRL|bracelet:right_r5_GRP|bracelet:right_r5_CTRL|bracelet:right_r6_GRP|bracelet:right_r6_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL|bracelet:left_l5_GRP|bracelet:left_l5_CTRL" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL|bracelet:left_l5_GRP|bracelet:left_l5_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL|bracelet:left_l5_GRP|bracelet:left_l5_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL|bracelet:left_l5_GRP|bracelet:left_l5_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL|bracelet:left_l5_GRP|bracelet:left_l5_CTRL" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL|bracelet:left_l5_GRP|bracelet:left_l5_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL|bracelet:left_l5_GRP|bracelet:left_l5_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL|bracelet:left_l5_GRP|bracelet:left_l5_CTRL" 
+		"rotateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL|bracelet:left_l5_GRP|bracelet:left_l5_CTRL|bracelet:left_l6_GRP|bracelet:left_l6_CTRL" 
+		"translate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL|bracelet:left_l5_GRP|bracelet:left_l5_CTRL|bracelet:left_l6_GRP|bracelet:left_l6_CTRL" 
+		"translateZ" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL|bracelet:left_l5_GRP|bracelet:left_l5_CTRL|bracelet:left_l6_GRP|bracelet:left_l6_CTRL" 
+		"translateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL|bracelet:left_l5_GRP|bracelet:left_l5_CTRL|bracelet:left_l6_GRP|bracelet:left_l6_CTRL" 
+		"translateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL|bracelet:left_l5_GRP|bracelet:left_l5_CTRL|bracelet:left_l6_GRP|bracelet:left_l6_CTRL" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL|bracelet:left_l5_GRP|bracelet:left_l5_CTRL|bracelet:left_l6_GRP|bracelet:left_l6_CTRL" 
+		"rotateY" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL|bracelet:left_l5_GRP|bracelet:left_l5_CTRL|bracelet:left_l6_GRP|bracelet:left_l6_CTRL" 
+		"rotateX" " -av"
+		2 "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL|bracelet:CTRL_GRP|bracelet:left_CTRL_GRP|bracelet:left_l1_GRP|bracelet:left_l1_CTRL|bracelet:left_l2_GRP|bracelet:left_l2_CTRL|bracelet:left_l3_GRP|bracelet:left_l3_CTRL|bracelet:left_l4_GRP|bracelet:left_l4_CTRL|bracelet:left_l5_GRP|bracelet:left_l5_CTRL|bracelet:left_l6_GRP|bracelet:left_l6_CTRL" 
+		"rotateZ" " -av"
+		2 "bracelet:charset" "linearValues" " -s 69"
+		2 "bracelet:charset" "lv[85:87]" " 35.640449894690221 34.063175442515032 -2.9410954214524532"
+		
+		2 "bracelet:charset" "angularValues" " -s 69"
+		2 "bracelet:charset" "av[85:87]" " -180 -179.99999999999994 270.44382889783657"
+		
+		2 "bracelet:charset" "referenceMapping" (" -type \"characterMapping\" 145 \"bracelet:left_l6_CTRL.rotateZ\" 2 4 \"bracelet:left_l6_CTRL.rotateY\" 2 5 \"bracelet:left_l6_CTRL.rotateX\" 2 6 \"bracelet:left_l6_CTRL.translateZ\" 1 4 \"bracelet:left_l6_CTRL.translateY\" 1 5 \"bracelet:left_l6_CTRL.translateX\" 1 6 \"bracelet:left_l5_CTRL.rotateZ\" 2 7 \"bracelet:left_l5_CTRL.rotateY\" 2 8 \"bracelet:left_l5_CTRL.rotateX\" 2 9 \"bracelet:left_l5_CTRL.translateZ\" 1 7 \"bracelet:left_l5_CTRL.translateY\" 1 8 \"bracelet:left_l5_CTRL.translateX\" 1 9 \"bracelet:left_l4_CTRL.rotateZ\" 2 10 \"bracelet:left_l4_CTRL.rotateY\" 2 11 \"bracelet:left_l4_CTRL.rotateX\" 2 12 \"bracelet:left_l4_CTRL.translateZ\" 1 10 \"bracelet:left_l4_CTRL.translateY\" 1 11 \"bracelet:left_l4_CTRL.translateX\" 1 12 \"bracelet:left_l3_CTRL.rotateZ\" 2 13 \"bracelet:left_l3_CTRL.rotateY\" 2 14 \"bracelet:left_l3_CTRL.rotateX\" 2 15 \"bracelet:left_l3_CTRL.translateZ\" 1 13 \"bracelet:left_l3_CTRL.translateY\" 1 14 \"bracelet:left_l3_CTRL.translateX\" 1 15 \"bracelet:left_l2_CTRL.rotateZ\" 2 16 \"bracelet:left_l2_CTRL.rotateY\" 2 17 \"bracele"
+		+ "t:left_l2_CTRL.rotateX\" 2 18 \"bracelet:left_l2_CTRL.translateZ\" 1 16 \"bracelet:left_l2_CTRL.translateY\" 1 17 \"bracelet:left_l2_CTRL.translateX\" 1 18 \"bracelet:left_l1_CTRL.rotateZ\" 2 19 \"bracelet:left_l1_CTRL.rotateY\" 2 20 \"bracelet:left_l1_CTRL.rotateX\" 2 21 \"bracelet:left_l1_CTRL.translateZ\" 1 19 \"bracelet:left_l1_CTRL.translateY\" 1 20 \"bracelet:left_l1_CTRL.translateX\" 1 21 \"bracelet:right_r6_CTRL.rotateZ\" 2 25 \"bracelet:right_r6_CTRL.rotateY\" 2 26 \"bracelet:right_r6_CTRL.rotateX\" 2 27 \"bracelet:right_r6_CTRL.translateZ\" 1 25 \"bracelet:right_r6_CTRL.translateY\" 1 26 \"bracelet:right_r6_CTRL.translateX\" 1 27 \"bracelet:right_r5_CTRL.rotateZ\" 2 28 \"bracelet:right_r5_CTRL.rotateY\" 2 29 \"bracelet:right_r5_CTRL.rotateX\" 2 30 \"bracelet:right_r5_CTRL.translateZ\" 1 28 \"bracelet:right_r5_CTRL.translateY\" 1 29 \"bracelet:right_r5_CTRL.translateX\" 1 30 \"bracelet:right_r4_CTRL.rotateZ\" 2 31 \"bracelet:right_r4_CTRL.rotateY\" 2 32 \"bracelet:right_r4_CTRL.rotateX\" 2 33 \"bracelet:right_r4_CTRL.translateZ\" 1 31 \"bracelet:right"
+		+ "_r4_CTRL.translateY\" 1 32 \"bracelet:right_r4_CTRL.translateX\" 1 33 \"bracelet:right_r3_CTRL.rotateZ\" 2 34 \"bracelet:right_r3_CTRL.rotateY\" 2 35 \"bracelet:right_r3_CTRL.rotateX\" 2 36 \"bracelet:right_r3_CTRL.translateZ\" 1 34 \"bracelet:right_r3_CTRL.translateY\" 1 35 \"bracelet:right_r3_CTRL.translateX\" 1 36 \"bracelet:right_r2_CTRL.rotateZ\" 2 37 \"bracelet:right_r2_CTRL.rotateY\" 2 38 \"bracelet:right_r2_CTRL.rotateX\" 2 39 \"bracelet:right_r2_CTRL.translateZ\" 1 37 \"bracelet:right_r2_CTRL.translateY\" 1 38 \"bracelet:right_r2_CTRL.translateX\" 1 39 \"bracelet:right_r1_CTRL.rotateZ\" 2 40 \"bracelet:right_r1_CTRL.rotateY\" 2 41 \"bracelet:right_r1_CTRL.rotateX\" 2 42 \"bracelet:right_r1_CTRL.translateZ\" 1 40 \"bracelet:right_r1_CTRL.translateY\" 1 41 \"bracelet:right_r1_CTRL.translateX\" 1 42 \"bracelet:middle_r2_CTRL.rotateZ\" 2 46 \"bracelet:middle_r2_CTRL.rotateY\" 2 47 \"bracelet:middle_r2_CTRL.rotateX\" 2 48 \"bracelet:middle_r2_CTRL.translateZ\" 1 46 \"bracelet:middle_r2_CTRL.translateY\" 1 47 \"bracelet:middle_r2_CTRL.translateX\" 1 48 \"br"
+		+ "acelet:middle_r1_CTRL.rotateZ\" 2 49 \"bracelet:middle_r1_CTRL.rotateY\" 2 50 \"bracelet:middle_r1_CTRL.rotateX\" 2 51 \"bracelet:middle_r1_CTRL.translateZ\" 1 49 \"bracelet:middle_r1_CTRL.translateY\" 1 50 \"bracelet:middle_r1_CTRL.translateX\" 1 51 \"bracelet:middle_l2_CTRL.rotateZ\" 2 55 \"bracelet:middle_l2_CTRL.rotateY\" 2 56 \"bracelet:middle_l2_CTRL.rotateX\" 2 57 \"bracelet:middle_l2_CTRL.translateZ\" 1 55 \"bracelet:middle_l2_CTRL.translateY\" 1 56 \"bracelet:middle_l2_CTRL.translateX\" 1 57 \"bracelet:middle_l1_CTRL.rotateZ\" 2 58 \"bracelet:middle_l1_CTRL.rotateY\" 2 59 \"bracelet:middle_l1_CTRL.rotateX\" 2 60 \"bracelet:middle_l1_CTRL.translateZ\" 1 58 \"bracelet:middle_l1_CTRL.translateY\" 1 59 \"bracelet:middle_l1_CTRL.translateX\" 1 60 \"bracelet:middl_root_CTRL.rotateZ\" 2 61 \"bracelet:middl_root_CTRL.rotateY\" 2 62 \"bracelet:middl_root_CTRL.rotateX\" 2 63 \"bracelet:middl_root_CTRL.translateZ\" 1 61 \"bracelet:middl_root_CTRL.translateY\" 1 62 \"bracelet:middl_root_CTRL.translateX\" 1 63 \"bracelet:double_r2_CTRL.rotateZ\" 2 67 \"bracelet:"
+		+ "double_r2_CTRL.rotateY\" 2 68 \"bracelet:double_r2_CTRL.rotateX\" 2 69 \"bracelet:double_r2_CTRL.translateZ\" 1 67 \"bracelet:double_r2_CTRL.translateY\" 1 68 \"bracelet:double_r2_CTRL.translateX\" 1 69 \"bracelet:double_r1_CTRL.rotateZ\" 2 70 \"bracelet:double_r1_CTRL.rotateY\" 2 71 \"bracelet:double_r1_CTRL.rotateX\" 2 72 \"bracelet:double_r1_CTRL.translateZ\" 1 70 \"bracelet:double_r1_CTRL.translateY\" 1 71 \"bracelet:double_r1_CTRL.translateX\" 1 72 \"bracelet:double_m1_CTRL.rotateZ\" 2 73 \"bracelet:double_m1_CTRL.rotateY\" 2 74 \"bracelet:double_m1_CTRL.rotateX\" 2 75 \"bracelet:double_m1_CTRL.translateZ\" 1 73 \"bracelet:double_m1_CTRL.translateY\" 1 74 \"bracelet:double_m1_CTRL.translateX\" 1 75 \"bracelet:double_l2_CTRL.rotateZ\" 2 79 \"bracelet:double_l2_CTRL.rotateY\" 2 80 \"bracelet:double_l2_CTRL.rotateX\" 2 81 \"bracelet:double_l2_CTRL.translateZ\" 1 79 \"bracelet:double_l2_CTRL.translateY\" 1 80 \"bracelet:double_l2_CTRL.translateX\" 1 81 \"bracelet:double_l1_CTRL.rotateZ\" 2 82 \"bracelet:double_l1_CTRL.rotateY\" 2 83 \"bracelet:double_l1_CTR"
+		+ "L.rotateX\" 2 84 \"bracelet:double_l1_CTRL.translateZ\" 1 82 \"bracelet:double_l1_CTRL.translateY\" 1 83 \"bracelet:double_l1_CTRL.translateX\" 1 84 \"bracelet:all_CTRL.pivotDouble\" 0 1 \"bracelet:all_CTRL.pivotMiddle\" 0 2 \"bracelet:all_CTRL.pivotRight\" 0 3 \"bracelet:all_CTRL.pivot_left\" 0 4 \"bracelet:all_CTRL.scaleZ\" 0 5 \"bracelet:all_CTRL.scaleY\" 0 6 \"bracelet:all_CTRL.scaleX\" 0 7 \"bracelet:all_CTRL.rotateZ\" 2 85 \"bracelet:all_CTRL.rotateY\" 2 86 \"bracelet:all_CTRL.rotateX\" 2 87 \"bracelet:all_CTRL.translateZ\" 1 85 \"bracelet:all_CTRL.translateY\" 1 86 \"bracelet:all_CTRL.translateX\" 1 87"
+		)
+		3 "bracelet:charset.angularValues[87]" "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL.rotateX" 
+		""
+		3 "bracelet:charset.angularValues[86]" "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL.rotateY" 
+		""
+		3 "bracelet:charset.angularValues[85]" "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL.rotateZ" 
+		""
+		3 "bracelet:charset.linearValues[87]" "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL.translateX" 
+		""
+		3 "bracelet:charset.linearValues[86]" "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL.translateY" 
+		""
+		3 "bracelet:charset.linearValues[85]" "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL.translateZ" 
+		""
+		5 4 "braceletRN" "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL.rotateX" 
+		"braceletRN.placeHolderList[1]" ""
+		5 4 "braceletRN" "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL.rotateY" 
+		"braceletRN.placeHolderList[2]" ""
+		5 4 "braceletRN" "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL.rotateZ" 
+		"braceletRN.placeHolderList[3]" ""
+		5 4 "braceletRN" "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL.translateX" 
+		"braceletRN.placeHolderList[4]" ""
+		5 4 "braceletRN" "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL.translateY" 
+		"braceletRN.placeHolderList[5]" ""
+		5 4 "braceletRN" "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL.translateZ" 
+		"braceletRN.placeHolderList[6]" ""
+		5 3 "braceletRN" "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL.rotateOrder" 
+		"braceletRN.placeHolderList[7]" ""
+		5 3 "braceletRN" "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL.rotateOrder" 
+		"braceletRN.placeHolderList[8]" ""
+		5 3 "braceletRN" "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL.parentInverseMatrix" 
+		"braceletRN.placeHolderList[9]" ""
+		5 3 "braceletRN" "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL.rotatePivot" 
+		"braceletRN.placeHolderList[10]" ""
+		5 3 "braceletRN" "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL.rotatePivotTranslate" 
+		"braceletRN.placeHolderList[11]" ""
+		5 3 "braceletRN" "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL.blendCharset" 
+		"braceletRN.placeHolderList[12]" ""
+		5 3 "braceletRN" "|bracelet:CHAR_GRP|bracelet:all_GRP|bracelet:all_CTRL.blendParent1" 
+		"braceletRN.placeHolderList[13]" ""
+		5 4 "braceletRN" "bracelet:charset.angularValues[4]" "braceletRN.placeHolderList[14]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[5]" "braceletRN.placeHolderList[15]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[6]" "braceletRN.placeHolderList[16]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[7]" "braceletRN.placeHolderList[17]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[8]" "braceletRN.placeHolderList[18]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[9]" "braceletRN.placeHolderList[19]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[10]" "braceletRN.placeHolderList[20]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[11]" "braceletRN.placeHolderList[21]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[12]" "braceletRN.placeHolderList[22]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[13]" "braceletRN.placeHolderList[23]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[14]" "braceletRN.placeHolderList[24]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[15]" "braceletRN.placeHolderList[25]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[16]" "braceletRN.placeHolderList[26]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[17]" "braceletRN.placeHolderList[27]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[18]" "braceletRN.placeHolderList[28]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[19]" "braceletRN.placeHolderList[29]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[20]" "braceletRN.placeHolderList[30]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[21]" "braceletRN.placeHolderList[31]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[25]" "braceletRN.placeHolderList[32]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[26]" "braceletRN.placeHolderList[33]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[27]" "braceletRN.placeHolderList[34]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[28]" "braceletRN.placeHolderList[35]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[29]" "braceletRN.placeHolderList[36]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[30]" "braceletRN.placeHolderList[37]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[31]" "braceletRN.placeHolderList[38]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[32]" "braceletRN.placeHolderList[39]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[33]" "braceletRN.placeHolderList[40]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[34]" "braceletRN.placeHolderList[41]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[35]" "braceletRN.placeHolderList[42]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[36]" "braceletRN.placeHolderList[43]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[37]" "braceletRN.placeHolderList[44]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[38]" "braceletRN.placeHolderList[45]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[39]" "braceletRN.placeHolderList[46]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[40]" "braceletRN.placeHolderList[47]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[41]" "braceletRN.placeHolderList[48]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[42]" "braceletRN.placeHolderList[49]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[46]" "braceletRN.placeHolderList[50]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[47]" "braceletRN.placeHolderList[51]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[48]" "braceletRN.placeHolderList[52]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[49]" "braceletRN.placeHolderList[53]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[50]" "braceletRN.placeHolderList[54]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[51]" "braceletRN.placeHolderList[55]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[55]" "braceletRN.placeHolderList[56]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[56]" "braceletRN.placeHolderList[57]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[57]" "braceletRN.placeHolderList[58]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[58]" "braceletRN.placeHolderList[59]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[59]" "braceletRN.placeHolderList[60]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[60]" "braceletRN.placeHolderList[61]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[61]" "braceletRN.placeHolderList[62]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[62]" "braceletRN.placeHolderList[63]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[63]" "braceletRN.placeHolderList[64]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[67]" "braceletRN.placeHolderList[65]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[68]" "braceletRN.placeHolderList[66]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[69]" "braceletRN.placeHolderList[67]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[70]" "braceletRN.placeHolderList[68]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[71]" "braceletRN.placeHolderList[69]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[72]" "braceletRN.placeHolderList[70]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[73]" "braceletRN.placeHolderList[71]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[74]" "braceletRN.placeHolderList[72]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[75]" "braceletRN.placeHolderList[73]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[79]" "braceletRN.placeHolderList[74]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[80]" "braceletRN.placeHolderList[75]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[81]" "braceletRN.placeHolderList[76]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[82]" "braceletRN.placeHolderList[77]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[83]" "braceletRN.placeHolderList[78]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.angularValues[84]" "braceletRN.placeHolderList[79]" 
+		""
+		5 3 "braceletRN" "bracelet:charset.angularValues[85]" "braceletRN.placeHolderList[80]" 
+		"bracelet:all_CTRL.rz"
+		5 3 "braceletRN" "bracelet:charset.angularValues[86]" "braceletRN.placeHolderList[81]" 
+		"bracelet:all_CTRL.ry"
+		5 3 "braceletRN" "bracelet:charset.angularValues[87]" "braceletRN.placeHolderList[82]" 
+		"bracelet:all_CTRL.rx"
+		5 4 "braceletRN" "bracelet:charset.unitlessValues[1]" "braceletRN.placeHolderList[83]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.unitlessValues[2]" "braceletRN.placeHolderList[84]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.unitlessValues[3]" "braceletRN.placeHolderList[85]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.unitlessValues[4]" "braceletRN.placeHolderList[86]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.unitlessValues[5]" "braceletRN.placeHolderList[87]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.unitlessValues[6]" "braceletRN.placeHolderList[88]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.unitlessValues[7]" "braceletRN.placeHolderList[89]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[4]" "braceletRN.placeHolderList[90]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[5]" "braceletRN.placeHolderList[91]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[6]" "braceletRN.placeHolderList[92]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[7]" "braceletRN.placeHolderList[93]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[8]" "braceletRN.placeHolderList[94]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[9]" "braceletRN.placeHolderList[95]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[10]" "braceletRN.placeHolderList[96]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[11]" "braceletRN.placeHolderList[97]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[12]" "braceletRN.placeHolderList[98]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[13]" "braceletRN.placeHolderList[99]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[14]" "braceletRN.placeHolderList[100]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[15]" "braceletRN.placeHolderList[101]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[16]" "braceletRN.placeHolderList[102]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[17]" "braceletRN.placeHolderList[103]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[18]" "braceletRN.placeHolderList[104]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[19]" "braceletRN.placeHolderList[105]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[20]" "braceletRN.placeHolderList[106]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[21]" "braceletRN.placeHolderList[107]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[25]" "braceletRN.placeHolderList[108]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[26]" "braceletRN.placeHolderList[109]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[27]" "braceletRN.placeHolderList[110]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[28]" "braceletRN.placeHolderList[111]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[29]" "braceletRN.placeHolderList[112]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[30]" "braceletRN.placeHolderList[113]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[31]" "braceletRN.placeHolderList[114]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[32]" "braceletRN.placeHolderList[115]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[33]" "braceletRN.placeHolderList[116]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[34]" "braceletRN.placeHolderList[117]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[35]" "braceletRN.placeHolderList[118]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[36]" "braceletRN.placeHolderList[119]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[37]" "braceletRN.placeHolderList[120]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[38]" "braceletRN.placeHolderList[121]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[39]" "braceletRN.placeHolderList[122]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[40]" "braceletRN.placeHolderList[123]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[41]" "braceletRN.placeHolderList[124]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[42]" "braceletRN.placeHolderList[125]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[46]" "braceletRN.placeHolderList[126]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[47]" "braceletRN.placeHolderList[127]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[48]" "braceletRN.placeHolderList[128]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[49]" "braceletRN.placeHolderList[129]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[50]" "braceletRN.placeHolderList[130]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[51]" "braceletRN.placeHolderList[131]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[55]" "braceletRN.placeHolderList[132]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[56]" "braceletRN.placeHolderList[133]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[57]" "braceletRN.placeHolderList[134]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[58]" "braceletRN.placeHolderList[135]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[59]" "braceletRN.placeHolderList[136]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[60]" "braceletRN.placeHolderList[137]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[61]" "braceletRN.placeHolderList[138]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[62]" "braceletRN.placeHolderList[139]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[63]" "braceletRN.placeHolderList[140]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[67]" "braceletRN.placeHolderList[141]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[68]" "braceletRN.placeHolderList[142]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[69]" "braceletRN.placeHolderList[143]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[70]" "braceletRN.placeHolderList[144]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[71]" "braceletRN.placeHolderList[145]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[72]" "braceletRN.placeHolderList[146]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[73]" "braceletRN.placeHolderList[147]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[74]" "braceletRN.placeHolderList[148]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[75]" "braceletRN.placeHolderList[149]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[79]" "braceletRN.placeHolderList[150]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[80]" "braceletRN.placeHolderList[151]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[81]" "braceletRN.placeHolderList[152]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[82]" "braceletRN.placeHolderList[153]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[83]" "braceletRN.placeHolderList[154]" 
+		""
+		5 4 "braceletRN" "bracelet:charset.linearValues[84]" "braceletRN.placeHolderList[155]" 
+		""
+		5 3 "braceletRN" "bracelet:charset.linearValues[85]" "braceletRN.placeHolderList[156]" 
+		"bracelet:all_CTRL.tz"
+		5 3 "braceletRN" "bracelet:charset.linearValues[86]" "braceletRN.placeHolderList[157]" 
+		"bracelet:all_CTRL.ty"
+		5 3 "braceletRN" "bracelet:charset.linearValues[87]" "braceletRN.placeHolderList[158]" 
+		"bracelet:all_CTRL.tx";
+	setAttr ".ptag" -type "string" "";
+lockNode -l 1 ;
+createNode pairBlend -n "pairBlend1";
+	rename -uid "48BD95FB-4E88-7D61-9AE2-F6935E3F2EB4";
+createNode animCurveTA -n "charset_left_l6_CTRL_rotateZ";
+	rename -uid "F82F6AA2-4F77-89C7-FEE8-5CAC75E378D7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_left_l6_CTRL_rotateY";
+	rename -uid "434B7FE6-4022-927F-2A5A-89878645A59F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_left_l6_CTRL_rotateX";
+	rename -uid "41FCFC74-403C-E6D1-798B-4FA245B17AEE";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_left_l6_CTRL_translateZ";
+	rename -uid "C3B70043-472E-A87E-A099-719249FA74D9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_left_l6_CTRL_translateY";
+	rename -uid "55BC66A2-4058-1D88-22F1-AE930C723BEE";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_left_l6_CTRL_translateX";
+	rename -uid "F4D2F6F2-4ED7-1EFE-284E-BABCDF553726";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_left_l5_CTRL_rotateZ";
+	rename -uid "E820117E-43D1-F86A-AF2B-3694664DEA4D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_left_l5_CTRL_rotateY";
+	rename -uid "6178EC8E-4ECD-527C-324F-8B9883A29E69";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_left_l5_CTRL_rotateX";
+	rename -uid "FB002A77-414E-3A1A-D34C-C297D39C6870";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_left_l5_CTRL_translateZ";
+	rename -uid "9EACB9F2-41D0-D356-A098-4E8FA58AFAFF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_left_l5_CTRL_translateY";
+	rename -uid "05E91682-426A-06E2-B061-5996007C9ED8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_left_l5_CTRL_translateX";
+	rename -uid "0B03EA22-4C8E-0523-E33D-1FBB5D0CEBC3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_left_l4_CTRL_rotateZ";
+	rename -uid "326CE0AF-4A88-45DF-F4CE-E3BE3BACE6DD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_left_l4_CTRL_rotateY";
+	rename -uid "EF8FD930-404C-D4F0-4399-5CA665CCB4C5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_left_l4_CTRL_rotateX";
+	rename -uid "E6640228-4E63-15D2-6373-CAAB5B9777C2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_left_l4_CTRL_translateZ";
+	rename -uid "59652946-45C5-6297-8BFF-FCBD6B8849AB";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_left_l4_CTRL_translateY";
+	rename -uid "BF127B2E-4CAC-257F-1306-E192CB0F5E5B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_left_l4_CTRL_translateX";
+	rename -uid "F7BB4A61-4B88-686B-33EB-A3BCB2DBB232";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_left_l3_CTRL_rotateZ";
+	rename -uid "D53FC829-4FF8-560F-6623-D7ADA9615604";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_left_l3_CTRL_rotateY";
+	rename -uid "B1070C85-4404-A707-FF7D-558023CEDD44";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_left_l3_CTRL_rotateX";
+	rename -uid "2B7C2679-46D8-B544-9CD0-5D8574381934";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_left_l3_CTRL_translateZ";
+	rename -uid "61DC3AD5-4A42-6232-60B3-B8A6F7784569";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_left_l3_CTRL_translateY";
+	rename -uid "7AD4F36C-4BD1-4D3B-63CD-30B4D017E325";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_left_l3_CTRL_translateX";
+	rename -uid "643FC17F-42CD-F5B6-DBBE-A2892BD1FA01";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_left_l2_CTRL_rotateZ";
+	rename -uid "93B51A95-49F9-B77A-D7EF-A8A93E34519A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_left_l2_CTRL_rotateY";
+	rename -uid "AF064C4B-4622-41C6-A454-4C895C047D25";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_left_l2_CTRL_rotateX";
+	rename -uid "B3BAB6BA-40D1-28E5-5A8C-AD9A99A61604";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_left_l2_CTRL_translateZ";
+	rename -uid "45927158-4520-5D00-7B9D-B0BAC07F747E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_left_l2_CTRL_translateY";
+	rename -uid "E8715B14-43DA-DED5-6588-7C8D6C95C0C1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_left_l2_CTRL_translateX";
+	rename -uid "46FC42AA-46F9-9461-90F6-A590FCB27BC2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_left_l1_CTRL_rotateZ";
+	rename -uid "9378B3CB-4479-3594-081A-389DEE6A25DA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_left_l1_CTRL_rotateY";
+	rename -uid "E69897D6-4AE8-E908-1471-43BB5B16D0C2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_left_l1_CTRL_rotateX";
+	rename -uid "129109C5-4513-3022-70BB-A281E6A28560";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_left_l1_CTRL_translateZ";
+	rename -uid "AAD3EA50-4419-502F-77C5-E388D1C42560";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_left_l1_CTRL_translateY";
+	rename -uid "4E61039A-4864-AD5D-54CF-C789D6BFCE73";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_left_l1_CTRL_translateX";
+	rename -uid "D6A02907-4208-41D1-FB54-D9A020857402";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_right_r6_CTRL_rotateZ";
+	rename -uid "09BF3D66-4390-8A81-0AD0-508A75903484";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_right_r6_CTRL_rotateY";
+	rename -uid "C3CD8D6B-4A80-5963-31FB-ECA2F582B43E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_right_r6_CTRL_rotateX";
+	rename -uid "46143435-4C91-C275-61D1-0B866EF25EC2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_right_r6_CTRL_translateZ";
+	rename -uid "F4A3E79C-463C-07C7-C21B-959254F97F2A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_right_r6_CTRL_translateY";
+	rename -uid "F363BC5A-45DE-73DB-F046-93B0CCA0B51A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_right_r6_CTRL_translateX";
+	rename -uid "0CACA397-4400-7B8D-FD9E-C381DF50B882";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_right_r5_CTRL_rotateZ";
+	rename -uid "410433C5-4473-781E-40F5-F0A604EB580F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_right_r5_CTRL_rotateY";
+	rename -uid "A99071D2-4E09-2F0B-DBC9-AAA5E9A2184E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_right_r5_CTRL_rotateX";
+	rename -uid "E527CF8F-40A9-E136-E1BE-4EB870443D9B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_right_r5_CTRL_translateZ";
+	rename -uid "949CFE3E-4B07-80A8-4093-D19CB7155DA9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_right_r5_CTRL_translateY";
+	rename -uid "307F930B-4323-C72B-06E5-CF970813D4ED";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_right_r5_CTRL_translateX";
+	rename -uid "EC2E3FAD-47C8-7204-89A0-E5B091C8F706";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_right_r4_CTRL_rotateZ";
+	rename -uid "6B9DDA9F-4B36-CD65-1369-428047CECF9F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_right_r4_CTRL_rotateY";
+	rename -uid "4D030553-41F3-7CAA-CD93-C88B55D0FBFE";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_right_r4_CTRL_rotateX";
+	rename -uid "3584FE8A-46CB-BC88-B960-6781DCF66E5C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_right_r4_CTRL_translateZ";
+	rename -uid "28867A6F-4C8B-CC06-BF38-3AB5C74581DC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_right_r4_CTRL_translateY";
+	rename -uid "3E07BBAE-4F49-BF4F-D53D-2CBFFC7861CA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_right_r4_CTRL_translateX";
+	rename -uid "7BA169AD-48BC-0BEA-C65C-89A803D0CADD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_right_r3_CTRL_rotateZ";
+	rename -uid "AED40368-48A3-B86E-D889-108DE416D887";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_right_r3_CTRL_rotateY";
+	rename -uid "9217CB30-4139-4971-AEB9-4CAF2C37958C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_right_r3_CTRL_rotateX";
+	rename -uid "9B66E1FF-4CF7-7BA4-05C5-048095BCD4E0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_right_r3_CTRL_translateZ";
+	rename -uid "4AD2C42D-40D0-8B9B-CE68-ABAD6E39D9F6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_right_r3_CTRL_translateY";
+	rename -uid "82ADD6EF-4CCA-EB39-3467-BD8C2C179BDF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_right_r3_CTRL_translateX";
+	rename -uid "FA645751-49F1-E855-81E3-2A842123B439";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_right_r2_CTRL_rotateZ";
+	rename -uid "B3D55900-4767-3961-A440-628250A67451";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_right_r2_CTRL_rotateY";
+	rename -uid "D2CBB37F-4A86-C340-3FDF-8089D320ABC8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_right_r2_CTRL_rotateX";
+	rename -uid "FBFF8FA5-4102-C0E7-4AC7-6FBE6086D2C8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_right_r2_CTRL_translateZ";
+	rename -uid "58F60010-4F72-D449-54F2-49B1453C1718";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_right_r2_CTRL_translateY";
+	rename -uid "3C2A1627-4316-25BE-8EF2-7894D66DD6EF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_right_r2_CTRL_translateX";
+	rename -uid "3D7936A9-435A-BF9F-8338-BB9EC630CAA7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_right_r1_CTRL_rotateZ";
+	rename -uid "688577DB-4C32-E23C-8D1E-8283CBEB9548";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_right_r1_CTRL_rotateY";
+	rename -uid "C9FBE8CB-494A-9D88-2024-969F5EF0A521";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_right_r1_CTRL_rotateX";
+	rename -uid "E728E94B-4E2F-7F33-AC3A-24B6E1C1E442";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_right_r1_CTRL_translateZ";
+	rename -uid "F9198A6A-4BEA-9729-4A12-E89A02D32B5E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_right_r1_CTRL_translateY";
+	rename -uid "D449D785-4816-0520-1CA9-8EB3F6723F90";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_right_r1_CTRL_translateX";
+	rename -uid "4B13E1FE-4BB0-D438-D880-3DBEE770DDC1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_middle_r2_CTRL_rotateZ";
+	rename -uid "43F501E3-4CE4-7227-D5BA-5C978C4449D2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_middle_r2_CTRL_rotateY";
+	rename -uid "F18CEBB5-4497-6A69-C605-D1ADE3835F61";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_middle_r2_CTRL_rotateX";
+	rename -uid "DE7B3580-450E-6ADA-8422-858CF0E0146B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_middle_r2_CTRL_translateZ";
+	rename -uid "FBD70860-42CA-DA12-95E3-0582B5F98EE6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_middle_r2_CTRL_translateY";
+	rename -uid "41F88DF3-47CC-2424-0110-77A8F5880374";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_middle_r2_CTRL_translateX";
+	rename -uid "3EA5F8FE-4CAE-20FB-0C88-F58F96C8F058";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_middle_r1_CTRL_rotateZ";
+	rename -uid "33701803-48E0-B649-CB45-23AE8F29C646";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_middle_r1_CTRL_rotateY";
+	rename -uid "101191E5-49B2-0C99-C258-40BC9A5FD0A3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_middle_r1_CTRL_rotateX";
+	rename -uid "E81B8449-43FF-421A-ACA8-D5B93529E11F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_middle_r1_CTRL_translateZ";
+	rename -uid "17884008-40BE-ACF2-FDA4-5C90800D4046";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_middle_r1_CTRL_translateY";
+	rename -uid "64FF02DD-48D6-659F-F6A3-FFBA9D54B18F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_middle_r1_CTRL_translateX";
+	rename -uid "A451551C-4DB0-5ED7-1BE3-B09FEB51C241";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_middle_l2_CTRL_rotateZ";
+	rename -uid "BC8ABB43-4040-FB46-E489-11B3D29ED70E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_middle_l2_CTRL_rotateY";
+	rename -uid "841850E3-48B3-B370-F613-87839851813C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_middle_l2_CTRL_rotateX";
+	rename -uid "0603648D-4874-55E7-FE09-31A57D9CC7E5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_middle_l2_CTRL_translateZ";
+	rename -uid "FBBD47C6-40FA-1707-043C-2C920B095E06";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_middle_l2_CTRL_translateY";
+	rename -uid "221B4EA3-4E42-79E3-1CDB-199DA42A9658";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_middle_l2_CTRL_translateX";
+	rename -uid "430EE1B0-4609-D671-8E8F-368DBD7A24AF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_middle_l1_CTRL_rotateZ";
+	rename -uid "E87E357E-4496-76EA-30AE-3ABF475812F1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_middle_l1_CTRL_rotateY";
+	rename -uid "A349DC8A-4E34-0885-CCCD-8180E1C425C6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_middle_l1_CTRL_rotateX";
+	rename -uid "6D34C9EF-447B-EEE1-8B90-4E814D83D480";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_middle_l1_CTRL_translateZ";
+	rename -uid "D463CB92-413E-30FB-E589-1D920EED4130";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_middle_l1_CTRL_translateY";
+	rename -uid "036D37D4-4CB1-3351-BC83-4C9A879BBD56";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_middle_l1_CTRL_translateX";
+	rename -uid "DD317A35-4170-5642-20CB-D3BDD8B3B4B2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_middl_root_CTRL_rotateZ";
+	rename -uid "189B28AD-4C92-0D9D-3BE4-BF80B7538281";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_middl_root_CTRL_rotateY";
+	rename -uid "D0C424D5-42D8-B515-18F5-1AB94F7A0635";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_middl_root_CTRL_rotateX";
+	rename -uid "5FAF07BA-4B24-C42E-D641-D9A217CFF3C6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_middl_root_CTRL_translateZ";
+	rename -uid "FE5653C4-4C54-8E13-6456-C2971BD08AB7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_middl_root_CTRL_translateY";
+	rename -uid "F2AEDC6B-4D39-2953-68E8-5A9357DE211F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_middl_root_CTRL_translateX";
+	rename -uid "D8FA2EA8-4574-9266-04D1-D6A51E1B2268";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_double_r2_CTRL_rotateZ";
+	rename -uid "1260ED99-424A-36F4-6A8F-68AAE58A927A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_double_r2_CTRL_rotateY";
+	rename -uid "407F906D-45BB-83AF-204D-9CAE8A0B613D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_double_r2_CTRL_rotateX";
+	rename -uid "D720DD40-45B7-B53E-28DE-65B9868A7FDF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_double_r2_CTRL_translateZ";
+	rename -uid "3D50C1A3-4875-CFDB-349E-7C8CA42F3AE6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_double_r2_CTRL_translateY";
+	rename -uid "985F0F98-4894-4262-78CE-22804753FF1F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_double_r2_CTRL_translateX";
+	rename -uid "E8D3451C-41AE-8966-E0BB-39A0CE883425";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_double_r1_CTRL_rotateZ";
+	rename -uid "C47068A6-476E-893A-6CD3-56AA56766C3F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_double_r1_CTRL_rotateY";
+	rename -uid "671022BF-47DE-CBAF-7354-5AB3DD91F8DF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_double_r1_CTRL_rotateX";
+	rename -uid "C007A377-4DCB-B201-54A1-D59846190A2B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_double_r1_CTRL_translateZ";
+	rename -uid "9EC03FFF-4E83-EFE4-F400-4DA6DF09ACA1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_double_r1_CTRL_translateY";
+	rename -uid "A6E7BF7B-41C7-EF68-1BFD-A3BD41ADAFDA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_double_r1_CTRL_translateX";
+	rename -uid "82C66D6E-40C2-7C81-595B-F4AF642495E9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_double_m1_CTRL_rotateZ";
+	rename -uid "8A5187FC-4572-0E33-8C1D-6EA310DC356E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_double_m1_CTRL_rotateY";
+	rename -uid "93AC01B9-4A7B-7DC6-4D84-0FAB3F42E023";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_double_m1_CTRL_rotateX";
+	rename -uid "BFD13A12-4CC1-4C01-4C5D-BE9BA1AB6358";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTL -n "charset_double_m1_CTRL_translateZ";
+	rename -uid "4565B2D4-442D-0E55-1FC5-E8969B93A2FF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -0.069577933372779066;
+createNode animCurveTL -n "charset_double_m1_CTRL_translateY";
+	rename -uid "5D7EAFAF-4FD9-B850-B8A8-398012D20A36";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1.6039646933960552;
+createNode animCurveTL -n "charset_double_m1_CTRL_translateX";
+	rename -uid "E2233CEE-4C32-DCD4-E1EC-88ABD23CC1F9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 7.0081138432572377e-015;
+createNode animCurveTA -n "charset_double_l2_CTRL_rotateZ";
+	rename -uid "EEEBAB19-4DD6-FC55-08C5-0E91EC4F3344";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 6 ".ktv[0:5]"  1 0 19 6.245171713389535 49 0.95415952238490509
+		 72 -2.2492029039992891 90 -2.2492029039992891 105 1.1422678711753835;
+createNode animCurveTA -n "charset_double_l2_CTRL_rotateY";
+	rename -uid "57B3776E-45CE-53EB-F51A-A68BA61E9EFE";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 6 ".ktv[0:5]"  1 0 19 -2.3297238256959174 49 -0.35682485125023694
+		 72 0.84090260044976872 90 0.84090260044976872 105 -0.42716035524368812;
+createNode animCurveTA -n "charset_double_l2_CTRL_rotateX";
+	rename -uid "31121077-4BAB-D2C2-80E9-1DA59C14D8C0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 6 ".ktv[0:5]"  1 -69.494714363176897 19 -69.62182624194935
+		 49 -69.497685583759377 72 -69.511222013948696 90 -69.511222013948696 105 -77.268269052001344;
+createNode animCurveTL -n "charset_double_l2_CTRL_translateZ";
+	rename -uid "6F12440A-4787-0850-92F0-E282C134A16A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 0 90 0;
+createNode animCurveTL -n "charset_double_l2_CTRL_translateY";
+	rename -uid "2DDA4B78-454C-13D3-C116-8E94A5D8E9B8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 0 90 0;
+createNode animCurveTL -n "charset_double_l2_CTRL_translateX";
+	rename -uid "163B4F68-4457-3587-20CE-78AC91C1F379";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 0 90 0;
+createNode animCurveTA -n "charset_double_l1_CTRL_rotateZ";
+	rename -uid "C9489325-4018-9286-5FCC-5D909F393FB2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_double_l1_CTRL_rotateY";
+	rename -uid "2F6FD37C-48AB-4789-A2D1-26A4CC8BD8DD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTA -n "charset_double_l1_CTRL_rotateX";
+	rename -uid "5B52654D-4E50-E37F-3CF0-439EB1701F17";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -135.0523501274993;
+createNode animCurveTL -n "charset_double_l1_CTRL_translateZ";
+	rename -uid "50389662-4376-2A5E-316A-2B9594F41E6F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 2.547156252248242;
+createNode animCurveTL -n "charset_double_l1_CTRL_translateY";
+	rename -uid "42E26069-4019-DE65-B0FE-39809E285CA2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -3.4743190872010978;
+createNode animCurveTL -n "charset_double_l1_CTRL_translateX";
+	rename -uid "DD68F1A9-4C31-CB6A-967F-C1A17087C003";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 3.1765226802867449e-016;
+createNode animCurveTU -n "charset_all_CTRL_pivotDouble";
+	rename -uid "F062F253-4453-5A52-9F27-D2980BE9618E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTU -n "charset_all_CTRL_pivotMiddle";
+	rename -uid "8ECCE499-496E-585D-109D-E2B087FBEB7D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTU -n "charset_all_CTRL_pivotRight";
+	rename -uid "100B3B3A-443C-0476-204A-7D93EF5A1AA5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTU -n "charset_all_CTRL_pivot_left";
+	rename -uid "A7EE1360-4CD7-0C17-1716-E6895AADED27";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 0;
+createNode animCurveTU -n "charset_all_CTRL_scaleZ3";
+	rename -uid "851CCE1A-49D5-D450-699A-9D93270D8497";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTU -n "charset_all_CTRL_scaleY3";
+	rename -uid "728FCEC3-4FEA-8CD7-907A-A5B683201354";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode animCurveTU -n "charset_all_CTRL_scaleX3";
+	rename -uid "AF1435BF-4242-F0C2-61E6-F4BE07DB0DB1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 1;
+createNode pairBlend -n "pairBlend2";
+	rename -uid "7D45654E-4C73-01CB-271C-E8955EC84BDD";
+	setAttr ".txm" 2;
+	setAttr ".tym" 2;
+	setAttr ".tzm" 2;
+createNode animCurveTA -n "pairBlend2_inRotateZ1";
+	rename -uid "1E25419A-4BE3-7461-E164-6697473B080A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -180;
+createNode animCurveTA -n "pairBlend2_inRotateY1";
+	rename -uid "BBB3581A-4E05-42D1-1C1A-BA98A4F8AE16";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -180;
+createNode animCurveTA -n "pairBlend2_inRotateX1";
+	rename -uid "52AB3796-4405-C08A-824D-41BE26A4404E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 270.44382889783657;
+createNode pairBlend -n "pairBlend3";
+	rename -uid "47ACB6BB-4703-C5B4-BD4C-46B55042733E";
+	setAttr ".rm" 2;
+createNode animCurveTL -n "pairBlend3_inTranslateZ1";
+	rename -uid "FA78944B-455B-1AC2-69C5-BA82B1EBE5D1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 35.640449894690221;
+createNode animCurveTL -n "pairBlend3_inTranslateY1";
+	rename -uid "0DB8AB30-4F15-BFEF-BACF-7C9F2F781E0F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 34.063175442515032;
+createNode animCurveTL -n "pairBlend3_inTranslateX1";
+	rename -uid "B1BFE6BE-4194-4F55-D1DB-30B6B76E6E14";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  1 -2.9410954214524563;
+createNode pairBlend -n "pairBlend4";
+	rename -uid "1B06B9B7-4735-8197-5EB6-F09A0665BB90";
+createNode animCurveTU -n "spline_03_CTRL_scaleX";
+	rename -uid "B76222B3-418F-0C55-964C-36B5C1FC80BD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 5 ".ktv[0:4]"  1 1 23 1 65 1 83 1 93 1;
+	setAttr -s 5 ".kit[1:4]"  9 18 18 18;
+	setAttr -s 5 ".kot[1:4]"  9 18 18 18;
+createNode animCurveTU -n "spline_03_CTRL_scaleY";
+	rename -uid "03109C33-4219-4750-E111-F9B6D933DA95";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 5 ".ktv[0:4]"  1 1 23 1 65 1 83 1 93 1;
+	setAttr -s 5 ".kit[1:4]"  9 18 18 18;
+	setAttr -s 5 ".kot[1:4]"  9 18 18 18;
+createNode animCurveTU -n "spline_03_CTRL_scaleZ";
+	rename -uid "AD03CDC3-42C8-3E0F-DBDB-649231AD4BD4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 5 ".ktv[0:4]"  1 1 23 1 65 1 83 1 93 1;
+	setAttr -s 5 ".kit[1:4]"  9 18 18 18;
+	setAttr -s 5 ".kot[1:4]"  9 18 18 18;
+createNode animCurveTU -n "l_eye_open_CTRL_visibility";
+	rename -uid "104C1FD9-464C-EFAC-28D4-1BB89C38B725";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  85 1 89 1 97 1;
+	setAttr -s 3 ".kot[0:2]"  5 5 5;
+createNode animCurveTU -n "r_brow_CTRL_visibility";
+	rename -uid "3F6BF000-48D6-FE6E-F09B-F58B1C4D77EB";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  86 1 90 1 98 1;
+	setAttr -s 3 ".kot[0:2]"  5 5 5;
+createNode animCurveTU -n "l_brow_CTRL_visibility";
+	rename -uid "5B6311BC-413F-D422-0592-5AA67FAF4AA9";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  86 1 90 1 98 1;
+	setAttr -s 3 ".kot[0:2]"  5 5 5;
+createNode animCurveTU -n "r_eye_open_CTRL_visibility";
+	rename -uid "DEC82114-4EE1-14FA-F88D-6DB105321D9B";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  85 1 89 1 97 1;
+	setAttr -s 3 ".kot[0:2]"  5 5 5;
+createNode animCurveTU -n "head_CTRL_scaleX1";
+	rename -uid "BCE675F9-411D-FF0D-895C-13B44E1CCE69";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  35 1 45 1 67 1 115 1;
+createNode animCurveTU -n "head_CTRL_scaleY1";
+	rename -uid "C9DAB247-401F-221C-92A0-6286A8C83C5E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  35 1 45 1 67 1 115 1;
+createNode animCurveTU -n "head_CTRL_scaleZ1";
+	rename -uid "BC7B3D4A-4471-F118-C784-CE8B9B413D32";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 4 ".ktv[0:3]"  35 1 45 1 67 1 115 1;
+createNode animCurveTU -n "r_eye_open_CTRL_visibility1";
+	rename -uid "2B50CB25-4A0A-0104-5610-7D9CDA31D6C8";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  29 1 34 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
+createNode animCurveTU -n "l_eye_open_CTRL_visibility1";
+	rename -uid "3BC0E9F9-422D-A1F4-B31D-FFB7EBADFF2D";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  29 1 34 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
+createNode pairBlend -n "pairBlend5";
+	rename -uid "F87FE1B8-4EB7-23E9-CE98-DB90A2CC5C70";
+createNode animCurveTU -n "r_ik_hand_CTRL_blendParent2";
+	rename -uid "8FB495F6-4FA4-D953-2A5F-4FB4EE7EB2BD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  36 1;
+createNode animCurveTU -n "r_brow_CTRL_visibility1";
+	rename -uid "826EBD02-4E33-68E4-B1F5-2EB8C3452291";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  65 1;
+	setAttr ".kot[0]"  5;
+createNode animCurveTU -n "l_brow_CTRL_visibility1";
+	rename -uid "7D1A3ED7-44BD-89AB-8384-96B09292D4E8";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr ".ktv[0]"  65 1;
+	setAttr ".kot[0]"  5;
 select -ne :time1;
-	setAttr ".o" 120;
-	setAttr ".unw" 120;
+	setAttr ".o" 115;
+	setAttr ".unw" 115;
 select -ne :hardwareRenderingGlobals;
 	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
 	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
@@ -11896,21 +14341,21 @@ select -ne :hardwareRenderingGlobals;
 	setAttr ".msaa" yes;
 	setAttr ".fprt" yes;
 select -ne :renderPartition;
-	setAttr -s 17 ".st";
+	setAttr -s 19 ".st";
 select -ne :renderGlobalsList1;
 select -ne :defaultShaderList1;
-	setAttr -s 19 ".s";
+	setAttr -s 21 ".s";
 select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderUtilityList1;
-	setAttr -s 328 ".u";
+	setAttr -s 329 ".u";
 select -ne :defaultRenderingList1;
-	setAttr -s 9 ".r";
+	setAttr -s 10 ".r";
 select -ne :defaultTextureList1;
-	setAttr -s 14 ".tx";
+	setAttr -s 15 ".tx";
 select -ne :lambert1;
 select -ne :initialShadingGroup;
-	setAttr -s 60 ".dsm";
+	setAttr -s 66 ".dsm";
 	setAttr ".ro" yes;
 select -ne :initialParticleSE;
 	setAttr ".ro" yes;
@@ -11927,743 +14372,969 @@ select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
 select -ne :characterPartition;
-	setAttr -s 3 ".st";
+	setAttr -s 4 ".st";
 select -ne :ikSystem;
 	setAttr -s 6 ".sol";
-connectAttr "head_CTRL_scaleX.o" "girlRN.phl[1]";
-connectAttr "head_CTRL_scaleY.o" "girlRN.phl[2]";
-connectAttr "head_CTRL_scaleZ.o" "girlRN.phl[3]";
-connectAttr "charset_spline_02_CTRL_translateZ1.o" "girlRN.phl[4]";
-connectAttr "charset_spline_02_CTRL_translateY1.o" "girlRN.phl[5]";
-connectAttr "charset_spline_02_CTRL_translateX1.o" "girlRN.phl[6]";
-connectAttr "charset_spline_01_CTRL_translateZ1.o" "girlRN.phl[7]";
-connectAttr "charset_spline_01_CTRL_translateY1.o" "girlRN.phl[8]";
-connectAttr "charset_spline_01_CTRL_translateX1.o" "girlRN.phl[9]";
-connectAttr "charset_root_CTRL_translateZ1.o" "girlRN.phl[10]";
-connectAttr "charset_root_CTRL_translateY1.o" "girlRN.phl[11]";
-connectAttr "charset_root_CTRL_translateX1.o" "girlRN.phl[12]";
-connectAttr "charset_r_shoulder_CTRL_translateZ1.o" "girlRN.phl[13]";
-connectAttr "charset_r_shoulder_CTRL_translateY1.o" "girlRN.phl[14]";
-connectAttr "charset_r_shoulder_CTRL_translateX1.o" "girlRN.phl[15]";
-connectAttr "charset_r_leg_poleVector_CTRL_translateZ49.o" "girlRN.phl[16]";
-connectAttr "charset_r_leg_poleVector_CTRL_translateY49.o" "girlRN.phl[17]";
-connectAttr "charset_r_leg_poleVector_CTRL_translateX49.o" "girlRN.phl[18]";
-connectAttr "charset_r_leg_poleVector_CTRL_translateZ50.o" "girlRN.phl[19]";
-connectAttr "charset_r_leg_poleVector_CTRL_translateY50.o" "girlRN.phl[20]";
-connectAttr "charset_r_leg_poleVector_CTRL_translateX50.o" "girlRN.phl[21]";
-connectAttr "charset_r_ik_leg_CTRL_translateZ1.o" "girlRN.phl[22]";
-connectAttr "charset_r_ik_leg_CTRL_translateY1.o" "girlRN.phl[23]";
-connectAttr "charset_r_ik_leg_CTRL_translateX1.o" "girlRN.phl[24]";
-connectAttr "charset_r_ik_hand_CTRL_translateZ1.o" "girlRN.phl[25]";
-connectAttr "charset_r_ik_hand_CTRL_translateY1.o" "girlRN.phl[26]";
-connectAttr "charset_r_ik_hand_CTRL_translateX1.o" "girlRN.phl[27]";
-connectAttr "charset_r_finger_04_CTRL_translateZ1.o" "girlRN.phl[28]";
-connectAttr "charset_r_finger_04_CTRL_translateY1.o" "girlRN.phl[29]";
-connectAttr "charset_r_finger_04_CTRL_translateX1.o" "girlRN.phl[30]";
-connectAttr "charset_r_finger_03_CTRL_translateZ1.o" "girlRN.phl[31]";
-connectAttr "charset_r_finger_03_CTRL_translateY1.o" "girlRN.phl[32]";
-connectAttr "charset_r_finger_03_CTRL_translateX1.o" "girlRN.phl[33]";
-connectAttr "charset_r_finger_02_CTRL_translateZ1.o" "girlRN.phl[34]";
-connectAttr "charset_r_finger_02_CTRL_translateY1.o" "girlRN.phl[35]";
-connectAttr "charset_r_finger_02_CTRL_translateX1.o" "girlRN.phl[36]";
-connectAttr "charset_r_finger_01_CTRL_translateZ1.o" "girlRN.phl[37]";
-connectAttr "charset_r_finger_01_CTRL_translateY1.o" "girlRN.phl[38]";
-connectAttr "charset_r_finger_01_CTRL_translateX1.o" "girlRN.phl[39]";
-connectAttr "charset_neck_CTRL_translateZ1.o" "girlRN.phl[40]";
-connectAttr "charset_neck_CTRL_translateY1.o" "girlRN.phl[41]";
-connectAttr "charset_neck_CTRL_translateX1.o" "girlRN.phl[42]";
-connectAttr "charset_l_shoulder_CTRL_translateZ1.o" "girlRN.phl[43]";
-connectAttr "charset_l_shoulder_CTRL_translateY1.o" "girlRN.phl[44]";
-connectAttr "charset_l_shoulder_CTRL_translateX1.o" "girlRN.phl[45]";
-connectAttr "charset_l_leg_poleVector_CTRL_translateZ49.o" "girlRN.phl[46]";
-connectAttr "charset_l_leg_poleVector_CTRL_translateY49.o" "girlRN.phl[47]";
-connectAttr "charset_l_leg_poleVector_CTRL_translateX49.o" "girlRN.phl[48]";
-connectAttr "charset_l_leg_poleVector_CTRL_translateZ50.o" "girlRN.phl[49]";
-connectAttr "charset_l_leg_poleVector_CTRL_translateY50.o" "girlRN.phl[50]";
-connectAttr "charset_l_leg_poleVector_CTRL_translateX50.o" "girlRN.phl[51]";
-connectAttr "charset_l_ik_leg_CTRL_translateZ1.o" "girlRN.phl[52]";
-connectAttr "charset_l_ik_leg_CTRL_translateY1.o" "girlRN.phl[53]";
-connectAttr "charset_l_ik_leg_CTRL_translateX1.o" "girlRN.phl[54]";
-connectAttr "charset_l_ik_hand_CTRL_translateZ1.o" "girlRN.phl[55]";
-connectAttr "charset_l_ik_hand_CTRL_translateY1.o" "girlRN.phl[56]";
-connectAttr "charset_l_ik_hand_CTRL_translateX1.o" "girlRN.phl[57]";
-connectAttr "charset_l_finger_04_CTRL_translateZ1.o" "girlRN.phl[58]";
-connectAttr "charset_l_finger_04_CTRL_translateY1.o" "girlRN.phl[59]";
-connectAttr "charset_l_finger_04_CTRL_translateX1.o" "girlRN.phl[60]";
-connectAttr "charset_l_finger_03_CTRL_translateZ1.o" "girlRN.phl[61]";
-connectAttr "charset_l_finger_03_CTRL_translateY1.o" "girlRN.phl[62]";
-connectAttr "charset_l_finger_03_CTRL_translateX1.o" "girlRN.phl[63]";
-connectAttr "charset_l_finger_02_CTRL_translateZ1.o" "girlRN.phl[64]";
-connectAttr "charset_l_finger_02_CTRL_translateY1.o" "girlRN.phl[65]";
-connectAttr "charset_l_finger_02_CTRL_translateX1.o" "girlRN.phl[66]";
-connectAttr "charset_l_finger_01_CTRL_translateZ1.o" "girlRN.phl[67]";
-connectAttr "charset_l_finger_01_CTRL_translateY1.o" "girlRN.phl[68]";
-connectAttr "charset_l_finger_01_CTRL_translateX1.o" "girlRN.phl[69]";
-connectAttr "charset_hip_CTRL_translateZ1.o" "girlRN.phl[70]";
-connectAttr "charset_hip_CTRL_translateY1.o" "girlRN.phl[71]";
-connectAttr "charset_hip_CTRL_translateX1.o" "girlRN.phl[72]";
-connectAttr "charset_head_ik_CTRL_translateZ1.o" "girlRN.phl[73]";
-connectAttr "charset_head_ik_CTRL_translateY1.o" "girlRN.phl[74]";
-connectAttr "charset_head_ik_CTRL_translateX1.o" "girlRN.phl[75]";
-connectAttr "charset_head_CTRL_translateZ1.o" "girlRN.phl[76]";
-connectAttr "charset_head_CTRL_translateY1.o" "girlRN.phl[77]";
-connectAttr "charset_head_CTRL_translateX1.o" "girlRN.phl[78]";
-connectAttr "charset_fk_r_upperKnee_CTRL_translateZ1.o" "girlRN.phl[79]";
-connectAttr "charset_fk_r_upperKnee_CTRL_translateY1.o" "girlRN.phl[80]";
-connectAttr "charset_fk_r_upperKnee_CTRL_translateX1.o" "girlRN.phl[81]";
-connectAttr "charset_fk_r_toe_CTRL_translateZ1.o" "girlRN.phl[82]";
-connectAttr "charset_fk_r_toe_CTRL_translateY1.o" "girlRN.phl[83]";
-connectAttr "charset_fk_r_toe_CTRL_translateX1.o" "girlRN.phl[84]";
-connectAttr "charset_fk_r_leg_CTRL_translateZ1.o" "girlRN.phl[85]";
-connectAttr "charset_fk_r_leg_CTRL_translateY1.o" "girlRN.phl[86]";
-connectAttr "charset_fk_r_leg_CTRL_translateX1.o" "girlRN.phl[87]";
-connectAttr "charset_fk_r_hand_CTRL_translateZ1.o" "girlRN.phl[88]";
-connectAttr "charset_fk_r_hand_CTRL_translateY1.o" "girlRN.phl[89]";
-connectAttr "charset_fk_r_hand_CTRL_translateX1.o" "girlRN.phl[90]";
-connectAttr "charset_fk_r_elbow_CTRL_translateZ1.o" "girlRN.phl[91]";
-connectAttr "charset_fk_r_elbow_CTRL_translateY1.o" "girlRN.phl[92]";
-connectAttr "charset_fk_r_elbow_CTRL_translateX1.o" "girlRN.phl[93]";
-connectAttr "charset_fk_r_ball_CTRL_translateZ1.o" "girlRN.phl[94]";
-connectAttr "charset_fk_r_ball_CTRL_translateY1.o" "girlRN.phl[95]";
-connectAttr "charset_fk_r_ball_CTRL_translateX1.o" "girlRN.phl[96]";
-connectAttr "charset_fk_r_arm_CTRL_translateZ1.o" "girlRN.phl[97]";
-connectAttr "charset_fk_r_arm_CTRL_translateY1.o" "girlRN.phl[98]";
-connectAttr "charset_fk_r_arm_CTRL_translateX1.o" "girlRN.phl[99]";
-connectAttr "charset_fk_r_ankle_CTRL_translateZ1.o" "girlRN.phl[100]";
-connectAttr "charset_fk_r_ankle_CTRL_translateY1.o" "girlRN.phl[101]";
-connectAttr "charset_fk_r_ankle_CTRL_translateX1.o" "girlRN.phl[102]";
-connectAttr "charset_fk_l_upperKnee_CTRL_translateZ1.o" "girlRN.phl[103]";
-connectAttr "charset_fk_l_upperKnee_CTRL_translateY1.o" "girlRN.phl[104]";
-connectAttr "charset_fk_l_upperKnee_CTRL_translateX1.o" "girlRN.phl[105]";
-connectAttr "charset_fk_l_toe_CTRL_translateZ1.o" "girlRN.phl[106]";
-connectAttr "charset_fk_l_toe_CTRL_translateY1.o" "girlRN.phl[107]";
-connectAttr "charset_fk_l_toe_CTRL_translateX1.o" "girlRN.phl[108]";
-connectAttr "charset_fk_l_leg_CTRL_translateZ1.o" "girlRN.phl[109]";
-connectAttr "charset_fk_l_leg_CTRL_translateY1.o" "girlRN.phl[110]";
-connectAttr "charset_fk_l_leg_CTRL_translateX1.o" "girlRN.phl[111]";
-connectAttr "charset_fk_l_hand_CTRL_translateZ1.o" "girlRN.phl[112]";
-connectAttr "charset_fk_l_hand_CTRL_translateY1.o" "girlRN.phl[113]";
-connectAttr "charset_fk_l_hand_CTRL_translateX1.o" "girlRN.phl[114]";
-connectAttr "charset_fk_l_elbow_CTRL_translateZ1.o" "girlRN.phl[115]";
-connectAttr "charset_fk_l_elbow_CTRL_translateY1.o" "girlRN.phl[116]";
-connectAttr "charset_fk_l_elbow_CTRL_translateX1.o" "girlRN.phl[117]";
-connectAttr "charset_fk_l_ball_CTRL_translateZ1.o" "girlRN.phl[118]";
-connectAttr "charset_fk_l_ball_CTRL_translateY1.o" "girlRN.phl[119]";
-connectAttr "charset_fk_l_ball_CTRL_translateX1.o" "girlRN.phl[120]";
-connectAttr "charset_fk_l_arm_CTRL_translateZ1.o" "girlRN.phl[121]";
-connectAttr "charset_fk_l_arm_CTRL_translateY1.o" "girlRN.phl[122]";
-connectAttr "charset_fk_l_arm_CTRL_translateX1.o" "girlRN.phl[123]";
-connectAttr "charset_fk_l_ankle_CTRL_translateZ1.o" "girlRN.phl[124]";
-connectAttr "charset_fk_l_ankle_CTRL_translateY1.o" "girlRN.phl[125]";
-connectAttr "charset_fk_l_ankle_CTRL_translateX1.o" "girlRN.phl[126]";
-connectAttr "charset_all_CTRL_translateZ1.o" "girlRN.phl[127]";
-connectAttr "charset_all_CTRL_translateY1.o" "girlRN.phl[128]";
-connectAttr "charset_all_CTRL_translateX1.o" "girlRN.phl[129]";
-connectAttr "charset_spline_03_CTRL_translateZ1.o" "girlRN.phl[130]";
-connectAttr "charset_spline_03_CTRL_translateY1.o" "girlRN.phl[131]";
-connectAttr "charset_spline_03_CTRL_translateX1.o" "girlRN.phl[132]";
-connectAttr "charset_linearValues_133_1.o" "girlRN.phl[133]";
-connectAttr "charset_linearValues_134_1.o" "girlRN.phl[134]";
-connectAttr "charset_linearValues_135_1.o" "girlRN.phl[135]";
-connectAttr "charset_linearValues_136_1.o" "girlRN.phl[136]";
-connectAttr "charset_linearValues_137_1.o" "girlRN.phl[137]";
-connectAttr "charset_linearValues_138_1.o" "girlRN.phl[138]";
-connectAttr "charset_linearValues_139_1.o" "girlRN.phl[139]";
-connectAttr "charset_linearValues_140_1.o" "girlRN.phl[140]";
-connectAttr "charset_linearValues_141_1.o" "girlRN.phl[141]";
-connectAttr "charset_linearValues_142_1.o" "girlRN.phl[142]";
-connectAttr "charset_linearValues_143_1.o" "girlRN.phl[143]";
-connectAttr "charset_linearValues_144_1.o" "girlRN.phl[144]";
-connectAttr "charset_linearValues_145_1.o" "girlRN.phl[145]";
-connectAttr "charset_linearValues_146_1.o" "girlRN.phl[146]";
-connectAttr "charset_linearValues_147_1.o" "girlRN.phl[147]";
-connectAttr "charset_linearValues_148_1.o" "girlRN.phl[148]";
-connectAttr "charset_linearValues_149_1.o" "girlRN.phl[149]";
-connectAttr "charset_linearValues_150_1.o" "girlRN.phl[150]";
-connectAttr "charset_linearValues_151_1.o" "girlRN.phl[151]";
-connectAttr "charset_linearValues_152_1.o" "girlRN.phl[152]";
-connectAttr "charset_linearValues_153_1.o" "girlRN.phl[153]";
-connectAttr "charset_linearValues_154_1.o" "girlRN.phl[154]";
-connectAttr "charset_linearValues_155_1.o" "girlRN.phl[155]";
-connectAttr "charset_linearValues_156_1.o" "girlRN.phl[156]";
-connectAttr "charset_linearValues_157_1.o" "girlRN.phl[157]";
-connectAttr "charset_linearValues_158_1.o" "girlRN.phl[158]";
-connectAttr "charset_linearValues_159_1.o" "girlRN.phl[159]";
-connectAttr "charset_linearValues_160_1.o" "girlRN.phl[160]";
-connectAttr "charset_linearValues_161_1.o" "girlRN.phl[161]";
-connectAttr "charset_linearValues_162_1.o" "girlRN.phl[162]";
-connectAttr "charset_linearValues_163_1.o" "girlRN.phl[163]";
-connectAttr "charset_linearValues_164_1.o" "girlRN.phl[164]";
-connectAttr "charset_linearValues_165_1.o" "girlRN.phl[165]";
-connectAttr "charset_linearValues_166_1.o" "girlRN.phl[166]";
-connectAttr "charset_linearValues_167_1.o" "girlRN.phl[167]";
-connectAttr "charset_linearValues_168_1.o" "girlRN.phl[168]";
-connectAttr "charset_linearValues_169_1.o" "girlRN.phl[169]";
-connectAttr "charset_linearValues_170_1.o" "girlRN.phl[170]";
-connectAttr "charset_linearValues_171_1.o" "girlRN.phl[171]";
-connectAttr "charset_linearValues_172_1.o" "girlRN.phl[172]";
-connectAttr "charset_linearValues_173_1.o" "girlRN.phl[173]";
-connectAttr "charset_linearValues_174_1.o" "girlRN.phl[174]";
-connectAttr "charset_linearValues_175_1.o" "girlRN.phl[175]";
-connectAttr "charset_linearValues_176_1.o" "girlRN.phl[176]";
-connectAttr "charset_linearValues_177_1.o" "girlRN.phl[177]";
-connectAttr "charset_linearValues_178_1.o" "girlRN.phl[178]";
-connectAttr "charset_linearValues_179_1.o" "girlRN.phl[179]";
-connectAttr "charset_linearValues_180_1.o" "girlRN.phl[180]";
-connectAttr "charset_linearValues_181_1.o" "girlRN.phl[181]";
-connectAttr "charset_linearValues_182_1.o" "girlRN.phl[182]";
-connectAttr "charset_linearValues_183_1.o" "girlRN.phl[183]";
-connectAttr "charset_linearValues_184_1.o" "girlRN.phl[184]";
-connectAttr "charset_linearValues_185_1.o" "girlRN.phl[185]";
-connectAttr "charset_linearValues_186_1.o" "girlRN.phl[186]";
-connectAttr "charset_linearValues_187_1.o" "girlRN.phl[187]";
-connectAttr "charset_linearValues_188_1.o" "girlRN.phl[188]";
-connectAttr "charset_linearValues_189_1.o" "girlRN.phl[189]";
-connectAttr "charset_linearValues_190_1.o" "girlRN.phl[190]";
-connectAttr "charset_linearValues_191_1.o" "girlRN.phl[191]";
-connectAttr "charset_linearValues_192_1.o" "girlRN.phl[192]";
-connectAttr "charset_linearValues_193_1.o" "girlRN.phl[193]";
-connectAttr "charset_linearValues_194_1.o" "girlRN.phl[194]";
-connectAttr "charset_linearValues_195_1.o" "girlRN.phl[195]";
-connectAttr "charset_linearValues_196_1.o" "girlRN.phl[196]";
-connectAttr "charset_linearValues_197_1.o" "girlRN.phl[197]";
-connectAttr "charset_linearValues_198_.o" "girlRN.phl[198]";
-connectAttr "charset_linearValues_199_.o" "girlRN.phl[199]";
-connectAttr "charset_linearValues_200_.o" "girlRN.phl[200]";
-connectAttr "charset_linearValues_201_.o" "girlRN.phl[201]";
-connectAttr "charset_linearValues_202_.o" "girlRN.phl[202]";
-connectAttr "charset_linearValues_203_.o" "girlRN.phl[203]";
-connectAttr "charset_r_legSwitch_CTRL_ikFkSwitch1.o" "girlRN.phl[204]";
-connectAttr "charset_l_armSwitch_CTRL_ikFkSwitch1.o" "girlRN.phl[205]";
-connectAttr "charset_r_armSwitch_CTRL_ikFkSwitch1.o" "girlRN.phl[206]";
-connectAttr "charset_l_legSwitch_CTRL_ikFkSwitch1.o" "girlRN.phl[207]";
-connectAttr "charset_r_ik_hand_CTRL_snapToElbow1.o" "girlRN.phl[208]";
-connectAttr "charset_l_ik_hand_CTRL_snapToElbow1.o" "girlRN.phl[209]";
-connectAttr "charset_l_ik_leg_CTRL_kneeSnap1.o" "girlRN.phl[210]";
-connectAttr "charset_l_ik_leg_CTRL_ToeTurn1.o" "girlRN.phl[211]";
-connectAttr "charset_l_ik_leg_CTRL_ballTurn1.o" "girlRN.phl[212]";
-connectAttr "charset_l_ik_leg_CTRL_heelTurn1.o" "girlRN.phl[213]";
-connectAttr "charset_l_ik_leg_CTRL_toeStraightAngle1.o" "girlRN.phl[214]";
-connectAttr "charset_l_ik_leg_CTRL_bandLimitAngle1.o" "girlRN.phl[215]";
-connectAttr "charset_l_ik_leg_CTRL_roll1.o" "girlRN.phl[216]";
-connectAttr "charset_l_ik_leg_CTRL_tilt1.o" "girlRN.phl[217]";
-connectAttr "charset_r_ik_leg_CTRL_kneeSnap1.o" "girlRN.phl[218]";
-connectAttr "charset_r_ik_leg_CTRL_ToeTurn1.o" "girlRN.phl[219]";
-connectAttr "charset_r_ik_leg_CTRL_ballTurn1.o" "girlRN.phl[220]";
-connectAttr "charset_r_ik_leg_CTRL_heelTurn1.o" "girlRN.phl[221]";
-connectAttr "charset_r_ik_leg_CTRL_toeStraightAngle1.o" "girlRN.phl[222]";
-connectAttr "charset_r_ik_leg_CTRL_bandLimitAngle1.o" "girlRN.phl[223]";
-connectAttr "charset_r_ik_leg_CTRL_roll1.o" "girlRN.phl[224]";
-connectAttr "charset_r_ik_leg_CTRL_tilt1.o" "girlRN.phl[225]";
-connectAttr "charset_all_CTRL_scaleZ1.o" "girlRN.phl[226]";
-connectAttr "charset_all_CTRL_scaleY1.o" "girlRN.phl[227]";
-connectAttr "charset_all_CTRL_scaleX1.o" "girlRN.phl[228]";
-connectAttr "charset_head_CTRL_ikFkSwitch1.o" "girlRN.phl[229]";
-connectAttr "charset_unitlessValues_27_1.o" "girlRN.phl[230]";
-connectAttr "charset_unitlessValues_28_1.o" "girlRN.phl[231]";
-connectAttr "charset_spline_02_CTRL_rotateZ1.o" "girlRN.phl[232]";
-connectAttr "charset_spline_02_CTRL_rotateY1.o" "girlRN.phl[233]";
-connectAttr "charset_spline_02_CTRL_rotateX1.o" "girlRN.phl[234]";
-connectAttr "charset_spline_01_CTRL_rotateZ1.o" "girlRN.phl[235]";
-connectAttr "charset_spline_01_CTRL_rotateY1.o" "girlRN.phl[236]";
-connectAttr "charset_spline_01_CTRL_rotateX1.o" "girlRN.phl[237]";
-connectAttr "charset_root_CTRL_rotateZ1.o" "girlRN.phl[238]";
-connectAttr "charset_root_CTRL_rotateY1.o" "girlRN.phl[239]";
-connectAttr "charset_root_CTRL_rotateX1.o" "girlRN.phl[240]";
-connectAttr "charset_r_shoulder_CTRL_rotateZ1.o" "girlRN.phl[241]";
-connectAttr "charset_r_shoulder_CTRL_rotateY1.o" "girlRN.phl[242]";
-connectAttr "charset_r_shoulder_CTRL_rotateX1.o" "girlRN.phl[243]";
-connectAttr "charset_r_leg_poleVector_CTRL_rotateZ49.o" "girlRN.phl[244]";
-connectAttr "charset_r_leg_poleVector_CTRL_rotateY49.o" "girlRN.phl[245]";
-connectAttr "charset_r_leg_poleVector_CTRL_rotateX49.o" "girlRN.phl[246]";
-connectAttr "charset_r_leg_poleVector_CTRL_rotateZ50.o" "girlRN.phl[247]";
-connectAttr "charset_r_leg_poleVector_CTRL_rotateY50.o" "girlRN.phl[248]";
-connectAttr "charset_r_leg_poleVector_CTRL_rotateX50.o" "girlRN.phl[249]";
-connectAttr "charset_r_ik_leg_CTRL_rotateZ1.o" "girlRN.phl[250]";
-connectAttr "charset_r_ik_leg_CTRL_rotateY1.o" "girlRN.phl[251]";
-connectAttr "charset_r_ik_leg_CTRL_rotateX1.o" "girlRN.phl[252]";
-connectAttr "charset_r_ik_hand_CTRL_rotateZ1.o" "girlRN.phl[253]";
-connectAttr "charset_r_ik_hand_CTRL_rotateY1.o" "girlRN.phl[254]";
-connectAttr "charset_r_ik_hand_CTRL_rotateX1.o" "girlRN.phl[255]";
-connectAttr "charset_r_finger_04_CTRL_rotateZ1.o" "girlRN.phl[256]";
-connectAttr "charset_r_finger_04_CTRL_rotateY1.o" "girlRN.phl[257]";
-connectAttr "charset_r_finger_04_CTRL_rotateX1.o" "girlRN.phl[258]";
-connectAttr "charset_r_finger_03_CTRL_rotateZ1.o" "girlRN.phl[259]";
-connectAttr "charset_r_finger_03_CTRL_rotateY1.o" "girlRN.phl[260]";
-connectAttr "charset_r_finger_03_CTRL_rotateX1.o" "girlRN.phl[261]";
-connectAttr "charset_r_finger_02_CTRL_rotateZ1.o" "girlRN.phl[262]";
-connectAttr "charset_r_finger_02_CTRL_rotateY1.o" "girlRN.phl[263]";
-connectAttr "charset_r_finger_02_CTRL_rotateX1.o" "girlRN.phl[264]";
-connectAttr "charset_r_finger_01_CTRL_rotateZ1.o" "girlRN.phl[265]";
-connectAttr "charset_r_finger_01_CTRL_rotateY1.o" "girlRN.phl[266]";
-connectAttr "charset_r_finger_01_CTRL_rotateX1.o" "girlRN.phl[267]";
-connectAttr "charset_neck_CTRL_rotateZ1.o" "girlRN.phl[268]";
-connectAttr "charset_neck_CTRL_rotateY1.o" "girlRN.phl[269]";
-connectAttr "charset_neck_CTRL_rotateX1.o" "girlRN.phl[270]";
-connectAttr "charset_l_shoulder_CTRL_rotateZ1.o" "girlRN.phl[271]";
-connectAttr "charset_l_shoulder_CTRL_rotateY1.o" "girlRN.phl[272]";
-connectAttr "charset_l_shoulder_CTRL_rotateX1.o" "girlRN.phl[273]";
-connectAttr "charset_l_leg_poleVector_CTRL_rotateZ49.o" "girlRN.phl[274]";
-connectAttr "charset_l_leg_poleVector_CTRL_rotateY49.o" "girlRN.phl[275]";
-connectAttr "charset_l_leg_poleVector_CTRL_rotateX49.o" "girlRN.phl[276]";
-connectAttr "charset_l_leg_poleVector_CTRL_rotateZ50.o" "girlRN.phl[277]";
-connectAttr "charset_l_leg_poleVector_CTRL_rotateY50.o" "girlRN.phl[278]";
-connectAttr "charset_l_leg_poleVector_CTRL_rotateX50.o" "girlRN.phl[279]";
-connectAttr "charset_l_ik_leg_CTRL_rotateZ1.o" "girlRN.phl[280]";
-connectAttr "charset_l_ik_leg_CTRL_rotateY1.o" "girlRN.phl[281]";
-connectAttr "charset_l_ik_leg_CTRL_rotateX1.o" "girlRN.phl[282]";
-connectAttr "charset_l_ik_hand_CTRL_rotateZ1.o" "girlRN.phl[283]";
-connectAttr "charset_l_ik_hand_CTRL_rotateY1.o" "girlRN.phl[284]";
-connectAttr "charset_l_ik_hand_CTRL_rotateX1.o" "girlRN.phl[285]";
-connectAttr "charset_l_finger_04_CTRL_rotateZ1.o" "girlRN.phl[286]";
-connectAttr "charset_l_finger_04_CTRL_rotateY1.o" "girlRN.phl[287]";
-connectAttr "charset_l_finger_04_CTRL_rotateX1.o" "girlRN.phl[288]";
-connectAttr "charset_l_finger_03_CTRL_rotateZ1.o" "girlRN.phl[289]";
-connectAttr "charset_l_finger_03_CTRL_rotateY1.o" "girlRN.phl[290]";
-connectAttr "charset_l_finger_03_CTRL_rotateX1.o" "girlRN.phl[291]";
-connectAttr "charset_l_finger_02_CTRL_rotateZ1.o" "girlRN.phl[292]";
-connectAttr "charset_l_finger_02_CTRL_rotateY1.o" "girlRN.phl[293]";
-connectAttr "charset_l_finger_02_CTRL_rotateX1.o" "girlRN.phl[294]";
-connectAttr "charset_l_finger_01_CTRL_rotateZ1.o" "girlRN.phl[295]";
-connectAttr "charset_l_finger_01_CTRL_rotateY1.o" "girlRN.phl[296]";
-connectAttr "charset_l_finger_01_CTRL_rotateX1.o" "girlRN.phl[297]";
-connectAttr "charset_hip_CTRL_rotateZ1.o" "girlRN.phl[298]";
-connectAttr "charset_hip_CTRL_rotateY1.o" "girlRN.phl[299]";
-connectAttr "charset_hip_CTRL_rotateX1.o" "girlRN.phl[300]";
-connectAttr "charset_head_ik_CTRL_rotateZ1.o" "girlRN.phl[301]";
-connectAttr "charset_head_ik_CTRL_rotateY1.o" "girlRN.phl[302]";
-connectAttr "charset_head_ik_CTRL_rotateX1.o" "girlRN.phl[303]";
-connectAttr "charset_head_CTRL_rotateZ1.o" "girlRN.phl[304]";
-connectAttr "charset_head_CTRL_rotateY1.o" "girlRN.phl[305]";
-connectAttr "charset_head_CTRL_rotateX1.o" "girlRN.phl[306]";
-connectAttr "charset_fk_r_upperKnee_CTRL_rotateZ1.o" "girlRN.phl[307]";
-connectAttr "charset_fk_r_upperKnee_CTRL_rotateY1.o" "girlRN.phl[308]";
-connectAttr "charset_fk_r_upperKnee_CTRL_rotateX1.o" "girlRN.phl[309]";
-connectAttr "charset_fk_r_toe_CTRL_rotateZ1.o" "girlRN.phl[310]";
-connectAttr "charset_fk_r_toe_CTRL_rotateY1.o" "girlRN.phl[311]";
-connectAttr "charset_fk_r_toe_CTRL_rotateX1.o" "girlRN.phl[312]";
-connectAttr "charset_fk_r_leg_CTRL_rotateZ1.o" "girlRN.phl[313]";
-connectAttr "charset_fk_r_leg_CTRL_rotateY1.o" "girlRN.phl[314]";
-connectAttr "charset_fk_r_leg_CTRL_rotateX1.o" "girlRN.phl[315]";
-connectAttr "charset_fk_r_hand_CTRL_rotateZ1.o" "girlRN.phl[316]";
-connectAttr "charset_fk_r_hand_CTRL_rotateY1.o" "girlRN.phl[317]";
-connectAttr "charset_fk_r_hand_CTRL_rotateX1.o" "girlRN.phl[318]";
-connectAttr "charset_fk_r_elbow_CTRL_rotateZ1.o" "girlRN.phl[319]";
-connectAttr "charset_fk_r_elbow_CTRL_rotateY1.o" "girlRN.phl[320]";
-connectAttr "charset_fk_r_elbow_CTRL_rotateX1.o" "girlRN.phl[321]";
-connectAttr "charset_fk_r_ball_CTRL_rotateZ1.o" "girlRN.phl[322]";
-connectAttr "charset_fk_r_ball_CTRL_rotateY1.o" "girlRN.phl[323]";
-connectAttr "charset_fk_r_ball_CTRL_rotateX1.o" "girlRN.phl[324]";
-connectAttr "charset_fk_r_arm_CTRL_rotateZ1.o" "girlRN.phl[325]";
-connectAttr "charset_fk_r_arm_CTRL_rotateY1.o" "girlRN.phl[326]";
-connectAttr "charset_fk_r_arm_CTRL_rotateX1.o" "girlRN.phl[327]";
-connectAttr "charset_fk_r_ankle_CTRL_rotateZ1.o" "girlRN.phl[328]";
-connectAttr "charset_fk_r_ankle_CTRL_rotateY1.o" "girlRN.phl[329]";
-connectAttr "charset_fk_r_ankle_CTRL_rotateX1.o" "girlRN.phl[330]";
-connectAttr "charset_fk_l_upperKnee_CTRL_rotateZ1.o" "girlRN.phl[331]";
-connectAttr "charset_fk_l_upperKnee_CTRL_rotateY1.o" "girlRN.phl[332]";
-connectAttr "charset_fk_l_upperKnee_CTRL_rotateX1.o" "girlRN.phl[333]";
-connectAttr "charset_fk_l_toe_CTRL_rotateZ1.o" "girlRN.phl[334]";
-connectAttr "charset_fk_l_toe_CTRL_rotateY1.o" "girlRN.phl[335]";
-connectAttr "charset_fk_l_toe_CTRL_rotateX1.o" "girlRN.phl[336]";
-connectAttr "charset_fk_l_leg_CTRL_rotateZ1.o" "girlRN.phl[337]";
-connectAttr "charset_fk_l_leg_CTRL_rotateY1.o" "girlRN.phl[338]";
-connectAttr "charset_fk_l_leg_CTRL_rotateX1.o" "girlRN.phl[339]";
-connectAttr "charset_fk_l_hand_CTRL_rotateZ1.o" "girlRN.phl[340]";
-connectAttr "charset_fk_l_hand_CTRL_rotateY1.o" "girlRN.phl[341]";
-connectAttr "charset_fk_l_hand_CTRL_rotateX1.o" "girlRN.phl[342]";
-connectAttr "charset_fk_l_elbow_CTRL_rotateZ1.o" "girlRN.phl[343]";
-connectAttr "charset_fk_l_elbow_CTRL_rotateY1.o" "girlRN.phl[344]";
-connectAttr "charset_fk_l_elbow_CTRL_rotateX1.o" "girlRN.phl[345]";
-connectAttr "charset_fk_l_ball_CTRL_rotateZ1.o" "girlRN.phl[346]";
-connectAttr "charset_fk_l_ball_CTRL_rotateY1.o" "girlRN.phl[347]";
-connectAttr "charset_fk_l_ball_CTRL_rotateX1.o" "girlRN.phl[348]";
-connectAttr "charset_fk_l_arm_CTRL_rotateZ1.o" "girlRN.phl[349]";
-connectAttr "charset_fk_l_arm_CTRL_rotateY1.o" "girlRN.phl[350]";
-connectAttr "charset_fk_l_arm_CTRL_rotateX1.o" "girlRN.phl[351]";
-connectAttr "charset_fk_l_ankle_CTRL_rotateZ1.o" "girlRN.phl[352]";
-connectAttr "charset_fk_l_ankle_CTRL_rotateY1.o" "girlRN.phl[353]";
-connectAttr "charset_fk_l_ankle_CTRL_rotateX1.o" "girlRN.phl[354]";
-connectAttr "charset_all_CTRL_rotateZ1.o" "girlRN.phl[355]";
-connectAttr "charset_all_CTRL_rotateY1.o" "girlRN.phl[356]";
-connectAttr "charset_all_CTRL_rotateX1.o" "girlRN.phl[357]";
-connectAttr "charset_spline_03_CTRL_rotateZ1.o" "girlRN.phl[358]";
-connectAttr "charset_spline_03_CTRL_rotateY1.o" "girlRN.phl[359]";
-connectAttr "charset_spline_03_CTRL_rotateX1.o" "girlRN.phl[360]";
-connectAttr "charset_angularValues_133_1.o" "girlRN.phl[361]";
-connectAttr "charset_angularValues_134_1.o" "girlRN.phl[362]";
-connectAttr "charset_angularValues_135_1.o" "girlRN.phl[363]";
-connectAttr "charset_angularValues_136_1.o" "girlRN.phl[364]";
-connectAttr "charset_angularValues_137_1.o" "girlRN.phl[365]";
-connectAttr "charset_angularValues_138_1.o" "girlRN.phl[366]";
-connectAttr "charset_angularValues_139_1.o" "girlRN.phl[367]";
-connectAttr "charset_angularValues_140_1.o" "girlRN.phl[368]";
-connectAttr "charset_angularValues_141_1.o" "girlRN.phl[369]";
-connectAttr "charset_angularValues_142_1.o" "girlRN.phl[370]";
-connectAttr "charset_angularValues_143_1.o" "girlRN.phl[371]";
-connectAttr "charset_angularValues_144_1.o" "girlRN.phl[372]";
-connectAttr "charset_angularValues_145_1.o" "girlRN.phl[373]";
-connectAttr "charset_angularValues_146_1.o" "girlRN.phl[374]";
-connectAttr "charset_angularValues_147_1.o" "girlRN.phl[375]";
-connectAttr "charset_angularValues_148_1.o" "girlRN.phl[376]";
-connectAttr "charset_angularValues_149_1.o" "girlRN.phl[377]";
-connectAttr "charset_angularValues_150_1.o" "girlRN.phl[378]";
-connectAttr "charset_angularValues_151_1.o" "girlRN.phl[379]";
-connectAttr "charset_angularValues_152_1.o" "girlRN.phl[380]";
-connectAttr "charset_angularValues_153_1.o" "girlRN.phl[381]";
-connectAttr "charset_angularValues_154_1.o" "girlRN.phl[382]";
-connectAttr "charset_angularValues_155_1.o" "girlRN.phl[383]";
-connectAttr "charset_angularValues_156_1.o" "girlRN.phl[384]";
-connectAttr "charset_angularValues_157_1.o" "girlRN.phl[385]";
-connectAttr "charset_angularValues_158_1.o" "girlRN.phl[386]";
-connectAttr "charset_angularValues_159_1.o" "girlRN.phl[387]";
-connectAttr "charset_angularValues_160_1.o" "girlRN.phl[388]";
-connectAttr "charset_angularValues_161_1.o" "girlRN.phl[389]";
-connectAttr "charset_angularValues_162_1.o" "girlRN.phl[390]";
-connectAttr "charset_angularValues_163_1.o" "girlRN.phl[391]";
-connectAttr "charset_angularValues_164_1.o" "girlRN.phl[392]";
-connectAttr "charset_angularValues_165_1.o" "girlRN.phl[393]";
-connectAttr "charset_angularValues_166_1.o" "girlRN.phl[394]";
-connectAttr "charset_angularValues_167_1.o" "girlRN.phl[395]";
-connectAttr "charset_angularValues_168_1.o" "girlRN.phl[396]";
-connectAttr "charset_angularValues_169_1.o" "girlRN.phl[397]";
-connectAttr "charset_angularValues_170_1.o" "girlRN.phl[398]";
-connectAttr "charset_angularValues_171_1.o" "girlRN.phl[399]";
-connectAttr "charset_angularValues_172_1.o" "girlRN.phl[400]";
-connectAttr "charset_angularValues_173_1.o" "girlRN.phl[401]";
-connectAttr "charset_angularValues_174_1.o" "girlRN.phl[402]";
-connectAttr "charset_angularValues_175_1.o" "girlRN.phl[403]";
-connectAttr "charset_angularValues_176_1.o" "girlRN.phl[404]";
-connectAttr "charset_angularValues_177_1.o" "girlRN.phl[405]";
-connectAttr "charset_angularValues_178_1.o" "girlRN.phl[406]";
-connectAttr "charset_angularValues_179_1.o" "girlRN.phl[407]";
-connectAttr "charset_angularValues_180_1.o" "girlRN.phl[408]";
-connectAttr "charset_angularValues_181_1.o" "girlRN.phl[409]";
-connectAttr "charset_angularValues_182_1.o" "girlRN.phl[410]";
-connectAttr "charset_angularValues_183_1.o" "girlRN.phl[411]";
-connectAttr "charset_angularValues_184_1.o" "girlRN.phl[412]";
-connectAttr "charset_angularValues_185_1.o" "girlRN.phl[413]";
-connectAttr "charset_angularValues_186_1.o" "girlRN.phl[414]";
-connectAttr "charset_angularValues_187_1.o" "girlRN.phl[415]";
-connectAttr "charset_angularValues_188_1.o" "girlRN.phl[416]";
-connectAttr "charset_angularValues_189_1.o" "girlRN.phl[417]";
-connectAttr "charset_angularValues_190_1.o" "girlRN.phl[418]";
-connectAttr "charset_angularValues_191_1.o" "girlRN.phl[419]";
-connectAttr "charset_angularValues_192_1.o" "girlRN.phl[420]";
-connectAttr "charset_angularValues_193_1.o" "girlRN.phl[421]";
-connectAttr "charset_angularValues_194_1.o" "girlRN.phl[422]";
-connectAttr "charset_angularValues_195_1.o" "girlRN.phl[423]";
-connectAttr "root_CTRL_scaleX.o" "sadnessRN.phl[1]";
-connectAttr "root_CTRL_scaleY.o" "sadnessRN.phl[2]";
-connectAttr "root_CTRL_scaleZ.o" "sadnessRN.phl[3]";
-connectAttr "hip_CTRL_scaleX.o" "sadnessRN.phl[4]";
-connectAttr "hip_CTRL_scaleY.o" "sadnessRN.phl[5]";
-connectAttr "hip_CTRL_scaleZ.o" "sadnessRN.phl[6]";
-connectAttr "charset_spline_02_CTRL_translateZ2.o" "sadnessRN.phl[7]";
-connectAttr "charset_spline_02_CTRL_translateY2.o" "sadnessRN.phl[8]";
-connectAttr "charset_spline_02_CTRL_translateX2.o" "sadnessRN.phl[9]";
-connectAttr "charset_spline_01_CTRL_translateZ2.o" "sadnessRN.phl[10]";
-connectAttr "charset_spline_01_CTRL_translateY2.o" "sadnessRN.phl[11]";
-connectAttr "charset_spline_01_CTRL_translateX2.o" "sadnessRN.phl[12]";
-connectAttr "charset_root_CTRL_translateZ2.o" "sadnessRN.phl[13]";
-connectAttr "charset_root_CTRL_translateY2.o" "sadnessRN.phl[14]";
-connectAttr "charset_root_CTRL_translateX2.o" "sadnessRN.phl[15]";
-connectAttr "charset_r_shoulder_CTRL_translateZ2.o" "sadnessRN.phl[16]";
-connectAttr "charset_r_shoulder_CTRL_translateY2.o" "sadnessRN.phl[17]";
-connectAttr "charset_r_shoulder_CTRL_translateX2.o" "sadnessRN.phl[18]";
-connectAttr "charset_r_leg_poleVector_CTRL_translateZ51.o" "sadnessRN.phl[19]";
-connectAttr "charset_r_leg_poleVector_CTRL_translateY51.o" "sadnessRN.phl[20]";
-connectAttr "charset_r_leg_poleVector_CTRL_translateX51.o" "sadnessRN.phl[21]";
-connectAttr "charset_r_leg_poleVector_CTRL_translateZ52.o" "sadnessRN.phl[22]";
-connectAttr "charset_r_leg_poleVector_CTRL_translateY52.o" "sadnessRN.phl[23]";
-connectAttr "charset_r_leg_poleVector_CTRL_translateX52.o" "sadnessRN.phl[24]";
-connectAttr "charset_r_ik_leg_CTRL_translateZ2.o" "sadnessRN.phl[25]";
-connectAttr "charset_r_ik_leg_CTRL_translateY2.o" "sadnessRN.phl[26]";
-connectAttr "charset_r_ik_leg_CTRL_translateX2.o" "sadnessRN.phl[27]";
-connectAttr "charset_r_ik_hand_CTRL_translateZ2.o" "sadnessRN.phl[28]";
-connectAttr "charset_r_ik_hand_CTRL_translateY2.o" "sadnessRN.phl[29]";
-connectAttr "charset_r_ik_hand_CTRL_translateX2.o" "sadnessRN.phl[30]";
-connectAttr "charset_r_finger_04_CTRL_translateZ2.o" "sadnessRN.phl[31]";
-connectAttr "charset_r_finger_04_CTRL_translateY2.o" "sadnessRN.phl[32]";
-connectAttr "charset_r_finger_04_CTRL_translateX2.o" "sadnessRN.phl[33]";
-connectAttr "charset_r_finger_03_CTRL_translateZ2.o" "sadnessRN.phl[34]";
-connectAttr "charset_r_finger_03_CTRL_translateY2.o" "sadnessRN.phl[35]";
-connectAttr "charset_r_finger_03_CTRL_translateX2.o" "sadnessRN.phl[36]";
-connectAttr "charset_r_finger_02_CTRL_translateZ2.o" "sadnessRN.phl[37]";
-connectAttr "charset_r_finger_02_CTRL_translateY2.o" "sadnessRN.phl[38]";
-connectAttr "charset_r_finger_02_CTRL_translateX2.o" "sadnessRN.phl[39]";
-connectAttr "charset_r_finger_01_CTRL_translateZ2.o" "sadnessRN.phl[40]";
-connectAttr "charset_r_finger_01_CTRL_translateY2.o" "sadnessRN.phl[41]";
-connectAttr "charset_r_finger_01_CTRL_translateX2.o" "sadnessRN.phl[42]";
-connectAttr "charset_neck_CTRL_translateZ2.o" "sadnessRN.phl[43]";
-connectAttr "charset_neck_CTRL_translateY2.o" "sadnessRN.phl[44]";
-connectAttr "charset_neck_CTRL_translateX2.o" "sadnessRN.phl[45]";
-connectAttr "charset_l_shoulder_CTRL_translateZ2.o" "sadnessRN.phl[46]";
-connectAttr "charset_l_shoulder_CTRL_translateY2.o" "sadnessRN.phl[47]";
-connectAttr "charset_l_shoulder_CTRL_translateX2.o" "sadnessRN.phl[48]";
-connectAttr "charset_l_leg_poleVector_CTRL_translateZ51.o" "sadnessRN.phl[49]";
-connectAttr "charset_l_leg_poleVector_CTRL_translateY51.o" "sadnessRN.phl[50]";
-connectAttr "charset_l_leg_poleVector_CTRL_translateX51.o" "sadnessRN.phl[51]";
-connectAttr "charset_l_leg_poleVector_CTRL_translateZ52.o" "sadnessRN.phl[52]";
-connectAttr "charset_l_leg_poleVector_CTRL_translateY52.o" "sadnessRN.phl[53]";
-connectAttr "charset_l_leg_poleVector_CTRL_translateX52.o" "sadnessRN.phl[54]";
-connectAttr "charset_l_ik_leg_CTRL_translateZ2.o" "sadnessRN.phl[55]";
-connectAttr "charset_l_ik_leg_CTRL_translateY2.o" "sadnessRN.phl[56]";
-connectAttr "charset_l_ik_leg_CTRL_translateX2.o" "sadnessRN.phl[57]";
-connectAttr "charset_l_ik_hand_CTRL_translateZ2.o" "sadnessRN.phl[58]";
-connectAttr "charset_l_ik_hand_CTRL_translateY2.o" "sadnessRN.phl[59]";
-connectAttr "charset_l_ik_hand_CTRL_translateX2.o" "sadnessRN.phl[60]";
-connectAttr "charset_l_finger_04_CTRL_translateZ2.o" "sadnessRN.phl[61]";
-connectAttr "charset_l_finger_04_CTRL_translateY2.o" "sadnessRN.phl[62]";
-connectAttr "charset_l_finger_04_CTRL_translateX2.o" "sadnessRN.phl[63]";
-connectAttr "charset_l_finger_03_CTRL_translateZ2.o" "sadnessRN.phl[64]";
-connectAttr "charset_l_finger_03_CTRL_translateY2.o" "sadnessRN.phl[65]";
-connectAttr "charset_l_finger_03_CTRL_translateX2.o" "sadnessRN.phl[66]";
-connectAttr "charset_l_finger_02_CTRL_translateZ2.o" "sadnessRN.phl[67]";
-connectAttr "charset_l_finger_02_CTRL_translateY2.o" "sadnessRN.phl[68]";
-connectAttr "charset_l_finger_02_CTRL_translateX2.o" "sadnessRN.phl[69]";
-connectAttr "charset_l_finger_01_CTRL_translateZ2.o" "sadnessRN.phl[70]";
-connectAttr "charset_l_finger_01_CTRL_translateY2.o" "sadnessRN.phl[71]";
-connectAttr "charset_l_finger_01_CTRL_translateX2.o" "sadnessRN.phl[72]";
-connectAttr "charset_hip_CTRL_translateZ2.o" "sadnessRN.phl[73]";
-connectAttr "charset_hip_CTRL_translateY2.o" "sadnessRN.phl[74]";
-connectAttr "charset_hip_CTRL_translateX2.o" "sadnessRN.phl[75]";
-connectAttr "charset_head_ik_CTRL_translateZ2.o" "sadnessRN.phl[76]";
-connectAttr "charset_head_ik_CTRL_translateY2.o" "sadnessRN.phl[77]";
-connectAttr "charset_head_ik_CTRL_translateX2.o" "sadnessRN.phl[78]";
-connectAttr "charset_head_CTRL_translateZ2.o" "sadnessRN.phl[79]";
-connectAttr "charset_head_CTRL_translateY2.o" "sadnessRN.phl[80]";
-connectAttr "charset_head_CTRL_translateX2.o" "sadnessRN.phl[81]";
-connectAttr "charset_fk_r_upperKnee_CTRL_translateZ2.o" "sadnessRN.phl[82]";
-connectAttr "charset_fk_r_upperKnee_CTRL_translateY2.o" "sadnessRN.phl[83]";
-connectAttr "charset_fk_r_upperKnee_CTRL_translateX2.o" "sadnessRN.phl[84]";
-connectAttr "charset_fk_r_toe_CTRL_translateZ2.o" "sadnessRN.phl[85]";
-connectAttr "charset_fk_r_toe_CTRL_translateY2.o" "sadnessRN.phl[86]";
-connectAttr "charset_fk_r_toe_CTRL_translateX2.o" "sadnessRN.phl[87]";
-connectAttr "charset_fk_r_leg_CTRL_translateZ2.o" "sadnessRN.phl[88]";
-connectAttr "charset_fk_r_leg_CTRL_translateY2.o" "sadnessRN.phl[89]";
-connectAttr "charset_fk_r_leg_CTRL_translateX2.o" "sadnessRN.phl[90]";
-connectAttr "charset_fk_r_hand_CTRL_translateZ2.o" "sadnessRN.phl[91]";
-connectAttr "charset_fk_r_hand_CTRL_translateY2.o" "sadnessRN.phl[92]";
-connectAttr "charset_fk_r_hand_CTRL_translateX2.o" "sadnessRN.phl[93]";
-connectAttr "charset_fk_r_elbow_CTRL_translateZ2.o" "sadnessRN.phl[94]";
-connectAttr "charset_fk_r_elbow_CTRL_translateY2.o" "sadnessRN.phl[95]";
-connectAttr "charset_fk_r_elbow_CTRL_translateX2.o" "sadnessRN.phl[96]";
-connectAttr "charset_fk_r_ball_CTRL_translateZ2.o" "sadnessRN.phl[97]";
-connectAttr "charset_fk_r_ball_CTRL_translateY2.o" "sadnessRN.phl[98]";
-connectAttr "charset_fk_r_ball_CTRL_translateX2.o" "sadnessRN.phl[99]";
-connectAttr "charset_fk_r_arm_CTRL_translateZ2.o" "sadnessRN.phl[100]";
-connectAttr "charset_fk_r_arm_CTRL_translateY2.o" "sadnessRN.phl[101]";
-connectAttr "charset_fk_r_arm_CTRL_translateX2.o" "sadnessRN.phl[102]";
-connectAttr "charset_fk_r_ankle_CTRL_translateZ2.o" "sadnessRN.phl[103]";
-connectAttr "charset_fk_r_ankle_CTRL_translateY2.o" "sadnessRN.phl[104]";
-connectAttr "charset_fk_r_ankle_CTRL_translateX2.o" "sadnessRN.phl[105]";
-connectAttr "charset_fk_l_upperKnee_CTRL_translateZ2.o" "sadnessRN.phl[106]";
-connectAttr "charset_fk_l_upperKnee_CTRL_translateY2.o" "sadnessRN.phl[107]";
-connectAttr "charset_fk_l_upperKnee_CTRL_translateX2.o" "sadnessRN.phl[108]";
-connectAttr "charset_fk_l_toe_CTRL_translateZ2.o" "sadnessRN.phl[109]";
-connectAttr "charset_fk_l_toe_CTRL_translateY2.o" "sadnessRN.phl[110]";
-connectAttr "charset_fk_l_toe_CTRL_translateX2.o" "sadnessRN.phl[111]";
-connectAttr "charset_fk_l_leg_CTRL_translateZ2.o" "sadnessRN.phl[112]";
-connectAttr "charset_fk_l_leg_CTRL_translateY2.o" "sadnessRN.phl[113]";
-connectAttr "charset_fk_l_leg_CTRL_translateX2.o" "sadnessRN.phl[114]";
-connectAttr "charset_fk_l_hand_CTRL_translateZ2.o" "sadnessRN.phl[115]";
-connectAttr "charset_fk_l_hand_CTRL_translateY2.o" "sadnessRN.phl[116]";
-connectAttr "charset_fk_l_hand_CTRL_translateX2.o" "sadnessRN.phl[117]";
-connectAttr "charset_fk_l_elbow_CTRL_translateZ2.o" "sadnessRN.phl[118]";
-connectAttr "charset_fk_l_elbow_CTRL_translateY2.o" "sadnessRN.phl[119]";
-connectAttr "charset_fk_l_elbow_CTRL_translateX2.o" "sadnessRN.phl[120]";
-connectAttr "charset_fk_l_ball_CTRL_translateZ2.o" "sadnessRN.phl[121]";
-connectAttr "charset_fk_l_ball_CTRL_translateY2.o" "sadnessRN.phl[122]";
-connectAttr "charset_fk_l_ball_CTRL_translateX2.o" "sadnessRN.phl[123]";
-connectAttr "charset_fk_l_arm_CTRL_translateZ2.o" "sadnessRN.phl[124]";
-connectAttr "charset_fk_l_arm_CTRL_translateY2.o" "sadnessRN.phl[125]";
-connectAttr "charset_fk_l_arm_CTRL_translateX2.o" "sadnessRN.phl[126]";
-connectAttr "charset_fk_l_ankle_CTRL_translateZ2.o" "sadnessRN.phl[127]";
-connectAttr "charset_fk_l_ankle_CTRL_translateY2.o" "sadnessRN.phl[128]";
-connectAttr "charset_fk_l_ankle_CTRL_translateX2.o" "sadnessRN.phl[129]";
-connectAttr "charset_all_CTRL_translateZ2.o" "sadnessRN.phl[130]";
-connectAttr "charset_all_CTRL_translateY2.o" "sadnessRN.phl[131]";
-connectAttr "charset_all_CTRL_translateX2.o" "sadnessRN.phl[132]";
-connectAttr "charset_spline_03_CTRL_translateZ2.o" "sadnessRN.phl[133]";
-connectAttr "charset_spline_03_CTRL_translateY2.o" "sadnessRN.phl[134]";
-connectAttr "charset_spline_03_CTRL_translateX2.o" "sadnessRN.phl[135]";
-connectAttr "charset_linearValues_130_2.o" "sadnessRN.phl[136]";
-connectAttr "charset_linearValues_131_2.o" "sadnessRN.phl[137]";
-connectAttr "charset_linearValues_132_2.o" "sadnessRN.phl[138]";
-connectAttr "charset_linearValues_133_2.o" "sadnessRN.phl[139]";
-connectAttr "charset_linearValues_134_2.o" "sadnessRN.phl[140]";
-connectAttr "charset_linearValues_135_2.o" "sadnessRN.phl[141]";
-connectAttr "charset_linearValues_136_2.o" "sadnessRN.phl[142]";
-connectAttr "charset_linearValues_137_2.o" "sadnessRN.phl[143]";
-connectAttr "charset_r_legSwitch_CTRL_ikFkSwitch2.o" "sadnessRN.phl[144]";
-connectAttr "charset_l_armSwitch_CTRL_ikFkSwitch2.o" "sadnessRN.phl[145]";
-connectAttr "charset_r_armSwitch_CTRL_ikFkSwitch2.o" "sadnessRN.phl[146]";
-connectAttr "charset_l_legSwitch_CTRL_ikFkSwitch2.o" "sadnessRN.phl[147]";
-connectAttr "charset_r_ik_hand_CTRL_snapToElbow2.o" "sadnessRN.phl[148]";
-connectAttr "charset_l_ik_hand_CTRL_snapToElbow2.o" "sadnessRN.phl[149]";
-connectAttr "charset_l_ik_leg_CTRL_kneeSnap2.o" "sadnessRN.phl[150]";
-connectAttr "charset_l_ik_leg_CTRL_ToeTurn2.o" "sadnessRN.phl[151]";
-connectAttr "charset_l_ik_leg_CTRL_ballTurn2.o" "sadnessRN.phl[152]";
-connectAttr "charset_l_ik_leg_CTRL_heelTurn2.o" "sadnessRN.phl[153]";
-connectAttr "charset_l_ik_leg_CTRL_toeStraightAngle2.o" "sadnessRN.phl[154]";
-connectAttr "charset_l_ik_leg_CTRL_bandLimitAngle2.o" "sadnessRN.phl[155]";
-connectAttr "charset_l_ik_leg_CTRL_roll2.o" "sadnessRN.phl[156]";
-connectAttr "charset_l_ik_leg_CTRL_tilt2.o" "sadnessRN.phl[157]";
-connectAttr "charset_r_ik_leg_CTRL_kneeSnap2.o" "sadnessRN.phl[158]";
-connectAttr "charset_r_ik_leg_CTRL_ToeTurn2.o" "sadnessRN.phl[159]";
-connectAttr "charset_r_ik_leg_CTRL_ballTurn2.o" "sadnessRN.phl[160]";
-connectAttr "charset_r_ik_leg_CTRL_heelTurn2.o" "sadnessRN.phl[161]";
-connectAttr "charset_r_ik_leg_CTRL_toeStraightAngle2.o" "sadnessRN.phl[162]";
-connectAttr "charset_r_ik_leg_CTRL_bandLimitAngle2.o" "sadnessRN.phl[163]";
-connectAttr "charset_r_ik_leg_CTRL_roll2.o" "sadnessRN.phl[164]";
-connectAttr "charset_r_ik_leg_CTRL_tilt2.o" "sadnessRN.phl[165]";
-connectAttr "charset_all_CTRL_scaleZ2.o" "sadnessRN.phl[166]";
-connectAttr "charset_all_CTRL_scaleY2.o" "sadnessRN.phl[167]";
-connectAttr "charset_all_CTRL_scaleX2.o" "sadnessRN.phl[168]";
-connectAttr "charset_head_CTRL_ikFkSwitch2.o" "sadnessRN.phl[169]";
-connectAttr "charset_fk_r_elbow_CTRL_lenght.o" "sadnessRN.phl[170]";
-connectAttr "charset_fk_l_elbow_CTRL_lenght.o" "sadnessRN.phl[171]";
-connectAttr "charset_spline_02_CTRL_rotateZ2.o" "sadnessRN.phl[172]";
-connectAttr "charset_spline_02_CTRL_rotateY2.o" "sadnessRN.phl[173]";
-connectAttr "charset_spline_02_CTRL_rotateX2.o" "sadnessRN.phl[174]";
-connectAttr "charset_spline_01_CTRL_rotateZ2.o" "sadnessRN.phl[175]";
-connectAttr "charset_spline_01_CTRL_rotateY2.o" "sadnessRN.phl[176]";
-connectAttr "charset_spline_01_CTRL_rotateX2.o" "sadnessRN.phl[177]";
-connectAttr "charset_root_CTRL_rotateZ2.o" "sadnessRN.phl[178]";
-connectAttr "charset_root_CTRL_rotateY2.o" "sadnessRN.phl[179]";
-connectAttr "charset_root_CTRL_rotateX2.o" "sadnessRN.phl[180]";
-connectAttr "charset_r_shoulder_CTRL_rotateZ2.o" "sadnessRN.phl[181]";
-connectAttr "charset_r_shoulder_CTRL_rotateY2.o" "sadnessRN.phl[182]";
-connectAttr "charset_r_shoulder_CTRL_rotateX2.o" "sadnessRN.phl[183]";
-connectAttr "charset_r_leg_poleVector_CTRL_rotateZ51.o" "sadnessRN.phl[184]";
-connectAttr "charset_r_leg_poleVector_CTRL_rotateY51.o" "sadnessRN.phl[185]";
-connectAttr "charset_r_leg_poleVector_CTRL_rotateX51.o" "sadnessRN.phl[186]";
-connectAttr "charset_r_leg_poleVector_CTRL_rotateZ52.o" "sadnessRN.phl[187]";
-connectAttr "charset_r_leg_poleVector_CTRL_rotateY52.o" "sadnessRN.phl[188]";
-connectAttr "charset_r_leg_poleVector_CTRL_rotateX52.o" "sadnessRN.phl[189]";
-connectAttr "charset_r_ik_leg_CTRL_rotateZ2.o" "sadnessRN.phl[190]";
-connectAttr "charset_r_ik_leg_CTRL_rotateY2.o" "sadnessRN.phl[191]";
-connectAttr "charset_r_ik_leg_CTRL_rotateX2.o" "sadnessRN.phl[192]";
-connectAttr "charset_r_ik_hand_CTRL_rotateZ2.o" "sadnessRN.phl[193]";
-connectAttr "charset_r_ik_hand_CTRL_rotateY2.o" "sadnessRN.phl[194]";
-connectAttr "charset_r_ik_hand_CTRL_rotateX2.o" "sadnessRN.phl[195]";
-connectAttr "charset_r_finger_04_CTRL_rotateZ2.o" "sadnessRN.phl[196]";
-connectAttr "charset_r_finger_04_CTRL_rotateY2.o" "sadnessRN.phl[197]";
-connectAttr "charset_r_finger_04_CTRL_rotateX2.o" "sadnessRN.phl[198]";
-connectAttr "charset_r_finger_03_CTRL_rotateZ2.o" "sadnessRN.phl[199]";
-connectAttr "charset_r_finger_03_CTRL_rotateY2.o" "sadnessRN.phl[200]";
-connectAttr "charset_r_finger_03_CTRL_rotateX2.o" "sadnessRN.phl[201]";
-connectAttr "charset_r_finger_02_CTRL_rotateZ2.o" "sadnessRN.phl[202]";
-connectAttr "charset_r_finger_02_CTRL_rotateY2.o" "sadnessRN.phl[203]";
-connectAttr "charset_r_finger_02_CTRL_rotateX2.o" "sadnessRN.phl[204]";
-connectAttr "charset_r_finger_01_CTRL_rotateZ2.o" "sadnessRN.phl[205]";
-connectAttr "charset_r_finger_01_CTRL_rotateY2.o" "sadnessRN.phl[206]";
-connectAttr "charset_r_finger_01_CTRL_rotateX2.o" "sadnessRN.phl[207]";
-connectAttr "charset_neck_CTRL_rotateZ2.o" "sadnessRN.phl[208]";
-connectAttr "charset_neck_CTRL_rotateY2.o" "sadnessRN.phl[209]";
-connectAttr "charset_neck_CTRL_rotateX2.o" "sadnessRN.phl[210]";
-connectAttr "charset_l_shoulder_CTRL_rotateZ2.o" "sadnessRN.phl[211]";
-connectAttr "charset_l_shoulder_CTRL_rotateY2.o" "sadnessRN.phl[212]";
-connectAttr "charset_l_shoulder_CTRL_rotateX2.o" "sadnessRN.phl[213]";
-connectAttr "charset_l_leg_poleVector_CTRL_rotateZ51.o" "sadnessRN.phl[214]";
-connectAttr "charset_l_leg_poleVector_CTRL_rotateY51.o" "sadnessRN.phl[215]";
-connectAttr "charset_l_leg_poleVector_CTRL_rotateX51.o" "sadnessRN.phl[216]";
-connectAttr "charset_l_leg_poleVector_CTRL_rotateZ52.o" "sadnessRN.phl[217]";
-connectAttr "charset_l_leg_poleVector_CTRL_rotateY52.o" "sadnessRN.phl[218]";
-connectAttr "charset_l_leg_poleVector_CTRL_rotateX52.o" "sadnessRN.phl[219]";
-connectAttr "charset_l_ik_leg_CTRL_rotateZ2.o" "sadnessRN.phl[220]";
-connectAttr "charset_l_ik_leg_CTRL_rotateY2.o" "sadnessRN.phl[221]";
-connectAttr "charset_l_ik_leg_CTRL_rotateX2.o" "sadnessRN.phl[222]";
-connectAttr "charset_l_ik_hand_CTRL_rotateZ2.o" "sadnessRN.phl[223]";
-connectAttr "charset_l_ik_hand_CTRL_rotateY2.o" "sadnessRN.phl[224]";
-connectAttr "charset_l_ik_hand_CTRL_rotateX2.o" "sadnessRN.phl[225]";
-connectAttr "charset_l_finger_04_CTRL_rotateZ2.o" "sadnessRN.phl[226]";
-connectAttr "charset_l_finger_04_CTRL_rotateY2.o" "sadnessRN.phl[227]";
-connectAttr "charset_l_finger_04_CTRL_rotateX2.o" "sadnessRN.phl[228]";
-connectAttr "charset_l_finger_03_CTRL_rotateZ2.o" "sadnessRN.phl[229]";
-connectAttr "charset_l_finger_03_CTRL_rotateY2.o" "sadnessRN.phl[230]";
-connectAttr "charset_l_finger_03_CTRL_rotateX2.o" "sadnessRN.phl[231]";
-connectAttr "charset_l_finger_02_CTRL_rotateZ2.o" "sadnessRN.phl[232]";
-connectAttr "charset_l_finger_02_CTRL_rotateY2.o" "sadnessRN.phl[233]";
-connectAttr "charset_l_finger_02_CTRL_rotateX2.o" "sadnessRN.phl[234]";
-connectAttr "charset_l_finger_01_CTRL_rotateZ2.o" "sadnessRN.phl[235]";
-connectAttr "charset_l_finger_01_CTRL_rotateY2.o" "sadnessRN.phl[236]";
-connectAttr "charset_l_finger_01_CTRL_rotateX2.o" "sadnessRN.phl[237]";
-connectAttr "charset_hip_CTRL_rotateZ2.o" "sadnessRN.phl[238]";
-connectAttr "charset_hip_CTRL_rotateY2.o" "sadnessRN.phl[239]";
-connectAttr "charset_hip_CTRL_rotateX2.o" "sadnessRN.phl[240]";
-connectAttr "charset_head_ik_CTRL_rotateZ2.o" "sadnessRN.phl[241]";
-connectAttr "charset_head_ik_CTRL_rotateY2.o" "sadnessRN.phl[242]";
-connectAttr "charset_head_ik_CTRL_rotateX2.o" "sadnessRN.phl[243]";
-connectAttr "charset_head_CTRL_rotateZ2.o" "sadnessRN.phl[244]";
-connectAttr "charset_head_CTRL_rotateY2.o" "sadnessRN.phl[245]";
-connectAttr "charset_head_CTRL_rotateX2.o" "sadnessRN.phl[246]";
-connectAttr "charset_fk_r_upperKnee_CTRL_rotateZ2.o" "sadnessRN.phl[247]";
-connectAttr "charset_fk_r_upperKnee_CTRL_rotateY2.o" "sadnessRN.phl[248]";
-connectAttr "charset_fk_r_upperKnee_CTRL_rotateX2.o" "sadnessRN.phl[249]";
-connectAttr "charset_fk_r_toe_CTRL_rotateZ2.o" "sadnessRN.phl[250]";
-connectAttr "charset_fk_r_toe_CTRL_rotateY2.o" "sadnessRN.phl[251]";
-connectAttr "charset_fk_r_toe_CTRL_rotateX2.o" "sadnessRN.phl[252]";
-connectAttr "charset_fk_r_leg_CTRL_rotateZ2.o" "sadnessRN.phl[253]";
-connectAttr "charset_fk_r_leg_CTRL_rotateY2.o" "sadnessRN.phl[254]";
-connectAttr "charset_fk_r_leg_CTRL_rotateX2.o" "sadnessRN.phl[255]";
-connectAttr "charset_fk_r_hand_CTRL_rotateZ2.o" "sadnessRN.phl[256]";
-connectAttr "charset_fk_r_hand_CTRL_rotateY2.o" "sadnessRN.phl[257]";
-connectAttr "charset_fk_r_hand_CTRL_rotateX2.o" "sadnessRN.phl[258]";
-connectAttr "charset_fk_r_elbow_CTRL_rotateZ2.o" "sadnessRN.phl[259]";
-connectAttr "charset_fk_r_elbow_CTRL_rotateY2.o" "sadnessRN.phl[260]";
-connectAttr "charset_fk_r_elbow_CTRL_rotateX2.o" "sadnessRN.phl[261]";
-connectAttr "charset_fk_r_ball_CTRL_rotateZ2.o" "sadnessRN.phl[262]";
-connectAttr "charset_fk_r_ball_CTRL_rotateY2.o" "sadnessRN.phl[263]";
-connectAttr "charset_fk_r_ball_CTRL_rotateX2.o" "sadnessRN.phl[264]";
-connectAttr "charset_fk_r_arm_CTRL_rotateZ2.o" "sadnessRN.phl[265]";
-connectAttr "charset_fk_r_arm_CTRL_rotateY2.o" "sadnessRN.phl[266]";
-connectAttr "charset_fk_r_arm_CTRL_rotateX2.o" "sadnessRN.phl[267]";
-connectAttr "charset_fk_r_ankle_CTRL_rotateZ2.o" "sadnessRN.phl[268]";
-connectAttr "charset_fk_r_ankle_CTRL_rotateY2.o" "sadnessRN.phl[269]";
-connectAttr "charset_fk_r_ankle_CTRL_rotateX2.o" "sadnessRN.phl[270]";
-connectAttr "charset_fk_l_upperKnee_CTRL_rotateZ2.o" "sadnessRN.phl[271]";
-connectAttr "charset_fk_l_upperKnee_CTRL_rotateY2.o" "sadnessRN.phl[272]";
-connectAttr "charset_fk_l_upperKnee_CTRL_rotateX2.o" "sadnessRN.phl[273]";
-connectAttr "charset_fk_l_toe_CTRL_rotateZ2.o" "sadnessRN.phl[274]";
-connectAttr "charset_fk_l_toe_CTRL_rotateY2.o" "sadnessRN.phl[275]";
-connectAttr "charset_fk_l_toe_CTRL_rotateX2.o" "sadnessRN.phl[276]";
-connectAttr "charset_fk_l_leg_CTRL_rotateZ2.o" "sadnessRN.phl[277]";
-connectAttr "charset_fk_l_leg_CTRL_rotateY2.o" "sadnessRN.phl[278]";
-connectAttr "charset_fk_l_leg_CTRL_rotateX2.o" "sadnessRN.phl[279]";
-connectAttr "charset_fk_l_hand_CTRL_rotateZ2.o" "sadnessRN.phl[280]";
-connectAttr "charset_fk_l_hand_CTRL_rotateY2.o" "sadnessRN.phl[281]";
-connectAttr "charset_fk_l_hand_CTRL_rotateX2.o" "sadnessRN.phl[282]";
-connectAttr "charset_fk_l_elbow_CTRL_rotateZ2.o" "sadnessRN.phl[283]";
-connectAttr "charset_fk_l_elbow_CTRL_rotateY2.o" "sadnessRN.phl[284]";
-connectAttr "charset_fk_l_elbow_CTRL_rotateX2.o" "sadnessRN.phl[285]";
-connectAttr "charset_fk_l_ball_CTRL_rotateZ2.o" "sadnessRN.phl[286]";
-connectAttr "charset_fk_l_ball_CTRL_rotateY2.o" "sadnessRN.phl[287]";
-connectAttr "charset_fk_l_ball_CTRL_rotateX2.o" "sadnessRN.phl[288]";
-connectAttr "charset_fk_l_arm_CTRL_rotateZ2.o" "sadnessRN.phl[289]";
-connectAttr "charset_fk_l_arm_CTRL_rotateY2.o" "sadnessRN.phl[290]";
-connectAttr "charset_fk_l_arm_CTRL_rotateX2.o" "sadnessRN.phl[291]";
-connectAttr "charset_fk_l_ankle_CTRL_rotateZ2.o" "sadnessRN.phl[292]";
-connectAttr "charset_fk_l_ankle_CTRL_rotateY2.o" "sadnessRN.phl[293]";
-connectAttr "charset_fk_l_ankle_CTRL_rotateX2.o" "sadnessRN.phl[294]";
-connectAttr "charset_all_CTRL_rotateZ2.o" "sadnessRN.phl[295]";
-connectAttr "charset_all_CTRL_rotateY2.o" "sadnessRN.phl[296]";
-connectAttr "charset_all_CTRL_rotateX2.o" "sadnessRN.phl[297]";
-connectAttr "charset_spline_03_CTRL_rotateZ2.o" "sadnessRN.phl[298]";
-connectAttr "charset_spline_03_CTRL_rotateY2.o" "sadnessRN.phl[299]";
-connectAttr "charset_spline_03_CTRL_rotateX2.o" "sadnessRN.phl[300]";
-connectAttr "nurbsPlane1_rotateX.o" "nurbsPlane1.rx";
-connectAttr "nurbsPlane1_rotateY.o" "nurbsPlane1.ry";
-connectAttr "nurbsPlane1_rotateZ.o" "nurbsPlane1.rz";
-connectAttr "nurbsPlane1_visibility.o" "nurbsPlane1.v";
-connectAttr "nurbsPlane1_translateX.o" "nurbsPlane1.tx";
-connectAttr "nurbsPlane1_translateY.o" "nurbsPlane1.ty";
-connectAttr "nurbsPlane1_translateZ.o" "nurbsPlane1.tz";
-connectAttr "nurbsPlane1_scaleX.o" "nurbsPlane1.sx";
-connectAttr "nurbsPlane1_scaleY.o" "nurbsPlane1.sy";
-connectAttr "nurbsPlane1_scaleZ.o" "nurbsPlane1.sz";
-connectAttr "makeNurbPlane1.os" "nurbsPlaneShape1.cr";
+connectAttr "l_eye_open_CTRL_visibility.o" "girlRN.phl[1]";
+connectAttr "r_eye_open_CTRL_visibility.o" "girlRN.phl[2]";
+connectAttr "spline_03_CTRL_scaleX.o" "girlRN.phl[3]";
+connectAttr "spline_03_CTRL_scaleY.o" "girlRN.phl[4]";
+connectAttr "spline_03_CTRL_scaleZ.o" "girlRN.phl[5]";
+connectAttr "head_CTRL_scaleX.o" "girlRN.phl[6]";
+connectAttr "head_CTRL_scaleY.o" "girlRN.phl[7]";
+connectAttr "head_CTRL_scaleZ.o" "girlRN.phl[8]";
+connectAttr "girlRN.phl[9]" "all_CTRL_parentConstraint1.tg[0].tt";
+connectAttr "girlRN.phl[10]" "r_ik_hand_CTRL_parentConstraint1.tg[0].tt";
+connectAttr "girlRN.phl[11]" "r_ik_hand_CTRL_parentConstraint1.tg[0].tr";
+connectAttr "girlRN.phl[12]" "all_CTRL_parentConstraint1.tg[0].tr";
+connectAttr "girlRN.phl[13]" "all_CTRL_parentConstraint1.tg[0].ts";
+connectAttr "girlRN.phl[14]" "r_ik_hand_CTRL_parentConstraint1.tg[0].ts";
+connectAttr "girlRN.phl[15]" "r_ik_hand_CTRL_parentConstraint1.tg[0].tro";
+connectAttr "girlRN.phl[16]" "all_CTRL_parentConstraint1.tg[0].tro";
+connectAttr "girlRN.phl[17]" "r_ik_hand_CTRL_parentConstraint1.tg[0].tpm";
+connectAttr "girlRN.phl[18]" "all_CTRL_parentConstraint1.tg[0].tpm";
+connectAttr "girlRN.phl[19]" "all_CTRL_parentConstraint1.tg[0].trp";
+connectAttr "girlRN.phl[20]" "r_ik_hand_CTRL_parentConstraint1.tg[0].trp";
+connectAttr "girlRN.phl[21]" "all_CTRL_parentConstraint1.tg[0].trt";
+connectAttr "girlRN.phl[22]" "r_ik_hand_CTRL_parentConstraint1.tg[0].trt";
+connectAttr "pairBlend1.otz" "girlRN.phl[23]";
+connectAttr "pairBlend1.oty" "girlRN.phl[24]";
+connectAttr "pairBlend1.otx" "girlRN.phl[25]";
+connectAttr "pairBlend1.orz" "girlRN.phl[26]";
+connectAttr "pairBlend1.ory" "girlRN.phl[27]";
+connectAttr "pairBlend1.orx" "girlRN.phl[28]";
+connectAttr "girlRN.phl[29]" "pairBlend1.ro";
+connectAttr "girlRN.phl[30]" "r_ik_hand_CTRL_parentConstraint1.cro";
+connectAttr "girlRN.phl[31]" "r_ik_hand_CTRL_parentConstraint1.cpim";
+connectAttr "girlRN.phl[32]" "pairBlend1.w";
+connectAttr "girlRN.phl[33]" "r_ik_hand_CTRL_parentConstraint1.crp";
+connectAttr "girlRN.phl[34]" "r_ik_hand_CTRL_parentConstraint1.crt";
+connectAttr "charset_spline_02_CTRL_translateZ1.o" "girlRN.phl[35]";
+connectAttr "charset_spline_02_CTRL_translateY1.o" "girlRN.phl[36]";
+connectAttr "charset_spline_02_CTRL_translateX1.o" "girlRN.phl[37]";
+connectAttr "charset_spline_01_CTRL_translateZ1.o" "girlRN.phl[38]";
+connectAttr "charset_spline_01_CTRL_translateY1.o" "girlRN.phl[39]";
+connectAttr "charset_spline_01_CTRL_translateX1.o" "girlRN.phl[40]";
+connectAttr "charset_root_CTRL_translateZ1.o" "girlRN.phl[41]";
+connectAttr "charset_root_CTRL_translateY1.o" "girlRN.phl[42]";
+connectAttr "charset_root_CTRL_translateX1.o" "girlRN.phl[43]";
+connectAttr "charset_r_shoulder_CTRL_translateZ1.o" "girlRN.phl[44]";
+connectAttr "charset_r_shoulder_CTRL_translateY1.o" "girlRN.phl[45]";
+connectAttr "charset_r_shoulder_CTRL_translateX1.o" "girlRN.phl[46]";
+connectAttr "charset_r_leg_poleVector_CTRL_translateZ54.o" "girlRN.phl[47]";
+connectAttr "charset_r_leg_poleVector_CTRL_translateY54.o" "girlRN.phl[48]";
+connectAttr "charset_r_leg_poleVector_CTRL_translateX54.o" "girlRN.phl[49]";
+connectAttr "charset_r_arm_poleVector_CTRL_translateZ1.o" "girlRN.phl[50]";
+connectAttr "charset_r_arm_poleVector_CTRL_translateY1.o" "girlRN.phl[51]";
+connectAttr "charset_r_arm_poleVector_CTRL_translateX1.o" "girlRN.phl[52]";
+connectAttr "charset_r_ik_leg_CTRL_translateZ1.o" "girlRN.phl[53]";
+connectAttr "charset_r_ik_leg_CTRL_translateY1.o" "girlRN.phl[54]";
+connectAttr "charset_r_ik_leg_CTRL_translateX1.o" "girlRN.phl[55]";
+connectAttr "girlRN.phl[56]" "pairBlend1.itz1";
+connectAttr "charset_r_ik_hand_CTRL_translateZ1.o" "girlRN.phl[57]";
+connectAttr "girlRN.phl[58]" "pairBlend1.ity1";
+connectAttr "charset_r_ik_hand_CTRL_translateY1.o" "girlRN.phl[59]";
+connectAttr "girlRN.phl[60]" "pairBlend1.itx1";
+connectAttr "charset_r_ik_hand_CTRL_translateX1.o" "girlRN.phl[61]";
+connectAttr "charset_r_finger_04_CTRL_translateZ1.o" "girlRN.phl[62]";
+connectAttr "charset_r_finger_04_CTRL_translateY1.o" "girlRN.phl[63]";
+connectAttr "charset_r_finger_04_CTRL_translateX1.o" "girlRN.phl[64]";
+connectAttr "charset_r_finger_03_CTRL_translateZ1.o" "girlRN.phl[65]";
+connectAttr "charset_r_finger_03_CTRL_translateY1.o" "girlRN.phl[66]";
+connectAttr "charset_r_finger_03_CTRL_translateX1.o" "girlRN.phl[67]";
+connectAttr "charset_r_finger_02_CTRL_translateZ1.o" "girlRN.phl[68]";
+connectAttr "charset_r_finger_02_CTRL_translateY1.o" "girlRN.phl[69]";
+connectAttr "charset_r_finger_02_CTRL_translateX1.o" "girlRN.phl[70]";
+connectAttr "charset_r_finger_01_CTRL_translateZ1.o" "girlRN.phl[71]";
+connectAttr "charset_r_finger_01_CTRL_translateY1.o" "girlRN.phl[72]";
+connectAttr "charset_r_finger_01_CTRL_translateX1.o" "girlRN.phl[73]";
+connectAttr "charset_neck_CTRL_translateZ1.o" "girlRN.phl[74]";
+connectAttr "charset_neck_CTRL_translateY1.o" "girlRN.phl[75]";
+connectAttr "charset_neck_CTRL_translateX1.o" "girlRN.phl[76]";
+connectAttr "charset_l_shoulder_CTRL_translateZ1.o" "girlRN.phl[77]";
+connectAttr "charset_l_shoulder_CTRL_translateY1.o" "girlRN.phl[78]";
+connectAttr "charset_l_shoulder_CTRL_translateX1.o" "girlRN.phl[79]";
+connectAttr "charset_l_leg_poleVector_CTRL_translateZ54.o" "girlRN.phl[80]";
+connectAttr "charset_l_leg_poleVector_CTRL_translateY54.o" "girlRN.phl[81]";
+connectAttr "charset_l_leg_poleVector_CTRL_translateX54.o" "girlRN.phl[82]";
+connectAttr "charset_l_arm_poleVector_CTRL_translateZ1.o" "girlRN.phl[83]";
+connectAttr "charset_l_arm_poleVector_CTRL_translateY1.o" "girlRN.phl[84]";
+connectAttr "charset_l_arm_poleVector_CTRL_translateX1.o" "girlRN.phl[85]";
+connectAttr "charset_l_ik_leg_CTRL_translateZ1.o" "girlRN.phl[86]";
+connectAttr "charset_l_ik_leg_CTRL_translateY1.o" "girlRN.phl[87]";
+connectAttr "charset_l_ik_leg_CTRL_translateX1.o" "girlRN.phl[88]";
+connectAttr "charset_l_ik_hand_CTRL_translateZ1.o" "girlRN.phl[89]";
+connectAttr "charset_l_ik_hand_CTRL_translateY1.o" "girlRN.phl[90]";
+connectAttr "charset_l_ik_hand_CTRL_translateX1.o" "girlRN.phl[91]";
+connectAttr "charset_l_finger_04_CTRL_translateZ1.o" "girlRN.phl[92]";
+connectAttr "charset_l_finger_04_CTRL_translateY1.o" "girlRN.phl[93]";
+connectAttr "charset_l_finger_04_CTRL_translateX1.o" "girlRN.phl[94]";
+connectAttr "charset_l_finger_03_CTRL_translateZ1.o" "girlRN.phl[95]";
+connectAttr "charset_l_finger_03_CTRL_translateY1.o" "girlRN.phl[96]";
+connectAttr "charset_l_finger_03_CTRL_translateX1.o" "girlRN.phl[97]";
+connectAttr "charset_l_finger_02_CTRL_translateZ1.o" "girlRN.phl[98]";
+connectAttr "charset_l_finger_02_CTRL_translateY1.o" "girlRN.phl[99]";
+connectAttr "charset_l_finger_02_CTRL_translateX1.o" "girlRN.phl[100]";
+connectAttr "charset_l_finger_01_CTRL_translateZ1.o" "girlRN.phl[101]";
+connectAttr "charset_l_finger_01_CTRL_translateY1.o" "girlRN.phl[102]";
+connectAttr "charset_l_finger_01_CTRL_translateX1.o" "girlRN.phl[103]";
+connectAttr "charset_hip_CTRL_translateZ1.o" "girlRN.phl[104]";
+connectAttr "charset_hip_CTRL_translateY1.o" "girlRN.phl[105]";
+connectAttr "charset_hip_CTRL_translateX1.o" "girlRN.phl[106]";
+connectAttr "charset_head_ik_CTRL_translateZ1.o" "girlRN.phl[107]";
+connectAttr "charset_head_ik_CTRL_translateY1.o" "girlRN.phl[108]";
+connectAttr "charset_head_ik_CTRL_translateX1.o" "girlRN.phl[109]";
+connectAttr "charset_head_CTRL_translateZ1.o" "girlRN.phl[110]";
+connectAttr "charset_head_CTRL_translateY1.o" "girlRN.phl[111]";
+connectAttr "charset_head_CTRL_translateX1.o" "girlRN.phl[112]";
+connectAttr "charset_fk_r_upperKnee_CTRL_translateZ1.o" "girlRN.phl[113]";
+connectAttr "charset_fk_r_upperKnee_CTRL_translateY1.o" "girlRN.phl[114]";
+connectAttr "charset_fk_r_upperKnee_CTRL_translateX1.o" "girlRN.phl[115]";
+connectAttr "charset_fk_r_toe_CTRL_translateZ1.o" "girlRN.phl[116]";
+connectAttr "charset_fk_r_toe_CTRL_translateY1.o" "girlRN.phl[117]";
+connectAttr "charset_fk_r_toe_CTRL_translateX1.o" "girlRN.phl[118]";
+connectAttr "charset_fk_r_leg_CTRL_translateZ1.o" "girlRN.phl[119]";
+connectAttr "charset_fk_r_leg_CTRL_translateY1.o" "girlRN.phl[120]";
+connectAttr "charset_fk_r_leg_CTRL_translateX1.o" "girlRN.phl[121]";
+connectAttr "charset_fk_r_hand_CTRL_translateZ1.o" "girlRN.phl[122]";
+connectAttr "charset_fk_r_hand_CTRL_translateY1.o" "girlRN.phl[123]";
+connectAttr "charset_fk_r_hand_CTRL_translateX1.o" "girlRN.phl[124]";
+connectAttr "charset_fk_r_elbow_CTRL_translateZ1.o" "girlRN.phl[125]";
+connectAttr "charset_fk_r_elbow_CTRL_translateY1.o" "girlRN.phl[126]";
+connectAttr "charset_fk_r_elbow_CTRL_translateX1.o" "girlRN.phl[127]";
+connectAttr "charset_fk_r_ball_CTRL_translateZ1.o" "girlRN.phl[128]";
+connectAttr "charset_fk_r_ball_CTRL_translateY1.o" "girlRN.phl[129]";
+connectAttr "charset_fk_r_ball_CTRL_translateX1.o" "girlRN.phl[130]";
+connectAttr "charset_fk_r_arm_CTRL_translateZ1.o" "girlRN.phl[131]";
+connectAttr "charset_fk_r_arm_CTRL_translateY1.o" "girlRN.phl[132]";
+connectAttr "charset_fk_r_arm_CTRL_translateX1.o" "girlRN.phl[133]";
+connectAttr "charset_fk_r_ankle_CTRL_translateZ1.o" "girlRN.phl[134]";
+connectAttr "charset_fk_r_ankle_CTRL_translateY1.o" "girlRN.phl[135]";
+connectAttr "charset_fk_r_ankle_CTRL_translateX1.o" "girlRN.phl[136]";
+connectAttr "charset_fk_l_upperKnee_CTRL_translateZ1.o" "girlRN.phl[137]";
+connectAttr "charset_fk_l_upperKnee_CTRL_translateY1.o" "girlRN.phl[138]";
+connectAttr "charset_fk_l_upperKnee_CTRL_translateX1.o" "girlRN.phl[139]";
+connectAttr "charset_fk_l_toe_CTRL_translateZ1.o" "girlRN.phl[140]";
+connectAttr "charset_fk_l_toe_CTRL_translateY1.o" "girlRN.phl[141]";
+connectAttr "charset_fk_l_toe_CTRL_translateX1.o" "girlRN.phl[142]";
+connectAttr "charset_fk_l_leg_CTRL_translateZ1.o" "girlRN.phl[143]";
+connectAttr "charset_fk_l_leg_CTRL_translateY1.o" "girlRN.phl[144]";
+connectAttr "charset_fk_l_leg_CTRL_translateX1.o" "girlRN.phl[145]";
+connectAttr "charset_fk_l_hand_CTRL_translateZ1.o" "girlRN.phl[146]";
+connectAttr "charset_fk_l_hand_CTRL_translateY1.o" "girlRN.phl[147]";
+connectAttr "charset_fk_l_hand_CTRL_translateX1.o" "girlRN.phl[148]";
+connectAttr "charset_fk_l_elbow_CTRL_translateZ1.o" "girlRN.phl[149]";
+connectAttr "charset_fk_l_elbow_CTRL_translateY1.o" "girlRN.phl[150]";
+connectAttr "charset_fk_l_elbow_CTRL_translateX1.o" "girlRN.phl[151]";
+connectAttr "charset_fk_l_ball_CTRL_translateZ1.o" "girlRN.phl[152]";
+connectAttr "charset_fk_l_ball_CTRL_translateY1.o" "girlRN.phl[153]";
+connectAttr "charset_fk_l_ball_CTRL_translateX1.o" "girlRN.phl[154]";
+connectAttr "charset_fk_l_arm_CTRL_translateZ1.o" "girlRN.phl[155]";
+connectAttr "charset_fk_l_arm_CTRL_translateY1.o" "girlRN.phl[156]";
+connectAttr "charset_fk_l_arm_CTRL_translateX1.o" "girlRN.phl[157]";
+connectAttr "charset_fk_l_ankle_CTRL_translateZ1.o" "girlRN.phl[158]";
+connectAttr "charset_fk_l_ankle_CTRL_translateY1.o" "girlRN.phl[159]";
+connectAttr "charset_fk_l_ankle_CTRL_translateX1.o" "girlRN.phl[160]";
+connectAttr "charset_all_CTRL_translateZ1.o" "girlRN.phl[161]";
+connectAttr "charset_all_CTRL_translateY1.o" "girlRN.phl[162]";
+connectAttr "charset_all_CTRL_translateX1.o" "girlRN.phl[163]";
+connectAttr "charset_spline_03_CTRL_translateZ1.o" "girlRN.phl[164]";
+connectAttr "charset_spline_03_CTRL_translateY1.o" "girlRN.phl[165]";
+connectAttr "charset_spline_03_CTRL_translateX1.o" "girlRN.phl[166]";
+connectAttr "charset_linearValues_133_1.o" "girlRN.phl[167]";
+connectAttr "charset_linearValues_134_1.o" "girlRN.phl[168]";
+connectAttr "charset_linearValues_135_1.o" "girlRN.phl[169]";
+connectAttr "charset_linearValues_136_1.o" "girlRN.phl[170]";
+connectAttr "charset_linearValues_137_1.o" "girlRN.phl[171]";
+connectAttr "charset_linearValues_138_1.o" "girlRN.phl[172]";
+connectAttr "charset_linearValues_139_1.o" "girlRN.phl[173]";
+connectAttr "charset_linearValues_140_1.o" "girlRN.phl[174]";
+connectAttr "charset_linearValues_141_1.o" "girlRN.phl[175]";
+connectAttr "charset_linearValues_142_1.o" "girlRN.phl[176]";
+connectAttr "charset_linearValues_143_1.o" "girlRN.phl[177]";
+connectAttr "charset_linearValues_144_1.o" "girlRN.phl[178]";
+connectAttr "charset_linearValues_145_1.o" "girlRN.phl[179]";
+connectAttr "charset_linearValues_146_1.o" "girlRN.phl[180]";
+connectAttr "charset_linearValues_147_1.o" "girlRN.phl[181]";
+connectAttr "charset_linearValues_148_1.o" "girlRN.phl[182]";
+connectAttr "charset_linearValues_149_1.o" "girlRN.phl[183]";
+connectAttr "charset_linearValues_150_1.o" "girlRN.phl[184]";
+connectAttr "charset_linearValues_151_1.o" "girlRN.phl[185]";
+connectAttr "charset_linearValues_152_1.o" "girlRN.phl[186]";
+connectAttr "charset_linearValues_153_1.o" "girlRN.phl[187]";
+connectAttr "charset_linearValues_154_1.o" "girlRN.phl[188]";
+connectAttr "charset_linearValues_155_1.o" "girlRN.phl[189]";
+connectAttr "charset_linearValues_156_1.o" "girlRN.phl[190]";
+connectAttr "charset_linearValues_157_1.o" "girlRN.phl[191]";
+connectAttr "charset_linearValues_158_1.o" "girlRN.phl[192]";
+connectAttr "charset_linearValues_159_1.o" "girlRN.phl[193]";
+connectAttr "charset_linearValues_160_1.o" "girlRN.phl[194]";
+connectAttr "charset_linearValues_161_1.o" "girlRN.phl[195]";
+connectAttr "charset_linearValues_162_1.o" "girlRN.phl[196]";
+connectAttr "charset_linearValues_163_1.o" "girlRN.phl[197]";
+connectAttr "charset_linearValues_164_1.o" "girlRN.phl[198]";
+connectAttr "charset_linearValues_165_1.o" "girlRN.phl[199]";
+connectAttr "charset_linearValues_166_1.o" "girlRN.phl[200]";
+connectAttr "charset_linearValues_167_1.o" "girlRN.phl[201]";
+connectAttr "charset_linearValues_168_1.o" "girlRN.phl[202]";
+connectAttr "charset_linearValues_169_1.o" "girlRN.phl[203]";
+connectAttr "charset_linearValues_170_1.o" "girlRN.phl[204]";
+connectAttr "charset_linearValues_171_1.o" "girlRN.phl[205]";
+connectAttr "charset_linearValues_172_1.o" "girlRN.phl[206]";
+connectAttr "charset_linearValues_173_1.o" "girlRN.phl[207]";
+connectAttr "charset_linearValues_174_1.o" "girlRN.phl[208]";
+connectAttr "charset_linearValues_175_1.o" "girlRN.phl[209]";
+connectAttr "charset_linearValues_176_1.o" "girlRN.phl[210]";
+connectAttr "charset_linearValues_177_1.o" "girlRN.phl[211]";
+connectAttr "charset_linearValues_178_1.o" "girlRN.phl[212]";
+connectAttr "charset_linearValues_179_1.o" "girlRN.phl[213]";
+connectAttr "charset_linearValues_180_1.o" "girlRN.phl[214]";
+connectAttr "charset_linearValues_181_1.o" "girlRN.phl[215]";
+connectAttr "charset_linearValues_182_1.o" "girlRN.phl[216]";
+connectAttr "charset_linearValues_183_1.o" "girlRN.phl[217]";
+connectAttr "charset_linearValues_184_1.o" "girlRN.phl[218]";
+connectAttr "charset_linearValues_185_1.o" "girlRN.phl[219]";
+connectAttr "charset_linearValues_186_1.o" "girlRN.phl[220]";
+connectAttr "charset_linearValues_187_1.o" "girlRN.phl[221]";
+connectAttr "charset_linearValues_188_1.o" "girlRN.phl[222]";
+connectAttr "charset_linearValues_189_1.o" "girlRN.phl[223]";
+connectAttr "charset_linearValues_190_1.o" "girlRN.phl[224]";
+connectAttr "charset_linearValues_191_1.o" "girlRN.phl[225]";
+connectAttr "charset_linearValues_192_1.o" "girlRN.phl[226]";
+connectAttr "charset_linearValues_193_1.o" "girlRN.phl[227]";
+connectAttr "charset_linearValues_194_1.o" "girlRN.phl[228]";
+connectAttr "charset_linearValues_195_1.o" "girlRN.phl[229]";
+connectAttr "charset_linearValues_196_1.o" "girlRN.phl[230]";
+connectAttr "charset_linearValues_197_1.o" "girlRN.phl[231]";
+connectAttr "charset_linearValues_198_.o" "girlRN.phl[232]";
+connectAttr "charset_linearValues_199_.o" "girlRN.phl[233]";
+connectAttr "charset_linearValues_200_.o" "girlRN.phl[234]";
+connectAttr "charset_linearValues_201_.o" "girlRN.phl[235]";
+connectAttr "charset_linearValues_202_.o" "girlRN.phl[236]";
+connectAttr "charset_linearValues_203_.o" "girlRN.phl[237]";
+connectAttr "charset_r_legSwitch_CTRL_ikFkSwitch1.o" "girlRN.phl[238]";
+connectAttr "charset_l_armSwitch_CTRL_ikFkSwitch1.o" "girlRN.phl[239]";
+connectAttr "charset_r_armSwitch_CTRL_ikFkSwitch1.o" "girlRN.phl[240]";
+connectAttr "charset_l_legSwitch_CTRL_ikFkSwitch1.o" "girlRN.phl[241]";
+connectAttr "charset_r_ik_hand_CTRL_snapToElbow1.o" "girlRN.phl[242]";
+connectAttr "charset_l_ik_hand_CTRL_snapToElbow1.o" "girlRN.phl[243]";
+connectAttr "charset_l_ik_leg_CTRL_kneeSnap1.o" "girlRN.phl[244]";
+connectAttr "charset_l_ik_leg_CTRL_ToeTurn1.o" "girlRN.phl[245]";
+connectAttr "charset_l_ik_leg_CTRL_ballTurn1.o" "girlRN.phl[246]";
+connectAttr "charset_l_ik_leg_CTRL_heelTurn1.o" "girlRN.phl[247]";
+connectAttr "charset_l_ik_leg_CTRL_toeStraightAngle1.o" "girlRN.phl[248]";
+connectAttr "charset_l_ik_leg_CTRL_bandLimitAngle1.o" "girlRN.phl[249]";
+connectAttr "charset_l_ik_leg_CTRL_roll1.o" "girlRN.phl[250]";
+connectAttr "charset_l_ik_leg_CTRL_tilt1.o" "girlRN.phl[251]";
+connectAttr "charset_r_ik_leg_CTRL_kneeSnap1.o" "girlRN.phl[252]";
+connectAttr "charset_r_ik_leg_CTRL_ToeTurn1.o" "girlRN.phl[253]";
+connectAttr "charset_r_ik_leg_CTRL_ballTurn1.o" "girlRN.phl[254]";
+connectAttr "charset_r_ik_leg_CTRL_heelTurn1.o" "girlRN.phl[255]";
+connectAttr "charset_r_ik_leg_CTRL_toeStraightAngle1.o" "girlRN.phl[256]";
+connectAttr "charset_r_ik_leg_CTRL_bandLimitAngle1.o" "girlRN.phl[257]";
+connectAttr "charset_r_ik_leg_CTRL_roll1.o" "girlRN.phl[258]";
+connectAttr "charset_r_ik_leg_CTRL_tilt1.o" "girlRN.phl[259]";
+connectAttr "charset_all_CTRL_scaleZ1.o" "girlRN.phl[260]";
+connectAttr "charset_all_CTRL_scaleY1.o" "girlRN.phl[261]";
+connectAttr "charset_all_CTRL_scaleX1.o" "girlRN.phl[262]";
+connectAttr "charset_head_CTRL_ikFkSwitch1.o" "girlRN.phl[263]";
+connectAttr "charset_unitlessValues_27_1.o" "girlRN.phl[264]";
+connectAttr "charset_unitlessValues_28_1.o" "girlRN.phl[265]";
+connectAttr "charset_spline_02_CTRL_rotateZ1.o" "girlRN.phl[266]";
+connectAttr "charset_spline_02_CTRL_rotateY1.o" "girlRN.phl[267]";
+connectAttr "charset_spline_02_CTRL_rotateX1.o" "girlRN.phl[268]";
+connectAttr "charset_spline_01_CTRL_rotateZ1.o" "girlRN.phl[269]";
+connectAttr "charset_spline_01_CTRL_rotateY1.o" "girlRN.phl[270]";
+connectAttr "charset_spline_01_CTRL_rotateX1.o" "girlRN.phl[271]";
+connectAttr "charset_root_CTRL_rotateZ1.o" "girlRN.phl[272]";
+connectAttr "charset_root_CTRL_rotateY1.o" "girlRN.phl[273]";
+connectAttr "charset_root_CTRL_rotateX1.o" "girlRN.phl[274]";
+connectAttr "charset_r_shoulder_CTRL_rotateZ1.o" "girlRN.phl[275]";
+connectAttr "charset_r_shoulder_CTRL_rotateY1.o" "girlRN.phl[276]";
+connectAttr "charset_r_shoulder_CTRL_rotateX1.o" "girlRN.phl[277]";
+connectAttr "charset_r_leg_poleVector_CTRL_rotateZ54.o" "girlRN.phl[278]";
+connectAttr "charset_r_leg_poleVector_CTRL_rotateY54.o" "girlRN.phl[279]";
+connectAttr "charset_r_leg_poleVector_CTRL_rotateX54.o" "girlRN.phl[280]";
+connectAttr "charset_r_arm_poleVector_CTRL_rotateZ1.o" "girlRN.phl[281]";
+connectAttr "charset_r_arm_poleVector_CTRL_rotateY1.o" "girlRN.phl[282]";
+connectAttr "charset_r_arm_poleVector_CTRL_rotateX1.o" "girlRN.phl[283]";
+connectAttr "charset_r_ik_leg_CTRL_rotateZ1.o" "girlRN.phl[284]";
+connectAttr "charset_r_ik_leg_CTRL_rotateY1.o" "girlRN.phl[285]";
+connectAttr "charset_r_ik_leg_CTRL_rotateX1.o" "girlRN.phl[286]";
+connectAttr "girlRN.phl[287]" "pairBlend1.irz1";
+connectAttr "charset_r_ik_hand_CTRL_rotateZ1.o" "girlRN.phl[288]";
+connectAttr "girlRN.phl[289]" "pairBlend1.iry1";
+connectAttr "charset_r_ik_hand_CTRL_rotateY1.o" "girlRN.phl[290]";
+connectAttr "girlRN.phl[291]" "pairBlend1.irx1";
+connectAttr "charset_r_ik_hand_CTRL_rotateX1.o" "girlRN.phl[292]";
+connectAttr "charset_r_finger_04_CTRL_rotateZ1.o" "girlRN.phl[293]";
+connectAttr "charset_r_finger_04_CTRL_rotateY1.o" "girlRN.phl[294]";
+connectAttr "charset_r_finger_04_CTRL_rotateX1.o" "girlRN.phl[295]";
+connectAttr "charset_r_finger_03_CTRL_rotateZ1.o" "girlRN.phl[296]";
+connectAttr "charset_r_finger_03_CTRL_rotateY1.o" "girlRN.phl[297]";
+connectAttr "charset_r_finger_03_CTRL_rotateX1.o" "girlRN.phl[298]";
+connectAttr "charset_r_finger_02_CTRL_rotateZ1.o" "girlRN.phl[299]";
+connectAttr "charset_r_finger_02_CTRL_rotateY1.o" "girlRN.phl[300]";
+connectAttr "charset_r_finger_02_CTRL_rotateX1.o" "girlRN.phl[301]";
+connectAttr "charset_r_finger_01_CTRL_rotateZ1.o" "girlRN.phl[302]";
+connectAttr "charset_r_finger_01_CTRL_rotateY1.o" "girlRN.phl[303]";
+connectAttr "charset_r_finger_01_CTRL_rotateX1.o" "girlRN.phl[304]";
+connectAttr "charset_neck_CTRL_rotateZ1.o" "girlRN.phl[305]";
+connectAttr "charset_neck_CTRL_rotateY1.o" "girlRN.phl[306]";
+connectAttr "charset_neck_CTRL_rotateX1.o" "girlRN.phl[307]";
+connectAttr "charset_l_shoulder_CTRL_rotateZ1.o" "girlRN.phl[308]";
+connectAttr "charset_l_shoulder_CTRL_rotateY1.o" "girlRN.phl[309]";
+connectAttr "charset_l_shoulder_CTRL_rotateX1.o" "girlRN.phl[310]";
+connectAttr "charset_l_leg_poleVector_CTRL_rotateZ54.o" "girlRN.phl[311]";
+connectAttr "charset_l_leg_poleVector_CTRL_rotateY54.o" "girlRN.phl[312]";
+connectAttr "charset_l_leg_poleVector_CTRL_rotateX54.o" "girlRN.phl[313]";
+connectAttr "charset_l_arm_poleVector_CTRL_rotateZ1.o" "girlRN.phl[314]";
+connectAttr "charset_l_arm_poleVector_CTRL_rotateY1.o" "girlRN.phl[315]";
+connectAttr "charset_l_arm_poleVector_CTRL_rotateX1.o" "girlRN.phl[316]";
+connectAttr "charset_l_ik_leg_CTRL_rotateZ1.o" "girlRN.phl[317]";
+connectAttr "charset_l_ik_leg_CTRL_rotateY1.o" "girlRN.phl[318]";
+connectAttr "charset_l_ik_leg_CTRL_rotateX1.o" "girlRN.phl[319]";
+connectAttr "charset_l_ik_hand_CTRL_rotateZ1.o" "girlRN.phl[320]";
+connectAttr "charset_l_ik_hand_CTRL_rotateY1.o" "girlRN.phl[321]";
+connectAttr "charset_l_ik_hand_CTRL_rotateX1.o" "girlRN.phl[322]";
+connectAttr "charset_l_finger_04_CTRL_rotateZ1.o" "girlRN.phl[323]";
+connectAttr "charset_l_finger_04_CTRL_rotateY1.o" "girlRN.phl[324]";
+connectAttr "charset_l_finger_04_CTRL_rotateX1.o" "girlRN.phl[325]";
+connectAttr "charset_l_finger_03_CTRL_rotateZ1.o" "girlRN.phl[326]";
+connectAttr "charset_l_finger_03_CTRL_rotateY1.o" "girlRN.phl[327]";
+connectAttr "charset_l_finger_03_CTRL_rotateX1.o" "girlRN.phl[328]";
+connectAttr "charset_l_finger_02_CTRL_rotateZ1.o" "girlRN.phl[329]";
+connectAttr "charset_l_finger_02_CTRL_rotateY1.o" "girlRN.phl[330]";
+connectAttr "charset_l_finger_02_CTRL_rotateX1.o" "girlRN.phl[331]";
+connectAttr "charset_l_finger_01_CTRL_rotateZ1.o" "girlRN.phl[332]";
+connectAttr "charset_l_finger_01_CTRL_rotateY1.o" "girlRN.phl[333]";
+connectAttr "charset_l_finger_01_CTRL_rotateX1.o" "girlRN.phl[334]";
+connectAttr "charset_hip_CTRL_rotateZ1.o" "girlRN.phl[335]";
+connectAttr "charset_hip_CTRL_rotateY1.o" "girlRN.phl[336]";
+connectAttr "charset_hip_CTRL_rotateX1.o" "girlRN.phl[337]";
+connectAttr "charset_head_ik_CTRL_rotateZ1.o" "girlRN.phl[338]";
+connectAttr "charset_head_ik_CTRL_rotateY1.o" "girlRN.phl[339]";
+connectAttr "charset_head_ik_CTRL_rotateX1.o" "girlRN.phl[340]";
+connectAttr "charset_head_CTRL_rotateZ1.o" "girlRN.phl[341]";
+connectAttr "charset_head_CTRL_rotateY1.o" "girlRN.phl[342]";
+connectAttr "charset_head_CTRL_rotateX1.o" "girlRN.phl[343]";
+connectAttr "charset_fk_r_upperKnee_CTRL_rotateZ1.o" "girlRN.phl[344]";
+connectAttr "charset_fk_r_upperKnee_CTRL_rotateY1.o" "girlRN.phl[345]";
+connectAttr "charset_fk_r_upperKnee_CTRL_rotateX1.o" "girlRN.phl[346]";
+connectAttr "charset_fk_r_toe_CTRL_rotateZ1.o" "girlRN.phl[347]";
+connectAttr "charset_fk_r_toe_CTRL_rotateY1.o" "girlRN.phl[348]";
+connectAttr "charset_fk_r_toe_CTRL_rotateX1.o" "girlRN.phl[349]";
+connectAttr "charset_fk_r_leg_CTRL_rotateZ1.o" "girlRN.phl[350]";
+connectAttr "charset_fk_r_leg_CTRL_rotateY1.o" "girlRN.phl[351]";
+connectAttr "charset_fk_r_leg_CTRL_rotateX1.o" "girlRN.phl[352]";
+connectAttr "charset_fk_r_hand_CTRL_rotateZ1.o" "girlRN.phl[353]";
+connectAttr "charset_fk_r_hand_CTRL_rotateY1.o" "girlRN.phl[354]";
+connectAttr "charset_fk_r_hand_CTRL_rotateX1.o" "girlRN.phl[355]";
+connectAttr "charset_fk_r_elbow_CTRL_rotateZ1.o" "girlRN.phl[356]";
+connectAttr "charset_fk_r_elbow_CTRL_rotateY1.o" "girlRN.phl[357]";
+connectAttr "charset_fk_r_elbow_CTRL_rotateX1.o" "girlRN.phl[358]";
+connectAttr "charset_fk_r_ball_CTRL_rotateZ1.o" "girlRN.phl[359]";
+connectAttr "charset_fk_r_ball_CTRL_rotateY1.o" "girlRN.phl[360]";
+connectAttr "charset_fk_r_ball_CTRL_rotateX1.o" "girlRN.phl[361]";
+connectAttr "charset_fk_r_arm_CTRL_rotateZ1.o" "girlRN.phl[362]";
+connectAttr "charset_fk_r_arm_CTRL_rotateY1.o" "girlRN.phl[363]";
+connectAttr "charset_fk_r_arm_CTRL_rotateX1.o" "girlRN.phl[364]";
+connectAttr "charset_fk_r_ankle_CTRL_rotateZ1.o" "girlRN.phl[365]";
+connectAttr "charset_fk_r_ankle_CTRL_rotateY1.o" "girlRN.phl[366]";
+connectAttr "charset_fk_r_ankle_CTRL_rotateX1.o" "girlRN.phl[367]";
+connectAttr "charset_fk_l_upperKnee_CTRL_rotateZ1.o" "girlRN.phl[368]";
+connectAttr "charset_fk_l_upperKnee_CTRL_rotateY1.o" "girlRN.phl[369]";
+connectAttr "charset_fk_l_upperKnee_CTRL_rotateX1.o" "girlRN.phl[370]";
+connectAttr "charset_fk_l_toe_CTRL_rotateZ1.o" "girlRN.phl[371]";
+connectAttr "charset_fk_l_toe_CTRL_rotateY1.o" "girlRN.phl[372]";
+connectAttr "charset_fk_l_toe_CTRL_rotateX1.o" "girlRN.phl[373]";
+connectAttr "charset_fk_l_leg_CTRL_rotateZ1.o" "girlRN.phl[374]";
+connectAttr "charset_fk_l_leg_CTRL_rotateY1.o" "girlRN.phl[375]";
+connectAttr "charset_fk_l_leg_CTRL_rotateX1.o" "girlRN.phl[376]";
+connectAttr "charset_fk_l_hand_CTRL_rotateZ1.o" "girlRN.phl[377]";
+connectAttr "charset_fk_l_hand_CTRL_rotateY1.o" "girlRN.phl[378]";
+connectAttr "charset_fk_l_hand_CTRL_rotateX1.o" "girlRN.phl[379]";
+connectAttr "charset_fk_l_elbow_CTRL_rotateZ1.o" "girlRN.phl[380]";
+connectAttr "charset_fk_l_elbow_CTRL_rotateY1.o" "girlRN.phl[381]";
+connectAttr "charset_fk_l_elbow_CTRL_rotateX1.o" "girlRN.phl[382]";
+connectAttr "charset_fk_l_ball_CTRL_rotateZ1.o" "girlRN.phl[383]";
+connectAttr "charset_fk_l_ball_CTRL_rotateY1.o" "girlRN.phl[384]";
+connectAttr "charset_fk_l_ball_CTRL_rotateX1.o" "girlRN.phl[385]";
+connectAttr "charset_fk_l_arm_CTRL_rotateZ1.o" "girlRN.phl[386]";
+connectAttr "charset_fk_l_arm_CTRL_rotateY1.o" "girlRN.phl[387]";
+connectAttr "charset_fk_l_arm_CTRL_rotateX1.o" "girlRN.phl[388]";
+connectAttr "charset_fk_l_ankle_CTRL_rotateZ1.o" "girlRN.phl[389]";
+connectAttr "charset_fk_l_ankle_CTRL_rotateY1.o" "girlRN.phl[390]";
+connectAttr "charset_fk_l_ankle_CTRL_rotateX1.o" "girlRN.phl[391]";
+connectAttr "charset_all_CTRL_rotateZ1.o" "girlRN.phl[392]";
+connectAttr "charset_all_CTRL_rotateY1.o" "girlRN.phl[393]";
+connectAttr "charset_all_CTRL_rotateX1.o" "girlRN.phl[394]";
+connectAttr "charset_spline_03_CTRL_rotateZ1.o" "girlRN.phl[395]";
+connectAttr "charset_spline_03_CTRL_rotateY1.o" "girlRN.phl[396]";
+connectAttr "charset_spline_03_CTRL_rotateX1.o" "girlRN.phl[397]";
+connectAttr "charset_angularValues_133_1.o" "girlRN.phl[398]";
+connectAttr "charset_angularValues_134_1.o" "girlRN.phl[399]";
+connectAttr "charset_angularValues_135_1.o" "girlRN.phl[400]";
+connectAttr "charset_angularValues_136_1.o" "girlRN.phl[401]";
+connectAttr "charset_angularValues_137_1.o" "girlRN.phl[402]";
+connectAttr "charset_angularValues_138_1.o" "girlRN.phl[403]";
+connectAttr "charset_angularValues_139_1.o" "girlRN.phl[404]";
+connectAttr "charset_angularValues_140_1.o" "girlRN.phl[405]";
+connectAttr "charset_angularValues_141_1.o" "girlRN.phl[406]";
+connectAttr "charset_angularValues_142_1.o" "girlRN.phl[407]";
+connectAttr "charset_angularValues_143_1.o" "girlRN.phl[408]";
+connectAttr "charset_angularValues_144_1.o" "girlRN.phl[409]";
+connectAttr "charset_angularValues_145_1.o" "girlRN.phl[410]";
+connectAttr "charset_angularValues_146_1.o" "girlRN.phl[411]";
+connectAttr "charset_angularValues_147_1.o" "girlRN.phl[412]";
+connectAttr "charset_angularValues_148_1.o" "girlRN.phl[413]";
+connectAttr "charset_angularValues_149_1.o" "girlRN.phl[414]";
+connectAttr "charset_angularValues_150_1.o" "girlRN.phl[415]";
+connectAttr "charset_angularValues_151_1.o" "girlRN.phl[416]";
+connectAttr "charset_angularValues_152_1.o" "girlRN.phl[417]";
+connectAttr "charset_angularValues_153_1.o" "girlRN.phl[418]";
+connectAttr "charset_angularValues_154_1.o" "girlRN.phl[419]";
+connectAttr "charset_angularValues_155_1.o" "girlRN.phl[420]";
+connectAttr "charset_angularValues_156_1.o" "girlRN.phl[421]";
+connectAttr "charset_angularValues_157_1.o" "girlRN.phl[422]";
+connectAttr "charset_angularValues_158_1.o" "girlRN.phl[423]";
+connectAttr "charset_angularValues_159_1.o" "girlRN.phl[424]";
+connectAttr "charset_angularValues_160_1.o" "girlRN.phl[425]";
+connectAttr "charset_angularValues_161_1.o" "girlRN.phl[426]";
+connectAttr "charset_angularValues_162_1.o" "girlRN.phl[427]";
+connectAttr "charset_angularValues_163_1.o" "girlRN.phl[428]";
+connectAttr "charset_angularValues_164_1.o" "girlRN.phl[429]";
+connectAttr "charset_angularValues_165_1.o" "girlRN.phl[430]";
+connectAttr "charset_angularValues_166_1.o" "girlRN.phl[431]";
+connectAttr "charset_angularValues_167_1.o" "girlRN.phl[432]";
+connectAttr "charset_angularValues_168_1.o" "girlRN.phl[433]";
+connectAttr "charset_angularValues_169_1.o" "girlRN.phl[434]";
+connectAttr "charset_angularValues_170_1.o" "girlRN.phl[435]";
+connectAttr "charset_angularValues_171_1.o" "girlRN.phl[436]";
+connectAttr "charset_angularValues_172_1.o" "girlRN.phl[437]";
+connectAttr "charset_angularValues_173_1.o" "girlRN.phl[438]";
+connectAttr "charset_angularValues_174_1.o" "girlRN.phl[439]";
+connectAttr "charset_angularValues_175_1.o" "girlRN.phl[440]";
+connectAttr "charset_angularValues_176_1.o" "girlRN.phl[441]";
+connectAttr "charset_angularValues_177_1.o" "girlRN.phl[442]";
+connectAttr "charset_angularValues_178_1.o" "girlRN.phl[443]";
+connectAttr "charset_angularValues_179_1.o" "girlRN.phl[444]";
+connectAttr "charset_angularValues_180_1.o" "girlRN.phl[445]";
+connectAttr "charset_angularValues_181_1.o" "girlRN.phl[446]";
+connectAttr "charset_angularValues_182_1.o" "girlRN.phl[447]";
+connectAttr "charset_angularValues_183_1.o" "girlRN.phl[448]";
+connectAttr "charset_angularValues_184_1.o" "girlRN.phl[449]";
+connectAttr "charset_angularValues_185_1.o" "girlRN.phl[450]";
+connectAttr "charset_angularValues_186_1.o" "girlRN.phl[451]";
+connectAttr "charset_angularValues_187_1.o" "girlRN.phl[452]";
+connectAttr "charset_angularValues_188_1.o" "girlRN.phl[453]";
+connectAttr "charset_angularValues_189_1.o" "girlRN.phl[454]";
+connectAttr "charset_angularValues_190_1.o" "girlRN.phl[455]";
+connectAttr "charset_angularValues_191_1.o" "girlRN.phl[456]";
+connectAttr "charset_angularValues_192_1.o" "girlRN.phl[457]";
+connectAttr "charset_angularValues_193_1.o" "girlRN.phl[458]";
+connectAttr "charset_angularValues_194_1.o" "girlRN.phl[459]";
+connectAttr "charset_angularValues_195_1.o" "girlRN.phl[460]";
+connectAttr "l_brow_CTRL_visibility.o" "girlRN.phl[461]";
+connectAttr "r_brow_CTRL_visibility.o" "girlRN.phl[462]";
+connectAttr "root_CTRL_scaleX.o" "sadnessRN.phl[3]";
+connectAttr "root_CTRL_scaleY.o" "sadnessRN.phl[4]";
+connectAttr "root_CTRL_scaleZ.o" "sadnessRN.phl[5]";
+connectAttr "hip_CTRL_scaleX.o" "sadnessRN.phl[6]";
+connectAttr "hip_CTRL_scaleY.o" "sadnessRN.phl[7]";
+connectAttr "hip_CTRL_scaleZ.o" "sadnessRN.phl[8]";
+connectAttr "head_CTRL_scaleX1.o" "sadnessRN.phl[9]";
+connectAttr "head_CTRL_scaleY1.o" "sadnessRN.phl[10]";
+connectAttr "head_CTRL_scaleZ1.o" "sadnessRN.phl[11]";
+connectAttr "sadnessRN.phl[12]" "r_ik_hand_CTRL_parentConstraint2.tg[0].tt";
+connectAttr "sadnessRN.phl[13]" "r_ik_hand_CTRL_parentConstraint2.tg[0].tr";
+connectAttr "sadnessRN.phl[14]" "r_ik_hand_CTRL_parentConstraint2.tg[0].ts";
+connectAttr "sadnessRN.phl[15]" "r_ik_hand_CTRL_parentConstraint2.tg[0].tro";
+connectAttr "sadnessRN.phl[16]" "r_ik_hand_CTRL_parentConstraint2.tg[0].tpm";
+connectAttr "sadnessRN.phl[17]" "r_ik_hand_CTRL_parentConstraint2.tg[0].trp";
+connectAttr "sadnessRN.phl[18]" "r_ik_hand_CTRL_parentConstraint2.tg[0].trt";
+connectAttr "pairBlend5.otz" "sadnessRN.phl[19]";
+connectAttr "pairBlend5.oty" "sadnessRN.phl[20]";
+connectAttr "pairBlend5.otx" "sadnessRN.phl[21]";
+connectAttr "pairBlend5.orz" "sadnessRN.phl[22]";
+connectAttr "pairBlend5.ory" "sadnessRN.phl[23]";
+connectAttr "pairBlend5.orx" "sadnessRN.phl[24]";
+connectAttr "sadnessRN.phl[25]" "pairBlend5.ro";
+connectAttr "sadnessRN.phl[26]" "r_ik_hand_CTRL_parentConstraint2.cro";
+connectAttr "sadnessRN.phl[27]" "r_ik_hand_CTRL_parentConstraint2.cpim";
+connectAttr "sadnessRN.phl[28]" "pairBlend5.w";
+connectAttr "r_ik_hand_CTRL_blendParent2.o" "sadnessRN.phl[29]";
+connectAttr "sadnessRN.phl[30]" "r_ik_hand_CTRL_parentConstraint2.crp";
+connectAttr "sadnessRN.phl[31]" "r_ik_hand_CTRL_parentConstraint2.crt";
+connectAttr "charset_spline_02_CTRL_translateZ2.o" "sadnessRN.phl[32]";
+connectAttr "charset_spline_02_CTRL_translateY2.o" "sadnessRN.phl[33]";
+connectAttr "charset_spline_02_CTRL_translateX2.o" "sadnessRN.phl[34]";
+connectAttr "charset_spline_01_CTRL_translateZ2.o" "sadnessRN.phl[35]";
+connectAttr "charset_spline_01_CTRL_translateY2.o" "sadnessRN.phl[36]";
+connectAttr "charset_spline_01_CTRL_translateX2.o" "sadnessRN.phl[37]";
+connectAttr "charset_root_CTRL_translateZ2.o" "sadnessRN.phl[38]";
+connectAttr "charset_root_CTRL_translateY2.o" "sadnessRN.phl[39]";
+connectAttr "charset_root_CTRL_translateX2.o" "sadnessRN.phl[40]";
+connectAttr "charset_r_shoulder_CTRL_translateZ2.o" "sadnessRN.phl[41]";
+connectAttr "charset_r_shoulder_CTRL_translateY2.o" "sadnessRN.phl[42]";
+connectAttr "charset_r_shoulder_CTRL_translateX2.o" "sadnessRN.phl[43]";
+connectAttr "charset_r_leg_poleVector_CTRL_translateZ53.o" "sadnessRN.phl[44]";
+connectAttr "charset_r_leg_poleVector_CTRL_translateY53.o" "sadnessRN.phl[45]";
+connectAttr "charset_r_leg_poleVector_CTRL_translateX53.o" "sadnessRN.phl[46]";
+connectAttr "charset_r_arm_poleVector_CTRL_translateZ.o" "sadnessRN.phl[47]";
+connectAttr "charset_r_arm_poleVector_CTRL_translateY.o" "sadnessRN.phl[48]";
+connectAttr "charset_r_arm_poleVector_CTRL_translateX.o" "sadnessRN.phl[49]";
+connectAttr "charset_r_ik_leg_CTRL_translateZ2.o" "sadnessRN.phl[50]";
+connectAttr "charset_r_ik_leg_CTRL_translateY2.o" "sadnessRN.phl[51]";
+connectAttr "charset_r_ik_leg_CTRL_translateX2.o" "sadnessRN.phl[52]";
+connectAttr "sadnessRN.phl[53]" "pairBlend5.itz1";
+connectAttr "charset_r_ik_hand_CTRL_translateZ2.o" "sadnessRN.phl[54]";
+connectAttr "sadnessRN.phl[55]" "pairBlend5.ity1";
+connectAttr "charset_r_ik_hand_CTRL_translateY2.o" "sadnessRN.phl[56]";
+connectAttr "sadnessRN.phl[57]" "pairBlend5.itx1";
+connectAttr "charset_r_ik_hand_CTRL_translateX2.o" "sadnessRN.phl[58]";
+connectAttr "charset_r_finger_04_CTRL_translateZ2.o" "sadnessRN.phl[59]";
+connectAttr "charset_r_finger_04_CTRL_translateY2.o" "sadnessRN.phl[60]";
+connectAttr "charset_r_finger_04_CTRL_translateX2.o" "sadnessRN.phl[61]";
+connectAttr "charset_r_finger_03_CTRL_translateZ2.o" "sadnessRN.phl[62]";
+connectAttr "charset_r_finger_03_CTRL_translateY2.o" "sadnessRN.phl[63]";
+connectAttr "charset_r_finger_03_CTRL_translateX2.o" "sadnessRN.phl[64]";
+connectAttr "charset_r_finger_02_CTRL_translateZ2.o" "sadnessRN.phl[65]";
+connectAttr "charset_r_finger_02_CTRL_translateY2.o" "sadnessRN.phl[66]";
+connectAttr "charset_r_finger_02_CTRL_translateX2.o" "sadnessRN.phl[67]";
+connectAttr "charset_r_finger_01_CTRL_translateZ2.o" "sadnessRN.phl[68]";
+connectAttr "charset_r_finger_01_CTRL_translateY2.o" "sadnessRN.phl[69]";
+connectAttr "charset_r_finger_01_CTRL_translateX2.o" "sadnessRN.phl[70]";
+connectAttr "charset_neck_CTRL_translateZ2.o" "sadnessRN.phl[71]";
+connectAttr "charset_neck_CTRL_translateY2.o" "sadnessRN.phl[72]";
+connectAttr "charset_neck_CTRL_translateX2.o" "sadnessRN.phl[73]";
+connectAttr "charset_l_shoulder_CTRL_translateZ2.o" "sadnessRN.phl[74]";
+connectAttr "charset_l_shoulder_CTRL_translateY2.o" "sadnessRN.phl[75]";
+connectAttr "charset_l_shoulder_CTRL_translateX2.o" "sadnessRN.phl[76]";
+connectAttr "charset_l_leg_poleVector_CTRL_translateZ53.o" "sadnessRN.phl[77]";
+connectAttr "charset_l_leg_poleVector_CTRL_translateY53.o" "sadnessRN.phl[78]";
+connectAttr "charset_l_leg_poleVector_CTRL_translateX53.o" "sadnessRN.phl[79]";
+connectAttr "charset_l_arm_poleVector_CTRL_translateZ.o" "sadnessRN.phl[80]";
+connectAttr "charset_l_arm_poleVector_CTRL_translateY.o" "sadnessRN.phl[81]";
+connectAttr "charset_l_arm_poleVector_CTRL_translateX.o" "sadnessRN.phl[82]";
+connectAttr "charset_l_ik_leg_CTRL_translateZ2.o" "sadnessRN.phl[83]";
+connectAttr "charset_l_ik_leg_CTRL_translateY2.o" "sadnessRN.phl[84]";
+connectAttr "charset_l_ik_leg_CTRL_translateX2.o" "sadnessRN.phl[85]";
+connectAttr "charset_l_ik_hand_CTRL_translateZ2.o" "sadnessRN.phl[86]";
+connectAttr "charset_l_ik_hand_CTRL_translateY2.o" "sadnessRN.phl[87]";
+connectAttr "charset_l_ik_hand_CTRL_translateX2.o" "sadnessRN.phl[88]";
+connectAttr "charset_l_finger_04_CTRL_translateZ2.o" "sadnessRN.phl[89]";
+connectAttr "charset_l_finger_04_CTRL_translateY2.o" "sadnessRN.phl[90]";
+connectAttr "charset_l_finger_04_CTRL_translateX2.o" "sadnessRN.phl[91]";
+connectAttr "charset_l_finger_03_CTRL_translateZ2.o" "sadnessRN.phl[92]";
+connectAttr "charset_l_finger_03_CTRL_translateY2.o" "sadnessRN.phl[93]";
+connectAttr "charset_l_finger_03_CTRL_translateX2.o" "sadnessRN.phl[94]";
+connectAttr "charset_l_finger_02_CTRL_translateZ2.o" "sadnessRN.phl[95]";
+connectAttr "charset_l_finger_02_CTRL_translateY2.o" "sadnessRN.phl[96]";
+connectAttr "charset_l_finger_02_CTRL_translateX2.o" "sadnessRN.phl[97]";
+connectAttr "charset_l_finger_01_CTRL_translateZ2.o" "sadnessRN.phl[98]";
+connectAttr "charset_l_finger_01_CTRL_translateY2.o" "sadnessRN.phl[99]";
+connectAttr "charset_l_finger_01_CTRL_translateX2.o" "sadnessRN.phl[100]";
+connectAttr "charset_hip_CTRL_translateZ2.o" "sadnessRN.phl[101]";
+connectAttr "charset_hip_CTRL_translateY2.o" "sadnessRN.phl[102]";
+connectAttr "charset_hip_CTRL_translateX2.o" "sadnessRN.phl[103]";
+connectAttr "charset_head_ik_CTRL_translateZ2.o" "sadnessRN.phl[104]";
+connectAttr "charset_head_ik_CTRL_translateY2.o" "sadnessRN.phl[105]";
+connectAttr "charset_head_ik_CTRL_translateX2.o" "sadnessRN.phl[106]";
+connectAttr "charset_head_CTRL_translateZ2.o" "sadnessRN.phl[107]";
+connectAttr "charset_head_CTRL_translateY2.o" "sadnessRN.phl[108]";
+connectAttr "charset_head_CTRL_translateX2.o" "sadnessRN.phl[109]";
+connectAttr "charset_fk_r_upperKnee_CTRL_translateZ2.o" "sadnessRN.phl[110]";
+connectAttr "charset_fk_r_upperKnee_CTRL_translateY2.o" "sadnessRN.phl[111]";
+connectAttr "charset_fk_r_upperKnee_CTRL_translateX2.o" "sadnessRN.phl[112]";
+connectAttr "charset_fk_r_toe_CTRL_translateZ2.o" "sadnessRN.phl[113]";
+connectAttr "charset_fk_r_toe_CTRL_translateY2.o" "sadnessRN.phl[114]";
+connectAttr "charset_fk_r_toe_CTRL_translateX2.o" "sadnessRN.phl[115]";
+connectAttr "charset_fk_r_leg_CTRL_translateZ2.o" "sadnessRN.phl[116]";
+connectAttr "charset_fk_r_leg_CTRL_translateY2.o" "sadnessRN.phl[117]";
+connectAttr "charset_fk_r_leg_CTRL_translateX2.o" "sadnessRN.phl[118]";
+connectAttr "charset_fk_r_hand_CTRL_translateZ2.o" "sadnessRN.phl[119]";
+connectAttr "charset_fk_r_hand_CTRL_translateY2.o" "sadnessRN.phl[120]";
+connectAttr "charset_fk_r_hand_CTRL_translateX2.o" "sadnessRN.phl[121]";
+connectAttr "charset_fk_r_elbow_CTRL_translateZ2.o" "sadnessRN.phl[122]";
+connectAttr "charset_fk_r_elbow_CTRL_translateY2.o" "sadnessRN.phl[123]";
+connectAttr "charset_fk_r_elbow_CTRL_translateX2.o" "sadnessRN.phl[124]";
+connectAttr "charset_fk_r_ball_CTRL_translateZ2.o" "sadnessRN.phl[125]";
+connectAttr "charset_fk_r_ball_CTRL_translateY2.o" "sadnessRN.phl[126]";
+connectAttr "charset_fk_r_ball_CTRL_translateX2.o" "sadnessRN.phl[127]";
+connectAttr "charset_fk_r_arm_CTRL_translateZ2.o" "sadnessRN.phl[128]";
+connectAttr "charset_fk_r_arm_CTRL_translateY2.o" "sadnessRN.phl[129]";
+connectAttr "charset_fk_r_arm_CTRL_translateX2.o" "sadnessRN.phl[130]";
+connectAttr "charset_fk_r_ankle_CTRL_translateZ2.o" "sadnessRN.phl[131]";
+connectAttr "charset_fk_r_ankle_CTRL_translateY2.o" "sadnessRN.phl[132]";
+connectAttr "charset_fk_r_ankle_CTRL_translateX2.o" "sadnessRN.phl[133]";
+connectAttr "charset_fk_l_upperKnee_CTRL_translateZ2.o" "sadnessRN.phl[134]";
+connectAttr "charset_fk_l_upperKnee_CTRL_translateY2.o" "sadnessRN.phl[135]";
+connectAttr "charset_fk_l_upperKnee_CTRL_translateX2.o" "sadnessRN.phl[136]";
+connectAttr "charset_fk_l_toe_CTRL_translateZ2.o" "sadnessRN.phl[137]";
+connectAttr "charset_fk_l_toe_CTRL_translateY2.o" "sadnessRN.phl[138]";
+connectAttr "charset_fk_l_toe_CTRL_translateX2.o" "sadnessRN.phl[139]";
+connectAttr "charset_fk_l_leg_CTRL_translateZ2.o" "sadnessRN.phl[140]";
+connectAttr "charset_fk_l_leg_CTRL_translateY2.o" "sadnessRN.phl[141]";
+connectAttr "charset_fk_l_leg_CTRL_translateX2.o" "sadnessRN.phl[142]";
+connectAttr "charset_fk_l_hand_CTRL_translateZ2.o" "sadnessRN.phl[143]";
+connectAttr "charset_fk_l_hand_CTRL_translateY2.o" "sadnessRN.phl[144]";
+connectAttr "charset_fk_l_hand_CTRL_translateX2.o" "sadnessRN.phl[145]";
+connectAttr "charset_fk_l_elbow_CTRL_translateZ2.o" "sadnessRN.phl[146]";
+connectAttr "charset_fk_l_elbow_CTRL_translateY2.o" "sadnessRN.phl[147]";
+connectAttr "charset_fk_l_elbow_CTRL_translateX2.o" "sadnessRN.phl[148]";
+connectAttr "charset_fk_l_ball_CTRL_translateZ2.o" "sadnessRN.phl[149]";
+connectAttr "charset_fk_l_ball_CTRL_translateY2.o" "sadnessRN.phl[150]";
+connectAttr "charset_fk_l_ball_CTRL_translateX2.o" "sadnessRN.phl[151]";
+connectAttr "charset_fk_l_arm_CTRL_translateZ2.o" "sadnessRN.phl[152]";
+connectAttr "charset_fk_l_arm_CTRL_translateY2.o" "sadnessRN.phl[153]";
+connectAttr "charset_fk_l_arm_CTRL_translateX2.o" "sadnessRN.phl[154]";
+connectAttr "charset_fk_l_ankle_CTRL_translateZ2.o" "sadnessRN.phl[155]";
+connectAttr "charset_fk_l_ankle_CTRL_translateY2.o" "sadnessRN.phl[156]";
+connectAttr "charset_fk_l_ankle_CTRL_translateX2.o" "sadnessRN.phl[157]";
+connectAttr "charset_all_CTRL_translateZ2.o" "sadnessRN.phl[158]";
+connectAttr "charset_all_CTRL_translateY2.o" "sadnessRN.phl[159]";
+connectAttr "charset_all_CTRL_translateX2.o" "sadnessRN.phl[160]";
+connectAttr "charset_spline_03_CTRL_translateZ2.o" "sadnessRN.phl[161]";
+connectAttr "charset_spline_03_CTRL_translateY2.o" "sadnessRN.phl[162]";
+connectAttr "charset_spline_03_CTRL_translateX2.o" "sadnessRN.phl[163]";
+connectAttr "charset_linearValues_130_2.o" "sadnessRN.phl[164]";
+connectAttr "charset_linearValues_131_2.o" "sadnessRN.phl[165]";
+connectAttr "charset_linearValues_132_2.o" "sadnessRN.phl[166]";
+connectAttr "charset_linearValues_133_2.o" "sadnessRN.phl[167]";
+connectAttr "charset_linearValues_134_2.o" "sadnessRN.phl[168]";
+connectAttr "charset_linearValues_135_2.o" "sadnessRN.phl[169]";
+connectAttr "charset_linearValues_136_2.o" "sadnessRN.phl[170]";
+connectAttr "charset_linearValues_137_2.o" "sadnessRN.phl[171]";
+connectAttr "charset_r_legSwitch_CTRL_ikFkSwitch2.o" "sadnessRN.phl[172]";
+connectAttr "charset_l_armSwitch_CTRL_ikFkSwitch2.o" "sadnessRN.phl[173]";
+connectAttr "charset_r_armSwitch_CTRL_ikFkSwitch2.o" "sadnessRN.phl[174]";
+connectAttr "charset_l_legSwitch_CTRL_ikFkSwitch2.o" "sadnessRN.phl[175]";
+connectAttr "charset_r_ik_hand_CTRL_snapToElbow2.o" "sadnessRN.phl[176]";
+connectAttr "charset_l_ik_hand_CTRL_snapToElbow2.o" "sadnessRN.phl[177]";
+connectAttr "charset_l_ik_leg_CTRL_kneeSnap2.o" "sadnessRN.phl[178]";
+connectAttr "charset_l_ik_leg_CTRL_ToeTurn2.o" "sadnessRN.phl[179]";
+connectAttr "charset_l_ik_leg_CTRL_ballTurn2.o" "sadnessRN.phl[180]";
+connectAttr "charset_l_ik_leg_CTRL_heelTurn2.o" "sadnessRN.phl[181]";
+connectAttr "charset_l_ik_leg_CTRL_toeStraightAngle2.o" "sadnessRN.phl[182]";
+connectAttr "charset_l_ik_leg_CTRL_bandLimitAngle2.o" "sadnessRN.phl[183]";
+connectAttr "charset_l_ik_leg_CTRL_roll2.o" "sadnessRN.phl[184]";
+connectAttr "charset_l_ik_leg_CTRL_tilt2.o" "sadnessRN.phl[185]";
+connectAttr "charset_r_ik_leg_CTRL_kneeSnap2.o" "sadnessRN.phl[186]";
+connectAttr "charset_r_ik_leg_CTRL_ToeTurn2.o" "sadnessRN.phl[187]";
+connectAttr "charset_r_ik_leg_CTRL_ballTurn2.o" "sadnessRN.phl[188]";
+connectAttr "charset_r_ik_leg_CTRL_heelTurn2.o" "sadnessRN.phl[189]";
+connectAttr "charset_r_ik_leg_CTRL_toeStraightAngle2.o" "sadnessRN.phl[190]";
+connectAttr "charset_r_ik_leg_CTRL_bandLimitAngle2.o" "sadnessRN.phl[191]";
+connectAttr "charset_r_ik_leg_CTRL_roll2.o" "sadnessRN.phl[192]";
+connectAttr "charset_r_ik_leg_CTRL_tilt2.o" "sadnessRN.phl[193]";
+connectAttr "charset_all_CTRL_scaleZ2.o" "sadnessRN.phl[194]";
+connectAttr "charset_all_CTRL_scaleY2.o" "sadnessRN.phl[195]";
+connectAttr "charset_all_CTRL_scaleX2.o" "sadnessRN.phl[196]";
+connectAttr "charset_head_CTRL_ikFkSwitch2.o" "sadnessRN.phl[197]";
+connectAttr "charset_fk_r_elbow_CTRL_lenght.o" "sadnessRN.phl[198]";
+connectAttr "charset_fk_l_elbow_CTRL_lenght.o" "sadnessRN.phl[199]";
+connectAttr "charset_unitlessValues_31_.o" "sadnessRN.phl[200]";
+connectAttr "charset_spline_02_CTRL_rotateZ2.o" "sadnessRN.phl[201]";
+connectAttr "charset_spline_02_CTRL_rotateY2.o" "sadnessRN.phl[202]";
+connectAttr "charset_spline_02_CTRL_rotateX2.o" "sadnessRN.phl[203]";
+connectAttr "charset_spline_01_CTRL_rotateZ2.o" "sadnessRN.phl[204]";
+connectAttr "charset_spline_01_CTRL_rotateY2.o" "sadnessRN.phl[205]";
+connectAttr "charset_spline_01_CTRL_rotateX2.o" "sadnessRN.phl[206]";
+connectAttr "charset_root_CTRL_rotateZ2.o" "sadnessRN.phl[207]";
+connectAttr "charset_root_CTRL_rotateY2.o" "sadnessRN.phl[208]";
+connectAttr "charset_root_CTRL_rotateX2.o" "sadnessRN.phl[209]";
+connectAttr "charset_r_shoulder_CTRL_rotateZ2.o" "sadnessRN.phl[210]";
+connectAttr "charset_r_shoulder_CTRL_rotateY2.o" "sadnessRN.phl[211]";
+connectAttr "charset_r_shoulder_CTRL_rotateX2.o" "sadnessRN.phl[212]";
+connectAttr "charset_r_leg_poleVector_CTRL_rotateZ53.o" "sadnessRN.phl[213]";
+connectAttr "charset_r_leg_poleVector_CTRL_rotateY53.o" "sadnessRN.phl[214]";
+connectAttr "charset_r_leg_poleVector_CTRL_rotateX53.o" "sadnessRN.phl[215]";
+connectAttr "charset_r_arm_poleVector_CTRL_rotateZ.o" "sadnessRN.phl[216]";
+connectAttr "charset_r_arm_poleVector_CTRL_rotateY.o" "sadnessRN.phl[217]";
+connectAttr "charset_r_arm_poleVector_CTRL_rotateX.o" "sadnessRN.phl[218]";
+connectAttr "charset_r_ik_leg_CTRL_rotateZ2.o" "sadnessRN.phl[219]";
+connectAttr "charset_r_ik_leg_CTRL_rotateY2.o" "sadnessRN.phl[220]";
+connectAttr "charset_r_ik_leg_CTRL_rotateX2.o" "sadnessRN.phl[221]";
+connectAttr "sadnessRN.phl[222]" "pairBlend5.irz1";
+connectAttr "charset_r_ik_hand_CTRL_rotateZ2.o" "sadnessRN.phl[223]";
+connectAttr "sadnessRN.phl[224]" "pairBlend5.iry1";
+connectAttr "charset_r_ik_hand_CTRL_rotateY2.o" "sadnessRN.phl[225]";
+connectAttr "sadnessRN.phl[226]" "pairBlend5.irx1";
+connectAttr "charset_r_ik_hand_CTRL_rotateX2.o" "sadnessRN.phl[227]";
+connectAttr "charset_r_finger_04_CTRL_rotateZ2.o" "sadnessRN.phl[228]";
+connectAttr "charset_r_finger_04_CTRL_rotateY2.o" "sadnessRN.phl[229]";
+connectAttr "charset_r_finger_04_CTRL_rotateX2.o" "sadnessRN.phl[230]";
+connectAttr "charset_r_finger_03_CTRL_rotateZ2.o" "sadnessRN.phl[231]";
+connectAttr "charset_r_finger_03_CTRL_rotateY2.o" "sadnessRN.phl[232]";
+connectAttr "charset_r_finger_03_CTRL_rotateX2.o" "sadnessRN.phl[233]";
+connectAttr "charset_r_finger_02_CTRL_rotateZ2.o" "sadnessRN.phl[234]";
+connectAttr "charset_r_finger_02_CTRL_rotateY2.o" "sadnessRN.phl[235]";
+connectAttr "charset_r_finger_02_CTRL_rotateX2.o" "sadnessRN.phl[236]";
+connectAttr "charset_r_finger_01_CTRL_rotateZ2.o" "sadnessRN.phl[237]";
+connectAttr "charset_r_finger_01_CTRL_rotateY2.o" "sadnessRN.phl[238]";
+connectAttr "charset_r_finger_01_CTRL_rotateX2.o" "sadnessRN.phl[239]";
+connectAttr "charset_neck_CTRL_rotateZ2.o" "sadnessRN.phl[240]";
+connectAttr "charset_neck_CTRL_rotateY2.o" "sadnessRN.phl[241]";
+connectAttr "charset_neck_CTRL_rotateX2.o" "sadnessRN.phl[242]";
+connectAttr "charset_l_shoulder_CTRL_rotateZ2.o" "sadnessRN.phl[243]";
+connectAttr "charset_l_shoulder_CTRL_rotateY2.o" "sadnessRN.phl[244]";
+connectAttr "charset_l_shoulder_CTRL_rotateX2.o" "sadnessRN.phl[245]";
+connectAttr "charset_l_leg_poleVector_CTRL_rotateZ53.o" "sadnessRN.phl[246]";
+connectAttr "charset_l_leg_poleVector_CTRL_rotateY53.o" "sadnessRN.phl[247]";
+connectAttr "charset_l_leg_poleVector_CTRL_rotateX53.o" "sadnessRN.phl[248]";
+connectAttr "charset_l_arm_poleVector_CTRL_rotateZ.o" "sadnessRN.phl[249]";
+connectAttr "charset_l_arm_poleVector_CTRL_rotateY.o" "sadnessRN.phl[250]";
+connectAttr "charset_l_arm_poleVector_CTRL_rotateX.o" "sadnessRN.phl[251]";
+connectAttr "charset_l_ik_leg_CTRL_rotateZ2.o" "sadnessRN.phl[252]";
+connectAttr "charset_l_ik_leg_CTRL_rotateY2.o" "sadnessRN.phl[253]";
+connectAttr "charset_l_ik_leg_CTRL_rotateX2.o" "sadnessRN.phl[254]";
+connectAttr "charset_l_ik_hand_CTRL_rotateZ2.o" "sadnessRN.phl[255]";
+connectAttr "charset_l_ik_hand_CTRL_rotateY2.o" "sadnessRN.phl[256]";
+connectAttr "charset_l_ik_hand_CTRL_rotateX2.o" "sadnessRN.phl[257]";
+connectAttr "charset_l_finger_04_CTRL_rotateZ2.o" "sadnessRN.phl[258]";
+connectAttr "charset_l_finger_04_CTRL_rotateY2.o" "sadnessRN.phl[259]";
+connectAttr "charset_l_finger_04_CTRL_rotateX2.o" "sadnessRN.phl[260]";
+connectAttr "charset_l_finger_03_CTRL_rotateZ2.o" "sadnessRN.phl[261]";
+connectAttr "charset_l_finger_03_CTRL_rotateY2.o" "sadnessRN.phl[262]";
+connectAttr "charset_l_finger_03_CTRL_rotateX2.o" "sadnessRN.phl[263]";
+connectAttr "charset_l_finger_02_CTRL_rotateZ2.o" "sadnessRN.phl[264]";
+connectAttr "charset_l_finger_02_CTRL_rotateY2.o" "sadnessRN.phl[265]";
+connectAttr "charset_l_finger_02_CTRL_rotateX2.o" "sadnessRN.phl[266]";
+connectAttr "charset_l_finger_01_CTRL_rotateZ2.o" "sadnessRN.phl[267]";
+connectAttr "charset_l_finger_01_CTRL_rotateY2.o" "sadnessRN.phl[268]";
+connectAttr "charset_l_finger_01_CTRL_rotateX2.o" "sadnessRN.phl[269]";
+connectAttr "charset_hip_CTRL_rotateZ2.o" "sadnessRN.phl[270]";
+connectAttr "charset_hip_CTRL_rotateY2.o" "sadnessRN.phl[271]";
+connectAttr "charset_hip_CTRL_rotateX2.o" "sadnessRN.phl[272]";
+connectAttr "charset_head_ik_CTRL_rotateZ2.o" "sadnessRN.phl[273]";
+connectAttr "charset_head_ik_CTRL_rotateY2.o" "sadnessRN.phl[274]";
+connectAttr "charset_head_ik_CTRL_rotateX2.o" "sadnessRN.phl[275]";
+connectAttr "charset_head_CTRL_rotateZ2.o" "sadnessRN.phl[276]";
+connectAttr "charset_head_CTRL_rotateY2.o" "sadnessRN.phl[277]";
+connectAttr "charset_head_CTRL_rotateX2.o" "sadnessRN.phl[278]";
+connectAttr "charset_fk_r_upperKnee_CTRL_rotateZ2.o" "sadnessRN.phl[279]";
+connectAttr "charset_fk_r_upperKnee_CTRL_rotateY2.o" "sadnessRN.phl[280]";
+connectAttr "charset_fk_r_upperKnee_CTRL_rotateX2.o" "sadnessRN.phl[281]";
+connectAttr "charset_fk_r_toe_CTRL_rotateZ2.o" "sadnessRN.phl[282]";
+connectAttr "charset_fk_r_toe_CTRL_rotateY2.o" "sadnessRN.phl[283]";
+connectAttr "charset_fk_r_toe_CTRL_rotateX2.o" "sadnessRN.phl[284]";
+connectAttr "charset_fk_r_leg_CTRL_rotateZ2.o" "sadnessRN.phl[285]";
+connectAttr "charset_fk_r_leg_CTRL_rotateY2.o" "sadnessRN.phl[286]";
+connectAttr "charset_fk_r_leg_CTRL_rotateX2.o" "sadnessRN.phl[287]";
+connectAttr "charset_fk_r_hand_CTRL_rotateZ2.o" "sadnessRN.phl[288]";
+connectAttr "charset_fk_r_hand_CTRL_rotateY2.o" "sadnessRN.phl[289]";
+connectAttr "charset_fk_r_hand_CTRL_rotateX2.o" "sadnessRN.phl[290]";
+connectAttr "charset_fk_r_elbow_CTRL_rotateZ2.o" "sadnessRN.phl[291]";
+connectAttr "charset_fk_r_elbow_CTRL_rotateY2.o" "sadnessRN.phl[292]";
+connectAttr "charset_fk_r_elbow_CTRL_rotateX2.o" "sadnessRN.phl[293]";
+connectAttr "charset_fk_r_ball_CTRL_rotateZ2.o" "sadnessRN.phl[294]";
+connectAttr "charset_fk_r_ball_CTRL_rotateY2.o" "sadnessRN.phl[295]";
+connectAttr "charset_fk_r_ball_CTRL_rotateX2.o" "sadnessRN.phl[296]";
+connectAttr "charset_fk_r_arm_CTRL_rotateZ2.o" "sadnessRN.phl[297]";
+connectAttr "charset_fk_r_arm_CTRL_rotateY2.o" "sadnessRN.phl[298]";
+connectAttr "charset_fk_r_arm_CTRL_rotateX2.o" "sadnessRN.phl[299]";
+connectAttr "charset_fk_r_ankle_CTRL_rotateZ2.o" "sadnessRN.phl[300]";
+connectAttr "charset_fk_r_ankle_CTRL_rotateY2.o" "sadnessRN.phl[301]";
+connectAttr "charset_fk_r_ankle_CTRL_rotateX2.o" "sadnessRN.phl[302]";
+connectAttr "charset_fk_l_upperKnee_CTRL_rotateZ2.o" "sadnessRN.phl[303]";
+connectAttr "charset_fk_l_upperKnee_CTRL_rotateY2.o" "sadnessRN.phl[304]";
+connectAttr "charset_fk_l_upperKnee_CTRL_rotateX2.o" "sadnessRN.phl[305]";
+connectAttr "charset_fk_l_toe_CTRL_rotateZ2.o" "sadnessRN.phl[306]";
+connectAttr "charset_fk_l_toe_CTRL_rotateY2.o" "sadnessRN.phl[307]";
+connectAttr "charset_fk_l_toe_CTRL_rotateX2.o" "sadnessRN.phl[308]";
+connectAttr "charset_fk_l_leg_CTRL_rotateZ2.o" "sadnessRN.phl[309]";
+connectAttr "charset_fk_l_leg_CTRL_rotateY2.o" "sadnessRN.phl[310]";
+connectAttr "charset_fk_l_leg_CTRL_rotateX2.o" "sadnessRN.phl[311]";
+connectAttr "charset_fk_l_hand_CTRL_rotateZ2.o" "sadnessRN.phl[312]";
+connectAttr "charset_fk_l_hand_CTRL_rotateY2.o" "sadnessRN.phl[313]";
+connectAttr "charset_fk_l_hand_CTRL_rotateX2.o" "sadnessRN.phl[314]";
+connectAttr "charset_fk_l_elbow_CTRL_rotateZ2.o" "sadnessRN.phl[315]";
+connectAttr "charset_fk_l_elbow_CTRL_rotateY2.o" "sadnessRN.phl[316]";
+connectAttr "charset_fk_l_elbow_CTRL_rotateX2.o" "sadnessRN.phl[317]";
+connectAttr "charset_fk_l_ball_CTRL_rotateZ2.o" "sadnessRN.phl[318]";
+connectAttr "charset_fk_l_ball_CTRL_rotateY2.o" "sadnessRN.phl[319]";
+connectAttr "charset_fk_l_ball_CTRL_rotateX2.o" "sadnessRN.phl[320]";
+connectAttr "charset_fk_l_arm_CTRL_rotateZ2.o" "sadnessRN.phl[321]";
+connectAttr "charset_fk_l_arm_CTRL_rotateY2.o" "sadnessRN.phl[322]";
+connectAttr "charset_fk_l_arm_CTRL_rotateX2.o" "sadnessRN.phl[323]";
+connectAttr "charset_fk_l_ankle_CTRL_rotateZ2.o" "sadnessRN.phl[324]";
+connectAttr "charset_fk_l_ankle_CTRL_rotateY2.o" "sadnessRN.phl[325]";
+connectAttr "charset_fk_l_ankle_CTRL_rotateX2.o" "sadnessRN.phl[326]";
+connectAttr "charset_all_CTRL_rotateZ2.o" "sadnessRN.phl[327]";
+connectAttr "charset_all_CTRL_rotateY2.o" "sadnessRN.phl[328]";
+connectAttr "charset_all_CTRL_rotateX2.o" "sadnessRN.phl[329]";
+connectAttr "charset_spline_03_CTRL_rotateZ2.o" "sadnessRN.phl[330]";
+connectAttr "charset_spline_03_CTRL_rotateY2.o" "sadnessRN.phl[331]";
+connectAttr "charset_spline_03_CTRL_rotateX2.o" "sadnessRN.phl[332]";
+connectAttr "r_brow_CTRL_visibility1.o" "sadnessRN.phl[333]";
+connectAttr "l_brow_CTRL_visibility1.o" "sadnessRN.phl[334]";
+connectAttr "l_eye_open_CTRL_visibility1.o" "sadnessRN.phl[1]";
+connectAttr "r_eye_open_CTRL_visibility1.o" "sadnessRN.phl[2]";
+connectAttr "pairBlend4.orx" "braceletRN.phl[1]";
+connectAttr "pairBlend4.ory" "braceletRN.phl[2]";
+connectAttr "pairBlend4.orz" "braceletRN.phl[3]";
+connectAttr "pairBlend4.otx" "braceletRN.phl[4]";
+connectAttr "pairBlend4.oty" "braceletRN.phl[5]";
+connectAttr "pairBlend4.otz" "braceletRN.phl[6]";
+connectAttr "braceletRN.phl[7]" "all_CTRL_parentConstraint1.cro";
+connectAttr "braceletRN.phl[8]" "pairBlend4.ro";
+connectAttr "braceletRN.phl[9]" "all_CTRL_parentConstraint1.cpim";
+connectAttr "braceletRN.phl[10]" "all_CTRL_parentConstraint1.crp";
+connectAttr "braceletRN.phl[11]" "all_CTRL_parentConstraint1.crt";
+connectAttr "braceletRN.phl[12]" "pairBlend2.w";
+connectAttr "braceletRN.phl[13]" "pairBlend4.w";
+connectAttr "charset_left_l6_CTRL_rotateZ.o" "braceletRN.phl[14]";
+connectAttr "charset_left_l6_CTRL_rotateY.o" "braceletRN.phl[15]";
+connectAttr "charset_left_l6_CTRL_rotateX.o" "braceletRN.phl[16]";
+connectAttr "charset_left_l5_CTRL_rotateZ.o" "braceletRN.phl[17]";
+connectAttr "charset_left_l5_CTRL_rotateY.o" "braceletRN.phl[18]";
+connectAttr "charset_left_l5_CTRL_rotateX.o" "braceletRN.phl[19]";
+connectAttr "charset_left_l4_CTRL_rotateZ.o" "braceletRN.phl[20]";
+connectAttr "charset_left_l4_CTRL_rotateY.o" "braceletRN.phl[21]";
+connectAttr "charset_left_l4_CTRL_rotateX.o" "braceletRN.phl[22]";
+connectAttr "charset_left_l3_CTRL_rotateZ.o" "braceletRN.phl[23]";
+connectAttr "charset_left_l3_CTRL_rotateY.o" "braceletRN.phl[24]";
+connectAttr "charset_left_l3_CTRL_rotateX.o" "braceletRN.phl[25]";
+connectAttr "charset_left_l2_CTRL_rotateZ.o" "braceletRN.phl[26]";
+connectAttr "charset_left_l2_CTRL_rotateY.o" "braceletRN.phl[27]";
+connectAttr "charset_left_l2_CTRL_rotateX.o" "braceletRN.phl[28]";
+connectAttr "charset_left_l1_CTRL_rotateZ.o" "braceletRN.phl[29]";
+connectAttr "charset_left_l1_CTRL_rotateY.o" "braceletRN.phl[30]";
+connectAttr "charset_left_l1_CTRL_rotateX.o" "braceletRN.phl[31]";
+connectAttr "charset_right_r6_CTRL_rotateZ.o" "braceletRN.phl[32]";
+connectAttr "charset_right_r6_CTRL_rotateY.o" "braceletRN.phl[33]";
+connectAttr "charset_right_r6_CTRL_rotateX.o" "braceletRN.phl[34]";
+connectAttr "charset_right_r5_CTRL_rotateZ.o" "braceletRN.phl[35]";
+connectAttr "charset_right_r5_CTRL_rotateY.o" "braceletRN.phl[36]";
+connectAttr "charset_right_r5_CTRL_rotateX.o" "braceletRN.phl[37]";
+connectAttr "charset_right_r4_CTRL_rotateZ.o" "braceletRN.phl[38]";
+connectAttr "charset_right_r4_CTRL_rotateY.o" "braceletRN.phl[39]";
+connectAttr "charset_right_r4_CTRL_rotateX.o" "braceletRN.phl[40]";
+connectAttr "charset_right_r3_CTRL_rotateZ.o" "braceletRN.phl[41]";
+connectAttr "charset_right_r3_CTRL_rotateY.o" "braceletRN.phl[42]";
+connectAttr "charset_right_r3_CTRL_rotateX.o" "braceletRN.phl[43]";
+connectAttr "charset_right_r2_CTRL_rotateZ.o" "braceletRN.phl[44]";
+connectAttr "charset_right_r2_CTRL_rotateY.o" "braceletRN.phl[45]";
+connectAttr "charset_right_r2_CTRL_rotateX.o" "braceletRN.phl[46]";
+connectAttr "charset_right_r1_CTRL_rotateZ.o" "braceletRN.phl[47]";
+connectAttr "charset_right_r1_CTRL_rotateY.o" "braceletRN.phl[48]";
+connectAttr "charset_right_r1_CTRL_rotateX.o" "braceletRN.phl[49]";
+connectAttr "charset_middle_r2_CTRL_rotateZ.o" "braceletRN.phl[50]";
+connectAttr "charset_middle_r2_CTRL_rotateY.o" "braceletRN.phl[51]";
+connectAttr "charset_middle_r2_CTRL_rotateX.o" "braceletRN.phl[52]";
+connectAttr "charset_middle_r1_CTRL_rotateZ.o" "braceletRN.phl[53]";
+connectAttr "charset_middle_r1_CTRL_rotateY.o" "braceletRN.phl[54]";
+connectAttr "charset_middle_r1_CTRL_rotateX.o" "braceletRN.phl[55]";
+connectAttr "charset_middle_l2_CTRL_rotateZ.o" "braceletRN.phl[56]";
+connectAttr "charset_middle_l2_CTRL_rotateY.o" "braceletRN.phl[57]";
+connectAttr "charset_middle_l2_CTRL_rotateX.o" "braceletRN.phl[58]";
+connectAttr "charset_middle_l1_CTRL_rotateZ.o" "braceletRN.phl[59]";
+connectAttr "charset_middle_l1_CTRL_rotateY.o" "braceletRN.phl[60]";
+connectAttr "charset_middle_l1_CTRL_rotateX.o" "braceletRN.phl[61]";
+connectAttr "charset_middl_root_CTRL_rotateZ.o" "braceletRN.phl[62]";
+connectAttr "charset_middl_root_CTRL_rotateY.o" "braceletRN.phl[63]";
+connectAttr "charset_middl_root_CTRL_rotateX.o" "braceletRN.phl[64]";
+connectAttr "charset_double_r2_CTRL_rotateZ.o" "braceletRN.phl[65]";
+connectAttr "charset_double_r2_CTRL_rotateY.o" "braceletRN.phl[66]";
+connectAttr "charset_double_r2_CTRL_rotateX.o" "braceletRN.phl[67]";
+connectAttr "charset_double_r1_CTRL_rotateZ.o" "braceletRN.phl[68]";
+connectAttr "charset_double_r1_CTRL_rotateY.o" "braceletRN.phl[69]";
+connectAttr "charset_double_r1_CTRL_rotateX.o" "braceletRN.phl[70]";
+connectAttr "charset_double_m1_CTRL_rotateZ.o" "braceletRN.phl[71]";
+connectAttr "charset_double_m1_CTRL_rotateY.o" "braceletRN.phl[72]";
+connectAttr "charset_double_m1_CTRL_rotateX.o" "braceletRN.phl[73]";
+connectAttr "charset_double_l2_CTRL_rotateZ.o" "braceletRN.phl[74]";
+connectAttr "charset_double_l2_CTRL_rotateY.o" "braceletRN.phl[75]";
+connectAttr "charset_double_l2_CTRL_rotateX.o" "braceletRN.phl[76]";
+connectAttr "charset_double_l1_CTRL_rotateZ.o" "braceletRN.phl[77]";
+connectAttr "charset_double_l1_CTRL_rotateY.o" "braceletRN.phl[78]";
+connectAttr "charset_double_l1_CTRL_rotateX.o" "braceletRN.phl[79]";
+connectAttr "braceletRN.phl[80]" "pairBlend2.irz2";
+connectAttr "braceletRN.phl[81]" "pairBlend2.iry2";
+connectAttr "braceletRN.phl[82]" "pairBlend2.irx2";
+connectAttr "charset_all_CTRL_pivotDouble.o" "braceletRN.phl[83]";
+connectAttr "charset_all_CTRL_pivotMiddle.o" "braceletRN.phl[84]";
+connectAttr "charset_all_CTRL_pivotRight.o" "braceletRN.phl[85]";
+connectAttr "charset_all_CTRL_pivot_left.o" "braceletRN.phl[86]";
+connectAttr "charset_all_CTRL_scaleZ3.o" "braceletRN.phl[87]";
+connectAttr "charset_all_CTRL_scaleY3.o" "braceletRN.phl[88]";
+connectAttr "charset_all_CTRL_scaleX3.o" "braceletRN.phl[89]";
+connectAttr "charset_left_l6_CTRL_translateZ.o" "braceletRN.phl[90]";
+connectAttr "charset_left_l6_CTRL_translateY.o" "braceletRN.phl[91]";
+connectAttr "charset_left_l6_CTRL_translateX.o" "braceletRN.phl[92]";
+connectAttr "charset_left_l5_CTRL_translateZ.o" "braceletRN.phl[93]";
+connectAttr "charset_left_l5_CTRL_translateY.o" "braceletRN.phl[94]";
+connectAttr "charset_left_l5_CTRL_translateX.o" "braceletRN.phl[95]";
+connectAttr "charset_left_l4_CTRL_translateZ.o" "braceletRN.phl[96]";
+connectAttr "charset_left_l4_CTRL_translateY.o" "braceletRN.phl[97]";
+connectAttr "charset_left_l4_CTRL_translateX.o" "braceletRN.phl[98]";
+connectAttr "charset_left_l3_CTRL_translateZ.o" "braceletRN.phl[99]";
+connectAttr "charset_left_l3_CTRL_translateY.o" "braceletRN.phl[100]";
+connectAttr "charset_left_l3_CTRL_translateX.o" "braceletRN.phl[101]";
+connectAttr "charset_left_l2_CTRL_translateZ.o" "braceletRN.phl[102]";
+connectAttr "charset_left_l2_CTRL_translateY.o" "braceletRN.phl[103]";
+connectAttr "charset_left_l2_CTRL_translateX.o" "braceletRN.phl[104]";
+connectAttr "charset_left_l1_CTRL_translateZ.o" "braceletRN.phl[105]";
+connectAttr "charset_left_l1_CTRL_translateY.o" "braceletRN.phl[106]";
+connectAttr "charset_left_l1_CTRL_translateX.o" "braceletRN.phl[107]";
+connectAttr "charset_right_r6_CTRL_translateZ.o" "braceletRN.phl[108]";
+connectAttr "charset_right_r6_CTRL_translateY.o" "braceletRN.phl[109]";
+connectAttr "charset_right_r6_CTRL_translateX.o" "braceletRN.phl[110]";
+connectAttr "charset_right_r5_CTRL_translateZ.o" "braceletRN.phl[111]";
+connectAttr "charset_right_r5_CTRL_translateY.o" "braceletRN.phl[112]";
+connectAttr "charset_right_r5_CTRL_translateX.o" "braceletRN.phl[113]";
+connectAttr "charset_right_r4_CTRL_translateZ.o" "braceletRN.phl[114]";
+connectAttr "charset_right_r4_CTRL_translateY.o" "braceletRN.phl[115]";
+connectAttr "charset_right_r4_CTRL_translateX.o" "braceletRN.phl[116]";
+connectAttr "charset_right_r3_CTRL_translateZ.o" "braceletRN.phl[117]";
+connectAttr "charset_right_r3_CTRL_translateY.o" "braceletRN.phl[118]";
+connectAttr "charset_right_r3_CTRL_translateX.o" "braceletRN.phl[119]";
+connectAttr "charset_right_r2_CTRL_translateZ.o" "braceletRN.phl[120]";
+connectAttr "charset_right_r2_CTRL_translateY.o" "braceletRN.phl[121]";
+connectAttr "charset_right_r2_CTRL_translateX.o" "braceletRN.phl[122]";
+connectAttr "charset_right_r1_CTRL_translateZ.o" "braceletRN.phl[123]";
+connectAttr "charset_right_r1_CTRL_translateY.o" "braceletRN.phl[124]";
+connectAttr "charset_right_r1_CTRL_translateX.o" "braceletRN.phl[125]";
+connectAttr "charset_middle_r2_CTRL_translateZ.o" "braceletRN.phl[126]";
+connectAttr "charset_middle_r2_CTRL_translateY.o" "braceletRN.phl[127]";
+connectAttr "charset_middle_r2_CTRL_translateX.o" "braceletRN.phl[128]";
+connectAttr "charset_middle_r1_CTRL_translateZ.o" "braceletRN.phl[129]";
+connectAttr "charset_middle_r1_CTRL_translateY.o" "braceletRN.phl[130]";
+connectAttr "charset_middle_r1_CTRL_translateX.o" "braceletRN.phl[131]";
+connectAttr "charset_middle_l2_CTRL_translateZ.o" "braceletRN.phl[132]";
+connectAttr "charset_middle_l2_CTRL_translateY.o" "braceletRN.phl[133]";
+connectAttr "charset_middle_l2_CTRL_translateX.o" "braceletRN.phl[134]";
+connectAttr "charset_middle_l1_CTRL_translateZ.o" "braceletRN.phl[135]";
+connectAttr "charset_middle_l1_CTRL_translateY.o" "braceletRN.phl[136]";
+connectAttr "charset_middle_l1_CTRL_translateX.o" "braceletRN.phl[137]";
+connectAttr "charset_middl_root_CTRL_translateZ.o" "braceletRN.phl[138]";
+connectAttr "charset_middl_root_CTRL_translateY.o" "braceletRN.phl[139]";
+connectAttr "charset_middl_root_CTRL_translateX.o" "braceletRN.phl[140]";
+connectAttr "charset_double_r2_CTRL_translateZ.o" "braceletRN.phl[141]";
+connectAttr "charset_double_r2_CTRL_translateY.o" "braceletRN.phl[142]";
+connectAttr "charset_double_r2_CTRL_translateX.o" "braceletRN.phl[143]";
+connectAttr "charset_double_r1_CTRL_translateZ.o" "braceletRN.phl[144]";
+connectAttr "charset_double_r1_CTRL_translateY.o" "braceletRN.phl[145]";
+connectAttr "charset_double_r1_CTRL_translateX.o" "braceletRN.phl[146]";
+connectAttr "charset_double_m1_CTRL_translateZ.o" "braceletRN.phl[147]";
+connectAttr "charset_double_m1_CTRL_translateY.o" "braceletRN.phl[148]";
+connectAttr "charset_double_m1_CTRL_translateX.o" "braceletRN.phl[149]";
+connectAttr "charset_double_l2_CTRL_translateZ.o" "braceletRN.phl[150]";
+connectAttr "charset_double_l2_CTRL_translateY.o" "braceletRN.phl[151]";
+connectAttr "charset_double_l2_CTRL_translateX.o" "braceletRN.phl[152]";
+connectAttr "charset_double_l1_CTRL_translateZ.o" "braceletRN.phl[153]";
+connectAttr "charset_double_l1_CTRL_translateY.o" "braceletRN.phl[154]";
+connectAttr "charset_double_l1_CTRL_translateX.o" "braceletRN.phl[155]";
+connectAttr "braceletRN.phl[156]" "pairBlend3.itz2";
+connectAttr "braceletRN.phl[157]" "pairBlend3.ity2";
+connectAttr "braceletRN.phl[158]" "pairBlend3.itx2";
+connectAttr "r_ik_hand_CTRL_parentConstraint1.w0" "r_ik_hand_CTRL_parentConstraint1.tg[0].tw"
+		;
+connectAttr "r_ik_hand_CTRL_parentConstraint2.w0" "r_ik_hand_CTRL_parentConstraint2.tg[0].tw"
+		;
+connectAttr "all_CTRL_parentConstraint1.w0" "all_CTRL_parentConstraint1.tg[0].tw"
+		;
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
@@ -12675,8 +15346,8 @@ connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr "sharedReferenceNode.sr" "groundRN.sr";
 connectAttr "sharedReferenceNode.sr" "cameraRigRN.sr";
 connectAttr "sharedReferenceNode.sr" "girlRN.sr";
+connectAttr "girlRNfosterParent1.msg" "girlRN.fp";
 connectAttr "band_MAT.oc" "lambert2SG.ss";
-connectAttr "nurbsPlaneShape1.iog" "lambert2SG.dsm" -na;
 connectAttr "lambert2SG.msg" "materialInfo1.sg";
 connectAttr "band_MAT.msg" "materialInfo1.m";
 connectAttr "band_MAT.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
@@ -12684,6 +15355,39 @@ connectAttr "band_MAT.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0
 connectAttr "lambert2SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
 		;
 connectAttr "sharedReferenceNode.sr" "sadnessRN.sr";
+connectAttr "sadnessRNfosterParent1.msg" "sadnessRN.fp";
+connectAttr "sharedReferenceNode.sr" "braceletRN.sr";
+connectAttr "braceletRNfosterParent1.msg" "braceletRN.fp";
+connectAttr "r_ik_hand_CTRL_parentConstraint1.ctx" "pairBlend1.itx2";
+connectAttr "r_ik_hand_CTRL_parentConstraint1.cty" "pairBlend1.ity2";
+connectAttr "r_ik_hand_CTRL_parentConstraint1.ctz" "pairBlend1.itz2";
+connectAttr "r_ik_hand_CTRL_parentConstraint1.crx" "pairBlend1.irx2";
+connectAttr "r_ik_hand_CTRL_parentConstraint1.cry" "pairBlend1.iry2";
+connectAttr "r_ik_hand_CTRL_parentConstraint1.crz" "pairBlend1.irz2";
+connectAttr "pairBlend2_inRotateZ1.o" "pairBlend2.irz1";
+connectAttr "pairBlend2_inRotateY1.o" "pairBlend2.iry1";
+connectAttr "pairBlend2_inRotateX1.o" "pairBlend2.irx1";
+connectAttr "pairBlend3_inTranslateZ1.o" "pairBlend3.itz1";
+connectAttr "pairBlend3_inTranslateY1.o" "pairBlend3.ity1";
+connectAttr "pairBlend3_inTranslateX1.o" "pairBlend3.itx1";
+connectAttr "pairBlend3.otx" "pairBlend4.itx1";
+connectAttr "pairBlend3.oty" "pairBlend4.ity1";
+connectAttr "pairBlend3.otz" "pairBlend4.itz1";
+connectAttr "pairBlend2.orx" "pairBlend4.irx1";
+connectAttr "pairBlend2.ory" "pairBlend4.iry1";
+connectAttr "pairBlend2.orz" "pairBlend4.irz1";
+connectAttr "all_CTRL_parentConstraint1.ctx" "pairBlend4.itx2";
+connectAttr "all_CTRL_parentConstraint1.cty" "pairBlend4.ity2";
+connectAttr "all_CTRL_parentConstraint1.ctz" "pairBlend4.itz2";
+connectAttr "all_CTRL_parentConstraint1.crx" "pairBlend4.irx2";
+connectAttr "all_CTRL_parentConstraint1.cry" "pairBlend4.iry2";
+connectAttr "all_CTRL_parentConstraint1.crz" "pairBlend4.irz2";
+connectAttr "r_ik_hand_CTRL_parentConstraint2.ctx" "pairBlend5.itx2";
+connectAttr "r_ik_hand_CTRL_parentConstraint2.cty" "pairBlend5.ity2";
+connectAttr "r_ik_hand_CTRL_parentConstraint2.ctz" "pairBlend5.itz2";
+connectAttr "r_ik_hand_CTRL_parentConstraint2.crx" "pairBlend5.irx2";
+connectAttr "r_ik_hand_CTRL_parentConstraint2.cry" "pairBlend5.iry2";
+connectAttr "r_ik_hand_CTRL_parentConstraint2.crz" "pairBlend5.irz2";
 connectAttr "lambert2SG.pa" ":renderPartition.st" -na;
 connectAttr "band_MAT.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
